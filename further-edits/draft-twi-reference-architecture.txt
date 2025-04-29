@@ -1,0 +1,291 @@
+
+
+
+
+WIMSE                                                           M. Novak
+Internet-Draft                                                 JP Morgan
+Intended status: Informational                              Y. Deshpande
+Expires: 31 October 2025                                             arm
+                                                           29 April 2025
+
+
+            Trusted Workload Identity Reference Architecture
+                draft-twi-reference-architecture-latest
+
+Abstract
+
+   Technological advancement coupled with security concerns demands more
+   and more use cases, that require data-in-use protections.  In
+   addition, regulatory bodies around the world increasingly require
+   data-in-use protection and privacy enhancing technologies.  As these
+   advanced technologies are being deployed, challenge remains how to
+   identify the workloads and put trust behind them?  This draft will
+   address the core issue of managing a trustworthy workload identity
+   meeting Confidential Computing requirements.
+
+Discussion Venues
+
+   This note is to be removed before publishing as an RFC.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/confidential-computing/twi.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 31 October 2025.
+
+Copyright Notice
+
+   Copyright (c) 2025 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+   2.  Conventions and Definitions
+   3.  Glossary
+     3.1.  Workload Identity
+     3.2.  Workload Credential
+   4.  TWI Use Cases
+   5.  Core Requirements
+     5.1.  Workload deployment
+     5.2.  Workload Types
+     5.3.  Workload Composition
+     5.4.  Workload Credential Cardinality
+     5.5.  Workload Identity Persistence
+     5.6.  Workload Identity Governance
+     5.7.  Workload Identity Requirements specific to Remote
+           Attestation
+       5.7.1.  Integrating Workload Attestation with Credential
+               Issuance
+       5.7.2.  Integrating Workload Provenance with Credential
+               Issuance
+       5.7.3.  Remote Attestation of Composite Workloads
+   6.  TWI Reference Architecture
+     6.1.  Assumptions
+     6.2.  Roles in the TWI Eco-System
+       6.2.1.  Verifier
+       6.2.2.  Identity Provider
+       6.2.3.  Credential Issuer
+     6.3.  Reference Architecture
+   7.  Security Considerations
+   8.  IANA Considerations
+     8.1.  CBOR Tag Registrations
+   9.  Acknowledgements
+   10. References
+     10.1.  Normative References
+     10.2.  Informative References
+   Authors' Addresses
+
+1.  Introduction
+
+   To be filled
+
+2.  Conventions and Definitions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+   This document uses terms and concepts defined by the WIMSE and RATS
+   architecture.  For a complete glossary, see Section 4 of [RFC9334] &
+   [I-D.draft-ietf-wimse-arch].
+
+3.  Glossary
+
+   This document uses the following terms:
+
+3.1.  Workload Identity
+
+3.2.  Workload Credential
+
+4.  TWI Use Cases
+
+   Following are some of the use cases demanding trustworthy workload
+   identity.
+
+   1.  A ML Model Owner (acting as Relying Party) wants to deploy its
+       Workload with a unique identity in a privacy preserving manner.
+       It needs to ensure that the deployed workload is operating in an
+       environment with certain security guarantees, such as isolated
+       from cloud hosting environment and can be periodically attested.
+
+   2.  A Workload operating as a deployed lambda running in an isolated
+       environment.
+
+5.  Core Requirements
+
+5.1.  Workload deployment
+
+   Workloads can be deployed in a variety of environemnts.  For example:
+   1.  On-premises 2.  In the public cloud 3.  On the edge node of a
+   network 4.  On remotely managed IoT devices 5.  On users personal
+   device
+
+   The TWI Architecture MUST support all the above deployments.
+
+5.2.  Workload Types
+
+   Workloads can take a wide variety of shapes.  For example 1.  They
+   can be Confidential Virtual Machines 2.  Confidential Containers and
+   Kubernetes pods 3.  Enclaves 4.  Serverless Computing (lambdas, step
+   functions, etc) 5.  Services running in the cloud or on-premises
+   like, database service, queuing service 6.  Managed services,
+   including SaaS products
+
+   The TWI Architecture MUST support all the above types of workloads.
+
+5.3.  Workload Composition
+
+   Workloads can be standalone or composite workloads.  For this
+   specification, a composite workload consists of multiple components
+   from deployment through to decommissioning and potentially spanning
+   devices or having components residing on the same physical device.
+
+   The TWI Architecture MUST be able to define workload identity for
+   both standalone and composite workloads.
+
+5.4.  Workload Credential Cardinality
+
+   A Workload may have multiple distinct credentials issued to it, e.g.,
+   for purposes of inbound, outbound and internal (component-to-
+   component for composite workloads) authentication.
+
+5.5.  Workload Identity Persistence
+
+   Workload Identity must persists in a predictable manner with regular
+   datacenter maintenance operations such as workload migration.
+
+   Two distinct scenarios have two different requirements.
+
+   1.  Operations that would change the Workload Credentials (modifying
+       some of the claims), should require redeployment where the old
+       Workload is torn down and the new one stood up in its place with
+       different Workload Credentials
+
+   2.  Operations that would preserve the Workload Credentials, such as
+       migration within the datacenter between equivalent hardware
+       instances, need not require new Workload Credentials to be
+       issued.
+
+5.6.  Workload Identity Governance
+
+   Workload Identity systems and solutions must be governable, with
+   following capabilities: 1.  Maintaining control over and a history of
+   all policies and decisions involved in issuing and evaluating
+   Workload Identities and Credentials.
+
+   1.  Ability to identify, isolate and remedy vulnerable Workloads in
+       production quickly, such as when new threats are discovered or
+       new attacks detected.
+
+   2.  Additional requirements to Workload Identity governance are
+       specified in the forthcoming Workload Identity Governance pattern
+
+5.7.  Workload Identity Requirements specific to Remote Attestation
+
+   Remote Attestation is mechanism to identify trust in a computing
+   environment.
+
+5.7.1.  Integrating Workload Attestation with Credential Issuance
+
+5.7.2.  Integrating Workload Provenance with Credential Issuance
+
+5.7.3.  Remote Attestation of Composite Workloads
+
+6.  TWI Reference Architecture
+
+   This sections describes in detail, the Reference Architecture for
+   Trusted Workload Identity system
+
+6.1.  Assumptions
+
+6.2.  Roles in the TWI Eco-System
+
+   The following sub-sections describe the various roles or building
+   blocks that exist in the TWI eco-system.
+
+6.2.1.  Verifier
+
+6.2.2.  Identity Provider
+
+6.2.3.  Credential Issuer
+
+6.3.  Reference Architecture
+
+7.  Security Considerations
+
+
+   // TODO
+
+8.  IANA Considerations
+
+8.1.  CBOR Tag Registrations
+
+9.  Acknowledgements
+
+
+   // TODO
+
+10.  References
+
+10.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+10.2.  Informative References
+
+   [I-D.draft-ietf-wimse-arch]
+              Salowey, J. A., Rosomakho, Y., and H. Tschofenig,
+              "Workload Identity in a Multi System Environment (WIMSE)
+              Architecture", Work in Progress, Internet-Draft, draft-
+              ietf-wimse-arch-04, 2 March 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-wimse-
+              arch-04>.
+
+   [RFC9334]  Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
+              W. Pan, "Remote ATtestation procedureS (RATS)
+              Architecture", RFC 9334, DOI 10.17487/RFC9334, January
+              2023, <https://www.rfc-editor.org/rfc/rfc9334>.
+
+Authors' Addresses
+
+   Mark Novak
+   JP Morgan
+   Email: mark.novak@outlook.com
+
+
+   Yogesh Deshpande
+   arm
+   Email: Yogesh.Deshpande@arm.com
