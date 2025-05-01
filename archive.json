@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-29T01:42:11.290078+00:00",
+  "timestamp": "2025-05-01T01:49:54.774507+00:00",
   "repo": "confidential-computing/twi",
   "labels": [
     {
@@ -49,6 +49,50 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
-  "pulls": []
+  "issues": [
+    {
+      "number": 2,
+      "id": "I_kwDOOebIkc60kon_",
+      "title": "Proposal for Workload and Machine Identity Assurance Levels",
+      "url": "https://github.com/confidential-computing/twi/issues/2",
+      "state": "OPEN",
+      "author": "mspinagit",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Attached please find proposals for models representing Workload (w) and Machine (m) Identity Assurance Levels modeled after NIST SP 800-63B Person Identity Assurance Levels. These models have direct applicability to Verifier Governance Requirements and may be used to grade a verifier's processes and procedures in an assurance context. \n\n[Workload Identity Assurance-Proofing for CCC-PR-25-00411-4.docx](https://github.com/user-attachments/files/19967201/Workload.Identity.Assurance-Proofing.for.CCC-PR-25-00411-4.docx)\n[Machine Identity Assurance-Proofing for CCC-PR_25-00411-3.docx](https://github.com/user-attachments/files/19967200/Machine.Identity.Assurance-Proofing.for.CCC-PR_25-00411-3.docx)",
+      "createdAt": "2025-04-29T20:44:04Z",
+      "updatedAt": "2025-04-29T20:44:04Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOOebIkc6UWDA9",
+      "title": "Introduce Workload Identity Requirements",
+      "url": "https://github.com/confidential-computing/twi/pull/1",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-04-29T13:04:07Z",
+      "updatedAt": "2025-04-29T13:04:07Z",
+      "baseRepository": "confidential-computing/twi",
+      "baseRefName": "main",
+      "baseRefOid": "6c32ea60342a0b76fb1fbc61b34186f2db032b5c",
+      "headRepository": "confidential-computing/twi",
+      "headRefName": "further-edits",
+      "headRefOid": "5f2e5df406be2b2d1c2575342b558077d86373e0",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
