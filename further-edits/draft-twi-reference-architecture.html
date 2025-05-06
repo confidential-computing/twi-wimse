@@ -1188,13 +1188,16 @@ This draft will address the core issue of managing a trustworthy workload identi
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3">
-                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="auto internal xref">7.3</a>.  <a href="#name-workload-attestation" class="internal xref">Workload Attestation</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3.2.1">
-                    <p id="section-toc.1-1.7.2.3.2.1.1"><a href="#section-7.3.1" class="auto internal xref">7.3.1</a>.  <a href="#name-integrating-workload-attest" class="internal xref">Integrating Workload Attestation with Credential Issuance</a></p>
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="auto internal xref">7.3</a>.  <a href="#name-workload-to-platform-bindin" class="internal xref">Workload to Platform binding</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3.2.2">
-                    <p id="section-toc.1-1.7.2.3.2.2.1"><a href="#section-7.3.2" class="auto internal xref">7.3.2</a>.  <a href="#name-remote-attestation-of-compo" class="internal xref">Remote Attestation of Composite Workloads</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.4">
+                <p id="section-toc.1-1.7.2.4.1"><a href="#section-7.4" class="auto internal xref">7.4</a>.  <a href="#name-remote-attestation" class="internal xref">Remote Attestation</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.4.2.1">
+                    <p id="section-toc.1-1.7.2.4.2.1.1"><a href="#section-7.4.1" class="auto internal xref">7.4.1</a>.  <a href="#name-integrating-workload-attest" class="internal xref">Integrating Workload Attestation with Credential Issuance</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.4.2.2">
+                    <p id="section-toc.1-1.7.2.4.2.2.1"><a href="#section-7.4.2" class="auto internal xref">7.4.2</a>.  <a href="#name-remote-attestation-of-compo" class="internal xref">Remote Attestation of Composite Workloads</a></p>
 </li>
                 </ul>
 </li>
@@ -1359,7 +1362,7 @@ TWI Architecture, is aligned with this basic building block.<a href="#section-6-
         <h3 id="name-workload-confidentiality">
 <a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-workload-confidentiality" class="section-name selfRef">Workload Confidentiality</a>
         </h3>
-<p id="section-7.1-1">The protection of Workload and its Identity from the hosting environment<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-1">The confidentiality of Workload and its Identity from the hosting environment, is the fundamental for TWI.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="workload-provenance">
@@ -1367,33 +1370,41 @@ TWI Architecture, is aligned with this basic building block.<a href="#section-6-
         <h3 id="name-workload-provenance">
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-workload-provenance" class="section-name selfRef">Workload Provenance</a>
         </h3>
-<p id="section-7.2-1">The policy for issuing Credentials demand the information about the Provenance of the Workload<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.2-1">The policy for issuing Credentials may demand the information about the Provenance of the Workload.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
 <div id="integrating-workload-provenance-with-credential-issuance">
 <section id="section-7.2.1">
           <h4 id="name-integrating-workload-proven">
 <a href="#section-7.2.1" class="section-number selfRef">7.2.1. </a><a href="#name-integrating-workload-proven" class="section-name selfRef">Integrating Workload Provenance with Credential Issuance</a>
-          </h4>
-<p id="section-7.2.1-1">## Workload to Platform binding<a href="#section-7.2.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
-<div id="workload-attestation">
-<section id="section-7.3">
-        <h3 id="name-workload-attestation">
-<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-workload-attestation" class="section-name selfRef">Workload Attestation</a>
-        </h3>
-<div id="integrating-workload-attestation-with-credential-issuance">
-<section id="section-7.3.1">
-          <h4 id="name-integrating-workload-attest">
-<a href="#section-7.3.1" class="section-number selfRef">7.3.1. </a><a href="#name-integrating-workload-attest" class="section-name selfRef">Integrating Workload Attestation with Credential Issuance</a>
         </h4>
 </section>
 </div>
+</section>
+</div>
+<div id="workload-to-platform-binding">
+<section id="section-7.3">
+        <h3 id="name-workload-to-platform-bindin">
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-workload-to-platform-bindin" class="section-name selfRef">Workload to Platform binding</a>
+      </h3>
+</section>
+</div>
+<div id="remote-attestation">
+<section id="section-7.4">
+        <h3 id="name-remote-attestation">
+<a href="#section-7.4" class="section-number selfRef">7.4. </a><a href="#name-remote-attestation" class="section-name selfRef">Remote Attestation</a>
+        </h3>
+<p id="section-7.4-1">Remote Attestation plays a fundamental role in attesting the Workload and ensuring that the Workload is running on a platform that provides required trustwrothy guarantees.<a href="#section-7.4-1" class="pilcrow">¶</a></p>
+<div id="integrating-workload-attestation-with-credential-issuance">
+<section id="section-7.4.1">
+          <h4 id="name-integrating-workload-attest">
+<a href="#section-7.4.1" class="section-number selfRef">7.4.1. </a><a href="#name-integrating-workload-attest" class="section-name selfRef">Integrating Workload Attestation with Credential Issuance</a>
+          </h4>
+<p id="section-7.4.1-1">The Credential Issuer would process the Attestation Results and apply its own Appraisal Policy for Attestation results prior to issuing Credentials.<a href="#section-7.4.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
 <div id="remote-attestation-of-composite-workloads">
-<section id="section-7.3.2">
+<section id="section-7.4.2">
           <h4 id="name-remote-attestation-of-compo">
-<a href="#section-7.3.2" class="section-number selfRef">7.3.2. </a><a href="#name-remote-attestation-of-compo" class="section-name selfRef">Remote Attestation of Composite Workloads</a>
+<a href="#section-7.4.2" class="section-number selfRef">7.4.2. </a><a href="#name-remote-attestation-of-compo" class="section-name selfRef">Remote Attestation of Composite Workloads</a>
         </h4>
 </section>
 </div>

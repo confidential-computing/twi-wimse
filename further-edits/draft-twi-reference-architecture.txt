@@ -76,10 +76,11 @@ Table of Contents
      7.2.  Workload Provenance
        7.2.1.  Integrating Workload Provenance with Credential
                Issuance
-     7.3.  Workload Attestation
-       7.3.1.  Integrating Workload Attestation with Credential
+     7.3.  Workload to Platform binding
+     7.4.  Remote Attestation
+       7.4.1.  Integrating Workload Attestation with Credential
                Issuance
-       7.3.2.  Remote Attestation of Composite Workloads
+       7.4.2.  Remote Attestation of Composite Workloads
    8.  TWI Reference Architecture
      8.1.  Assumptions
      8.2.  Roles in the TWI Eco-System
@@ -164,23 +165,31 @@ Table of Contents
 
 7.1.  Workload Confidentiality
 
-   The protection of Workload and its Identity from the hosting
-   environment
+   The confidentiality of Workload and its Identity from the hosting
+   environment, is the fundamental for TWI.
 
 7.2.  Workload Provenance
 
-   The policy for issuing Credentials demand the information about the
-   Provenance of the Workload
+   The policy for issuing Credentials may demand the information about
+   the Provenance of the Workload.
 
 7.2.1.  Integrating Workload Provenance with Credential Issuance
 
-   ## Workload to Platform binding
+7.3.  Workload to Platform binding
 
-7.3.  Workload Attestation
+7.4.  Remote Attestation
 
-7.3.1.  Integrating Workload Attestation with Credential Issuance
+   Remote Attestation plays a fundamental role in attesting the Workload
+   and ensuring that the Workload is running on a platform that provides
+   required trustwrothy guarantees.
 
-7.3.2.  Remote Attestation of Composite Workloads
+7.4.1.  Integrating Workload Attestation with Credential Issuance
+
+   The Credential Issuer would process the Attestation Results and apply
+   its own Appraisal Policy for Attestation results prior to issuing
+   Credentials.
+
+7.4.2.  Remote Attestation of Composite Workloads
 
 8.  TWI Reference Architecture
 
