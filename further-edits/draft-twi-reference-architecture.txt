@@ -141,6 +141,22 @@ Table of Contents
 
 6.  Alignment or Synergy with WIMSE Architecture
 
+   WIMSE defines an architecture for managing workload identity in
+   multi-system environments.
+
+   1.  The WIMSE Architecture, explains the core concept of Workload
+       Identity in-line with the concept of identity in a TWI world.
+
+   2.  WIMSE model has a CA/Credential issuer that is responsible with
+       provisioning identity credentials to the workload.  TWI
+       requirement is roughly similar in terms of issuing credential.
+       However the requirements and policies applied for issuing
+       credentials vary as described in the divergence section.
+
+   3.  WIMSE Architecture, defines Trust Domain, which is the authority
+       that identifies domain within which the identifier is scoped.
+       TWI Architecture, is aligned with this basic building block.
+
 7.  Divergence from WIMSE
 
    Trustworthy Workload Identity as detailed in this document has
@@ -148,7 +164,13 @@ Table of Contents
 
 7.1.  Workload Confidentiality
 
+   The protection of Workload and its Identity from the hosting
+   environment
+
 7.2.  Workload Provenance
+
+   The policy for issuing Credentials demand the information about the
+   Provenance of the Workload
 
 7.2.1.  Integrating Workload Provenance with Credential Issuance
 
