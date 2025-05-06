@@ -5,8 +5,8 @@
 WIMSE                                                           M. Novak
 Internet-Draft                                                 JP Morgan
 Intended status: Informational                              Y. Deshpande
-Expires: 31 October 2025                                             arm
-                                                           29 April 2025
+Expires: 7 November 2025                                             arm
+                                                              6 May 2025
 
 
             Trusted Workload Identity Reference Architecture
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 October 2025.
+   This Internet-Draft will expire on 7 November 2025.
 
 Copyright Notice
 
@@ -70,33 +70,30 @@ Table of Contents
      3.2.  Workload Credential
    4.  TWI Use Cases
    5.  Core Requirements
-     5.1.  Workload deployment
-     5.2.  Workload Types
-     5.3.  Workload Composition
-     5.4.  Workload Credential Cardinality
-     5.5.  Workload Identity Persistence
-     5.6.  Workload Identity Governance
-     5.7.  Workload Identity Requirements specific to Remote
-           Attestation
-       5.7.1.  Integrating Workload Attestation with Credential
+   6.  Alignment or Synergy with WIMSE Architecture
+   7.  Divergence from WIMSE
+     7.1.  Workload Confidentiality
+     7.2.  Workload Provenance
+       7.2.1.  Integrating Workload Provenance with Credential
                Issuance
-       5.7.2.  Integrating Workload Provenance with Credential
+     7.3.  Workload Attestation
+       7.3.1.  Integrating Workload Attestation with Credential
                Issuance
-       5.7.3.  Remote Attestation of Composite Workloads
-   6.  TWI Reference Architecture
-     6.1.  Assumptions
-     6.2.  Roles in the TWI Eco-System
-       6.2.1.  Verifier
-       6.2.2.  Identity Provider
-       6.2.3.  Credential Issuer
-     6.3.  Reference Architecture
-   7.  Security Considerations
-   8.  IANA Considerations
-     8.1.  CBOR Tag Registrations
-   9.  Acknowledgements
-   10. References
-     10.1.  Normative References
-     10.2.  Informative References
+       7.3.2.  Remote Attestation of Composite Workloads
+   8.  TWI Reference Architecture
+     8.1.  Assumptions
+     8.2.  Roles in the TWI Eco-System
+       8.2.1.  Verifier
+       8.2.2.  Identity Provider
+       8.2.3.  Credential Issuer
+     8.3.  Reference Architecture
+   9.  Security Considerations
+   10. IANA Considerations
+     10.1.  CBOR Tag Registrations
+   11. Acknowledgements
+   12. References
+     12.1.  Normative References
+     12.2.  Informative References
    Authors' Addresses
 
 1.  Introduction
@@ -139,121 +136,67 @@ Table of Contents
 
 5.  Core Requirements
 
-5.1.  Workload deployment
+   The TWI Core Requirements can be located here.  (TO DO Add link here
+   from Mark)
 
-   Workloads can be deployed in a variety of environemnts.  For example:
-   1.  On-premises 2.  In the public cloud 3.  On the edge node of a
-   network 4.  On remotely managed IoT devices 5.  On users personal
-   device
+6.  Alignment or Synergy with WIMSE Architecture
 
-   The TWI Architecture MUST support all the above deployments.
+7.  Divergence from WIMSE
 
-5.2.  Workload Types
+   Trustworthy Workload Identity as detailed in this document has
+   following fundamental divergence from core WIMSE Architecture.
 
-   Workloads can take a wide variety of shapes.  For example 1.  They
-   can be Confidential Virtual Machines 2.  Confidential Containers and
-   Kubernetes pods 3.  Enclaves 4.  Serverless Computing (lambdas, step
-   functions, etc) 5.  Services running in the cloud or on-premises
-   like, database service, queuing service 6.  Managed services,
-   including SaaS products
+7.1.  Workload Confidentiality
 
-   The TWI Architecture MUST support all the above types of workloads.
+7.2.  Workload Provenance
 
-5.3.  Workload Composition
+7.2.1.  Integrating Workload Provenance with Credential Issuance
 
-   Workloads can be standalone or composite workloads.  For this
-   specification, a composite workload consists of multiple components
-   from deployment through to decommissioning and potentially spanning
-   devices or having components residing on the same physical device.
+   ## Workload to Platform binding
 
-   The TWI Architecture MUST be able to define workload identity for
-   both standalone and composite workloads.
+7.3.  Workload Attestation
 
-5.4.  Workload Credential Cardinality
+7.3.1.  Integrating Workload Attestation with Credential Issuance
 
-   A Workload may have multiple distinct credentials issued to it, e.g.,
-   for purposes of inbound, outbound and internal (component-to-
-   component for composite workloads) authentication.
+7.3.2.  Remote Attestation of Composite Workloads
 
-5.5.  Workload Identity Persistence
-
-   Workload Identity must persists in a predictable manner with regular
-   datacenter maintenance operations such as workload migration.
-
-   Two distinct scenarios have two different requirements.
-
-   1.  Operations that would change the Workload Credentials (modifying
-       some of the claims), should require redeployment where the old
-       Workload is torn down and the new one stood up in its place with
-       different Workload Credentials
-
-   2.  Operations that would preserve the Workload Credentials, such as
-       migration within the datacenter between equivalent hardware
-       instances, need not require new Workload Credentials to be
-       issued.
-
-5.6.  Workload Identity Governance
-
-   Workload Identity systems and solutions must be governable, with
-   following capabilities: 1.  Maintaining control over and a history of
-   all policies and decisions involved in issuing and evaluating
-   Workload Identities and Credentials.
-
-   1.  Ability to identify, isolate and remedy vulnerable Workloads in
-       production quickly, such as when new threats are discovered or
-       new attacks detected.
-
-   2.  Additional requirements to Workload Identity governance are
-       specified in the forthcoming Workload Identity Governance pattern
-
-5.7.  Workload Identity Requirements specific to Remote Attestation
-
-   Remote Attestation is mechanism to identify trust in a computing
-   environment.
-
-5.7.1.  Integrating Workload Attestation with Credential Issuance
-
-5.7.2.  Integrating Workload Provenance with Credential Issuance
-
-5.7.3.  Remote Attestation of Composite Workloads
-
-6.  TWI Reference Architecture
+8.  TWI Reference Architecture
 
    This sections describes in detail, the Reference Architecture for
    Trusted Workload Identity system
 
-6.1.  Assumptions
+8.1.  Assumptions
 
-6.2.  Roles in the TWI Eco-System
+8.2.  Roles in the TWI Eco-System
 
    The following sub-sections describe the various roles or building
    blocks that exist in the TWI eco-system.
 
-6.2.1.  Verifier
+8.2.1.  Verifier
 
-6.2.2.  Identity Provider
+8.2.2.  Identity Provider
 
-6.2.3.  Credential Issuer
+8.2.3.  Credential Issuer
 
-6.3.  Reference Architecture
+8.3.  Reference Architecture
 
-7.  Security Considerations
-
-
-   // TODO
-
-8.  IANA Considerations
-
-8.1.  CBOR Tag Registrations
-
-9.  Acknowledgements
+9.  Security Considerations
 
 
    // TODO
 
-10.  References
+10.  IANA Considerations
 
-10.1.  Normative References
+10.1.  CBOR Tag Registrations
+
+11.  Acknowledgements
+
+
+   // TODO
+
+12.  References
+
+12.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -264,7 +207,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-10.2.  Informative References
+12.2.  Informative References
 
    [I-D.draft-ietf-wimse-arch]
               Salowey, J. A., Rosomakho, Y., and H. Tschofenig,
