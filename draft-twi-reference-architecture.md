@@ -24,8 +24,8 @@ author:
 
 -
   name: Mark Novak
-  org: JP Morgan
-  email: mark.novak@outlook.com
+  org: J.P. Morgan Chase
+  email: mark.f.novak@jpmchase.com
 
 -
   name: Yogesh Deshpande
