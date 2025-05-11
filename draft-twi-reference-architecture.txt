@@ -5,8 +5,8 @@
 WIMSE                                                           M. Novak
 Internet-Draft                                         J.P. Morgan Chase
 Intended status: Informational                              Y. Deshpande
-Expires: 11 November 2025                                            arm
-                                                             10 May 2025
+Expires: 12 November 2025                                            arm
+                                                             11 May 2025
 
 
             Trusted Workload Identity Reference Architecture
@@ -14,13 +14,13 @@ Expires: 11 November 2025                                            arm
 
 Abstract
 
-   Technological advancement coupled with security concerns demands more
-   and more use cases, that require data-in-use protections.  In
+   Technological advancement coupled with security concerns results in
+   multiple use cases that require data-in-use protections.  In
    addition, regulatory bodies around the world increasingly require
    data-in-use protection and privacy enhancing technologies.  As these
-   advanced technologies are being deployed, challenge remains how to
-   identify the workloads and put trust behind them?  This draft will
-   address the core issue of managing a trustworthy workload identity
+   advanced technologies are being deployed, the challenge is how to
+   identify the workloads and place trust in them?  This draft will
+   address the core issue of managing a Trustworthy Workload Identity
    meeting Confidential Computing requirements.
 
 Discussion Venues
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 November 2025.
+   This Internet-Draft will expire on 12 November 2025.
 
 Copyright Notice
 
@@ -77,6 +77,7 @@ Table of Contents
        5.2.2.  Identity Provider
        5.2.3.  Credential Issuer
      5.3.  Reference Architecture
+       5.3.1.  Workload Provenance
    6.  Security Considerations
    7.  IANA Considerations
      7.1.  CBOR Tag Registrations
@@ -108,8 +109,8 @@ Table of Contents
 
 3.  TWI Use Cases
 
-   Following are some of the use cases demanding trustworthy workload
-   identity.
+   Following are some of the use cases demanding Trustworthy Workload
+   Identity.
 
    1.  A ML Model Owner (acting as Relying Party) wants to deploy its
        Workload with a unique identity in a privacy preserving manner.
@@ -130,15 +131,15 @@ Table of Contents
 
 5.  TWI Reference Architecture
 
-   This sections describes in detail, the Reference Architecture for
-   Trusted Workload Identity system
+   This sections describes in detail the Reference Architecture for a
+   Trusted Workload Identity system.
 
 5.1.  Assumptions
 
 5.2.  Roles in the TWI Eco-System
 
    The following sub-sections describe the various roles that exist in
-   the TWI eco-system.
+   the TWI ecosystem.
 
 5.2.1.  Verifier
 
@@ -147,6 +148,8 @@ Table of Contents
 5.2.3.  Credential Issuer
 
 5.3.  Reference Architecture
+
+5.3.1.  Workload Provenance
 
 6.  Security Considerations
 
