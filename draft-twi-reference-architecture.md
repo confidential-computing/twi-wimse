@@ -37,10 +37,10 @@ informative:
   I-D.draft-ietf-wimse-arch: WIMSE
 
 --- abstract
-Technological advancement coupled with security concerns demands more and more use cases, that require data-in-use protections.
+Technological advancement coupled with security concerns results in multiple use cases that require data-in-use protections.
 In addition, regulatory bodies around the world increasingly require data-in-use protection and privacy enhancing technologies.
-As these advanced technologies are being deployed, challenge remains how to identify the workloads and put trust behind them?
-This draft will address the core issue of managing a trustworthy workload identity meeting Confidential Computing requirements.
+As these advanced technologies are being deployed, the challenge is how to identify the workloads and place trust in them?
+This draft will address the core issue of managing a Trustworthy Workload Identity meeting Confidential Computing requirements.
 
 
 --- middle
@@ -63,7 +63,7 @@ see {{Section 4 of -rats-arch}} & {{-WIMSE}}.
 This document uses the following terms:
 
 # TWI Use Cases
-Following are some of the use cases demanding trustworthy workload identity.
+Following are some of the use cases demanding Trustworthy Workload Identity.
 
 1. A ML Model Owner (acting as Relying Party) wants to deploy its Workload with a unique identity in a privacy
 preserving manner. It needs to ensure that the deployed workload is operating in an environment with certain
@@ -83,12 +83,12 @@ security guarantees, such as isolated from cloud hosting environment and can be 
 # TWI Reference Architecture
 {: #sec-ref-architecture }
 
-This sections describes in detail, the Reference Architecture for Trusted Workload Identity system
+This sections describes in detail the Reference Architecture for a Trusted Workload Identity system.
 
 ## Assumptions
 
 ## Roles in the TWI Eco-System
-The following sub-sections describe the various roles that exist in the TWI eco-system.
+The following sub-sections describe the various roles that exist in the TWI ecosystem.
 
 ### Verifier
 
@@ -98,7 +98,7 @@ The following sub-sections describe the various roles that exist in the TWI eco-
 
 ## Reference Architecture
 
-
+### Workload Provenance
 
 
 # Security Considerations
