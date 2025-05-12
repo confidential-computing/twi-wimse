@@ -3,7 +3,7 @@
 
 
 WIMSE                                                           M. Novak
-Internet-Draft                                                 JP Morgan
+Internet-Draft                                         J.P. Morgan Chase
 Intended status: Informational                              Y. Deshpande
 Expires: 13 November 2025                                            arm
                                                              12 May 2025
@@ -14,13 +14,13 @@ Expires: 13 November 2025                                            arm
 
 Abstract
 
-   Technological advancement coupled with security concerns demands more
-   and more use cases, that require data-in-use protections.  In
+   Technological advancement coupled with security concerns results in
+   multiple use cases that require data-in-use protections.  In
    addition, regulatory bodies around the world increasingly require
    data-in-use protection and privacy enhancing technologies.  As these
-   advanced technologies are being deployed, challenge remains how to
-   identify the workloads and put trust behind them?  This draft will
-   address the core issue of managing a trustworthy workload identity
+   advanced technologies are being deployed, the challenge is how to
+   identify the workloads and place trust in them?  This draft will
+   address the core issue of managing a Trustworthy Workload Identity
    meeting Confidential Computing requirements.
 
 Discussion Venues
@@ -89,6 +89,7 @@ Table of Contents
        8.2.2.  Identity Provider
        8.2.3.  Credential Issuer
      8.3.  Reference Architecture
+       8.3.1.  Workload Provenance
    9.  Security Considerations
    10. IANA Considerations
      10.1.  CBOR Tag Registrations
@@ -124,8 +125,8 @@ Table of Contents
 
 4.  TWI Use Cases
 
-   Following are some of the use cases demanding trustworthy workload
-   identity.
+   Following are some of the use cases demanding Trustworthy Workload
+   Identity.
 
    1.  A ML Model Owner (acting as Relying Party) wants to deploy its
        Workload with a unique identity in a privacy preserving manner.
@@ -224,15 +225,15 @@ Table of Contents
 
 8.  TWI Reference Architecture
 
-   This sections describes in detail, the Reference Architecture for
-   Trusted Workload Identity system
+   This sections describes in detail the Reference Architecture for a
+   Trusted Workload Identity system.
 
 8.1.  Assumptions
 
 8.2.  Roles in the TWI Eco-System
 
-   The following sub-sections describe the various roles or building
-   blocks that exist in the TWI eco-system.
+   The following sub-sections describe the various roles that exist in
+   the TWI ecosystem.
 
 8.2.1.  Verifier
 
@@ -241,6 +242,8 @@ Table of Contents
 8.2.3.  Credential Issuer
 
 8.3.  Reference Architecture
+
+8.3.1.  Workload Provenance
 
 9.  Security Considerations
 
@@ -287,8 +290,8 @@ Table of Contents
 Authors' Addresses
 
    Mark Novak
-   JP Morgan
-   Email: mark.novak@outlook.com
+   J.P. Morgan Chase
+   Email: mark.f.novak@jpmchase.com
 
 
    Yogesh Deshpande

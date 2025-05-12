@@ -8,10 +8,10 @@
 <meta content="Mark Novak" name="author">
 <meta content="Yogesh Deshpande" name="author">
 <meta content="
-       Technological advancement coupled with security concerns demands more and more use cases, that require data-in-use protections.
+       Technological advancement coupled with security concerns results in multiple use cases that require data-in-use protections.
 In addition, regulatory bodies around the world increasingly require data-in-use protection and privacy enhancing technologies.
-As these advanced technologies are being deployed, challenge remains how to identify the workloads and put trust behind them?
-This draft will address the core issue of managing a trustworthy workload identity meeting Confidential Computing requirements. 
+As these advanced technologies are being deployed, the challenge is how to identify the workloads and place trust in them?
+This draft will address the core issue of managing a Trustworthy Workload Identity meeting Confidential Computing requirements. 
     " name="description">
 <meta content="xml2rfc 3.28.1" name="generator">
 <meta content="draft-twi-reference-architecture-latest" name="ietf.draft">
@@ -1074,7 +1074,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="authors">
 <div class="author">
       <div class="author-name">M. Novak</div>
-<div class="org">JP Morgan</div>
+<div class="org">J.P. Morgan Chase</div>
 </div>
 <div class="author">
       <div class="author-name">Y. Deshpande</div>
@@ -1086,10 +1086,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Trusted Workload Identity Reference Architecture</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">Technological advancement coupled with security concerns demands more and more use cases, that require data-in-use protections.
+<p id="section-abstract-1">Technological advancement coupled with security concerns results in multiple use cases that require data-in-use protections.
 In addition, regulatory bodies around the world increasingly require data-in-use protection and privacy enhancing technologies.
-As these advanced technologies are being deployed, challenge remains how to identify the workloads and put trust behind them?
-This draft will address the core issue of managing a trustworthy workload identity meeting Confidential Computing requirements.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+As these advanced technologies are being deployed, the challenge is how to identify the workloads and place trust in them?
+This draft will address the core issue of managing a Trustworthy Workload Identity meeting Confidential Computing requirements.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-discussion-venues">
@@ -1228,6 +1228,11 @@ This draft will address the core issue of managing a trustworthy workload identi
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.3">
                 <p id="section-toc.1-1.8.2.3.1"><a href="#section-8.3" class="auto internal xref">8.3</a>.  <a href="#name-reference-architecture" class="internal xref">Reference Architecture</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.3.2.1">
+                    <p id="section-toc.1-1.8.2.3.2.1.1"><a href="#section-8.3.1" class="auto internal xref">8.3.1</a>.  <a href="#name-workload-provenance-2" class="internal xref">Workload Provenance</a></p>
+</li>
+                </ul>
 </li>
             </ul>
 </li>
@@ -1312,7 +1317,7 @@ see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">
       <h2 id="name-twi-use-cases">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-twi-use-cases" class="section-name selfRef">TWI Use Cases</a>
       </h2>
-<p id="section-4-1">Following are some of the use cases demanding trustworthy workload identity.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">Following are some of the use cases demanding Trustworthy Workload Identity.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-4-2">
 <li id="section-4-2.1">
           <p id="section-4-2.1.1">A ML Model Owner (acting as Relying Party) wants to deploy its Workload with a unique identity in a privacy
@@ -1443,7 +1448,7 @@ While it is a policy of the implementation as to how it obtains the provenance i
       <h2 id="name-twi-reference-architecture">
 <a href="#section-8" class="section-number selfRef">8. </a><a href="#name-twi-reference-architecture" class="section-name selfRef">TWI Reference Architecture</a>
       </h2>
-<p id="section-8-1">This sections describes in detail, the Reference Architecture for Trusted Workload Identity system<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-8-1">This sections describes in detail the Reference Architecture for a Trusted Workload Identity system.<a href="#section-8-1" class="pilcrow">¶</a></p>
 <div id="assumptions">
 <section id="section-8.1">
         <h3 id="name-assumptions">
@@ -1456,7 +1461,7 @@ While it is a policy of the implementation as to how it obtains the provenance i
         <h3 id="name-roles-in-the-twi-eco-system">
 <a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-roles-in-the-twi-eco-system" class="section-name selfRef">Roles in the TWI Eco-System</a>
         </h3>
-<p id="section-8.2-1">The following sub-sections describe the various roles or building blocks that exist in the TWI eco-system.<a href="#section-8.2-1" class="pilcrow">¶</a></p>
+<p id="section-8.2-1">The following sub-sections describe the various roles that exist in the TWI ecosystem.<a href="#section-8.2-1" class="pilcrow">¶</a></p>
 <div id="verifier">
 <section id="section-8.2.1">
           <h4 id="name-verifier">
@@ -1484,7 +1489,14 @@ While it is a policy of the implementation as to how it obtains the provenance i
 <section id="section-8.3">
         <h3 id="name-reference-architecture">
 <a href="#section-8.3" class="section-number selfRef">8.3. </a><a href="#name-reference-architecture" class="section-name selfRef">Reference Architecture</a>
-      </h3>
+        </h3>
+<div id="workload-provenance-1">
+<section id="section-8.3.1">
+          <h4 id="name-workload-provenance-2">
+<a href="#section-8.3.1" class="section-number selfRef">8.3.1. </a><a href="#name-workload-provenance-2" class="section-name selfRef">Workload Provenance</a>
+        </h4>
+</section>
+</div>
 </section>
 </div>
 </section>
@@ -1567,10 +1579,10 @@ While it is a policy of the implementation as to how it obtains the provenance i
       </h2>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Mark Novak</span></div>
-<div dir="auto" class="left"><span class="org">JP Morgan</span></div>
+<div dir="auto" class="left"><span class="org">J.P. Morgan Chase</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:mark.novak@outlook.com" class="email">mark.novak@outlook.com</a>
+<a href="mailto:mark.f.novak@jpmchase.com" class="email">mark.f.novak@jpmchase.com</a>
 </div>
 </address>
 <address class="vcard">
