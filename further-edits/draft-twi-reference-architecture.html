@@ -1051,7 +1051,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Novak &amp; Deshpande</td>
-<td class="center">Expires 7 November 2025</td>
+<td class="center">Expires 13 November 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1064,12 +1064,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-twi-reference-architecture-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-05-06" class="published">6 May 2025</time>
+<time datetime="2025-05-12" class="published">12 May 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-11-07">7 November 2025</time></dd>
+<dd class="expires"><time datetime="2025-11-13">13 November 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1118,7 +1118,7 @@ This draft will address the core issue of managing a trustworthy workload identi
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 13 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1183,7 +1183,10 @@ This draft will address the core issue of managing a trustworthy workload identi
                 <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-workload-provenance" class="internal xref">Workload Provenance</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.1">
-                    <p id="section-toc.1-1.7.2.2.2.1.1"><a href="#section-7.2.1" class="auto internal xref">7.2.1</a>.  <a href="#name-integrating-workload-proven" class="internal xref">Integrating Workload Provenance with Credential Issuance</a></p>
+                    <p id="section-toc.1-1.7.2.2.2.1.1"><a href="#section-7.2.1" class="auto internal xref">7.2.1</a>.  <a href="#name-obtaining-workload-provenan" class="internal xref">Obtaining Workload provenance</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.2">
+                    <p id="section-toc.1-1.7.2.2.2.2.1"><a href="#section-7.2.2" class="auto internal xref">7.2.2</a>.  <a href="#name-integrating-workload-proven" class="internal xref">Integrating Workload Provenance with Credential Issuance</a></p>
 </li>
                 </ul>
 </li>
@@ -1362,7 +1365,7 @@ TWI Architecture, is aligned with this basic building block.<a href="#section-6-
         <h3 id="name-workload-confidentiality">
 <a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-workload-confidentiality" class="section-name selfRef">Workload Confidentiality</a>
         </h3>
-<p id="section-7.1-1">The confidentiality of Workload and its Identity from the hosting environment, is the fundamental for TWI.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-1">The confidentiality and integrity of Workload is isolated from the hosting environment and other workloads.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="workload-provenance">
@@ -1370,12 +1373,35 @@ TWI Architecture, is aligned with this basic building block.<a href="#section-6-
         <h3 id="name-workload-provenance">
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-workload-provenance" class="section-name selfRef">Workload Provenance</a>
         </h3>
-<p id="section-7.2-1">The policy for issuing Credentials may demand the information about the Provenance of the Workload.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
-<div id="integrating-workload-provenance-with-credential-issuance">
+<p id="section-7.2-1">Workload Provenance is the metadata pertaining to workload, as below.
+1. Workload Composition, i.e. a detailed list of components that comprise a workload. This could be expressed as Software Bill of Materials expressed in terms of industry standards, like SPDX or CycloneDX.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-7.2-2">
+<li id="section-7.2-2.1">
+            <p id="section-7.2-2.1.1">Details about the Continous Integration (CI) or Continous Delivery (CD) of Workload<a href="#section-7.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-7.2-2.2">
+            <p id="section-7.2-2.2.1">Set of Compliance tests that executed on the workload.<a href="#section-7.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li id="section-7.2-2.3">
+            <p id="section-7.2-2.3.1">Details of Vendor/SaaS information.<a href="#section-7.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ol>
+<p id="section-7.2-3">The policy for issuing Credentials may demand the information about the Provenance of the Workload. This requries work in two fundamental areas (a) Obtaining the provenance information about the workload AND (b) Conveying the provenance information inside the Credential.<a href="#section-7.2-3" class="pilcrow">¶</a></p>
+<div id="obtaining-workload-provenance">
 <section id="section-7.2.1">
+          <h4 id="name-obtaining-workload-provenan">
+<a href="#section-7.2.1" class="section-number selfRef">7.2.1. </a><a href="#name-obtaining-workload-provenan" class="section-name selfRef">Obtaining Workload provenance</a>
+          </h4>
+<p id="section-7.2.1-1">The Workload Provenance can be made available in a transparent manner, which can be audited and verifiable by independent parties.
+While it is a policy of the implementation as to how it obtains the provenance information, the trustworthiness aspect associated to provenance information can be verified during the runtime trustworthiness assessment of a workload, through the means of Remote Attestation, at the time of workload acquiring the credentials from credential issuer.<a href="#section-7.2.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="integrating-workload-provenance-with-credential-issuance">
+<section id="section-7.2.2">
           <h4 id="name-integrating-workload-proven">
-<a href="#section-7.2.1" class="section-number selfRef">7.2.1. </a><a href="#name-integrating-workload-proven" class="section-name selfRef">Integrating Workload Provenance with Credential Issuance</a>
-        </h4>
+<a href="#section-7.2.2" class="section-number selfRef">7.2.2. </a><a href="#name-integrating-workload-proven" class="section-name selfRef">Integrating Workload Provenance with Credential Issuance</a>
+          </h4>
+<p id="section-7.2.2-1">The provenance information can be attached to the Workload credentials using a well defined protocol.<a href="#section-7.2.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>

@@ -5,8 +5,8 @@
 WIMSE                                                           M. Novak
 Internet-Draft                                                 JP Morgan
 Intended status: Informational                              Y. Deshpande
-Expires: 7 November 2025                                             arm
-                                                              6 May 2025
+Expires: 13 November 2025                                            arm
+                                                             12 May 2025
 
 
             Trusted Workload Identity Reference Architecture
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 November 2025.
+   This Internet-Draft will expire on 13 November 2025.
 
 Copyright Notice
 
@@ -74,7 +74,8 @@ Table of Contents
    7.  Divergence from WIMSE
      7.1.  Workload Confidentiality
      7.2.  Workload Provenance
-       7.2.1.  Integrating Workload Provenance with Credential
+       7.2.1.  Obtaining Workload provenance
+       7.2.2.  Integrating Workload Provenance with Credential
                Issuance
      7.3.  Workload to Platform binding
      7.4.  Remote Attestation
@@ -165,15 +166,45 @@ Table of Contents
 
 7.1.  Workload Confidentiality
 
-   The confidentiality of Workload and its Identity from the hosting
-   environment, is the fundamental for TWI.
+   The confidentiality and integrity of Workload is isolated from the
+   hosting environment and other workloads.
 
 7.2.  Workload Provenance
 
-   The policy for issuing Credentials may demand the information about
-   the Provenance of the Workload.
+   Workload Provenance is the metadata pertaining to workload, as below.
+   1.  Workload Composition, i.e. a detailed list of components that
+   comprise a workload.  This could be expressed as Software Bill of
+   Materials expressed in terms of industry standards, like SPDX or
+   CycloneDX.
 
-7.2.1.  Integrating Workload Provenance with Credential Issuance
+   1.  Details about the Continous Integration (CI) or Continous
+       Delivery (CD) of Workload
+
+   2.  Set of Compliance tests that executed on the workload.
+
+   3.  Details of Vendor/SaaS information.
+
+   The policy for issuing Credentials may demand the information about
+   the Provenance of the Workload.  This requries work in two
+   fundamental areas (a) Obtaining the provenance information about the
+   workload AND (b) Conveying the provenance information inside the
+   Credential.
+
+7.2.1.  Obtaining Workload provenance
+
+   The Workload Provenance can be made available in a transparent
+   manner, which can be audited and verifiable by independent parties.
+   While it is a policy of the implementation as to how it obtains the
+   provenance information, the trustworthiness aspect associated to
+   provenance information can be verified during the runtime
+   trustworthiness assessment of a workload, through the means of Remote
+   Attestation, at the time of workload acquiring the credentials from
+   credential issuer.
+
+7.2.2.  Integrating Workload Provenance with Credential Issuance
+
+   The provenance information can be attached to the Workload
+   credentials using a well defined protocol.
 
 7.3.  Workload to Platform binding
 
