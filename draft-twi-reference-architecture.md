@@ -53,8 +53,8 @@ To be filled
 
 {::boilerplate bcp14}
 
-This document uses terms and concepts defined by the WIMSE and RATS architecture. For a complete glossary,
-see {{Section 4 of -rats-arch}} & {{-WIMSE}}.
+This document uses terms and concepts defined by the WIMSE and RATS architectures, as well as to the terms defined by the Trustworthy Workload Identity Special Interest Gorup at the Confidential Computing Consortium. For a complete glossary,
+see {{Section 4 of -rats-arch}} & {{-WIMSE}}. TODO: provide a link to the TWI SIG charter or add its definitions here.
 
 
 ## Glossary
@@ -63,14 +63,11 @@ see {{Section 4 of -rats-arch}} & {{-WIMSE}}.
 This document uses the following terms:
 
 # TWI Use Cases
-Following are some of the use cases demanding Trustworthy Workload Identity.
+Like WIMSE, TWI seeks to associate identities with workloads. However, for an Identity to be Trustworthy, a few additional requirements must be met:
 
-1. A ML Model Owner (acting as Relying Party) wants to deploy its Workload with a unique identity in a privacy
-preserving manner. It needs to ensure that the deployed workload is operating in an environment with certain
-security guarantees, such as isolated from cloud hosting environment and can be periodically attested.
-
-
-2. A Workload operating as a deployed lambda running in an isolated environment.
+1. To protect data in use, including its Credentials, the Workload MUST run in an isolated, remotely attested Trusted Execution Environment. Therefore, the process of obtaining the Credentials MUST involve a Verifier service in addition to the Identity Provider service.
+2. The Workload Credentials MUST be strongly bound to the Workload instance to which they are issued.
+3. The issued Workload Credentials MUST contain information from which the Provenance of the workload can be determined.
 
 # Core Requirements
 
@@ -97,6 +94,10 @@ The following sub-sections describe the various roles that exist in the TWI ecos
 ### Credential Issuer
 
 ## Reference Architecture
+
+### Using Remote Attestation to obtain an X.509 Certificate Credential from a Certificate Authority
+
+### Using Remote Attestation to obtain a Credential from an HSM
 
 ### Workload Provenance
 
