@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-13T01:44:35.107726+00:00",
+  "timestamp": "2025-05-15T01:41:30.080269+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -80,13 +80,180 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-04-29T13:04:07Z",
-      "updatedAt": "2025-05-12T18:06:34Z",
+      "updatedAt": "2025-05-13T15:17:27Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "3c7115b808be165556b9dbba12ebc915ebd35994",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "further-edits",
       "headRefOid": "2bbf04191a9e89ed83eba01efa560f791392f5ce",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6pE-pX",
+          "commit": {
+            "abbreviatedOid": "2bbf041"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-13T12:54:18Z",
+          "updatedAt": "2025-05-13T12:54:18Z",
+          "comments": [
+            {
+              "originalPosition": 65,
+              "body": "Should we have \"provenance ID\" or leave it to be more general? If just an ID, like \"jti\", how can RP know where the breadcrumb leads? Go interrogate the credential issuer?",
+              "createdAt": "2025-05-13T12:54:18Z",
+              "updatedAt": "2025-05-13T12:54:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6pE_As",
+          "commit": {
+            "abbreviatedOid": "2bbf041"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-13T12:54:45Z",
+          "updatedAt": "2025-05-13T12:54:45Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "For each term, define it here, or point to where it is defined? Someone with IETF knowledge should chime in.",
+              "createdAt": "2025-05-13T12:54:45Z",
+              "updatedAt": "2025-05-13T13:08:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6pE_Tp",
+          "commit": {
+            "abbreviatedOid": "2bbf041"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-13T12:55:07Z",
+          "updatedAt": "2025-05-13T12:55:07Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "Should we reiterate use cases and reference the Requirements document? My vote yes.",
+              "createdAt": "2025-05-13T12:55:07Z",
+              "updatedAt": "2025-05-13T13:09:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6pFATu",
+          "commit": {
+            "abbreviatedOid": "2bbf041"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-13T12:56:04Z",
+          "updatedAt": "2025-05-13T12:56:04Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "issuing, not provisioning. Provisioning is the process of obtaining a credential from an issuer, which is done by the workload or the workload owner.",
+              "createdAt": "2025-05-13T12:56:04Z",
+              "updatedAt": "2025-05-13T12:56:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6pFBHB",
+          "commit": {
+            "abbreviatedOid": "2bbf041"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-13T12:56:52Z",
+          "updatedAt": "2025-05-13T12:56:52Z",
+          "comments": [
+            {
+              "originalPosition": 44,
+              "body": "This is hardly a diversion, more of an additional property that CC guarantees.",
+              "createdAt": "2025-05-13T12:56:52Z",
+              "updatedAt": "2025-05-13T12:56:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6pFCDC",
+          "commit": {
+            "abbreviatedOid": "2bbf041"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-13T12:58:02Z",
+          "updatedAt": "2025-05-13T12:58:03Z",
+          "comments": [
+            {
+              "originalPosition": 47,
+              "body": "This will be perceived as far too metadata added to the workload, will probably generate pushback. A provenance ID is much smaller and can lead to all of the below. Perhaps instead have a section that explains all the things that provenance delivers.",
+              "createdAt": "2025-05-13T12:58:02Z",
+              "updatedAt": "2025-05-13T12:58:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6pGERF",
+          "commit": {
+            "abbreviatedOid": "2bbf041"
+          },
+          "author": "dpquigl",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-13T14:05:59Z",
+          "updatedAt": "2025-05-13T15:17:27Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "Terms used in the document should be defined here unless the definition is so extensive it needs an external reference. Then a brief description is placed here and a normative reference is added later in the document.",
+              "createdAt": "2025-05-13T14:05:59Z",
+              "updatedAt": "2025-05-13T15:17:27Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOOebIkc6WEYGi",
+      "title": "Added the three core use cases",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/3",
+      "state": "OPEN",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added the three requirements that make an identity \"trustworthy\"\r\nAs discussed in today's TWI SIG meeting these are the core requirements we'd like to meet.\r\nAlso added a couple of proposed sections for the Reference Architecture.",
+      "createdAt": "2025-05-13T21:53:17Z",
+      "updatedAt": "2025-05-13T21:53:17Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "3c7115b808be165556b9dbba12ebc915ebd35994",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "TheBankster-patch-1",
+      "headRefOid": "a2bd26fa976ff062983083c28faaab3192822fdb",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
