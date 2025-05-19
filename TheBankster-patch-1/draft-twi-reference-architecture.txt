@@ -5,8 +5,8 @@
 WIMSE                                                           M. Novak
 Internet-Draft                                         J.P. Morgan Chase
 Intended status: Informational                              Y. Deshpande
-Expires: 14 November 2025                                            arm
-                                                             13 May 2025
+Expires: 20 November 2025                                            arm
+                                                             19 May 2025
 
 
             Trusted Workload Identity Reference Architecture
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 November 2025.
+   This Internet-Draft will expire on 20 November 2025.
 
 Copyright Notice
 
@@ -65,30 +65,42 @@ Table of Contents
 
    1.  Introduction
    2.  Conventions and Definitions
-     2.1.  Glossary
-   3.  TWI Use Cases
-   4.  Core Requirements
-     4.1.  Workload composition
-     4.2.  Workload lifespan
-   5.  TWI Reference Architecture
-     5.1.  Assumptions
-     5.2.  Roles in the TWI Eco-System
-       5.2.1.  Verifier
-       5.2.2.  Identity Provider
-       5.2.3.  Credential Issuer
-     5.3.  Reference Architecture
-       5.3.1.  Using Remote Attestation to obtain an X.509 Certificate
+   3.  Glossary
+     3.1.  Workload Identity
+     3.2.  Workload Credential
+   4.  TWI Use Cases
+   5.  Core Requirements
+   6.  Alignment or Synergy with WIMSE Architecture
+   7.  Divergence from WIMSE
+     7.1.  Workload Confidentiality
+     7.2.  Workload Provenance
+       7.2.1.  Obtaining Workload provenance
+       7.2.2.  Integrating Workload Provenance with Credential
+               Issuance
+     7.3.  Workload to Platform binding
+     7.4.  Remote Attestation
+       7.4.1.  Integrating Workload Attestation with Credential
+               Issuance
+       7.4.2.  Remote Attestation of Composite Workloads
+   8.  TWI Reference Architecture
+     8.1.  Assumptions
+     8.2.  Roles in the TWI Eco-System
+       8.2.1.  Verifier
+       8.2.2.  Identity Provider
+       8.2.3.  Credential Issuer
+     8.3.  Reference Architecture
+       8.3.1.  Using Remote Attestation to obtain an X.509 Certificate
                Credential from a Certificate Authority
-       5.3.2.  Using Remote Attestation to obtain a Credential from an
+       8.3.2.  Using Remote Attestation to obtain a Credential from an
                HSM
-       5.3.3.  Workload Provenance
-   6.  Security Considerations
-   7.  IANA Considerations
-     7.1.  CBOR Tag Registrations
-   8.  Acknowledgements
-   9.  References
-     9.1.  Normative References
-     9.2.  Informative References
+       8.3.3.  Workload Provenance
+   9.  Security Considerations
+   10. IANA Considerations
+     10.1.  CBOR Tag Registrations
+   11. Acknowledgements
+   12. References
+     12.1.  Normative References
+     12.2.  Informative References
    Authors' Addresses
 
 1.  Introduction
@@ -107,83 +119,178 @@ Table of Contents
    architectures, as well as to the terms defined by the Trustworthy
    Workload Identity Special Interest Gorup at the Confidential
    Computing Consortium.  For a complete glossary, see Section 4 of
-   [RFC9334] & [I-D.draft-ietf-wimse-arch].  TODO: provide a link to the
-   TWI SIG charter or add its definitions here.
+   [RFC9334] & [I-D.draft-ietf-wimse-arch].  TODO: utilize the link to
+   the TWI SIG charter (https://github.com/confidential-
+   computing/governance/blob/main/SIGs/TWI/TWI_Charter.md) or add its
+   definitions here.
 
-2.1.  Glossary
+3.  Glossary
 
    This document uses the following terms:
 
-3.  TWI Use Cases
+3.1.  Workload Identity
+
+3.2.  Workload Credential
+
+4.  TWI Use Cases
 
    Like WIMSE, TWI seeks to associate identities with workloads.
    However, for an Identity to be Trustworthy, a few additional
    requirements must be met:
 
-   1.  To protect data in use, including its Credentials, the Workload
-       MUST run in an isolated, remotely attested Trusted Execution
-       Environment.  Therefore, the process of obtaining the Credentials
-       MUST involve a Verifier service in addition to the Identity
-       Provider service.
+   1.  Isolate Workloads' data in use, including their Credentials, from
+       the untrusted hosting environment.
 
-   2.  The Workload Credentials MUST be strongly bound to the Workload
-       instance to which they are issued.
+   2.  Guarantee that a Workload can only utilize Credentials issued to
+       it and that its Credentials cannot leak and be used by
+       unauthorized Workloads.
 
-   3.  The issued Workload Credentials MUST contain information from
-       which the Provenance of the workload can be determined.
+   3.  Enable the Relying Parties and other interested parties, such as
+       auditors, to make in-depth inquiries into the trustworthiness of
+       the authenticating Workload.
 
-4.  Core Requirements
+5.  Core Requirements
 
-4.1.  Workload composition
+   The TWI Core Requirements can be located here.  (TODO incorporate
+   this link: https://github.com/confidential-computing/twi/blob/main/
+   TWI_Requirements.md)
 
-4.2.  Workload lifespan
+   For Use Case 1, the Workload MUST run in an isolated, remotely
+   attested Trusted Execution Environment.  Therefore, the process of
+   obtaining the Credentials MUST involve a Verifier service in addition
+   to the Identity Provider service.  For Use Case 2, the Workload
+   Credentials MUST be strongly bound to the Workload instance to which
+   they are issued and the secrets utilized for authentications to
+   Relying Parties using these Credentials MUST be covered by data-in-
+   use protections in a manner they are procured and utilized.  For Use
+   Case 3, the issued Workload Credentials MUST contain information from
+   which the Provenance of the workload can be determined.
 
-   ##
+6.  Alignment or Synergy with WIMSE Architecture
 
-5.  TWI Reference Architecture
+   WIMSE defines an architecture for managing workload identity in
+   multi-system environments.
+
+   1.  The WIMSE Architecture, explains the core concept of Workload
+       Identity in-line with the concept of identity in a TWI world.
+
+   2.  WIMSE model has a CA/Credential issuer that is responsible with
+       provisioning identity credentials to the workload.  TWI
+       requirement is roughly similar in terms of issuing credential.
+       However the requirements and policies applied for issuing
+       credentials vary as described in the divergence section.
+
+   3.  WIMSE Architecture, defines Trust Domain, which is the authority
+       that identifies domain within which the identifier is scoped.
+       TWI Architecture, is aligned with this basic building block.
+
+7.  Divergence from WIMSE
+
+   Trustworthy Workload Identity as detailed in this document has
+   following fundamental divergence from core WIMSE Architecture.
+
+7.1.  Workload Confidentiality
+
+   The confidentiality and integrity of Workload is isolated from the
+   hosting environment and other workloads.
+
+7.2.  Workload Provenance
+
+   Workload Provenance is the metadata pertaining to workload, as below.
+   1.  Workload Composition, i.e. a detailed list of components that
+   comprise a workload.  This could be expressed as Software Bill of
+   Materials expressed in terms of industry standards, like SPDX or
+   CycloneDX.
+
+   1.  Details about the Continous Integration (CI) or Continous
+       Delivery (CD) of Workload
+
+   2.  Set of Compliance tests that executed on the workload.
+
+   3.  Details of Vendor/SaaS information.
+
+   The policy for issuing Credentials may demand the information about
+   the Provenance of the Workload.  This requries work in two
+   fundamental areas (a) Obtaining the provenance information about the
+   workload AND (b) Conveying the provenance information inside the
+   Credential.
+
+7.2.1.  Obtaining Workload provenance
+
+   The Workload Provenance can be made available in a transparent
+   manner, which can be audited and verifiable by independent parties.
+   While it is a policy of the implementation as to how it obtains the
+   provenance information, the trustworthiness aspect associated to
+   provenance information can be verified during the runtime
+   trustworthiness assessment of a workload, through the means of Remote
+   Attestation, at the time of workload acquiring the credentials from
+   credential issuer.
+
+7.2.2.  Integrating Workload Provenance with Credential Issuance
+
+   The provenance information can be attached to the Workload
+   credentials using a well defined protocol.
+
+7.3.  Workload to Platform binding
+
+7.4.  Remote Attestation
+
+   Remote Attestation plays a fundamental role in attesting the Workload
+   and ensuring that the Workload is running on a platform that provides
+   required trustwrothy guarantees.
+
+7.4.1.  Integrating Workload Attestation with Credential Issuance
+
+   The Credential Issuer would process the Attestation Results and apply
+   its own Appraisal Policy for Attestation results prior to issuing
+   Credentials.
+
+7.4.2.  Remote Attestation of Composite Workloads
+
+8.  TWI Reference Architecture
 
    This sections describes in detail the Reference Architecture for a
    Trusted Workload Identity system.
 
-5.1.  Assumptions
+8.1.  Assumptions
 
-5.2.  Roles in the TWI Eco-System
+8.2.  Roles in the TWI Eco-System
 
    The following sub-sections describe the various roles that exist in
    the TWI ecosystem.
 
-5.2.1.  Verifier
+8.2.1.  Verifier
 
-5.2.2.  Identity Provider
+8.2.2.  Identity Provider
 
-5.2.3.  Credential Issuer
+8.2.3.  Credential Issuer
 
-5.3.  Reference Architecture
+8.3.  Reference Architecture
 
-5.3.1.  Using Remote Attestation to obtain an X.509 Certificate
+8.3.1.  Using Remote Attestation to obtain an X.509 Certificate
         Credential from a Certificate Authority
 
-5.3.2.  Using Remote Attestation to obtain a Credential from an HSM
+8.3.2.  Using Remote Attestation to obtain a Credential from an HSM
 
-5.3.3.  Workload Provenance
+8.3.3.  Workload Provenance
 
-6.  Security Considerations
-
-
-   // TODO
-
-7.  IANA Considerations
-
-7.1.  CBOR Tag Registrations
-
-8.  Acknowledgements
+9.  Security Considerations
 
 
    // TODO
 
-9.  References
+10.  IANA Considerations
 
-9.1.  Normative References
+10.1.  CBOR Tag Registrations
+
+11.  Acknowledgements
+
+
+   // TODO
+
+12.  References
+
+12.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -194,7 +301,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-9.2.  Informative References
+12.2.  Informative References
 
    [I-D.draft-ietf-wimse-arch]
               Salowey, J. A., Rosomakho, Y., and H. Tschofenig,
