@@ -53,8 +53,8 @@ To be filled
 
 {::boilerplate bcp14}
 
-This document uses terms and concepts defined by the WIMSE and RATS architecture. For a complete glossary,
-see {{Section 4 of -rats-arch}} & {{-WIMSE}}.
+This document uses terms and concepts defined by the WIMSE and RATS architectures, as well as to the terms defined by the Trustworthy Workload Identity Special Interest Gorup at the Confidential Computing Consortium. For a complete glossary,
+see {{Section 4 of -rats-arch}} & {{-WIMSE}}. TODO: utilize the link to the TWI SIG charter (https://github.com/confidential-computing/governance/blob/main/SIGs/TWI/TWI_Charter.md) or add its definitions here.
 
 
 # Glossary
@@ -68,16 +68,18 @@ This document uses the following terms:
 
 
 # TWI Use Cases
-Following are some of the use cases demanding Trustworthy Workload Identity.
+Like WIMSE, TWI seeks to associate identities with workloads. However, for an Identity to be Trustworthy, a few additional requirements must be met:
 
-1. A ML Model Owner (acting as Relying Party) wants to deploy its Workload with a unique identity in a privacy
-preserving manner. It needs to ensure that the deployed workload is operating in an environment with certain
-security guarantees, such as isolated from cloud hosting environment and can be periodically attested.
-
-2. A Workload operating as a deployed lambda running in an isolated environment.
+1. Isolate Workloads' data in use, including their Credentials, from the untrusted hosting environment.
+2. Guarantee that a Workload can only utilize Credentials issued to it and that its Credentials cannot leak and be used by unauthorized Workloads.
+3. Enable the Relying Parties and other interested parties, such as auditors, to make in-depth inquiries into the trustworthiness of the authenticating Workload.
 
 # Core Requirements
-The TWI Core Requirements can be located here. (TO DO Add link here from Mark)
+The TWI Core Requirements can be located here. (TODO incorporate this link: https://github.com/confidential-computing/twi/blob/main/TWI_Requirements.md)
+
+For Use Case 1, the Workload MUST run in an isolated, remotely attested Trusted Execution Environment. Therefore, the process of obtaining the Credentials MUST involve a Verifier service in addition to the Identity Provider service.
+For Use Case 2, the Workload Credentials MUST be strongly bound to the Workload instance to which they are issued and the secrets utilized for authentications to Relying Parties using these Credentials MUST be covered by data-in-use protections in a manner they are procured and utilized.
+For Use Case 3, the issued Workload Credentials MUST contain information from which the Provenance of the workload can be determined.
 
 # Alignment or Synergy with WIMSE Architecture
 WIMSE defines an architecture for managing workload identity in multi-system environments.
@@ -148,6 +150,10 @@ The following sub-sections describe the various roles that exist in the TWI ecos
 ### Credential Issuer
 
 ## Reference Architecture
+
+### Using Remote Attestation to obtain an X.509 Certificate Credential from a Certificate Authority
+
+### Using Remote Attestation to obtain a Credential from an HSM
 
 ### Workload Provenance
 
