@@ -72,7 +72,7 @@ Table of Contents
    5.  Core Requirements
    6.  Alignment or Synergy with WIMSE Architecture
    7.  Divergence from WIMSE
-     7.1.  Workload Confidentiality
+     7.1.  Workload Isolation
      7.2.  Workload Provenance
        7.2.1.  Obtaining Workload provenance
        7.2.2.  Integrating Workload Provenance with Credential
@@ -128,6 +128,14 @@ Table of Contents
 
    This document uses the following terms:
 
+   The definitions of terms like Workload Identity, Workload Credential
+   and Workload Provenance match those specified by the TWI SIG Charter:
+   https://github.com/confidential-
+   computing/governance/blob/main/SIGs/TWI/TWI_Charter.md
+
+   TODO: Update this section with actual contents from the TWI SIG
+   Charter if necessary.
+
 3.1.  Workload Identity
 
 3.2.  Workload Credential
@@ -158,13 +166,17 @@ Table of Contents
    For Use Case 1, the Workload MUST run in an isolated, remotely
    attested Trusted Execution Environment.  Therefore, the process of
    obtaining the Credentials MUST involve a Verifier service in addition
-   to the Identity Provider service.  For Use Case 2, the Workload
-   Credentials MUST be strongly bound to the Workload instance to which
-   they are issued and the secrets utilized for authentications to
-   Relying Parties using these Credentials MUST be covered by data-in-
-   use protections in a manner they are procured and utilized.  For Use
-   Case 3, the issued Workload Credentials MUST contain information from
-   which the Provenance of the workload can be determined.
+   to the Identity Provider service.
+
+   For Use Case 2, the Workload Credentials MUST be strongly bound to
+   the Workload instance to which they are issued and the secrets
+   utilized for authentications to Relying Parties using these
+   Credentials MUST be covered by data-in-use protections in a manner
+   they are procured and utilized.
+
+   For Use Case 3, the issued Workload Credentials MUST contain
+   information from which the Provenance of the workload can be
+   determined.
 
 6.  Alignment or Synergy with WIMSE Architecture
 
@@ -177,22 +189,22 @@ Table of Contents
    2.  WIMSE model has a CA/Credential issuer that is responsible with
        provisioning identity credentials to the workload.  TWI
        requirement is roughly similar in terms of issuing credential.
-       However the requirements and policies applied for issuing
-       credentials vary as described in the divergence section.
+       However the requirements and policies applied when issuing
+       credentials vary as described in the Divergence section below.
 
-   3.  WIMSE Architecture, defines Trust Domain, which is the authority
+   3.  WIMSE Architecture defines Trust Domain, which is the authority
        that identifies domain within which the identifier is scoped.
-       TWI Architecture, is aligned with this basic building block.
+       TWI Architecture is aligned with this basic building block.
 
 7.  Divergence from WIMSE
 
    Trustworthy Workload Identity as detailed in this document has
    following fundamental divergence from core WIMSE Architecture.
 
-7.1.  Workload Confidentiality
+7.1.  Workload Isolation
 
    The confidentiality and integrity of Workload is isolated from the
-   hosting environment and other workloads.
+   hosting environment and other Workloads.
 
 7.2.  Workload Provenance
 
@@ -210,10 +222,9 @@ Table of Contents
    3.  Details of Vendor/SaaS information.
 
    The policy for issuing Credentials may demand the information about
-   the Provenance of the Workload.  This requries work in two
-   fundamental areas (a) Obtaining the provenance information about the
-   workload AND (b) Conveying the provenance information inside the
-   Credential.
+   the Provenance of the Workload.  This requries work in two areas (a)
+   Obtaining the provenance information about the workload AND (b)
+   Conveying the provenance information inside the Credential.
 
 7.2.1.  Obtaining Workload provenance
 
@@ -229,7 +240,7 @@ Table of Contents
 7.2.2.  Integrating Workload Provenance with Credential Issuance
 
    The provenance information can be attached to the Workload
-   credentials using a well defined protocol.
+   credentials using a well-defined protocol.
 
 7.3.  Workload to Platform binding
 
@@ -237,7 +248,7 @@ Table of Contents
 
    Remote Attestation plays a fundamental role in attesting the Workload
    and ensuring that the Workload is running on a platform that provides
-   required trustwrothy guarantees.
+   required trustwrothiness guarantees.
 
 7.4.1.  Integrating Workload Attestation with Credential Issuance
 

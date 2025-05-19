@@ -1177,7 +1177,7 @@ This draft will address the core issue of managing a Trustworthy Workload Identi
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-divergence-from-wimse" class="internal xref">Divergence from WIMSE</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-workload-confidentiality" class="internal xref">Workload Confidentiality</a></p>
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-workload-isolation" class="internal xref">Workload Isolation</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
                 <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-workload-provenance" class="internal xref">Workload Provenance</a></p>
@@ -1302,6 +1302,8 @@ see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-glossary" class="section-name selfRef">Glossary</a>
       </h2>
 <p id="section-3-1">This document uses the following terms:<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">The definitions of terms like Workload Identity, Workload Credential and Workload Provenance match those specified by the TWI SIG Charter: https://github.com/confidential-computing/governance/blob/main/SIGs/TWI/TWI_Charter.md<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">TODO: Update this section with actual contents from the TWI SIG Charter if necessary.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <div id="workload-identity">
 <section id="section-3.1">
         <h3 id="name-workload-identity">
@@ -1343,9 +1345,9 @@ see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-core-requirements" class="section-name selfRef">Core Requirements</a>
       </h2>
 <p id="section-5-1">The TWI Core Requirements can be located here. (TODO incorporate this link: https://github.com/confidential-computing/twi/blob/main/TWI_Requirements.md)<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2">For Use Case 1, the Workload MUST run in an isolated, remotely attested Trusted Execution Environment. Therefore, the process of obtaining the Credentials MUST involve a Verifier service in addition to the Identity Provider service.
-For Use Case 2, the Workload Credentials MUST be strongly bound to the Workload instance to which they are issued and the secrets utilized for authentications to Relying Parties using these Credentials MUST be covered by data-in-use protections in a manner they are procured and utilized.
-For Use Case 3, the issued Workload Credentials MUST contain information from which the Provenance of the workload can be determined.<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-5-2">For Use Case 1, the Workload MUST run in an isolated, remotely attested Trusted Execution Environment. Therefore, the process of obtaining the Credentials MUST involve a Verifier service in addition to the Identity Provider service.<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-5-3">For Use Case 2, the Workload Credentials MUST be strongly bound to the Workload instance to which they are issued and the secrets utilized for authentications to Relying Parties using these Credentials MUST be covered by data-in-use protections in a manner they are procured and utilized.<a href="#section-5-3" class="pilcrow">¶</a></p>
+<p id="section-5-4">For Use Case 3, the issued Workload Credentials MUST contain information from which the Provenance of the workload can be determined.<a href="#section-5-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="alignment-or-synergy-with-wimse-architecture">
@@ -1360,11 +1362,10 @@ For Use Case 3, the issued Workload Credentials MUST contain information from wh
 </li>
         <li id="section-6-2.2">
           <p id="section-6-2.2.1">WIMSE model has a CA/Credential issuer that is responsible with provisioning identity credentials to the workload.
-TWI requirement is roughly similar in terms of issuing credential. However the requirements and policies applied for issuing credentials vary as described in the divergence section.<a href="#section-6-2.2.1" class="pilcrow">¶</a></p>
+TWI requirement is roughly similar in terms of issuing credential. However the requirements and policies applied when issuing credentials vary as described in the Divergence section below.<a href="#section-6-2.2.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-6-2.3">
-          <p id="section-6-2.3.1">WIMSE Architecture, defines Trust Domain, which is the authority that identifies domain within which the identifier is scoped.
-TWI Architecture, is aligned with this basic building block.<a href="#section-6-2.3.1" class="pilcrow">¶</a></p>
+          <p id="section-6-2.3.1">WIMSE Architecture defines Trust Domain, which is the authority that identifies domain within which the identifier is scoped. TWI Architecture is aligned with this basic building block.<a href="#section-6-2.3.1" class="pilcrow">¶</a></p>
 </li>
       </ol>
 </section>
@@ -1375,12 +1376,12 @@ TWI Architecture, is aligned with this basic building block.<a href="#section-6-
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-divergence-from-wimse" class="section-name selfRef">Divergence from WIMSE</a>
       </h2>
 <p id="section-7-1">Trustworthy Workload Identity as detailed in this document has following fundamental divergence from core WIMSE Architecture.<a href="#section-7-1" class="pilcrow">¶</a></p>
-<div id="workload-confidentiality">
+<div id="workload-isolation">
 <section id="section-7.1">
-        <h3 id="name-workload-confidentiality">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-workload-confidentiality" class="section-name selfRef">Workload Confidentiality</a>
+        <h3 id="name-workload-isolation">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-workload-isolation" class="section-name selfRef">Workload Isolation</a>
         </h3>
-<p id="section-7.1-1">The confidentiality and integrity of Workload is isolated from the hosting environment and other workloads.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-1">The confidentiality and integrity of Workload is isolated from the hosting environment and other Workloads.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="workload-provenance">
@@ -1401,7 +1402,7 @@ TWI Architecture, is aligned with this basic building block.<a href="#section-6-
             <p id="section-7.2-2.3.1">Details of Vendor/SaaS information.<a href="#section-7.2-2.3.1" class="pilcrow">¶</a></p>
 </li>
         </ol>
-<p id="section-7.2-3">The policy for issuing Credentials may demand the information about the Provenance of the Workload. This requries work in two fundamental areas (a) Obtaining the provenance information about the workload AND (b) Conveying the provenance information inside the Credential.<a href="#section-7.2-3" class="pilcrow">¶</a></p>
+<p id="section-7.2-3">The policy for issuing Credentials may demand the information about the Provenance of the Workload. This requries work in two areas (a) Obtaining the provenance information about the workload AND (b) Conveying the provenance information inside the Credential.<a href="#section-7.2-3" class="pilcrow">¶</a></p>
 <div id="obtaining-workload-provenance">
 <section id="section-7.2.1">
           <h4 id="name-obtaining-workload-provenan">
@@ -1416,7 +1417,7 @@ While it is a policy of the implementation as to how it obtains the provenance i
           <h4 id="name-integrating-workload-proven">
 <a href="#section-7.2.2" class="section-number selfRef">7.2.2. </a><a href="#name-integrating-workload-proven" class="section-name selfRef">Integrating Workload Provenance with Credential Issuance</a>
           </h4>
-<p id="section-7.2.2-1">The provenance information can be attached to the Workload credentials using a well defined protocol.<a href="#section-7.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.2.2-1">The provenance information can be attached to the Workload credentials using a well-defined protocol.<a href="#section-7.2.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1433,7 +1434,7 @@ While it is a policy of the implementation as to how it obtains the provenance i
         <h3 id="name-remote-attestation">
 <a href="#section-7.4" class="section-number selfRef">7.4. </a><a href="#name-remote-attestation" class="section-name selfRef">Remote Attestation</a>
         </h3>
-<p id="section-7.4-1">Remote Attestation plays a fundamental role in attesting the Workload and ensuring that the Workload is running on a platform that provides required trustwrothy guarantees.<a href="#section-7.4-1" class="pilcrow">¶</a></p>
+<p id="section-7.4-1">Remote Attestation plays a fundamental role in attesting the Workload and ensuring that the Workload is running on a platform that provides required trustwrothiness guarantees.<a href="#section-7.4-1" class="pilcrow">¶</a></p>
 <div id="integrating-workload-attestation-with-credential-issuance">
 <section id="section-7.4.1">
           <h4 id="name-integrating-workload-attest">
