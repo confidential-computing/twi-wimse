@@ -47,7 +47,7 @@ informative:
       org: Confidential Computing Consortium Trustworthy Workload Identity SIG
 
 --- abstract
-This Internet-Draft covers a gap analysis performed by the Confidential Computing Consortium on WIMSE identifying areas where the current WIMSE architecture should be extended to accommodate workloads running in confidential computing environments. It outlines high-level requirements for the these extensions and describes a series of use-cases. 
+This Internet-Draft covers a gap analysis performed by the Confidential Computing Consortium on WIMSE identifying areas where the current WIMSE architecture should be extended to accommodate workloads running in confidential computing environments. It outlines high-level requirements for the these extensions and describes a series of use cases. 
 
 --- middle
 
@@ -113,9 +113,9 @@ TODO: Revisit this section to see if we need it or if we can lean on the section
 
 Like WIMSE, TWI seeks to associate identities with workloads. However, for an Identity to be Trustworthy, a few additional requirements must be met:
 
-1. Isolate Workloads' data in use, including their Credentials, from the untrusted hosting environment.
+1. Isolate Workloads' data-in-use, including their Credentials, from the untrusted hosting environment.
 2. Guarantee that a Workload can only utilize Credentials issued to it and that its Credentials cannot leak and be used by unauthorized Workloads.
-3. Enable the Relying Parties and other interested parties, such as auditors, to make in-depth inquiries into the trustworthiness of the authenticating Workload.
+3. Enable the Relying Parties and other interested parties, such as auditors, to make in-depth inquiries into the trustworthiness of the Workload based on its Credentials.
 
 # Core Requirements
 The TWI Core Requirements can be located {{-TWISIGReq}}.
@@ -132,7 +132,7 @@ WIMSE defines an architecture for managing workload identity in multi-system env
 1. The WIMSE Architecture, explains the core concept of Workload Identity in-line with the concept of identity in a TWI world.
 
 2. WIMSE model has a CA/Credential issuer that is responsible with provisioning identity credentials to the workload.
-TWI requirement is roughly similar in terms of issuing credential. However the requirements and policies applied when issuing credentials vary as described in the Divergence section below.
+TWI requirement is roughly similar in terms of issuing credentials. However the requirements and policies applied when issuing credentials vary as described in the Divergence section below.
 
 3. WIMSE Architecture defines Trust Domain, which is the authority that identifies domain within which the identifier is scoped. TWI Architecture is aligned with this basic building block.
 
@@ -141,7 +141,7 @@ TWI requirement is roughly similar in terms of issuing credential. However the r
 Trustworthy Workload Identity as detailed in this document has following fundamental divergence from core WIMSE Architecture.
 
 ## Workload Isolation
-The confidentiality and integrity of Workload is isolated from the hosting environment and other Workloads.
+The confidentiality and integrity of a Workload is isolated from the hosting environment and other Workloads.
 
 ## Workload Provenance
 Workload Provenance is the metadata pertaining to workload, as below.
