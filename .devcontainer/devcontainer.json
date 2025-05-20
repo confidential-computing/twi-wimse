@@ -1,0 +1,72 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+	"name": "IETF I-D Toolchain",
+	// More info: https://containers.dev/guide/dockerfile
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"http_proxy": "${localEnv:http_proxy}",
+			"https_proxy": "${localEnv:https_proxy}",
+			"no_proxy": "${localEnv:no_proxy}"
+		}
+	},
+	
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {	
+		"ghcr.io/hspaans/devcontainer-features/pymarkdownlnt:1": {
+			"version": "latest"
+		}
+		// ,
+		// "ghcr.io/devcontainers-extra/features/markdownlint-cli2:1": {
+		// 	"version": "latest"
+		// }
+	},
+	
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [3000],
+	"portsAttributes": {
+		"3000": {
+			"label": "KDWatch",
+			"description": "Auto-updated HTML version of the documentation",
+			"onAutoForward": "openBrowserOnce"
+		}
+	},
+	
+	"containerEnv": {
+		"HTTP_PROXY": "${localEnv:HTTP_PROXY}",
+		"HTTPS_PROXY": "${localEnv:HTTP_PROXY}",
+		"http_proxy": "${localEnv:HTTP_PROXY}",
+		"https_proxy": "${localEnv:HTTP_PROXY}",
+		"no_proxy": "${localEnv:NO_PROXY}",
+		"NO_PROXY": "${localEnv:NO_PROXY}"
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "rm -rf ./lib; make", // remove previously downloaded libraries on devcontainer change (to force toolchain update) & I-D toolchain
+
+	"postStartCommand": "kdwatch -p 3000",
+	
+	// Configure tool-specific properties.
+	"customizations": {
+		"codespaces": {
+			"openFiles": [
+				"draft-twi-reference-architecture.md"
+			]
+		},
+		"vscode": {
+			"extensions": [
+				"davidanson.vscode-markdownlint",
+				"bierner.markdown-mermaid",
+				"mermaidchart.vscode-mermaid-chart",
+				"github.copilot",
+				"shd101wyy.markdown-preview-enhanced",
+				"shd101wyy.markdown-preview-enhanced-plus",
+				"francescoboffa.rfc-reader",
+				"ms-vscode.live-server"
+			],
+			"settings": {}
+		}
+	}
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
