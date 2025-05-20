@@ -39,15 +39,15 @@ informative:
     target: https://github.com/confidential-computing/governance/blob/main/SIGs/TWI/TWI_Charter.md
     title: Trustworthy Workload Identity (TWI) Special Interest Group — Charter
     author:
-      org: Confidential Compute Consortium Trustworthy Workload Identity SIG
+      org: Confidential Computing Consortium Trustworthy Workload Identity SIG
   TWISIGReq:
     target: https://github.com/confidential-computing/twi/blob/main/TWI_Requirements.md
     title: Trustworthy Workload Identity (TWI) Special Interest Group — Requirements
     author:
-      org: Confidential Compute Consortium Trustworthy Workload Identity SIG
+      org: Confidential Computing Consortium Trustworthy Workload Identity SIG
 
 --- abstract
-This Internet-Draft covers a gap analysis performed by the Confidential Compute Consortium on WIMSE identifying areas where the current WIMSE architecture should be extended to accommodate workloads running in confidential compute environments. It outlines high-level requirements for the these extensions and describes a series of use-cases. 
+This Internet-Draft covers a gap analysis performed by the Confidential Computing Consortium on WIMSE identifying areas where the current WIMSE architecture should be extended to accommodate workloads running in confidential computing environments. It outlines high-level requirements for the these extensions and describes a series of use-cases. 
 
 --- middle
 
@@ -60,7 +60,7 @@ Current ways of issuing and managing workload identities, as well as those requi
 3. Inability to associate a credential with a set of decisions leading up to its issuance
 _Note that these requirements are related: lack of process isolation eases credential exfiltration and leads to credential leakage and reuse._
 
-In the immediate term, effective Confidential Computing faces a significant challenge: the scale of uplift and immature tooling are both clear barriers. Longer term, however, Confidential Computing provides a vital improvement due to its unique features and broad availability. The TWI SIG will specify Confidential Computing-assisted mechanisms that fit inside the emerging Workload Identity solution ecosystem. The SIG will ensure the evolution of this ecosystem is in alignment with the expectations of the owners and operators of Confidential Computing workloads. These efforts will build on the concept of _Trustworthy Workload Identity_ defined below. Data-in-use protection of workloads that have such identities will be a critical downstream effect.
+In the immediate term, effective Confidential Computing faces a significant challenge: the scale of uplift and immature tooling are both clear barriers. Longer term, however, Confidential Computing provides a vital improvement due to its unique features and broad availability. Confidential Computing-assisted mechanisms have to fit inside the emerging Workload Identity solution ecosystem. The evolution of this ecosystem should remain in alignment with the expectations of the owners and operators of Confidential Computing workloads. These efforts will build on the concept of _Trustworthy Workload Identity_ defined below. Data-in-use protection of workloads that have such identities will be a critical downstream effect.
 
 While it is quite clear that for the foreseeable future this need is not going to be met by Confidential Computing alone, the security features related to workload identification and isolation offered by Confidential Computing eclipse other approaches. Confidential Computing will not be first to market, and thus will need to evolve to fit within, and ideally serve as the North Star of workload identity as it becomes a foundational pillar of trustworthy and governable enterprise computing.
 
@@ -72,16 +72,16 @@ While it is quite clear that for the foreseeable future this need is not going t
 This document uses terms and concepts defined by the WIMSE and RATS architectures, as well as to the terms defined by the Trustworthy Workload Identity Special Interest Gorup at the Confidential Computing Consortium. For a complete glossary,
 see {{Section 4 of -rats-arch}} , {{-WIMSE}} & {{-TWISIGCharter}}. 
 
-The definitions of terms like Workload Identity, Workload Credential and Workload Provenance match those specified by the TWI SIG Charter .
+The definitions of terms like Workload Identity, Workload Credential and Workload Provenance match those specified by the TWI SIG Charter.
 
-**Workload** as used in this document restricts the definition of the same term by WIMSE – “a running instance of software executing for a specific purpose” – to just that part of the code and configuration of the (WIMSE-defined) workload that is subject to Remote Attestation.
+**Workload** as used in this document restricts the definition of the same term by WIMSE – “a running instance of software executing for a specific purpose” – to just that part of the code and configuration of the (WIMSE-defined) Workload that is subject to Remote Attestation.
 **Workload Identifier** is a stable construct around which Relying Parties can form long-lived Workload authorization policies.
 **Workload Identity** is defined exactly as it is by WIMSE {{-WIMSE}} – a combination of three basic building blocks: trust domain, Workload Identifier and identity credentials.
-**Workload Credential** is an ephemeral identity document containing the Workload Identifier and a number of additional claims, that can be short- or long-lived and which is used to represent and prove Workload Identity to a relying party (WIMSE calls this "identity credentials").
+**Workload Credential** is an ephemeral identity document containing the Workload Identifier and a number of additional claims, that can be short- or long-lived and which is used to represent and prove Workload Identity to a relying party.
 **Workload Provenance** is a linkage between a Workload Credential and a trusted entity (e.g., a vendor, developer, or issuer) responsible for the creation and/or attestation of the corresponding Workload.
 
 # Gap Analysis
-An analysis was performed by the Confidential Compute Consortium of the existing WIMSE architecture to identify extensions necessary to meet the level of trustworthiness required by confidential compute environments.
+An analysis was performed by the Confidential Computing Consortium of the existing WIMSE architecture to identify extensions necessary to meet the level of trustworthiness required by confidential computing environments.
 
 - Protection of Credentials at Runtime, Key Management in Dynamic Environments and Insufficient Runtime Attestation:
   - Risk that credentials in memory could be exposed if a workload’s execution environment is compromised.
@@ -92,7 +92,7 @@ An analysis was performed by the Confidential Compute Consortium of the existing
 - Token Replay and Misuse in Cross-domain Scenarios:
 Even with proper token binding, the risk of replay attacks or the use of compromised tokens across trust boundaries remains, especially if an attacker manages to intercept tokens during service-to-service exchanges.
 
-# Integration of Confidential Compute into WIMSE
+# Integration of Confidential Computing into WIMSE
 **Secure Key Storage & Cryptographic Operations:**
 With TEE’s, a workload’s private keys and sensitive cryptographic operations (such as signing or validating tokens) can be isolated from the host OS. Reducing the risk of key leakage even if the surrounding system is compromised. (For instance, the WIMSE token—be it a JWT or an X.509 certificate—can be generated and signed within a TEE, ensuring that the proof-of-possession mechanism remains intact.)
 
