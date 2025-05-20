@@ -97,14 +97,16 @@ TWI requirement is roughly similar in terms of issuing credential. However the r
 
 3. WIMSE Architecture defines Trust Domain, which is the authority that identifies domain within which the identifier is scoped. TWI Architecture is aligned with this basic building block.
 
-# Divergence from WIMSE
+# Extensions to WIMSE Architecture
 
-Trustworthy Workload Identity as detailed in this document has following fundamental divergence from core WIMSE Architecture.
+Trustworthy Workload Identity as detailed in this document proposes the following extensions and changes to the core WIMSE Architecture.
 
 ## Workload Isolation
 The confidentiality and integrity of Workload is isolated from the hosting environment and other Workloads.
 
-## Workload Provenance
+## Provenance
+
+### Workload Provenance
 Workload Provenance is the metadata pertaining to workload, as below.
 1. Workload Composition, i.e. a detailed list of components that comprise a workload. This could be expressed as Software Bill of Materials expressed in terms of industry standards, like SPDX or CycloneDX.
 
@@ -116,12 +118,28 @@ Workload Provenance is the metadata pertaining to workload, as below.
 
 The policy for issuing Credentials may demand the information about the Provenance of the Workload. This requries work in two areas (a) Obtaining the provenance information about the workload AND (b) Conveying the provenance information inside the Credential.
 
-### Obtaining Workload provenance
+#### Obtaining Workload provenance
 The Workload Provenance can be made available in a transparent manner, which can be audited and verifiable by independent parties.
 While it is a policy of the implementation as to how it obtains the provenance information, the trustworthiness aspect associated to provenance information can be verified during the runtime trustworthiness assessment of a workload, through the means of Remote Attestation, at the time of workload acquiring the credentials from credential issuer.
 
-### Integrating Workload Provenance with Credential Issuance
+#### Integrating Workload Provenance with Credential Issuance
 The provenance information can be attached to the Workload credentials using a well-defined protocol.
+
+### Credential Provenance
+Credential Provenance is the metadata pertaining to the credential issuance itself, binding the:
+
+- Workload (including [Workload Provenance](#workload-provenance)),
+
+- Verifier (as defined in {{Section 4.1 of -rats-arch}}), including the criteria it applied to the attestation evidence.
+
+- [Credential Issuer](#credential-issuer) (including its issuance policies effective at the time),
+
+
+While the Workload Identity remains unchanged for as long as the Workload properties remain stable, a unique Credential Provenance MUST be generated each time a Workload Credential is issued.
+
+
+Creation of a Credential Provenance record SHOULD additionally be recorded in a transparency log (if in use by the solution), to provide discoverability, immutability and non-repudiation by the issuer.
+The transparency log record MAY be encrypted to prevent disclosure of Personally Identifiable Information (PII) or buisness-critical data.
 
 ## Workload to Platform binding
 
