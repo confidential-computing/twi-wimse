@@ -1,5 +1,5 @@
 ---
-title: Trusted Workload Identity Reference Architecture
+title: Trustworthy Workload Identity Reference Architecture
 abbrev: TWI Reference Architecture
 docname: draft-twi-reference-architecture-latest
 category: info
@@ -36,18 +36,20 @@ informative:
   RFC9334: rats-arch
   I-D.draft-ietf-wimse-arch: WIMSE
   TWISIGCharter:
+    -: TWISIGCharter
     target: https://github.com/confidential-computing/governance/blob/main/SIGs/TWI/TWI_Charter.md
     title: Trustworthy Workload Identity (TWI) Special Interest Group — Charter
     author:
       org: Confidential Computing Consortium Trustworthy Workload Identity SIG
   TWISIGReq:
+    -: TWISIGReq
     target: https://github.com/confidential-computing/twi/blob/main/TWI_Requirements.md
     title: Trustworthy Workload Identity (TWI) Special Interest Group — Requirements
     author:
       org: Confidential Computing Consortium Trustworthy Workload Identity SIG
 
 --- abstract
-This Internet-Draft covers a gap analysis performed by the Confidential Computing Consortium on WIMSE identifying areas where the current WIMSE architecture should be extended to accommodate workloads running in confidential computing environments. It outlines high-level requirements for the these extensions and describes a series of use cases. 
+This Internet-Draft covers a gap analysis performed by the Confidential Computing Consortium on WIMSE identifying areas where the current WIMSE architecture should be extended to accommodate workloads running in confidential computing environments. It outlines high-level requirements for the these extensions and describes a series of use cases.
 
 --- middle
 
@@ -70,15 +72,19 @@ While it is quite clear that for the foreseeable future this need is not going t
 {::boilerplate bcp14}
 
 This document uses terms and concepts defined by the WIMSE and RATS architectures, as well as to the terms defined by the Trustworthy Workload Identity Special Interest Gorup at the Confidential Computing Consortium. For a complete glossary,
-see {{Section 4 of -rats-arch}} , {{-WIMSE}} & {{-TWISIGCharter}}. 
+see {{Section 4 of -rats-arch}} , {{-WIMSE}} & {{-TWISIGCharter}}.
 
 The definitions of terms like Workload Identity, Workload Credential and Workload Provenance match those specified by the TWI SIG Charter.
 
-**Workload** as used in this document restricts the definition of the same term by WIMSE – “a running instance of software executing for a specific purpose” – to just that part of the code and configuration of the (WIMSE-defined) Workload that is subject to Remote Attestation.
-**Workload Identifier** is a stable construct around which Relying Parties can form long-lived Workload authorization policies.
-**Workload Identity** is defined exactly as it is by WIMSE {{-WIMSE}} – a combination of three basic building blocks: trust domain, Workload Identifier and identity credentials.
-**Workload Credential** is an ephemeral identity document containing the Workload Identifier and a number of additional claims, that can be short- or long-lived and which is used to represent and prove Workload Identity to a relying party.
-**Workload Provenance** is a linkage between a Workload Credential and a trusted entity (e.g., a vendor, developer, or issuer) responsible for the creation and/or attestation of the corresponding Workload.
+**(((Workload)))** as used in this document restricts the definition of the same term by WIMSE – “a running instance of software executing for a specific purpose” – to just that part of the code and configuration of the (WIMSE-defined) Workload that is subject to Remote Attestation.
+
+**(((Workload Identifier)))** is a stable construct around which Relying Parties can form long-lived Workload authorization policies.
+
+**(((Workload Identity)))** is defined exactly as it is by WIMSE {{-WIMSE}} – a combination of three basic building blocks: trust domain, Workload Identifier and identity credentials.
+
+**(((Workload Credential)))** is an ephemeral identity document containing the Workload Identifier and a number of additional claims, that can be short- or long-lived and which is used to represent and prove Workload Identity to a relying party.
+
+**(((Workload Provenance)))** is a linkage between a Workload Credential and a trusted entity (e.g., a vendor, developer, or issuer) responsible for the creation and/or attestation of the corresponding Workload.
 
 # Gap Analysis
 An analysis was performed by the Confidential Computing Consortium of the existing WIMSE architecture to identify extensions necessary to meet the level of trustworthiness required by confidential computing environments.
@@ -97,10 +103,10 @@ Even with proper token binding, the risk of replay attacks or the use of comprom
 With TEE’s, a workload’s private keys and sensitive cryptographic operations (such as signing or validating tokens) can be isolated from the host OS. Reducing the risk of key leakage even if the surrounding system is compromised. (For instance, the WIMSE token—be it a JWT or an X.509 certificate—can be generated and signed within a TEE, ensuring that the proof-of-possession mechanism remains intact.)
 
 **Enhanced Bootstrapping with Attestation:**
-Strengthening the initial bootstrapping process. A TEE can provide hardware-based attestation that a workload is running in a secure, isolated environment. This attestation could be used as an additional factor during credential provisioning, ensuring that only workloads running in a TEE receive valid credentials. (might be a bit of a stretch/ too much - it basically would be an extension of the bootstrapping projects described in https://datatracker.ietf.org/doc/html/draft-ietf-wimse-arch-03). 
+Strengthening the initial bootstrapping process. A TEE can provide hardware-based attestation that a workload is running in a secure, isolated environment. This attestation could be used as an additional factor during credential provisioning, ensuring that only workloads running in a TEE receive valid credentials. (might be a bit of a stretch/ too much - it basically would be an extension of the bootstrapping projects described in https://datatracker.ietf.org/doc/html/draft-ietf-wimse-arch-03).
 
 **Protected Credential Exchange:**
-For the credential exchange patterns defined in the WIMSE Credential Exchange draft, confidential computing can provide a secure enclave in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping. 
+For the credential exchange patterns defined in the WIMSE Credential Exchange draft, confidential computing can provide a secure enclave in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping.
 
 **Mitigating Runtime Compromise:**
 Incorporating confidential computing within the workload’s execution environment can lower the risk that runtime attacks (such as memory scraping or side-channel attacks) can expose critical identity or authentication tokens. For example, the confidential computing environment can be used to securely generate and verify proofs of possession that are important within the WIMSE authentication protocol.
@@ -171,7 +177,7 @@ Credential Provenance is the metadata pertaining to the credential issuance itse
 
 - Verifier (as defined in {{Section 4.1 of -rats-arch}}), including the criteria it applied to the attestation evidence.
 
-- [Credential Issuer](#credential-issuer) (including its issuance policies effective at the time),
+- (((Credential Issuer))) (including its issuance policies effective at the time),
 
 
 While the Workload Identity remains unchanged for as long as the Workload properties remain stable, a unique Credential Provenance MUST be generated each time a Workload Credential is issued.
@@ -197,7 +203,7 @@ The Credential Issuer would process the Attestation Results and apply its own Ap
 
 # IANA Considerations
 
-It is foreseen that additional CBOR OIDS will be needed for new evidence types. As these new evidence types emerge in later documents IANA will need to issue OIDS to standardize the new evidence definitions across attestation systems. 
+It is foreseen that additional CBOR OIDS will be needed for new evidence types. As these new evidence types emerge in later documents IANA will need to issue OIDS to standardize the new evidence definitions across attestation systems.
 
 # Acknowledgements
 

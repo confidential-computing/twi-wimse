@@ -1,8 +1,8 @@
 <!-- regenerate: on (set to off if you edit this file) -->
 
-# Trusted Workload Identity Reference Architecture
+# Trustworthy Workload Identity Reference Architecture
 
-This is the working area for the individual Internet-Draft, "Trusted Workload Identity Reference Architecture".
+This is the working area for the individual Internet-Draft, "Trustworthy Workload Identity Reference Architecture".
 
 * [Editor's Copy](https://confidential-computing.github.io/twi-wimse/#go.draft-twi-reference-architecture.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-twi-reference-architecture)
