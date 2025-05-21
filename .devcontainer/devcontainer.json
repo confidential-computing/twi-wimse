@@ -44,7 +44,8 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "rm -rf ./lib; make", // remove previously downloaded libraries on devcontainer change (to force toolchain update) & I-D toolchain
 
-	"postStartCommand": "kdwatch -p 3000",
+	"postStartCommand": "nohup bash -c 'kdwatch -p 3000 &' >./kdwatch.out~ 2>&1", // start kdwatch in the background
+	"postAttachCommand": "echo -e '\\n\\n=========\\n= \\e[34mNOTICE\\e[37m: - kdwatch with I-D preview started on port 3000, open http://localhost:3000 in your browser (or navigate Ports tab in VSCode)\\n=         - mermaid-ascii is available in the shell for quick conversion between mermaid and ASCII diagrams\\e[0m\\n=========\\n'",
 	
 	// Configure tool-specific properties.
 	"customizations": {
