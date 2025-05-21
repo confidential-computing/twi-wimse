@@ -1,5 +1,5 @@
 ---
-title: Trusted Workload Identity Reference Architecture
+title: Trustworthy Workload Identity Reference Architecture
 abbrev: TWI Reference Architecture
 docname: draft-twi-reference-architecture-latest
 category: info
