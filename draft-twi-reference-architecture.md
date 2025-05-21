@@ -36,11 +36,13 @@ informative:
   RFC9334: rats-arch
   I-D.draft-ietf-wimse-arch: WIMSE
   TWISIGCharter:
+    -: TWISIGCharter
     target: https://github.com/confidential-computing/governance/blob/main/SIGs/TWI/TWI_Charter.md
     title: Trustworthy Workload Identity (TWI) Special Interest Group — Charter
     author:
       org: Confidential Computing Consortium Trustworthy Workload Identity SIG
   TWISIGReq:
+    -: TWISIGReq
     target: https://github.com/confidential-computing/twi/blob/main/TWI_Requirements.md
     title: Trustworthy Workload Identity (TWI) Special Interest Group — Requirements
     author:
@@ -74,11 +76,15 @@ see {{Section 4 of -rats-arch}} , {{-WIMSE}} & {{-TWISIGCharter}}.
 
 The definitions of terms like Workload Identity, Workload Credential and Workload Provenance match those specified by the TWI SIG Charter.
 
-**Workload** as used in this document restricts the definition of the same term by WIMSE – “a running instance of software executing for a specific purpose” – to just that part of the code and configuration of the (WIMSE-defined) Workload that is subject to Remote Attestation.
-**Workload Identifier** is a stable construct around which Relying Parties can form long-lived Workload authorization policies.
-**Workload Identity** is defined exactly as it is by WIMSE {{-WIMSE}} – a combination of three basic building blocks: trust domain, Workload Identifier and identity credentials.
-**Workload Credential** is an ephemeral identity document containing the Workload Identifier and a number of additional claims, that can be short- or long-lived and which is used to represent and prove Workload Identity to a relying party.
-**Workload Provenance** is a linkage between a Workload Credential and a trusted entity (e.g., a vendor, developer, or issuer) responsible for the creation and/or attestation of the corresponding Workload.
+**(((Workload)))** as used in this document restricts the definition of the same term by WIMSE – “a running instance of software executing for a specific purpose” – to just that part of the code and configuration of the (WIMSE-defined) Workload that is subject to Remote Attestation.
+
+**(((Workload Identifier)))** is a stable construct around which Relying Parties can form long-lived Workload authorization policies.
+
+**(((Workload Identity)))** is defined exactly as it is by WIMSE {{-WIMSE}} – a combination of three basic building blocks: trust domain, Workload Identifier and identity credentials.
+
+**(((Workload Credential)))** is an ephemeral identity document containing the Workload Identifier and a number of additional claims, that can be short- or long-lived and which is used to represent and prove Workload Identity to a relying party.
+
+**(((Workload Provenance)))** is a linkage between a Workload Credential and a trusted entity (e.g., a vendor, developer, or issuer) responsible for the creation and/or attestation of the corresponding Workload.
 
 # Gap Analysis
 An analysis was performed by the Confidential Computing Consortium of the existing WIMSE architecture to identify extensions necessary to meet the level of trustworthiness required by confidential computing environments.
@@ -171,7 +177,7 @@ Credential Provenance is the metadata pertaining to the credential issuance itse
 
 - Verifier (as defined in {{Section 4.1 of -rats-arch}}), including the criteria it applied to the attestation evidence.
 
-- [Credential Issuer](#credential-issuer) (including its issuance policies effective at the time),
+- (((Credential Issuer))) (including its issuance policies effective at the time),
 
 
 While the Workload Identity remains unchanged for as long as the Workload properties remain stable, a unique Credential Provenance MUST be generated each time a Workload Credential is issued.
