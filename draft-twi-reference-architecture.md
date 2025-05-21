@@ -47,7 +47,7 @@ informative:
       org: Confidential Computing Consortium Trustworthy Workload Identity SIG
 
 --- abstract
-This Internet-Draft covers a gap analysis performed by the Confidential Computing Consortium on WIMSE identifying areas where the current WIMSE architecture should be extended to accommodate workloads running in confidential computing environments. It outlines high-level requirements for the these extensions and describes a series of use cases. 
+This Internet-Draft covers a gap analysis performed by the Confidential Computing Consortium on WIMSE identifying areas where the current WIMSE architecture should be extended to accommodate workloads running in confidential computing environments. It outlines high-level requirements for the these extensions and describes a series of use cases.
 
 --- middle
 
@@ -70,7 +70,7 @@ While it is quite clear that for the foreseeable future this need is not going t
 {::boilerplate bcp14}
 
 This document uses terms and concepts defined by the WIMSE and RATS architectures, as well as to the terms defined by the Trustworthy Workload Identity Special Interest Gorup at the Confidential Computing Consortium. For a complete glossary,
-see {{Section 4 of -rats-arch}} , {{-WIMSE}} & {{-TWISIGCharter}}. 
+see {{Section 4 of -rats-arch}} , {{-WIMSE}} & {{TWISIGCharter}}.
 
 The definitions of terms like Workload Identity, Workload Credential and Workload Provenance match those specified by the TWI SIG Charter.
 
@@ -97,10 +97,10 @@ Even with proper token binding, the risk of replay attacks or the use of comprom
 With TEE’s, a workload’s private keys and sensitive cryptographic operations (such as signing or validating tokens) can be isolated from the host OS. Reducing the risk of key leakage even if the surrounding system is compromised. (For instance, the WIMSE token—be it a JWT or an X.509 certificate—can be generated and signed within a TEE, ensuring that the proof-of-possession mechanism remains intact.)
 
 **Enhanced Bootstrapping with Attestation:**
-Strengthening the initial bootstrapping process. A TEE can provide hardware-based attestation that a workload is running in a secure, isolated environment. This attestation could be used as an additional factor during credential provisioning, ensuring that only workloads running in a TEE receive valid credentials. (might be a bit of a stretch/ too much - it basically would be an extension of the bootstrapping projects described in https://datatracker.ietf.org/doc/html/draft-ietf-wimse-arch-03). 
+Strengthening the initial bootstrapping process. A TEE can provide hardware-based attestation that a workload is running in a secure, isolated environment. This attestation could be used as an additional factor during credential provisioning, ensuring that only workloads running in a TEE receive valid credentials. (might be a bit of a stretch/ too much - it basically would be an extension of the bootstrapping projects described in https://datatracker.ietf.org/doc/html/draft-ietf-wimse-arch-03).
 
 **Protected Credential Exchange:**
-For the credential exchange patterns defined in the WIMSE Credential Exchange draft, confidential computing can provide a secure enclave in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping. 
+For the credential exchange patterns defined in the WIMSE Credential Exchange draft, confidential computing can provide a secure enclave in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping.
 
 **Mitigating Runtime Compromise:**
 Incorporating confidential computing within the workload’s execution environment can lower the risk that runtime attacks (such as memory scraping or side-channel attacks) can expose critical identity or authentication tokens. For example, the confidential computing environment can be used to securely generate and verify proofs of possession that are important within the WIMSE authentication protocol.
@@ -118,7 +118,7 @@ Like WIMSE, TWI seeks to associate identities with workloads. However, for an Id
 3. Enable the Relying Parties and other interested parties, such as auditors, to make in-depth inquiries into the trustworthiness of the Workload based on its Credentials.
 
 # Core Requirements
-The TWI Core Requirements can be located {{-TWISIGReq}}.
+The TWI Core Requirements can be located {{TWISIGReq}}.
 
 For Use Case 1, the Workload MUST run in an isolated, remotely attested Trusted Execution Environment. Therefore, the process of obtaining the Credentials MUST involve a Verifier service in addition to the Identity Provider service.
 
@@ -171,7 +171,7 @@ Credential Provenance is the metadata pertaining to the credential issuance itse
 
 - Verifier (as defined in {{Section 4.1 of -rats-arch}}), including the criteria it applied to the attestation evidence.
 
-- [Credential Issuer](#credential-issuer) (including its issuance policies effective at the time),
+- [Credential Issuer] (including its issuance policies effective at the time),
 
 
 While the Workload Identity remains unchanged for as long as the Workload properties remain stable, a unique Credential Provenance MUST be generated each time a Workload Credential is issued.
@@ -197,7 +197,7 @@ The Credential Issuer would process the Attestation Results and apply its own Ap
 
 # IANA Considerations
 
-It is foreseen that additional CBOR OIDS will be needed for new evidence types. As these new evidence types emerge in later documents IANA will need to issue OIDS to standardize the new evidence definitions across attestation systems. 
+It is foreseen that additional CBOR OIDS will be needed for new evidence types. As these new evidence types emerge in later documents IANA will need to issue OIDS to standardize the new evidence definitions across attestation systems.
 
 # Acknowledgements
 
