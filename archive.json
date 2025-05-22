@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-20T01:45:27.352680+00:00",
+  "timestamp": "2025-05-22T01:44:08.030106+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -262,6 +262,356 @@
       "mergeCommit": {
         "oid": "4f70077f3041ca9fc8bedca9e1626115b304fc09"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOOebIkc6W3iZU",
+      "title": "Updates and restructuring of document",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/4",
+      "state": "MERGED",
+      "author": "dpquigl",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This commit introduces the following changes:\r\n\r\n\t1. Addition of TWI charter and requirements document in the informative reference section\r\n\t2. Rewrite of the abstract\r\n\t3. Addition of introductary text from TWI SIG Charter\r\n\t4. Removal of the glossary section merging it with Conventions and Definitions\r\n\t5. Inlining of various definitions from the TWISIG Charter\r\n\t6. Updating references to the various TWI SIG documents as actual references instead of URLs\r\n\t7. Introduced gap analysis section using content from the TWI SIG WIMSE Gap analysis document\r\n\t8. Introduced a confidential compute integration section using contents from the TWI SIG WIMSE gap analysis document.\r\n\t9. Removed reference architecture section as that should be a separate document. This document is to outline existing issues and what the requirements are that need to be met that are not currently being met.",
+      "createdAt": "2025-05-20T10:44:43Z",
+      "updatedAt": "2025-05-20T23:09:07Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "5692980a675833e370738e40ddb71dd9863e1422",
+      "headRepository": "dpquigl/twi-wimse",
+      "headRefName": "dpquigl/ID-Reorg",
+      "headRefOid": "a503f7e3e5da4bcb0ad9a8f126bca33245db85c6",
+      "closedAt": "2025-05-20T23:09:07Z",
+      "mergedAt": "2025-05-20T23:09:07Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "0328c06bf02fe4b6a33497fabe4771f8e0bedac2"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOOebIkc6W4IRe",
+      "title": "[chore] Hyperlinks update after repo rename to `twi-wimse`",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/5",
+      "state": "MERGED",
+      "author": "mbronk-intc",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Housekeeping: Updates to README and LICENSE files to reflect the new GH repository name (`twi`->`twi-wimse`)",
+      "createdAt": "2025-05-20T11:48:55Z",
+      "updatedAt": "2025-05-20T12:19:36Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "5692980a675833e370738e40ddb71dd9863e1422",
+      "headRepository": "mbronk-intc/twi-wimse",
+      "headRefName": "mbronk/repo_path_fixes",
+      "headRefOid": "f575b66fb2dfbabc82d70347ad4e88476ec9f4c5",
+      "closedAt": "2025-05-20T12:07:47Z",
+      "mergedAt": "2025-05-20T12:07:47Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "af2f03e921996e46077d0ce9b692e1428aa85a41"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOOebIkc6W4WWH",
+      "title": "Added a devcontainer for quick local preview of HTML I-D",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/6",
+      "state": "MERGED",
+      "author": "mbronk-intc",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "## Adds support of [Dev Containers](https://containers.dev/) for easier local authoring. \r\n#### Purely OPTIONAL\u2755\r\n\r\nWhen opened up in a compatible IDE _(i.e. VSCode, w/ [`Dev Containers` extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers))_ or [GH Codespace](https://github.com/codespaces/new?repo=confidential-computing/twi-wimse&ref=main), will open up a dev container pre-set up with the Internet Draft toolchain.\r\nNote 1st launch may take a considerable while!\r\n\r\n## Features supported\r\n* All of the [goodness](https://github.com/martinthomson/i-d-template/blob/main/doc/FEATURES.md) brought by [martinthomson's I-D-Template](https://github.com/martinthomson/i-d-template) should \ud83e\udd1e  be available via `make` CLI commands\r\n* By default, a [`kdwatch`](https://github.com/cabo/kdwatch)-based live renderer launches on startup and displays live preview of the document at [`http://localhost:3000`](http://127.0.0.1:3000/). \r\n    * Further information [here](https://authors.ietf.org/drafting-in-markdown)",
+      "createdAt": "2025-05-20T12:12:24Z",
+      "updatedAt": "2025-05-20T23:10:15Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "af2f03e921996e46077d0ce9b692e1428aa85a41",
+      "headRepository": "mbronk-intc/twi-wimse",
+      "headRefName": "mbronk/add_devcontainers",
+      "headRefOid": "133502b8a0e22bd6e2a575573854a7257b40a634",
+      "closedAt": "2025-05-20T23:10:15Z",
+      "mergedAt": "2025-05-20T23:10:15Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "63dcc597d39f490b9cb1a9ca8bc4d404036194fd"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOOebIkc6W4x5T",
+      "title": "Added a section on Credential Provenance (aside Workload Provenance)",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/7",
+      "state": "MERGED",
+      "author": "mbronk-intc",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added a separate section on `Credential Provenance` to distinguish:\r\n- the provenance of the workload (bound to its lifecycle, and its own properties - possibly externally-sourced)\r\n- the provenance of the credential itself (bound to lifespan of the credential, likely internally-sourced)\r\n\r\nHinging on the assumption of: `workload identity` and `workload credential` being `1:N` mapped.\r\n\r\n### likely needs more discussion!",
+      "createdAt": "2025-05-20T12:56:03Z",
+      "updatedAt": "2025-05-20T23:11:29Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "af2f03e921996e46077d0ce9b692e1428aa85a41",
+      "headRepository": "mbronk-intc/twi-wimse",
+      "headRefName": "mbronk/provenance_split",
+      "headRefOid": "289f54378238f8d1c38dd54373b2535548c49428",
+      "closedAt": "2025-05-20T23:11:29Z",
+      "mergedAt": "2025-05-20T23:11:29Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "83492c3feb7782d1b155f3aedfffd62f1b88008f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6qHd2E",
+          "commit": {
+            "abbreviatedOid": "289f543"
+          },
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-20T13:00:19Z",
+          "updatedAt": "2025-05-20T13:00:19Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "### Wordsmithing: this is a separate suggestion, proposing a little more consensual tone. \r\nWhile there **are** divergences and trust model incompatibilities indeed, I believe our end-goal is to extend, not to diverge... hence I'd propose to use a little softer wording to keep readers engaged (and let them uncover the incompatibilities **themselves**, vs. **us** claiming `X is divergent`).",
+              "createdAt": "2025-05-20T13:00:19Z",
+              "updatedAt": "2025-05-20T13:00:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6qHvRL",
+          "commit": {
+            "abbreviatedOid": "289f543"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-20T13:16:19Z",
+          "updatedAt": "2025-05-20T13:16:19Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Our goal right now is to highlight Divergence, for now to gain traction in WIMSE.",
+              "createdAt": "2025-05-20T13:16:19Z",
+              "updatedAt": "2025-05-20T13:16:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6qIYD2",
+          "commit": {
+            "abbreviatedOid": "289f543"
+          },
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-20T14:00:07Z",
+          "updatedAt": "2025-05-20T14:00:07Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Gotcha! This was just to stimulate a conversation on which phraseology is more likely to give us the most bang for the buck. :) \r\nI trust your judgement with the IETF community though, so if you say it is A-OK to enumerate divergencies, I'll happily revert this change as it is indeed more crisp as-is.",
+              "createdAt": "2025-05-20T14:00:07Z",
+              "updatedAt": "2025-05-20T14:00:07Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOOebIkc6XCF7w",
+      "title": "[chore] Minor tweaks to the DevContainer for easier authoring",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/8",
+      "state": "OPEN",
+      "author": "mbronk-intc",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes container startup (`kdwatch` now launched in background) and adds `mermaid-ascii` CLI for easier conversion between Mermaid and ASCII diagrams",
+      "createdAt": "2025-05-21T10:07:01Z",
+      "updatedAt": "2025-05-21T11:04:44Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "849e7cd2bd91804eafa765a88197861364fb8e52",
+      "headRepository": "mbronk-intc/twi-wimse",
+      "headRefName": "mbronk/add_devcontainers",
+      "headRefOid": "8c072792d2b91fcafb7c18b88a2bfa7bc0739cba",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOOebIkc6XCLU-",
+      "title": "[Chore] SIG name correction Trusted->Trustworthy",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/9",
+      "state": "MERGED",
+      "author": "mbronk-intc",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Updating SIG's name to **Trustworthy** Workload Identity _(was: ~Trusted ...~)_ to match the official name in [the charter](https://github.com/confidential-computing/governance/blob/main/SIGs/TWI/TWI_Charter.md).",
+      "createdAt": "2025-05-21T10:15:26Z",
+      "updatedAt": "2025-05-21T11:00:34Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "83492c3feb7782d1b155f3aedfffd62f1b88008f",
+      "headRepository": "mbronk-intc/twi-wimse",
+      "headRefName": "mbronk/editorials",
+      "headRefOid": "3b88b2115183d797a090abcd1c4f8f4116246fcd",
+      "closedAt": "2025-05-21T11:00:34Z",
+      "mergedAt": "2025-05-21T11:00:34Z",
+      "mergedBy": "yogeshbdeshpande",
+      "mergeCommit": {
+        "oid": "849e7cd2bd91804eafa765a88197861364fb8e52"
+      },
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@mbronk-intc Please run the command `make fix-lint` on your terminal and resubmit the changes to fix the lint errors",
+          "createdAt": "2025-05-21T10:20:30Z",
+          "updatedAt": "2025-05-21T10:20:30Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6qTJOt",
+          "commit": {
+            "abbreviatedOid": "1fb9d2d"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM!",
+          "createdAt": "2025-05-21T10:19:31Z",
+          "updatedAt": "2025-05-21T10:19:31Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOebIkc6qTJsN",
+          "commit": {
+            "abbreviatedOid": "1fb9d2d"
+          },
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-21T10:20:10Z",
+          "updatedAt": "2025-05-21T10:20:10Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "This draft is becoming more of a WIMSE-facing **requirements** document _(or a use-case/problem/gap definition)_. \r\nDoes it make sense to rename to reflect that?  \r\n\r\n_Disclaimer: I don't have a firm opinion either way_",
+              "createdAt": "2025-05-21T10:20:10Z",
+              "updatedAt": "2025-05-21T10:20:10Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDOOebIkc6XCgOS",
+      "title": "Fix Errors in the draft",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/10",
+      "state": "CLOSED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-21T10:51:53Z",
+      "updatedAt": "2025-05-21T11:03:03Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "83492c3feb7782d1b155f3aedfffd62f1b88008f",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "fix-compile",
+      "headRefOid": "5e07049f2fe281f88ca804434300f8f46d410e2a",
+      "closedAt": "2025-05-21T11:00:43Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@mbronk-intc : Please review, the main is broken due to mistakes done earlier while merging, which is now fixed.",
+          "createdAt": "2025-05-21T10:52:48Z",
+          "updatedAt": "2025-05-21T10:52:48Z"
+        },
+        {
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "body": "LGTM. \r\nFYI, seems we were doing the same thing in parallel (see 3b88b2115183d797a090abcd1c4f8f4116246fcd).\r\nNote I took a little different route w/ the references (added explicit aliases \"to self\") - yours is probably better though. Note I've added index to the glossary terms (unsure if it is a good practice, though).  Happy to merge yours first and then update mine 2nd.\r\n",
+          "createdAt": "2025-05-21T11:01:14Z",
+          "updatedAt": "2025-05-21T11:01:14Z"
+        },
+        {
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Nvmd, you bet me to it! :)",
+          "createdAt": "2025-05-21T11:01:23Z",
+          "updatedAt": "2025-05-21T11:01:23Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I merged yours, it is fine!. We need to setup a process of not merging anything until it compiles. I will set a protocol for this !",
+          "createdAt": "2025-05-21T11:03:01Z",
+          "updatedAt": "2025-05-21T11:03:01Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 11,
+      "id": "PR_kwDOOebIkc6XEQYV",
+      "title": "Editorial: fixed glossary rendering to HTML",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/11",
+      "state": "OPEN",
+      "author": "mbronk-intc",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-21T13:49:55Z",
+      "updatedAt": "2025-05-21T13:49:56Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "849e7cd2bd91804eafa765a88197861364fb8e52",
+      "headRepository": "mbronk-intc/twi-wimse",
+      "headRefName": "mbronk/editorials",
+      "headRefOid": "bd03a92bbc7f8abb4d8c9f0b2da0759421be3c71",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
