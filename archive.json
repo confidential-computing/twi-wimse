@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-22T01:44:08.030106+00:00",
+  "timestamp": "2025-05-25T01:52:15.620199+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -443,26 +443,42 @@
       "id": "PR_kwDOOebIkc6XCF7w",
       "title": "[chore] Minor tweaks to the DevContainer for easier authoring",
       "url": "https://github.com/confidential-computing/twi-wimse/pull/8",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mbronk-intc",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Fixes container startup (`kdwatch` now launched in background) and adds `mermaid-ascii` CLI for easier conversion between Mermaid and ASCII diagrams",
       "createdAt": "2025-05-21T10:07:01Z",
-      "updatedAt": "2025-05-21T11:04:44Z",
+      "updatedAt": "2025-05-23T11:00:08Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "849e7cd2bd91804eafa765a88197861364fb8e52",
       "headRepository": "mbronk-intc/twi-wimse",
       "headRefName": "mbronk/add_devcontainers",
       "headRefOid": "8c072792d2b91fcafb7c18b88a2bfa7bc0739cba",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-05-23T11:00:08Z",
+      "mergedAt": "2025-05-23T11:00:08Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "cc7b7c5033ef2c9e6930fdbdc26410fc85594b5b"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6qtbpU",
+          "commit": {
+            "abbreviatedOid": "8c07279"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-23T11:00:01Z",
+          "updatedAt": "2025-05-23T11:00:01Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 9,
@@ -594,26 +610,42 @@
       "id": "PR_kwDOOebIkc6XEQYV",
       "title": "Editorial: fixed glossary rendering to HTML",
       "url": "https://github.com/confidential-computing/twi-wimse/pull/11",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mbronk-intc",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-05-21T13:49:55Z",
-      "updatedAt": "2025-05-21T13:49:56Z",
+      "updatedAt": "2025-05-23T10:59:17Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "849e7cd2bd91804eafa765a88197861364fb8e52",
       "headRepository": "mbronk-intc/twi-wimse",
       "headRefName": "mbronk/editorials",
       "headRefOid": "bd03a92bbc7f8abb4d8c9f0b2da0759421be3c71",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-05-23T10:59:17Z",
+      "mergedAt": "2025-05-23T10:59:17Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "c92901b2356fa9ab059523367f19bde390400e96"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6qtbJ0",
+          "commit": {
+            "abbreviatedOid": "bd03a92"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-23T10:59:09Z",
+          "updatedAt": "2025-05-23T10:59:09Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
