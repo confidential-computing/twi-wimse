@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-27T01:43:32.752173+00:00",
+  "timestamp": "2025-05-29T01:45:07.427840+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -63,6 +63,22 @@
       "body": "Attached please find proposals for models representing Workload (w) and Machine (m) Identity Assurance Levels modeled after NIST SP 800-63B Person Identity Assurance Levels. These models have direct applicability to Verifier Governance Requirements and may be used to grade a verifier's processes and procedures in an assurance context. \n\n[Workload Identity Assurance-Proofing for CCC-PR-25-00411-4.docx](https://github.com/user-attachments/files/19967201/Workload.Identity.Assurance-Proofing.for.CCC-PR-25-00411-4.docx)\n[Machine Identity Assurance-Proofing for CCC-PR_25-00411-3.docx](https://github.com/user-attachments/files/19967200/Machine.Identity.Assurance-Proofing.for.CCC-PR_25-00411-3.docx)",
       "createdAt": "2025-04-29T20:44:04Z",
       "updatedAt": "2025-04-29T20:44:04Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 13,
+      "id": "I_kwDOOebIkc64cDpR",
+      "title": "Use Cases in the IETF ID seem more like requirements",
+      "url": "https://github.com/confidential-computing/twi-wimse/issues/13",
+      "state": "OPEN",
+      "author": "ajfeldma-google",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The three items in the [Use Cases](https://github.com/confidential-computing/twi-wimse/blob/main/draft-twi-reference-architecture.md#twi-use-cases) section of the IETF ID seem more like requirements than use cases. They also overlap somewhat with the bullets listed in the Introduction, Gap Analysis, and Core Requirements sections.\n\nIMO, Use Cases should look more like examples or scenarios illustrating how the proposed standard could be put into practice \u2014 something that would be good to include and could be valuable in making the proposal more concrete.",
+      "createdAt": "2025-05-27T15:32:14Z",
+      "updatedAt": "2025-05-27T15:32:14Z",
       "closedAt": null,
       "comments": []
     }
@@ -659,7 +675,7 @@
       "labels": [],
       "body": "Multiple changes throughout",
       "createdAt": "2025-05-26T16:18:47Z",
-      "updatedAt": "2025-05-26T16:18:47Z",
+      "updatedAt": "2025-05-27T11:07:56Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "cc7b7c5033ef2c9e6930fdbdc26410fc85594b5b",
@@ -671,7 +687,256 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6rE2fj",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-27T08:31:01Z",
+          "updatedAt": "2025-05-27T08:31:02Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Capitalizing terms that are not introduced yet in the abstract is not a huge problem, but is typically started after the terminology section. I am not objecting. At this point the \"issue is basically \"immaterial\".",
+              "createdAt": "2025-05-27T08:31:01Z",
+              "updatedAt": "2025-05-27T08:31:02Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rE3iU",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-27T08:32:25Z",
+          "updatedAt": "2025-05-27T08:32:25Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "scale of uplift and immature tooling might require a representative reference at this early point of the document",
+              "createdAt": "2025-05-27T08:32:25Z",
+              "updatedAt": "2025-05-27T08:32:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rE5I-",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-27T08:34:33Z",
+          "updatedAt": "2025-05-27T08:34:33Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "Using the named word \"identities\" is often avoided (because it attracts trouble sometimes. I assume that referencing wimse reduces that issue, also including our scoped definition in the TWI I-D helps.",
+              "createdAt": "2025-05-27T08:34:33Z",
+              "updatedAt": "2025-05-27T08:34:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rE5qO",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-27T08:35:14Z",
+          "updatedAt": "2025-05-27T08:35:15Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "use of \"this\". Repetition of the problem statement is fine.",
+              "createdAt": "2025-05-27T08:35:15Z",
+              "updatedAt": "2025-05-27T08:35:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rE7MY",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-27T08:37:19Z",
+          "updatedAt": "2025-05-27T08:37:19Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "Maybe avoid \"will\" in the phrasing. Maybe \"require dedicated alignment to fit within\"",
+              "createdAt": "2025-05-27T08:37:19Z",
+              "updatedAt": "2025-05-27T08:37:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rE-Iv",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-27T08:41:04Z",
+          "updatedAt": "2025-05-27T08:41:05Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "```suggestion\r\nThis Section presents a gap analysis between TWIs and the current WIMSE architecture (link). The gap analysis is an currently an ongoing activity as part of the collaboration of the Confidential Computing Consortium and the WIMSE WG to identify and definde extensions required to address trustworthiness levels as defined by the Confidential Computing environments.\r\n```",
+              "createdAt": "2025-05-27T08:41:05Z",
+              "updatedAt": "2025-05-27T08:41:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rFAEr",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-27T08:43:09Z",
+          "updatedAt": "2025-05-27T08:43:10Z",
+          "comments": [
+            {
+              "originalPosition": 134,
+              "body": "Maybe consider:\r\n1. Generation, which includes Collection\r\n2. Conveyance\r\n3. Appraisal, which fuels Utilization",
+              "createdAt": "2025-05-27T08:43:10Z",
+              "updatedAt": "2025-05-27T08:43:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rFBTJ",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-27T08:44:38Z",
+          "updatedAt": "2025-05-27T08:44:38Z",
+          "comments": [
+            {
+              "originalPosition": 84,
+              "body": "```suggestion\r\nFor the Credential exchange patterns defined in the WIMSE Credential Exchange draft, Confidential Computing can provide a secure TEE in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping.\r\n```",
+              "createdAt": "2025-05-27T08:44:38Z",
+              "updatedAt": "2025-05-27T08:44:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rFBwu",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-27T08:45:14Z",
+          "updatedAt": "2025-05-27T08:45:14Z",
+          "comments": [
+            {
+              "originalPosition": 97,
+              "body": "```suggestion\r\nFor Use Case 1, the Workload MUST run in an isolated, remotely attested TEE. Therefore, the process of obtaining the Credentials MUST involve a Verifier service in addition to the Identity Provider service.\r\n```",
+              "createdAt": "2025-05-27T08:45:14Z",
+              "updatedAt": "2025-05-27T08:45:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rGJzl",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-27T10:23:13Z",
+          "updatedAt": "2025-05-27T11:07:56Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "Are the `trustworthiness levels as defined by the Confidential Computing environments` defined somewhere already or do we need to coin them here (love the idea, BTW).\r\nThis may be a good reference point: https://slsa.dev/spec/draft/attested-build-env-levels\r\n",
+              "createdAt": "2025-05-27T10:23:13Z",
+              "updatedAt": "2025-05-27T11:07:56Z"
+            },
+            {
+              "originalPosition": 32,
+              "body": "Nitpicking: This section is introduced as \"extensions to WIMSE\", which the heading (`Protection of Credentials at runtime, key management in dynamic environments`) matches as well.\r\nThe sub-bullets read more like a gap/problem statement, though. IMHO it would flow better if either:\r\n  1. The section was about \"**gaps**\", and the heading renamed to something like\r\n      > \"**Lack of** strong protection of Credentials at runtime, **problematic** key management in dynamic environments\"\r\n    \r\n     -or-\r\n\r\n  2. Keep this as `extensions to WIMSE` but then have sub-bullets pre-introduced with a **qualifier**. I.e. \r\n```markdown\r\n- Protection of Credentials at runtime, key management in dynamic environments:\r\n    **Problem statement:**\r\n      - Risk that credentials in memory could be exposed if a workload\u2019s execution environment is compromised.\r\n      - The current solutions rely on traditional key management practices which may not withstand common runtime attacks.\r\n      - Runtime can still be compromised, even if keys are securely managed, a compromised runtime can still leak.\r\n        Similarly, a secure runtime is less effective if key management is weak. \r\n\r\n  **Proposed extension:**\r\n     - Have the credentials protected at runtime and isolated from workload's runtime environment (by using a Trusted Execution Environment).\r\n     - Integrate both robust key lifecycle management and continuous runtime attestation for better security.\r\n```\r\n",
+              "createdAt": "2025-05-27T10:38:39Z",
+              "updatedAt": "2025-05-27T11:07:56Z"
+            },
+            {
+              "originalPosition": 38,
+              "body": "```suggestion\r\n  - Confidential Computing seeks to isolate Workload instances from both the hosting environments and peer Workloads.\r\n    WIMSE Architecture is built on a foundational assumption that the hosting environment is fully trusted, whereas - under Confidential Computing - remote attestation is used to ascertain the identity of the Workload, irrespective of the hosting environment.\r\n    Further, some Confidential Computing scenarios seek to combine claims about the Workload instance with claims, such as physical location, of the hosting environment, and different (yet collaborating) attestation mechanisms must be employed to achieve that.\r\n```\r\n\r\n1. We likely need a citation for ` foundational assumption that the hosting environment is fully trusted`\r\n2. Let's stick to **1-sentence per line** for an easier review",
+              "createdAt": "2025-05-27T10:42:59Z",
+              "updatedAt": "2025-05-27T11:07:56Z"
+            },
+            {
+              "originalPosition": 39,
+              "body": "> Confidential Computing employs a Verifier service to perform remote attestation,\r\n\r\nPerhaps better to refer to a RATS Verifier here? I.e. not sure if we need to call it a 'service' - keeping it as a role is more flexible.",
+              "createdAt": "2025-05-27T10:44:51Z",
+              "updatedAt": "2025-05-27T11:07:56Z"
+            },
+            {
+              "originalPosition": 43,
+              "body": "A little open-ended... Perhaps add a sentence on what is CC proposing in this area (i.e. no Bearer tokens, workload generating its own keys) ",
+              "createdAt": "2025-05-27T10:48:14Z",
+              "updatedAt": "2025-05-27T11:07:56Z"
+            },
+            {
+              "originalPosition": 70,
+              "body": "To crisp it up (and distinguish from just any binding), we may consider coining a term `strong binding` (or similar) and use here:\r\n```suggestion\r\n2. Any credential representing a Workload Identity is strongly bound to that Workload instance\r\n```\r\n+a add a term definition in the terminology sect.",
+              "createdAt": "2025-05-27T10:52:37Z",
+              "updatedAt": "2025-05-27T11:07:56Z"
+            },
+            {
+              "originalPosition": 71,
+              "body": "Consider a 4th\r\n```\r\n4. A Workload Credential issuance can be audited (optionally, by an external entity) for the entirety of its lifecycle (including a retroactive analysis).\r\n```",
+              "createdAt": "2025-05-27T10:56:15Z",
+              "updatedAt": "2025-05-27T11:07:56Z"
+            },
+            {
+              "originalPosition": 76,
+              "body": "The `HSM` piece is a little fuzzy, esp. as I'm not aware of any HSM offering capable of runtime attestation of a TEE/enclave (which would be required for it to issue any kind of key).\r\n\r\nOn the other hand, if the attestation was to be unidirectional only (TWI attests 'its' crypto provider before asking for key), then:\r\n  - If the HSM is 'just' a stateless key **generator**, it feels like we can just wrap it under \"TEE generates the key <somehow> umbrella\", w/o over defining.\r\n  - If the HSM has state (and this is a key **sharing** concept), we have introduced new attack surface (non-CC, it suffices to break the HSM auth token).",
+              "createdAt": "2025-05-27T11:04:41Z",
+              "updatedAt": "2025-05-27T11:07:56Z"
+            },
+            {
+              "originalPosition": 134,
+              "body": "+1\r\nI'd also suggest decoupling 'workload creation' from 'credential creation'",
+              "createdAt": "2025-05-27T11:07:15Z",
+              "updatedAt": "2025-05-27T11:07:56Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
