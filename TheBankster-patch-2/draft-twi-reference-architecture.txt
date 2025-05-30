@@ -5,8 +5,8 @@
 WIMSE                                                           M. Novak
 Internet-Draft                                         J.P. Morgan Chase
 Intended status: Informational                              Y. Deshpande
-Expires: 27 November 2025                                            arm
-                                                             26 May 2025
+Expires: 1 December 2025                                             arm
+                                                             30 May 2025
 
 
           Trustworthy Workload Identity Reference Architecture
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 November 2025.
+   This Internet-Draft will expire on 1 December 2025.
 
 Copyright Notice
 
@@ -119,19 +119,14 @@ Table of Contents
 
    The Confidential Computing Consortium defines Confidential Computing
    as "protection of data in use by performing computation in a
-   hardware-based, attested Trusted Execution Environment (TEE)".  In
-   the immediate term, effective Confidential Computing faces a
-   significant challenge: the scale of uplift and immature tooling are
-   both clear barriers.  Longer term, however, Confidential Computing
-   provides a vital improvement due to its unique features and broad
-   availability.  Confidential Computing-assisted mechanisms have to fit
-   inside the emerging Workload Identity solution ecosystem.  The
-   evolution of this ecosystem should remain in alignment with the
-   expectations of the owners and operators of Confidential Computing
-   Workloads.  These efforts will build on the concept of _Trustworthy
-   Workload Identity_ defined further below.  Data-in-use protection of
-   Workloads that have such Identities will be a critical downstream
-   effect.
+   hardware-based, attested Trusted Execution Environment (TEE)".
+   Confidential Computing can address the existing shortcomings in a way
+   that is compatible with the emerging Workload Identity solution
+   ecosystem and can evolve in alignment with the expectations of the
+   owners and operators of Confidential Computing Workloads.  These
+   efforts will build on the concept of _Trustworthy Workload Identity_
+   defined further below.  Data-in-use protection of Workloads that have
+   such Identities will be a critical downstream effect.
 
    While it is quite clear that for the foreseeable future this need is
    not going to be met by Confidential Computing alone, the security
