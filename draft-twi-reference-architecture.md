@@ -144,7 +144,7 @@ Like WIMSE, TWI seeks to associate identities with workloads. However, for an Id
 # Core Requirements
 The TWI Core Requirements can be located {{-TWISIGReq}}.
 
-For Use Case 1, the Workload MUST run in an isolated, remotely attested Trusted Execution Environment. Therefore, the process of obtaining the Credentials MUST involve a Verifier service in addition to the Identity Provider service.
+For Use Case 1, the Workload MUST run in an isolated, remotely attested TEE. Therefore, the process of obtaining the Credentials MUST involve a Verifier service in addition to the Identity Provider service.
 
 For Use Case 2, the Workload Credentials MUST be strongly bound to the Workload instance to which they are issued and the secrets utilized for authentications to Relying Parties using these Credentials MUST be covered by data-in-use protections in the manner they are procured and utilized.
 
