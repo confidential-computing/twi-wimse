@@ -126,7 +126,7 @@ With TEE’s, a Workload’s private keys and sensitive cryptographic operations
 Strengthening the initial bootstrapping process. A TEE can provide hardware-based attestation that a workload is running in a secure, isolated environment. This attestation could be used as an additional factor during Credential provisioning, ensuring that only Workloads running in a TEE receive valid Credentials. (TODO: revisit: might be a bit of a stretch/ too much - it basically would be an extension of the bootstrapping projects described in https://datatracker.ietf.org/doc/html/draft-ietf-wimse-arch-03).
 
 **Protected Credential Exchange:**
-For the Credential exchange patterns defined in the WIMSE Credential Exchange draft, Confidential Computing can provide a secure Trusted Execution Environment in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping.
+For the Credential exchange patterns defined in the WIMSE Credential Exchange draft, Confidential Computing can provide a secure TEE in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping.
 
 **Mitigating Runtime Compromise:**
 Incorporating confidential computing within the workload’s execution environment can lower the risk that runtime attacks (such as memory scraping or side-channel attacks) can expose critical identity or authentication tokens. For example, the confidential computing environment can be used to securely generate and verify proofs of possession that are important within the WIMSE authentication protocol.
