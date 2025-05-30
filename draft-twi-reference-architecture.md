@@ -55,19 +55,21 @@ This Internet-Draft covers a gap analysis performed by the Confidential Computin
 
 # Introduction
 Until recently, there were few scenarios demanding data-in-use protections. This is starting to change. Regulatory bodies worldwide are increasingly requiring data-in-use protection and privacy-enhancing technologies. Outside of regulatory requirements, companies are exploring multiparty computation, machine learning training & inferencing, addressing the actual and perceived risks of computing in the public clouds, insider threats, and other reasons for protecting data-in-use. Correspondingly, there is an increased push to harmonize management and governance of human and non-human identities. Enterprises interested in strong assurances around the security of their deployed Workloads, for regulatory, contractual and peace of mind reasons, will soon face large and challenging tasks of upgrading their existing IT systems to meet these requirements.
+
 Current ways of issuing and managing workload identities, as well as those required for effective protection of data-in-use, suffer from several architectural shortcomings; chief among them:
 
 1. Lack of Workload isolation against the hardware and the operating system owners/administrators, as well as peer Workload instances
 2. Lack of strong binding between a Workload Credential and the Workload instance to which that Credential had been issued
 3. Inability to associate a Credential with a set of decisions leading up to its issuance
+
 _Note that these requirements are related: lack of process isolation eases credential exfiltration and leads to credential leakage and reuse._
 
 The Confidential Computing Consortium defines Confidential Computing as "protection of data in use by performing computation in a hardware-based, attested Trusted Execution Environment (TEE)". Confidential Computing can address the existing shortcomings in a way that is compatible with the emerging Workload Identity solution ecosystem and can evolve in alignment with the expectations of the owners and operators of Confidential Computing Workloads. These efforts will build on the concept of _Trustworthy Workload Identity_ defined further below. Data-in-use protection of Workloads that have such Identities will be a critical downstream effect.
 
-While it is quite clear that for the foreseeable future this need is not going to be met by Confidential Computing alone, the security features related to Workload identification and isolation offered by Confidential Computing eclipse other approaches. Confidential Computing-strengthened Workload Identity will need to be designed to fit within, and ideally serve as the North Star of Workload Identity as it becomes a foundational pillar of trustworthy and governable enterprise computing.
+While it is quite clear that for the foreseeable future this need is not going to be met by Confidential Computing alone, the security features related to Workload identification and isolation offered by Confidential Computing eclipse other approaches. Confidential Computing-strengthened Workload Identity must be designed to fit within, and ideally serve as the North Star of Workload Identity as it becomes a foundational pillar of trustworthy and governable enterprise computing.
 
 # Gap Analysis
-An analysis was performed by the Confidential Computing Consortium of the existing WIMSE Architecture to identify extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.
+This section presents a gap analysis between TWIs and the current WIMSE Architecture (link). The gap analysis seeks to identify extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.
 
 - Protection of Credentials at runtime, key management in dynamic environments:
   - Risk that credentials in memory could be exposed if a workload’s execution environment is compromised.
