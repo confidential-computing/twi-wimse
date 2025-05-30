@@ -143,12 +143,12 @@ Table of Contents
 2.  Gap Analysis
 
    This section presents a gap analysis between TWIs and the current
-   WIMSE Architecture (link).  The gap analysis seeks to identify
-   extensions necessary to meet the level of trustworthiness required by
-   Confidential Computing environments.
+   WIMSE Architecture (TODO: add link).  The gap analysis seeks to
+   identify extensions necessary to meet the level of trustworthiness
+   required by Confidential Computing environments.
 
-   *  Protection of Credentials at runtime, key management in dynamic
-      environments:
+   *  Lack of protection of Credentials at runtime, problematic key
+      management in dynamic environments:
 
       -  Risk that credentials in memory could be exposed if a
          workload’s execution environment is compromised.
@@ -162,10 +162,11 @@ Table of Contents
          Integrating both robust key lifecycle management and continuous
          runtime attestation provides better security.
 
-   *  Insufficient runtime attestation
+   *  Inadequate runtime attestation:
 
       -  Confidential Computing seeks to isolate Workload instances from
-         both the hosting environments and peer Workloads.
+         both the hosting environments as well as peer Workload
+         instances.
 
       -  WIMSE Architecture is built on a foundational assumption that
          the hosting environment is fully trusted, whereas - under
@@ -175,7 +176,7 @@ Table of Contents
 
       -  Further, some Confidential Computing scenarios seek to combine
          claims about the Workload instance with claims, such as
-         physical location, of the hosting environment, and different
+         physical location, about the hosting environment, and different
          (yet collaborating) attestation mechanisms must be employed to
          achieve that.
 

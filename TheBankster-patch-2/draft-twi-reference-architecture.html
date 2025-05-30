@@ -1253,10 +1253,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-gap-analysis">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-gap-analysis" class="section-name selfRef">Gap Analysis</a>
       </h2>
-<p id="section-2-1">This section presents a gap analysis between TWIs and the current WIMSE Architecture (link). The gap analysis seeks to identify extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-1">This section presents a gap analysis between TWIs and the current WIMSE Architecture (TODO: add link). The gap analysis seeks to identify extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-2-2.1">
-          <p id="section-2-2.1.1">Protection of Credentials at runtime, key management in dynamic environments:<a href="#section-2-2.1.1" class="pilcrow">¶</a></p>
+          <p id="section-2-2.1.1">Lack of protection of Credentials at runtime, problematic key management in dynamic environments:<a href="#section-2-2.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-2-2.1.2.1">
               <p id="section-2-2.1.2.1.1">Risk that credentials in memory could be exposed if a workload’s execution environment is compromised.<a href="#section-2-2.1.2.1.1" class="pilcrow">¶</a></p>
@@ -1270,16 +1270,16 @@ svg :is([fill="white"], [fill^="#fff"]) {
           </ul>
 </li>
         <li class="normal" id="section-2-2.2">
-          <p id="section-2-2.2.1">Insufficient runtime attestation<a href="#section-2-2.2.1" class="pilcrow">¶</a></p>
+          <p id="section-2-2.2.1">Inadequate runtime attestation:<a href="#section-2-2.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-2-2.2.2.1">
-              <p id="section-2-2.2.2.1.1">Confidential Computing seeks to isolate Workload instances from both the hosting environments and peer Workloads.<a href="#section-2-2.2.2.1.1" class="pilcrow">¶</a></p>
+              <p id="section-2-2.2.2.1.1">Confidential Computing seeks to isolate Workload instances from both the hosting environments as well as peer Workload instances.<a href="#section-2-2.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-2-2.2.2.2">
               <p id="section-2-2.2.2.2.1">WIMSE Architecture is built on a foundational assumption that the hosting environment is fully trusted, whereas - under Confidential Computing - Remote Attestation is used to ascertain the identity of the Workload, irrespective of the hosting environment.<a href="#section-2-2.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-2-2.2.2.3">
-              <p id="section-2-2.2.2.3.1">Further, some Confidential Computing scenarios seek to combine claims about the Workload instance with claims, such as physical location, of the hosting environment, and different (yet collaborating) attestation mechanisms must be employed to achieve that.<a href="#section-2-2.2.2.3.1" class="pilcrow">¶</a></p>
+              <p id="section-2-2.2.2.3.1">Further, some Confidential Computing scenarios seek to combine claims about the Workload instance with claims, such as physical location, about the hosting environment, and different (yet collaborating) attestation mechanisms must be employed to achieve that.<a href="#section-2-2.2.2.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-2-2.2.2.4">
               <p id="section-2-2.2.2.4.1">Confidential Computing employs a Verifier to perform Remote Attestation, which is different from an identity provider that is tasked with Credential issuance. The identity provider must take Attestation Results returned by the Verifier into account when computing Workload Identifiers and issuing Workload Credentials.<a href="#section-2-2.2.2.4.1" class="pilcrow">¶</a></p>
