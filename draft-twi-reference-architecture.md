@@ -81,15 +81,15 @@ This section presents a gap analysis between TWIs and the current WIMSE Architec
    - Confidential Computing seeks to isolate Workload instances from both the hosting environments and peer Workloads.
    - WIMSE Architecture is built on a foundational assumption that the hosting environment is fully trusted, whereas - under Confidential Computing - Remote Attestation is used to ascertain the identity of the Workload, irrespective of the hosting environment.
    - Further, some Confidential Computing scenarios seek to combine claims about the Workload instance with claims, such as physical location, of the hosting environment, and different (yet collaborating) attestation mechanisms must be employed to achieve that.
-  - Confidential Computing employs a Verifier service to perform remote attestation, which is different from an identity provider that is tasked with Credential issuance. The identity provider must take Attestation Results returned by the Verifier into account when computing Workload Identifiers and issuing Workload Credentials.
+   - Confidential Computing employs a Verifier to perform Remote Attestation, which is different from an identity provider that is tasked with Credential issuance. The identity provider must take Attestation Results returned by the Verifier into account when computing Workload Identifiers and issuing Workload Credentials.
 
 
 - Token Replay and Misuse in Cross-domain Scenarios:
-Even with proper token binding, the risk of replay attacks or the use of compromised tokens across trust boundaries remains, especially if an attacker manages to intercept tokens during service-to-service exchanges.
+   - Without strong token binding, the risk of replay attacks or the use of compromised tokens across trust boundaries remains, especially if an attacker manages to intercept tokens during service-to-service exchanges.
 
 
 - Lack of ability to ascertain Provenance of a Workload from its Credential:
-Ability of a relying party or an auditor to inspect a credential to gauge its trustworthiness is an important feature for differentiated authorization of high-value, high-risk transactions and regulated environments.
+   - Ability of a Relying Party or an auditor to inspect a Credential to gauge its trustworthiness is an important feature for differentiated authorization of high-value, high-risk transactions and for regulated environments.
 
 
 # Conventions and Definitions
@@ -141,7 +141,7 @@ Like WIMSE, TWI seeks to associate identities with workloads. However, for an Id
 
 1. Isolate Workloads' data-in-use, including their Credentials, from the untrusted hosting environment.
 2. Guarantee that a Workload can only utilize Credentials issued to it and that its Credentials cannot leak and be used by unauthorized Workloads.
-3. Enable the Relying Parties and other interested parties, such as auditors, to make in-depth inquiries into the trustworthiness of the Workload based on its Credentials.
+3. Enable the Relying Parties and other interested parties, such as auditors, to make in-depth run-time and retroactive inquiries into the trustworthiness of the Workload based on its Credentials.
 
 # Core Requirements
 The TWI Core Requirements can be located {{-TWISIGReq}}.
@@ -173,6 +173,7 @@ The confidentiality and integrity of a Workload is isolated from the hosting env
 
 ### Workload Provenance
 Workload Provenance is the metadata pertaining to the Workload. Provenance MAY contain information about a variety of aspects of inputs and decisions that went into the creation of a Workload, as below.
+
 1. Workload Composition, i.e. a detailed list of components that comprise a Workload. This could be expressed as a Software Bill of Materials expressed in terms of industry standards, like SPDX or CycloneDX <TODO: add references?>.
 
 2. Details about the Continous Integration (CI) or Continous Delivery (CD) of Workload.
@@ -182,9 +183,11 @@ Workload Provenance is the metadata pertaining to the Workload. Provenance MAY c
 4. Details of Vendor/SaaS information.
 
 The policy for assessing or auditing Credentials MAY demand the information about the Provenance of the Workload. This requries work in three areas:
-   1. Collection: the process of compiling Provenance information about the Workload during the processes that lead up to the creation of a Credential
-   2. Conveyance: the mechanism by which Provenance is carried inside the Workload Credential and
-   3. Utilization: Provenance information inside the Credential to make the required decisions. The Workload Credential need not carry the entire Provenance of the Workload, but MAY instead contain a unique Provenance Identifier that an interested party may later use to look up the full Provenance. The mechanism of translating the Provenance Identifier into the full Provenance is TBD.
+   1. Generation: the process of compiling Provenance information about the Workload collected during the processes that lead up to the issuance of a Credential
+   2. Conveyance: the mechanism by which Provenance is carried inside the Workload Credential
+   3. Utilization: The usage of Provenance information inside the Credential to make the required decisions or conduct auditing.
+
+The Workload Credential need not carry the entire Provenance of the Workload, but MAY instead contain a unique Provenance Identifier that an interested party may later use to look up the full Provenance. The mechanism of translating the Provenance Identifier into the full Provenance is TBD.
 
 #### Obtaining Workload Provenance
 The Workload Provenance can be made available in a transparent manner, which can be audited and verifiable by independent parties.
