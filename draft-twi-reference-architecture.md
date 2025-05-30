@@ -113,7 +113,7 @@ The definitions of terms like Workload Identity, Workload Credential and Workloa
 In the light of the definitions just given, a Workload Identity is said to be Trustworthy iff the following three properties hold true:
 
 1. The Workload is confidentiality- and integrity-isolated from its hosting environment as well as peer workloads throughout the lifetime of the Workload instance
-2. Any credential representing a Workload Identity is bound to that Workload instance
+2. Any credential representing a Workload Identity is strongly bound to that Workload instance
 3. A Workload Credential can be traced back to the Workload’s Provenance and the credential issuer
 
 # Integration of Confidential Computing into WIMSE
