@@ -1282,17 +1282,25 @@ svg :is([fill="white"], [fill^="#fff"]) {
               <p id="section-2-2.2.2.3.1">Further, some Confidential Computing scenarios seek to combine claims about the Workload instance with claims, such as physical location, of the hosting environment, and different (yet collaborating) attestation mechanisms must be employed to achieve that.<a href="#section-2-2.2.2.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-2-2.2.2.4">
-              <p id="section-2-2.2.2.4.1">Confidential Computing employs a Verifier service to perform remote attestation, which is different from an identity provider that is tasked with Credential issuance. The identity provider must take Attestation Results returned by the Verifier into account when computing Workload Identifiers and issuing Workload Credentials.<a href="#section-2-2.2.2.4.1" class="pilcrow">¶</a></p>
+              <p id="section-2-2.2.2.4.1">Confidential Computing employs a Verifier to perform Remote Attestation, which is different from an identity provider that is tasked with Credential issuance. The identity provider must take Attestation Results returned by the Verifier into account when computing Workload Identifiers and issuing Workload Credentials.<a href="#section-2-2.2.2.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </li>
         <li class="normal" id="section-2-2.3">
-          <p id="section-2-2.3.1">Token Replay and Misuse in Cross-domain Scenarios:
-Even with proper token binding, the risk of replay attacks or the use of compromised tokens across trust boundaries remains, especially if an attacker manages to intercept tokens during service-to-service exchanges.<a href="#section-2-2.3.1" class="pilcrow">¶</a></p>
+          <p id="section-2-2.3.1">Token Replay and Misuse in Cross-domain Scenarios:<a href="#section-2-2.3.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2-2.3.2.1">
+              <p id="section-2-2.3.2.1.1">Without strong token binding, the risk of replay attacks or the use of compromised tokens across trust boundaries remains, especially if an attacker manages to intercept tokens during service-to-service exchanges.<a href="#section-2-2.3.2.1.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
 </li>
         <li class="normal" id="section-2-2.4">
-          <p id="section-2-2.4.1">Lack of ability to ascertain Provenance of a Workload from its Credential:
-Ability of a relying party or an auditor to inspect a credential to gauge its trustworthiness is an important feature for differentiated authorization of high-value, high-risk transactions and regulated environments.<a href="#section-2-2.4.1" class="pilcrow">¶</a></p>
+          <p id="section-2-2.4.1">Lack of ability to ascertain Provenance of a Workload from its Credential:<a href="#section-2-2.4.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2-2.4.2.1">
+              <p id="section-2-2.4.2.1.1">Ability of a Relying Party or an auditor to inspect a Credential to gauge its trustworthiness is an important feature for differentiated authorization of high-value, high-risk transactions and for regulated environments.<a href="#section-2-2.4.2.1.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
 </li>
       </ul>
 </section>
@@ -1373,7 +1381,7 @@ In multi-cloud and cross-trust-domain interactions, a hardware-rooted attestatio
           <p id="section-5-3.2.1">Guarantee that a Workload can only utilize Credentials issued to it and that its Credentials cannot leak and be used by unauthorized Workloads.<a href="#section-5-3.2.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-5-3.3">
-          <p id="section-5-3.3.1">Enable the Relying Parties and other interested parties, such as auditors, to make in-depth inquiries into the trustworthiness of the Workload based on its Credentials.<a href="#section-5-3.3.1" class="pilcrow">¶</a></p>
+          <p id="section-5-3.3.1">Enable the Relying Parties and other interested parties, such as auditors, to make in-depth run-time and retroactive inquiries into the trustworthiness of the Workload based on its Credentials.<a href="#section-5-3.3.1" class="pilcrow">¶</a></p>
 </li>
       </ol>
 </section>
@@ -1433,23 +1441,26 @@ TWI requirement is roughly similar in terms of issuing credentials. However the 
           <h4 id="name-workload-provenance">
 <a href="#section-8.2.1" class="section-number selfRef">8.2.1. </a><a href="#name-workload-provenance" class="section-name selfRef">Workload Provenance</a>
           </h4>
-<p id="section-8.2.1-1">Workload Provenance is the metadata pertaining to the Workload. Provenance MAY contain information about a variety of aspects of inputs and decisions that went into the creation of a Workload, as below.
-1. Workload Composition, i.e. a detailed list of components that comprise a Workload. This could be expressed as a Software Bill of Materials expressed in terms of industry standards, like SPDX or CycloneDX &lt;TODO: add references?&gt;.<a href="#section-8.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-8.2.1-1">Workload Provenance is the metadata pertaining to the Workload. Provenance MAY contain information about a variety of aspects of inputs and decisions that went into the creation of a Workload, as below.<a href="#section-8.2.1-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-8.2.1-2">
 <li id="section-8.2.1-2.1">
-              <p id="section-8.2.1-2.1.1">Details about the Continous Integration (CI) or Continous Delivery (CD) of Workload.<a href="#section-8.2.1-2.1.1" class="pilcrow">¶</a></p>
+              <p id="section-8.2.1-2.1.1">Workload Composition, i.e. a detailed list of components that comprise a Workload. This could be expressed as a Software Bill of Materials expressed in terms of industry standards, like SPDX or CycloneDX &lt;TODO: add references?&gt;.<a href="#section-8.2.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li id="section-8.2.1-2.2">
-              <p id="section-8.2.1-2.2.1">Set of compliance tests that executed on the Workload.<a href="#section-8.2.1-2.2.1" class="pilcrow">¶</a></p>
+              <p id="section-8.2.1-2.2.1">Details about the Continous Integration (CI) or Continous Delivery (CD) of Workload.<a href="#section-8.2.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
             <li id="section-8.2.1-2.3">
-              <p id="section-8.2.1-2.3.1">Details of Vendor/SaaS information.<a href="#section-8.2.1-2.3.1" class="pilcrow">¶</a></p>
+              <p id="section-8.2.1-2.3.1">Set of compliance tests that executed on the Workload.<a href="#section-8.2.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li id="section-8.2.1-2.4">
+              <p id="section-8.2.1-2.4.1">Details of Vendor/SaaS information.<a href="#section-8.2.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
           </ol>
 <p id="section-8.2.1-3">The policy for assessing or auditing Credentials MAY demand the information about the Provenance of the Workload. This requries work in three areas:
-   1. Collection: the process of compiling Provenance information about the Workload during the processes that lead up to the creation of a Credential
-   2. Conveyance: the mechanism by which Provenance is carried inside the Workload Credential and
-   3. Utilization: Provenance information inside the Credential to make the required decisions. The Workload Credential need not carry the entire Provenance of the Workload, but MAY instead contain a unique Provenance Identifier that an interested party may later use to look up the full Provenance. The mechanism of translating the Provenance Identifier into the full Provenance is TBD.<a href="#section-8.2.1-3" class="pilcrow">¶</a></p>
+   1. Generation: the process of compiling Provenance information about the Workload collected during the processes that lead up to the issuance of a Credential
+   2. Conveyance: the mechanism by which Provenance is carried inside the Workload Credential
+   3. Utilization: The usage of Provenance information inside the Credential to make the required decisions or conduct auditing.<a href="#section-8.2.1-3" class="pilcrow">¶</a></p>
+<p id="section-8.2.1-4">The Workload Credential need not carry the entire Provenance of the Workload, but MAY instead contain a unique Provenance Identifier that an interested party may later use to look up the full Provenance. The mechanism of translating the Provenance Identifier into the full Provenance is TBD.<a href="#section-8.2.1-4" class="pilcrow">¶</a></p>
 <div id="obtaining-workload-provenance">
 <section id="section-8.2.1.1">
             <h5 id="name-obtaining-workload-provenan">
