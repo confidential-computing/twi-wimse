@@ -78,7 +78,9 @@ This section presents a gap analysis between TWIs and the current WIMSE Architec
 
 
 - Insufficient runtime attestation
-  - Confidential Computing seeks to isolate Workload instances from both the hosting environments and peer Workloads. WIMSE Architecture is built on a foundational assumption that the hosting environment is fully trusted, whereas under Confidential Computing remote attestation is used to ascertain the identity of the Workload irrespective of the hosting environment. Further, some scenarios seek to combine claims about the Workload instance with claims, such as physical location, of the hosting environment, and different yet collaborating attestation mechanisms must be employed to achieve that.
+   - Confidential Computing seeks to isolate Workload instances from both the hosting environments and peer Workloads.
+   - WIMSE Architecture is built on a foundational assumption that the hosting environment is fully trusted, whereas - under Confidential Computing - Remote Attestation is used to ascertain the identity of the Workload, irrespective of the hosting environment.
+   - Further, some Confidential Computing scenarios seek to combine claims about the Workload instance with claims, such as physical location, of the hosting environment, and different (yet collaborating) attestation mechanisms must be employed to achieve that.
   - Confidential Computing employs a Verifier service to perform remote attestation, which is different from an identity provider that is tasked with Credential issuance. The identity provider must take Attestation Results returned by the Verifier into account when computing Workload Identifiers and issuing Workload Credentials.
 
 
