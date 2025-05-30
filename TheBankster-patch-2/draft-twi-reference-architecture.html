@@ -1273,10 +1273,16 @@ svg :is([fill="white"], [fill^="#fff"]) {
           <p id="section-2-2.2.1">Insufficient runtime attestation<a href="#section-2-2.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-2-2.2.2.1">
-              <p id="section-2-2.2.2.1.1">Confidential Computing seeks to isolate Workload instances from both the hosting environments and peer Workloads. WIMSE Architecture is built on a foundational assumption that the hosting environment is fully trusted, whereas under Confidential Computing remote attestation is used to ascertain the identity of the Workload irrespective of the hosting environment. Further, some scenarios seek to combine claims about the Workload instance with claims, such as physical location, of the hosting environment, and different yet collaborating attestation mechanisms must be employed to achieve that.<a href="#section-2-2.2.2.1.1" class="pilcrow">¶</a></p>
+              <p id="section-2-2.2.2.1.1">Confidential Computing seeks to isolate Workload instances from both the hosting environments and peer Workloads.<a href="#section-2-2.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-2-2.2.2.2">
-              <p id="section-2-2.2.2.2.1">Confidential Computing employs a Verifier service to perform remote attestation, which is different from an identity provider that is tasked with Credential issuance. The identity provider must take Attestation Results returned by the Verifier into account when computing Workload Identifiers and issuing Workload Credentials.<a href="#section-2-2.2.2.2.1" class="pilcrow">¶</a></p>
+              <p id="section-2-2.2.2.2.1">WIMSE Architecture is built on a foundational assumption that the hosting environment is fully trusted, whereas - under Confidential Computing - Remote Attestation is used to ascertain the identity of the Workload, irrespective of the hosting environment.<a href="#section-2-2.2.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2-2.2.2.3">
+              <p id="section-2-2.2.2.3.1">Further, some Confidential Computing scenarios seek to combine claims about the Workload instance with claims, such as physical location, of the hosting environment, and different (yet collaborating) attestation mechanisms must be employed to achieve that.<a href="#section-2-2.2.2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2-2.2.2.4">
+              <p id="section-2-2.2.2.4.1">Confidential Computing employs a Verifier service to perform remote attestation, which is different from an identity provider that is tasked with Credential issuance. The identity provider must take Attestation Results returned by the Verifier into account when computing Workload Identifiers and issuing Workload Credentials.<a href="#section-2-2.2.2.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </li>
