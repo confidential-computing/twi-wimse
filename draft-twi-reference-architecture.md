@@ -69,18 +69,18 @@ The Confidential Computing Consortium defines Confidential Computing as "protect
 While it is quite clear that for the foreseeable future this need is not going to be met by Confidential Computing alone, the security features related to Workload identification and isolation offered by Confidential Computing eclipse other approaches. Confidential Computing-strengthened Workload Identity must be designed to fit within, and ideally serve as the North Star of Workload Identity as it becomes a foundational pillar of trustworthy and governable enterprise computing.
 
 # Gap Analysis
-This section presents a gap analysis between TWIs and the current WIMSE Architecture (link). The gap analysis seeks to identify extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.
+This section presents a gap analysis between TWIs and the current WIMSE Architecture (TODO: add link). The gap analysis seeks to identify extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.
 
-- Protection of Credentials at runtime, key management in dynamic environments:
-  - Risk that credentials in memory could be exposed if a workload’s execution environment is compromised.
-  - The current solutions rely on traditional key management practices which may not withstand common runtime attacks.
-  - Runtime can still be compromised, even if keys are securely managed, a compromised runtime can still leak. Similarly, a secure runtime is less effective if key management is weak. Integrating both robust key lifecycle management and continuous runtime attestation provides better security.
+- Lack of protection of Credentials at runtime, problematic key management in dynamic environments:
+   - Risk that credentials in memory could be exposed if a workload’s execution environment is compromised.
+   - The current solutions rely on traditional key management practices which may not withstand common runtime attacks.
+   - Runtime can still be compromised, even if keys are securely managed, a compromised runtime can still leak. Similarly, a secure runtime is less effective if key management is weak. Integrating both robust key lifecycle management and continuous runtime attestation provides better security.
 
 
-- Insufficient runtime attestation
-   - Confidential Computing seeks to isolate Workload instances from both the hosting environments and peer Workloads.
+- Inadequate runtime attestation:
+   - Confidential Computing seeks to isolate Workload instances from both the hosting environments as well as peer Workload instances.
    - WIMSE Architecture is built on a foundational assumption that the hosting environment is fully trusted, whereas - under Confidential Computing - Remote Attestation is used to ascertain the identity of the Workload, irrespective of the hosting environment.
-   - Further, some Confidential Computing scenarios seek to combine claims about the Workload instance with claims, such as physical location, of the hosting environment, and different (yet collaborating) attestation mechanisms must be employed to achieve that.
+   - Further, some Confidential Computing scenarios seek to combine claims about the Workload instance with claims, such as physical location, about the hosting environment, and different (yet collaborating) attestation mechanisms must be employed to achieve that.
    - Confidential Computing employs a Verifier to perform Remote Attestation, which is different from an identity provider that is tasked with Credential issuance. The identity provider must take Attestation Results returned by the Verifier into account when computing Workload Identifiers and issuing Workload Credentials.
 
 
