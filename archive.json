@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-29T01:45:07.427840+00:00",
+  "timestamp": "2025-06-01T02:02:15.903162+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -675,13 +675,13 @@
       "labels": [],
       "body": "Multiple changes throughout",
       "createdAt": "2025-05-26T16:18:47Z",
-      "updatedAt": "2025-05-27T11:07:56Z",
+      "updatedAt": "2025-05-30T17:07:19Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "cc7b7c5033ef2c9e6930fdbdc26410fc85594b5b",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "TheBankster-patch-2",
-      "headRefOid": "9ae5fa3e0c6aa35bf9e1083eec5d8f3d75735b74",
+      "headRefOid": "3cafab3a30f0a2f717d8c8e2584bbb2a4e673233",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -894,9 +894,9 @@
             },
             {
               "originalPosition": 38,
-              "body": "```suggestion\r\n  - Confidential Computing seeks to isolate Workload instances from both the hosting environments and peer Workloads.\r\n    WIMSE Architecture is built on a foundational assumption that the hosting environment is fully trusted, whereas - under Confidential Computing - remote attestation is used to ascertain the identity of the Workload, irrespective of the hosting environment.\r\n    Further, some Confidential Computing scenarios seek to combine claims about the Workload instance with claims, such as physical location, of the hosting environment, and different (yet collaborating) attestation mechanisms must be employed to achieve that.\r\n```\r\n\r\n1. We likely need a citation for ` foundational assumption that the hosting environment is fully trusted`\r\n2. Let's stick to **1-sentence per line** for an easier review",
+              "body": "```suggestion\r\n   - Confidential Computing seeks to isolate Workload instances from both the hosting environments and peer Workloads.\r\n   - WIMSE Architecture is built on a foundational assumption that the hosting environment is fully trusted, whereas - under Confidential Computing - Remote Attestation is used to ascertain the identity of the Workload, irrespective of the hosting environment.\r\n   - Further, some Confidential Computing scenarios seek to combine claims about the Workload instance with claims, such as physical location, of the hosting environment, and different (yet collaborating) attestation mechanisms must be employed to achieve that.\r\n```\r\n\r\n1. We likely need a citation for ` foundational assumption that the hosting environment is fully trusted`\r\n2. Let's stick to **1-sentence per line** for an easier review",
               "createdAt": "2025-05-27T10:42:59Z",
-              "updatedAt": "2025-05-27T11:07:56Z"
+              "updatedAt": "2025-05-30T15:53:37Z"
             },
             {
               "originalPosition": 39,
@@ -933,6 +933,146 @@
               "body": "+1\r\nI'd also suggest decoupling 'workload creation' from 'credential creation'",
               "createdAt": "2025-05-27T11:07:15Z",
               "updatedAt": "2025-05-27T11:07:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rwsA4",
+          "commit": {
+            "abbreviatedOid": "d6b65c4"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-30T15:15:29Z",
+          "updatedAt": "2025-05-30T15:15:29Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "I am going to opt for consistency of capitalization of certain words throughout the document. We can always change that later.",
+              "createdAt": "2025-05-30T15:15:29Z",
+              "updatedAt": "2025-05-30T15:15:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rwyJF",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-30T15:24:04Z",
+          "updatedAt": "2025-05-30T15:24:04Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "> scale of uplift and immature tooling might require a representative reference at this early point of the document\r\n\r\nI have removed that wording as it is not needed for the draft",
+              "createdAt": "2025-05-30T15:24:04Z",
+              "updatedAt": "2025-05-30T15:24:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rwyep",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-30T15:24:33Z",
+          "updatedAt": "2025-05-30T15:24:33Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "> Using the named word \"identities\" is often avoided (because it attracts trouble sometimes. I assume that referencing wimse reduces that issue, also including our scoped definition in the TWI I-D helps.\r\n\r\nWhat are you proposing we change in response to this comment? I'm not clear.",
+              "createdAt": "2025-05-30T15:24:33Z",
+              "updatedAt": "2025-05-30T15:24:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rwyuY",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-30T15:24:55Z",
+          "updatedAt": "2025-05-30T15:24:55Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "> use of \"this\". Repetition of the problem statement is fine.\r\n\r\nWhat do you mean by 'use of \"this\"'?",
+              "createdAt": "2025-05-30T15:24:55Z",
+              "updatedAt": "2025-05-30T15:24:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rwzbk",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-30T15:25:54Z",
+          "updatedAt": "2025-05-30T15:25:55Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "> Maybe avoid \"will\" in the phrasing. Maybe \"require dedicated alignment to fit within\"\r\n\r\nI just said (lowercase) \"must\" to make this requirement explicit.",
+              "createdAt": "2025-05-30T15:25:54Z",
+              "updatedAt": "2025-05-30T15:25:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rw04S",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-30T15:28:24Z",
+          "updatedAt": "2025-05-30T15:28:24Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "I don't believe the CCC defines \"trustworthiness levels\".",
+              "createdAt": "2025-05-30T15:28:24Z",
+              "updatedAt": "2025-05-30T15:28:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rw3Is",
+          "commit": {
+            "abbreviatedOid": "9ae5fa3"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-30T15:31:57Z",
+          "updatedAt": "2025-05-30T15:31:57Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "> \r\n\r\nThe proposed wording does not clarify things (for me at least) and contains a couple of typos. I kept some of it in my reworded suggestion.",
+              "createdAt": "2025-05-30T15:31:57Z",
+              "updatedAt": "2025-05-30T15:31:57Z"
             }
           ]
         }
