@@ -5,8 +5,8 @@
 WIMSE                                                           M. Novak
 Internet-Draft                                         J.P. Morgan Chase
 Intended status: Informational                              Y. Deshpande
-Expires: 1 December 2025                                             arm
-                                                             30 May 2025
+Expires: 4 December 2025                                             arm
+                                                             2 June 2025
 
 
           Trustworthy Workload Identity Reference Architecture
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 December 2025.
+   This Internet-Draft will expire on 4 December 2025.
 
 Copyright Notice
 
@@ -128,8 +128,8 @@ Table of Contents
    ecosystem and can evolve in alignment with the expectations of the
    owners and operators of Confidential Computing Workloads.  These
    efforts will build on the concept of _Trustworthy Workload Identity_
-   defined further below.  Data-in-use protection of Workloads that have
-   such Identities will be a critical downstream effect.
+   (TWI) defined further below.  Data-in-use protection of Workloads
+   that have such Identities will be a critical downstream effect.
 
    While it is quite clear that for the foreseeable future this need is
    not going to be met by Confidential Computing alone, the security
