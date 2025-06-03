@@ -16,7 +16,7 @@ Abstract
 
    This document illustrates a gap analysis that is the output of the
    Confidential Computing Consortium identifying areas in the IETF WIMSE
-   WG work where the current WIMSE architecture should be extended to
+   WG work where the current WIMSE architecture should be amended to
    accommodate workloads running in Confidential Computing environments.
    This document outlines high-level requirements for the these
    extensions and describes a series of use cases.
