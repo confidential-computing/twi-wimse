@@ -56,10 +56,11 @@ This document illustrates a gap analysis that is the output of the Confidential 
 # Introduction
 Until recently, there were few scenarios requiring data-in-use protections. This is starting to change. Regulatory bodies worldwide are increasingly requiring data-in-use protection and privacy-enhancing technologies. Outside of regulatory requirements, companies are exploringi:
 
-* multiparty computation,
-* machine learning training & inferencing,
-* addressing the actual and perceived risks of computing in the public clouds,
-* insider threats, and other reasons for protecting data-in-use.
+* Multiparty computation
+* Machine learning training & inferencing
+* Addressing the actual and perceived risks of computing in the public clouds
+* Entrusting confidential data to SaaS providers
+* Insider threats, and other reasons for protecting data-in-use
 
 Correspondingly, there is an increased push to harmonize management and governance of human and non-human identities. Entities interested in strong assurances around the security of their deployed workloads, for regulatory, contractual or peace of mind reasons, are starting to face large and challenging tasks of upgrading their existing computing system infrastructure to meet these requirements.
 Current ways of issuing and managing workload identities, as well as those required for effective protection of data-in-use, are subject to multiple architectural challenges; chief among them:
