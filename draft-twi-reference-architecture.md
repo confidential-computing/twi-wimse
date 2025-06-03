@@ -98,7 +98,7 @@ Workload Identity:
 
 : the definition of Workload Identity is identical to the definition of {{-WIMSE}}: "a combination of three basic building blocks: trust domain, Workload Identifier and identity credentials.
 
-Workload Credential: 
+Workload Credential:
 
 : an ephemeral identity document containing the Workload Identifier and a number of additional claims, that can be short-lived or long-lived, and that is used to represent and prove Workload Identity to a Relying Party.
 
