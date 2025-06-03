@@ -187,7 +187,7 @@ Table of Contents
          when computing Workload Identifiers and issuing Workload
          Credentials.
 
-   *  Token Replay and Misuse in Cross-domain Scenarios:
+   *  Credential Replay and Misuse in Cross-domain Scenarios:
 
       -  Without strong token binding, the risk of replay attacks or the
          use of compromised tokens across trust boundaries remains,
