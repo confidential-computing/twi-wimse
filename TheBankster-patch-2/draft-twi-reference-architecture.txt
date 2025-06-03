@@ -255,7 +255,7 @@ Table of Contents
        to that Workload instance
 
    3.  A Workload Credential can be traced back to the Workload’s
-       Provenance and the credential issuer
+       Provenance, either at runtime or for a later audit
 
 4.  Integration of Confidential Computing into WIMSE
 
