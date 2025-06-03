@@ -129,7 +129,7 @@ Strengthening the initial bootstrapping process. A TEE can provide hardware-base
 For the Credential exchange patterns defined in the WIMSE Credential Exchange draft, Confidential Computing can provide a secure TEE in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping.
 
 **Mitigating Runtime Compromise:**
-Incorporating confidential computing within the workload’s execution environment can lower the risk that runtime attacks (such as memory scraping or side-channel attacks) can expose critical identity or authentication tokens. For example, the confidential computing environment can be used to securely generate and verify proofs of possession that are important within the WIMSE authentication protocol.
+Incorporating confidential computing within the workload’s execution environment can lower the risk of runtime attacks (such as memory scraping or side-channel attacks) that can expose critical identity or authentication tokens. For example, the confidential computing environment can be used to securely generate and verify proofs of possession that are important within the WIMSE authentication protocol.
 
 **Cross-domain Trust Enhancement:**
 In multi-cloud and cross-trust-domain interactions, a hardware-rooted attestation from a TEE can serve as an independent trust anchor. This extra layer of verification helps ensure that even if traditional software-based checks fail, the actual Workload Identity remains trustworthy.
