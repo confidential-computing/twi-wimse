@@ -95,9 +95,9 @@ Table of Contents
 1.  Introduction
 
    Until recently, there were few scenarios requiring data-in-use
-   protections.  This is starting to change.  Regulatory bodies
-   worldwide are increasingly requiring data-in-use protection and
-   privacy-enhancing technologies.  Outside of regulatory requirements,
+   protection.  This is starting to change.  Regulatory bodies worldwide
+   are increasingly requiring data-in-use protection and privacy-
+   enhancing technologies.  Outside of regulatory requirements,
    companies are exploring:
 
    *  Multiparty computation
