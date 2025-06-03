@@ -49,7 +49,7 @@ informative:
       org: Confidential Computing Consortium Trustworthy Workload Identity SIG
 
 --- abstract
-This Internet-Draft covers a gap analysis performed by the Confidential Computing Consortium on WIMSE identifying areas where the current WIMSE Architecture should be extended to accommodate Workloads running in Confidential Computing environments. It outlines high-level requirements for the these extensions and describes a series of use cases.
+This Internet-Draft covers a gap analysis performed by the Confidential Computing Consortium on WIMSE identifying areas where the current WIMSE Architecture should be extended to accommodate Workloads running in Confidential Computing environments. It outlines high-level requirements for these extensions and describes a series of use cases.
 
 --- middle
 
