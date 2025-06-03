@@ -73,7 +73,9 @@ Current ways of issuing and managing workload identities, as well as those requi
 
 It is important to highlight that these requirements are related: lack of process isolation eases credential exfiltration and leads to credential leakage and reuse.
 
-In the immediate term, effective Confidential Computing faces a significant challenge: the scale of uplift and immature tooling are both clear barriers. Longer term, however, Confidential Computing provides a vital improvement due to its unique features (i.e., isolation capabilities) and broad availability (i.e., support by various major hardware vendors).
+In the immediate term, effective Confidential Computing faces a significant challenge: the scale of uplift and immature tooling are both clear barriers.
+Longer term, however, Confidential Computing provides a vital improvement due to its unique features (i.e., verifiable composition, strong workload isolation) and broad availability (i.e., support by all major hardware vendors).
+Multiple emerging regulations will mean that customers will be looking to these features and capabilities to satisfy them.
 
 Confidential Computing-assisted mechanisms have to align with the emerging Workload Identity solution ecosystem. Correspondingly, the evolution of the Workload Identity ecosystem should remain in alignment with the expectations of the owners and operators of Confidential Computing workloads. To address this bi-lateral balance of requirements, this document defines elaborates on the concept of `Trustworthy Workload Identity` (TWI) in the following Sections. Data-in-use protection of workloads supporting TWI results in critical downstream effects.
 
