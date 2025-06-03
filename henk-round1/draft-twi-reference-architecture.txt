@@ -100,14 +100,16 @@ Table of Contents
    privacy-enhancing technologies.  Outside of regulatory requirements,
    companies are exploringi:
 
-   *  multiparty computation,
+   *  Multiparty computation
 
-   *  machine learning training & inferencing,
+   *  Machine learning training & inferencing
 
-   *  addressing the actual and perceived risks of computing in the
-      public clouds,
+   *  Addressing the actual and perceived risks of computing in the
+      public clouds
 
-   *  insider threats, and other reasons for protecting data-in-use.
+   *  Entrusting confidential data to SaaS providers
+
+   *  Insider threats, and other reasons for protecting data-in-use
 
    Correspondingly, there is an increased push to harmonize management
    and governance of human and non-human identities.  Entities
