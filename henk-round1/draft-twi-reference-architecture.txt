@@ -142,8 +142,10 @@ Table of Contents
    significant challenge: the scale of uplift and immature tooling are
    both clear barriers.  Longer term, however, Confidential Computing
    provides a vital improvement due to its unique features (i.e.,
-   isolation capabilities) and broad availability (i.e., support by
-   various major hardware vendors).
+   verifiable composition, strong workload isolation) and broad
+   availability (i.e., support by all major hardware vendors).  Multiple
+   emerging regulations will mean that customers will be looking to
+   these features and capabilities to satisfy them.
 
    Confidential Computing-assisted mechanisms have to align with the
    emerging Workload Identity solution ecosystem.  Correspondingly, the
