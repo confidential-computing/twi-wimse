@@ -69,7 +69,7 @@ Current ways of issuing and managing workload identities, as well as those requi
 
 1. Lack of workload isolation against the hardware and the operating system owners/administrators, as well as peer workload instances
 2. Lack of strong binding between a workload credential and the workload instance to which that credential had been issued
-3. Inability to associate a credential with a set of decisions leading up to its issuance
+3. Lack of verifiable composition of the workload, and inability to associate a credential with a set of decisions leading up to its issuance
 
 It is important to highlight that these requirements are related: lack of process isolation eases credential exfiltration and leads to credential leakage and reuse.
 
