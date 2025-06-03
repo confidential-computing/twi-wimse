@@ -54,7 +54,7 @@ This document illustrates a gap analysis that is the output of the Confidential 
 --- middle
 
 # Introduction
-Until recently, there were few scenarios requiring data-in-use protections. This is starting to change. Regulatory bodies worldwide are increasingly requiring data-in-use protection and privacy-enhancing technologies. Outside of regulatory requirements, companies are exploring:
+Until recently, there were few scenarios requiring data-in-use protection. This is starting to change. Regulatory bodies worldwide are increasingly requiring data-in-use protection and privacy-enhancing technologies. Outside of regulatory requirements, companies are exploring:
 
 * Multiparty computation
 * Machine learning training & inferencing
