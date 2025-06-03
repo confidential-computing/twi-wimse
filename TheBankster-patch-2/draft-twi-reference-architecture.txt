@@ -287,12 +287,12 @@ Table of Contents
    credentials is protected against tampering and eavesdropping.
 
    *Mitigating Runtime Compromise:* Incorporating confidential computing
-   within the workload’s execution environment can lower the risk that
-   runtime attacks (such as memory scraping or side-channel attacks) can
-   expose critical identity or authentication tokens.  For example, the
-   confidential computing environment can be used to securely generate
-   and verify proofs of possession that are important within the WIMSE
-   authentication protocol.
+   within the workload’s execution environment can lower the risk of
+   runtime attacks (such as memory scraping or side-channel attacks)
+   that can expose critical identity or authentication tokens.  For
+   example, the confidential computing environment can be used to
+   securely generate and verify proofs of possession that are important
+   within the WIMSE authentication protocol.
 
    *Cross-domain Trust Enhancement:* In multi-cloud and cross-trust-
    domain interactions, a hardware-rooted attestation from a TEE can
