@@ -98,7 +98,7 @@ Table of Contents
    protections.  This is starting to change.  Regulatory bodies
    worldwide are increasingly requiring data-in-use protection and
    privacy-enhancing technologies.  Outside of regulatory requirements,
-   companies are exploringi:
+   companies are exploring:
 
    *  Multiparty computation
 
