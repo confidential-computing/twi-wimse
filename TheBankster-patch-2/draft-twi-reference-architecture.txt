@@ -274,11 +274,11 @@ Table of Contents
    bootstrapping process.  A TEE can provide hardware-based attestation
    that a workload is running in a secure, isolated environment.  This
    attestation could be used as an additional factor during Credential
-   provisioning, ensuring that only Workloads running in a TEE receive
-   valid Credentials.  (TODO: revisit: might be a bit of a stretch/ too
-   much - it basically would be an extension of the bootstrapping
-   projects described in https://datatracker.ietf.org/doc/html/draft-
-   ietf-wimse-arch-03).
+   provisioning, ensuring that only Workloads running in a TEE and
+   meeting Verifier policies, receive valid Credentials.  (TODO:
+   revisit: might be a bit of a stretch/ too much - it basically would
+   be an extension of the bootstrapping projects described in WIMSE
+   [I-D.draft-ietf-wimse-arch]).
 
    *Protected Credential Exchange:* For the Credential exchange patterns
    defined in the WIMSE Credential Exchange draft, Confidential
