@@ -84,7 +84,7 @@ This section presents a gap analysis between TWIs and the current WIMSE Architec
    - Confidential Computing employs a Verifier to perform Remote Attestation, which is different from an identity provider that is tasked with Credential issuance. The identity provider must take Attestation Results returned by the Verifier into account when computing Workload Identifiers and issuing Workload Credentials.
 
 
-- Token Replay and Misuse in Cross-domain Scenarios:
+- Credential Replay and Misuse in Cross-domain Scenarios:
    - Without strong token binding, the risk of replay attacks or the use of compromised tokens across trust boundaries remains, especially if an attacker manages to intercept tokens during service-to-service exchanges.
 
 
