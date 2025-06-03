@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-01T02:02:15.903162+00:00",
+  "timestamp": "2025-06-03T01:46:58.001430+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -675,13 +675,13 @@
       "labels": [],
       "body": "Multiple changes throughout",
       "createdAt": "2025-05-26T16:18:47Z",
-      "updatedAt": "2025-05-30T17:07:19Z",
+      "updatedAt": "2025-06-02T21:36:33Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "cc7b7c5033ef2c9e6930fdbdc26410fc85594b5b",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "TheBankster-patch-2",
-      "headRefOid": "3cafab3a30f0a2f717d8c8e2584bbb2a4e673233",
+      "headRefOid": "8574bf4a42018fdde338aece498ffae7dd0dbc3e",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -802,9 +802,9 @@
           "comments": [
             {
               "originalPosition": 29,
-              "body": "```suggestion\r\nThis Section presents a gap analysis between TWIs and the current WIMSE architecture (link). The gap analysis is an currently an ongoing activity as part of the collaboration of the Confidential Computing Consortium and the WIMSE WG to identify and definde extensions required to address trustworthiness levels as defined by the Confidential Computing environments.\r\n```",
+              "body": "```suggestion\r\nThis Section presents a gap analysis between TWIs and the current WIMSE architecture (link). The gap analysis is currently an ongoing activity as part of the collaboration of the Confidential Computing Consortium and the WIMSE WG to identify and define extensions required to address trustworthiness levels as defined by the Confidential Computing environments.\r\n```",
               "createdAt": "2025-05-27T08:41:05Z",
-              "updatedAt": "2025-05-27T08:41:05Z"
+              "updatedAt": "2025-06-02T21:35:08Z"
             }
           ]
         },
@@ -1073,6 +1073,86 @@
               "body": "> \r\n\r\nThe proposed wording does not clarify things (for me at least) and contains a couple of typos. I kept some of it in my reworded suggestion.",
               "createdAt": "2025-05-30T15:31:57Z",
               "updatedAt": "2025-05-30T15:31:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sHNFm",
+          "commit": {
+            "abbreviatedOid": "3cafab3"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-02T09:40:45Z",
+          "updatedAt": "2025-06-02T09:40:46Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "```suggestion\r\nThe Confidential Computing Consortium defines Confidential Computing as \"protection of data in use by performing computation in a hardware-based, attested Trusted Execution Environment (TEE)\". Confidential Computing can address the existing shortcomings in a way that is compatible with the emerging Workload Identity solution ecosystem and can evolve in alignment with the expectations of the owners and operators of Confidential Computing Workloads. These efforts will build on the concept of _Trustworthy Workload Identity_ (TWI) defined further below. Data-in-use protection of Workloads that have such Identities will be a critical downstream effect.\r\n```",
+              "createdAt": "2025-06-02T09:40:45Z",
+              "updatedAt": "2025-06-02T09:40:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sHPEe",
+          "commit": {
+            "abbreviatedOid": "3cafab3"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-02T09:42:37Z",
+          "updatedAt": "2025-06-02T09:42:37Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "I just defined the acronym at the first use",
+              "createdAt": "2025-06-02T09:42:37Z",
+              "updatedAt": "2025-06-02T09:42:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sHUuB",
+          "commit": {
+            "abbreviatedOid": "3cafab3"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-02T09:50:30Z",
+          "updatedAt": "2025-06-02T09:50:30Z",
+          "comments": [
+            {
+              "originalPosition": 84,
+              "body": "```suggestion\r\nStrengthening the initial bootstrapping process. A TEE can provide hardware-based attestation that a workload is running in a secure, isolated environment. This attestation could be used as an additional factor during Credential provisioning, ensuring that only Workloads running in a TEE with required security guarantees, receive valid Credentials. (TODO: revisit: might be a bit of a stretch/ too much - it basically would be an extension of the bootstrapping projects described in WIMSE {{-WIMSE}}).\r\n```",
+              "createdAt": "2025-06-02T09:50:30Z",
+              "updatedAt": "2025-06-02T09:50:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sHVmw",
+          "commit": {
+            "abbreviatedOid": "3cafab3"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-02T09:51:45Z",
+          "updatedAt": "2025-06-02T09:51:45Z",
+          "comments": [
+            {
+              "originalPosition": 110,
+              "body": "```suggestion\r\nFor Use Case 1, the Workload MUST run in an isolated, remotely attested TEE. Therefore, the process of obtaining the Credentials MUST involve an Attestation Verifier service in addition to the Identity Provider service.\r\n```",
+              "createdAt": "2025-06-02T09:51:45Z",
+              "updatedAt": "2025-06-02T09:51:45Z"
             }
           ]
         }
