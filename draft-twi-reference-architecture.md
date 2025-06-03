@@ -58,7 +58,7 @@ Until recently, there were few scenarios requiring data-in-use protections. This
 
 * Multiparty computation
 * Machine learning training & inferencing
-* Addressing the actual and perceived risks of computing in the public clouds
+* Addressing the risks of computing in public clouds and high-risk locations
 * Entrusting confidential data to SaaS providers
 * Insider threats, and other reasons for protecting data-in-use
 
