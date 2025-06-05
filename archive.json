@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-03T01:46:58.001430+00:00",
+  "timestamp": "2025-06-05T01:45:54.275365+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -78,7 +78,31 @@
       "labels": [],
       "body": "The three items in the [Use Cases](https://github.com/confidential-computing/twi-wimse/blob/main/draft-twi-reference-architecture.md#twi-use-cases) section of the IETF ID seem more like requirements than use cases. They also overlap somewhat with the bullets listed in the Introduction, Gap Analysis, and Core Requirements sections.\n\nIMO, Use Cases should look more like examples or scenarios illustrating how the proposed standard could be put into practice \u2014 something that would be good to include and could be valuable in making the proposal more concrete.",
       "createdAt": "2025-05-27T15:32:14Z",
-      "updatedAt": "2025-05-27T15:32:14Z",
+      "updatedAt": "2025-06-03T11:26:36Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yes, My intention in the original draft was to use Practical Real World Use Cases of Relevance that will highlight the need and importance of TWI.\n\nNeed to re-write this section.",
+          "createdAt": "2025-06-03T11:26:35Z",
+          "updatedAt": "2025-06-03T11:26:35Z"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "id": "I_kwDOOebIkc65mxf9",
+      "title": "The `HSM` piece is a little fuzzy, esp. as I'm not aware of any HSM offering capable of runtime attestation of a TEE/enclave (which would be required for it to issue any kind of key).",
+      "url": "https://github.com/confidential-computing/twi-wimse/issues/15",
+      "state": "OPEN",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The `HSM` piece is a little fuzzy, esp. as I'm not aware of any HSM offering capable of runtime attestation of a TEE/enclave (which would be required for it to issue any kind of key).\r\n\r\nOn the other hand, if the attestation was to be unidirectional only (TWI attests 'its' crypto provider before asking for key), then:\r\n  - If the HSM is 'just' a stateless key **generator**, it feels like we can just wrap it under \"TEE generates the key <somehow> umbrella\", w/o over defining.\r\n  - If the HSM has state (and this is a key **sharing** concept), we have introduced new attack surface (non-CC, it suffices to break the HSM auth token).\r\n\r\n_Originally posted by @mbronk-intc in https://github.com/confidential-computing/twi-wimse/pull/12#discussion_r2108890703_\r\n            ",
+      "createdAt": "2025-06-03T13:21:28Z",
+      "updatedAt": "2025-06-03T13:21:28Z",
       "closedAt": null,
       "comments": []
     }
@@ -668,24 +692,26 @@
       "id": "PR_kwDOOebIkc6XqXHE",
       "title": "Expanded discussion of Provenance, rearranged sections",
       "url": "https://github.com/confidential-computing/twi-wimse/pull/12",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Multiple changes throughout",
       "createdAt": "2025-05-26T16:18:47Z",
-      "updatedAt": "2025-06-02T21:36:33Z",
+      "updatedAt": "2025-06-03T13:27:22Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "cc7b7c5033ef2c9e6930fdbdc26410fc85594b5b",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "TheBankster-patch-2",
-      "headRefOid": "8574bf4a42018fdde338aece498ffae7dd0dbc3e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "f272e61d094cc76cc64e4904f31b68b9efcccf39",
+      "closedAt": "2025-06-03T13:27:17Z",
+      "mergedAt": "2025-06-03T13:27:17Z",
+      "mergedBy": "henkbirkholz",
+      "mergeCommit": {
+        "oid": "cf8ba5e20418e1df4993cd4ae2905e75e9b5ce62"
+      },
       "comments": [],
       "reviews": [
         {
@@ -1130,29 +1156,484 @@
           "comments": [
             {
               "originalPosition": 84,
-              "body": "```suggestion\r\nStrengthening the initial bootstrapping process. A TEE can provide hardware-based attestation that a workload is running in a secure, isolated environment. This attestation could be used as an additional factor during Credential provisioning, ensuring that only Workloads running in a TEE with required security guarantees, receive valid Credentials. (TODO: revisit: might be a bit of a stretch/ too much - it basically would be an extension of the bootstrapping projects described in WIMSE {{-WIMSE}}).\r\n```",
+              "body": "```suggestion\r\nStrengthening the initial bootstrapping process. A TEE can provide hardware-based attestation that a workload is running in a secure, isolated environment. This attestation could be used as an additional factor during Credential provisioning, ensuring that only Workloads running in a TEE and meeting Verifier policies, receive valid Credentials. (TODO: revisit: might be a bit of a stretch/ too much - it basically would be an extension of the bootstrapping projects described in WIMSE {{-WIMSE}}).\r\n```",
               "createdAt": "2025-06-02T09:50:30Z",
-              "updatedAt": "2025-06-02T09:50:30Z"
+              "updatedAt": "2025-06-03T11:50:59Z"
             }
           ]
         },
         {
-          "id": "PRR_kwDOOebIkc6sHVmw",
+          "id": "PRR_kwDOOebIkc6sXX6u",
           "commit": {
-            "abbreviatedOid": "3cafab3"
+            "abbreviatedOid": "8574bf4"
           },
           "author": "yogeshbdeshpande",
           "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
-          "createdAt": "2025-06-02T09:51:45Z",
-          "updatedAt": "2025-06-02T09:51:45Z",
+          "createdAt": "2025-06-03T10:58:34Z",
+          "updatedAt": "2025-06-03T10:58:34Z",
           "comments": [
             {
-              "originalPosition": 110,
-              "body": "```suggestion\r\nFor Use Case 1, the Workload MUST run in an isolated, remotely attested TEE. Therefore, the process of obtaining the Credentials MUST involve an Attestation Verifier service in addition to the Identity Provider service.\r\n```",
-              "createdAt": "2025-06-02T09:51:45Z",
-              "updatedAt": "2025-06-02T09:51:45Z"
+              "originalPosition": 5,
+              "body": "```suggestion\r\nThis Internet-Draft covers a gap analysis performed by the Confidential Computing Consortium on WIMSE identifying areas where the current WIMSE Architecture should be extended to accommodate Workloads running in Confidential Computing environments. It outlines high-level requirements for these extensions and describes a series of use cases.\r\n```",
+              "createdAt": "2025-06-03T10:58:34Z",
+              "updatedAt": "2025-06-03T10:58:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sXYUj",
+          "commit": {
+            "abbreviatedOid": "8574bf4"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T10:59:07Z",
+          "updatedAt": "2025-06-03T10:59:07Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Note: We need to describe the series of use cases, properly, as promised!",
+              "createdAt": "2025-06-03T10:59:07Z",
+              "updatedAt": "2025-06-03T10:59:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sXhrU",
+          "commit": {
+            "abbreviatedOid": "390ca99"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T11:10:57Z",
+          "updatedAt": "2025-06-03T11:10:57Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "We need to clarify which tokens are we talking about. This is the first time we have used the term tokens without setting any context!",
+              "createdAt": "2025-06-03T11:10:57Z",
+              "updatedAt": "2025-06-03T11:10:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sXsqU",
+          "commit": {
+            "abbreviatedOid": "390ca99"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T11:22:02Z",
+          "updatedAt": "2025-06-03T11:22:03Z",
+          "comments": [
+            {
+              "originalPosition": 91,
+              "body": "```suggestion\r\nIncorporating confidential computing within the workload\u2019s execution environment can lower the risk of runtime attacks (such as memory scraping or side-channel attacks) that can expose critical identity or authentication tokens. For example, the confidential computing environment can be used to securely generate and verify proofs of possession that are important within the WIMSE authentication protocol.\r\n```",
+              "createdAt": "2025-06-03T11:22:02Z",
+              "updatedAt": "2025-06-03T11:22:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sXurU",
+          "commit": {
+            "abbreviatedOid": "390ca99"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T11:24:19Z",
+          "updatedAt": "2025-06-03T11:24:19Z",
+          "comments": [
+            {
+              "originalPosition": 97,
+              "body": "* Here I was seeking Practical Real World Use Cases: That Demonstrates the Value of this Work Item.",
+              "createdAt": "2025-06-03T11:24:19Z",
+              "updatedAt": "2025-06-03T11:25:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6rxJSv",
+          "commit": {
+            "abbreviatedOid": "121cdc6"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Review progress",
+          "createdAt": "2025-05-30T16:02:28Z",
+          "updatedAt": "2025-06-03T13:14:27Z",
+          "comments": [
+            {
+              "originalPosition": 76,
+              "body": "I think the existing wording is fine. If you look at Azure, a workload attests with MAS (Microsoft Attestation Service) and then gets a key out of HSM. HSM is not \"under the TEE umbrella\" in that case, as any entity that matches the HSM's key release policy can get that key as well.",
+              "createdAt": "2025-05-30T16:02:28Z",
+              "updatedAt": "2025-06-03T13:14:27Z"
+            },
+            {
+              "originalPosition": 43,
+              "body": "Let's discuss this in the next TWI meeting. I struggle with this paragraph even as written (it was not written by me).",
+              "createdAt": "2025-05-30T16:19:58Z",
+              "updatedAt": "2025-06-03T13:14:27Z"
+            },
+            {
+              "originalPosition": 71,
+              "body": "This I believe is captured by #3. This paragraph references the already established definition of TWI, but we can make changes to #3 including clarifying that it also includes retroactive auditing.",
+              "createdAt": "2025-05-30T16:22:05Z",
+              "updatedAt": "2025-06-03T13:14:27Z"
+            },
+            {
+              "originalPosition": 134,
+              "body": "I updated the text in response to this suggestion.",
+              "createdAt": "2025-05-30T16:47:15Z",
+              "updatedAt": "2025-06-03T13:14:27Z"
+            },
+            {
+              "originalPosition": 32,
+              "body": "Updated wording to address this comment. Stopped short of proposed changes as that happens later in the document.",
+              "createdAt": "2025-05-30T17:07:40Z",
+              "updatedAt": "2025-06-03T13:14:27Z"
+            },
+            {
+              "originalPosition": 46,
+              "body": "Should we say \"credential replay\" here?",
+              "createdAt": "2025-06-03T11:48:13Z",
+              "updatedAt": "2025-06-03T13:14:27Z"
+            },
+            {
+              "originalPosition": 84,
+              "body": "Rather than say \"required security guarantees\", let's say \"meeting Verifier policies\"?",
+              "createdAt": "2025-06-03T11:50:28Z",
+              "updatedAt": "2025-06-03T13:14:27Z"
+            },
+            {
+              "originalPosition": 46,
+              "body": "```suggestion\r\n- Credential Replay and Misuse in Cross-domain Scenarios:\r\n```",
+              "createdAt": "2025-06-03T13:09:52Z",
+              "updatedAt": "2025-06-03T13:14:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sXxDZ",
+          "commit": {
+            "abbreviatedOid": "3c47f1b"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM!",
+          "createdAt": "2025-06-03T11:27:26Z",
+          "updatedAt": "2025-06-03T13:16:36Z",
+          "comments": [
+            {
+              "originalPosition": 97,
+              "body": "See issue #13 ",
+              "createdAt": "2025-06-03T11:27:26Z",
+              "updatedAt": "2025-06-03T13:16:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sZceL",
+          "commit": {
+            "abbreviatedOid": "3c47f1b"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T13:23:57Z",
+          "updatedAt": "2025-06-03T13:23:57Z",
+          "comments": [
+            {
+              "originalPosition": 75,
+              "body": "```suggestion\r\n3. A Workload Credential can be traced back to the Workload\u2019s Provenance, either at runtime or for a later audit\r\n```",
+              "createdAt": "2025-06-03T13:23:57Z",
+              "updatedAt": "2025-06-03T13:23:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sZfHF",
+          "commit": {
+            "abbreviatedOid": "f272e61"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Completed review",
+          "createdAt": "2025-06-03T13:26:18Z",
+          "updatedAt": "2025-06-03T13:26:18Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sZfdf",
+          "commit": {
+            "abbreviatedOid": "f272e61"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "Resolved issues in regular call. :ship: it",
+          "createdAt": "2025-06-03T13:26:37Z",
+          "updatedAt": "2025-06-03T13:26:37Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "PR_kwDOOebIkc6YxqoW",
+      "title": "Some Editorial Refurbishment",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/14",
+      "state": "OPEN",
+      "author": "henkbirkholz",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "Proposing:\r\n\r\n* some changes to markdown syntax\r\n* reshaping the terminology section style\r\n* changes to the TOC structure\r\n* minor editorial phrasing changes",
+      "createdAt": "2025-06-03T08:52:35Z",
+      "updatedAt": "2025-06-03T13:52:33Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "cc7b7c5033ef2c9e6930fdbdc26410fc85594b5b",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "henk-round1",
+      "headRefOid": "56009c52220863225638e39bee5be92263d0d57a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6sYmxx",
+          "commit": {
+            "abbreviatedOid": "0896197"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T12:30:37Z",
+          "updatedAt": "2025-06-03T12:30:37Z",
+          "comments": [
+            {
+              "originalPosition": 34,
+              "body": "We might want to add \"lack of certainty about the composition of the workload\" which captures both weak attestation and lack of provenance information",
+              "createdAt": "2025-06-03T12:30:37Z",
+              "updatedAt": "2025-06-03T12:30:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sYwTG",
+          "commit": {
+            "abbreviatedOid": "0896197"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T12:41:57Z",
+          "updatedAt": "2025-06-03T12:41:57Z",
+          "comments": [
+            {
+              "originalPosition": 87,
+              "body": "\"a trusted entity\" implies only one, but there's a combination of entities at play here. Let's discuss?",
+              "createdAt": "2025-06-03T12:41:57Z",
+              "updatedAt": "2025-06-03T12:41:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sZlZR",
+          "commit": {
+            "abbreviatedOid": "0896197"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T13:30:40Z",
+          "updatedAt": "2025-06-03T13:30:40Z",
+          "comments": [
+            {
+              "originalPosition": 206,
+              "body": "This is not part of credential usage so not in scope for WIMSE.",
+              "createdAt": "2025-06-03T13:30:40Z",
+              "updatedAt": "2025-06-03T13:30:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sZppp",
+          "commit": {
+            "abbreviatedOid": "0896197"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T13:33:24Z",
+          "updatedAt": "2025-06-03T13:33:24Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "```suggestion\r\nUntil recently, there were few scenarios requiring data-in-use protections. This is starting to change. Regulatory bodies worldwide are increasingly requiring data-in-use protection and privacy-enhancing technologies. Outside of regulatory requirements, companies are exploring:\r\n```",
+              "createdAt": "2025-06-03T13:33:24Z",
+              "updatedAt": "2025-06-03T13:33:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sZrPn",
+          "commit": {
+            "abbreviatedOid": "86354c7"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T13:34:49Z",
+          "updatedAt": "2025-06-03T13:34:50Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\r\nThis document illustrates a gap analysis that is the output of the Confidential Computing Consortium identifying areas in the IETF WIMSE WG work where the current WIMSE architecture should be amended to accommodate workloads running in Confidential Computing environments. This document outlines high-level requirements for the these extensions and describes a series of use cases.\r\n```",
+              "createdAt": "2025-06-03T13:34:50Z",
+              "updatedAt": "2025-06-03T13:34:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sZsq4",
+          "commit": {
+            "abbreviatedOid": "49ce607"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T13:36:18Z",
+          "updatedAt": "2025-06-03T13:36:19Z",
+          "comments": [
+            {
+              "originalPosition": 25,
+              "body": "```suggestion\r\n* Addressing the risks of computing in public clouds and high-risk locations\r\n```",
+              "createdAt": "2025-06-03T13:36:19Z",
+              "updatedAt": "2025-06-03T13:36:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sZuKX",
+          "commit": {
+            "abbreviatedOid": "0ba15ad"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T13:37:32Z",
+          "updatedAt": "2025-06-03T13:37:33Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "```suggestion\r\nUntil recently, there were few scenarios requiring data-in-use protection. This is starting to change. Regulatory bodies worldwide are increasingly requiring data-in-use protection and privacy-enhancing technologies. Outside of regulatory requirements, companies are exploring:\r\n```",
+              "createdAt": "2025-06-03T13:37:32Z",
+              "updatedAt": "2025-06-03T13:37:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sZzkE",
+          "commit": {
+            "abbreviatedOid": "43ad518"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T13:41:45Z",
+          "updatedAt": "2025-06-03T13:41:45Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "```suggestion\r\nCorrespondingly, there is an increased push to harmonize management and governance of human and non-human identities.\r\nModern workloads may operate on their own behalf with their own credentials, or as agents on behalf of other entities with delegated credentials.\r\nEntities interested in strong assurances around the security of their deployed workloads, for regulatory, contractual or peace of mind reasons, are starting to face large and challenging tasks of upgrading their existing computing system infrastructure to meet these requirements.\r\n```",
+              "createdAt": "2025-06-03T13:41:45Z",
+              "updatedAt": "2025-06-03T13:43:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sZ4dz",
+          "commit": {
+            "abbreviatedOid": "8cedeee"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T13:45:47Z",
+          "updatedAt": "2025-06-03T13:45:48Z",
+          "comments": [
+            {
+              "originalPosition": 36,
+              "body": "```suggestion\r\n3. Lack of verifiable composition of the workload, and inability to associate a credential with a set of decisions leading up to its issuance\r\n```",
+              "createdAt": "2025-06-03T13:45:47Z",
+              "updatedAt": "2025-06-03T13:45:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sZ8mX",
+          "commit": {
+            "abbreviatedOid": "884f866"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T13:49:54Z",
+          "updatedAt": "2025-06-03T13:49:54Z",
+          "comments": [
+            {
+              "originalPosition": 44,
+              "body": "```suggestion\r\nIn the immediate term, effective Confidential Computing faces a significant challenge: the scale of uplift and immature tooling are both clear barriers.\r\nLonger term, however, Confidential Computing provides a vital improvement due to its unique features (i.e., verifiable composition, strong workload isolation) and broad availability (i.e., support by all major hardware vendors).\r\nMultiple emerging regulations will mean that customers will be looking to these features and capabilities to satisfy them.\r\n```",
+              "createdAt": "2025-06-03T13:49:54Z",
+              "updatedAt": "2025-06-03T13:49:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6sZ_ib",
+          "commit": {
+            "abbreviatedOid": "f3604f9"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-03T13:52:22Z",
+          "updatedAt": "2025-06-03T13:52:22Z",
+          "comments": [
+            {
+              "originalPosition": 48,
+              "body": "```suggestion\r\nConfidential Computing-assisted mechanisms have to align with the emerging Workload Identity solution ecosystem. Correspondingly, the evolution of the Workload Identity ecosystem should remain in alignment with the expectations of the owners and operators of Confidential Computing workloads.\r\nTo address this set of requirements, this document defines and elaborates on the concept of `Trustworthy Workload Identity` (TWI) in the following Sections.\r\nData-in-use protection of workloads supporting TWI results in critical downstream effects.\r\n```",
+              "createdAt": "2025-06-03T13:52:22Z",
+              "updatedAt": "2025-06-03T13:52:23Z"
             }
           ]
         }
