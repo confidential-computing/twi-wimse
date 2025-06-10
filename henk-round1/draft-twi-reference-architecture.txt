@@ -203,8 +203,8 @@ Table of Contents
    basis for identifying extensions necessary to meet the level of
    trustworthiness required by Confidential Computing environments.
 
-   *  Protection of Credentials at Runtime, Key Management in Dynamic
-      Environments and Insufficient Runtime Attestation:
+   *  Protection of Credentials at runtime and insufficient Runtime
+      Attestation:
 
       -  Risk that credentials in memory could be exposed if a
          workload’s execution environment is compromised.
