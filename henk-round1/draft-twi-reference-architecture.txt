@@ -138,11 +138,11 @@ Table of Contents
    lack of process isolation eases credential exfiltration and leads to
    credential leakage and reuse.
 
-   Longer term, however, Confidential Computing provides a vital
-   improvement due to its unique features (i.e., verifiable composition,
-   strong workload isolation) and broad availability (i.e., support by
-   all major hardware vendors).  Multiple emerging regulations will mean
-   that customers will be looking to these features and capabilities to
+   Confidential Computing can close these architectural gaps due to its
+   unique features (i.e., verifiable composition, strong workload
+   isolation) and broad availability (i.e., support by all major
+   hardware vendors).  Multiple emerging regulations will mean that
+   customers will be looking to these features and capabilities to
    satisfy them.
 
    Confidential Computing-assisted mechanisms have to align with the
