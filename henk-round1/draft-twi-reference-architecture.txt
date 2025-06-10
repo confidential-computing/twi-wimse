@@ -212,7 +212,7 @@ Table of Contents
       -  Confidential Computing does not trust its hosting environment
          and relies on each Workload attesting itself.
 
-   *  Token Replay and Misuse in Cross-domain Scenarios:
+   *  Token replay and misuse:
 
       -  Even with proper token binding, the risk of replay attacks or
          the use of compromised tokens across trust boundaries remains,
