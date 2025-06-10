@@ -118,7 +118,7 @@ The following shortcomings were identified by performing a gap analysis of the c
   * Risk that credentials in memory could be exposed if a workload’s execution environment is compromised.
   * Confidential Computing does not trust its hosting environment and relies on each Workload attesting itself.
 * Token replay and misuse:
-  * Even with proper token binding, the risk of replay attacks or the use of compromised tokens across trust boundaries remains, especially if an attacker manages to intercept tokens during service-to-service exchanges.
+  * Token binding, even if used, is not sufficient unless the secrets underpinning the workload's credentials are protected from leakage.
 
 # Integration of Confidential Computing into WIMSE
 
