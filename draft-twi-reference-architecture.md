@@ -100,7 +100,7 @@ Workload Identifier:
 
 Workload Identity:
 
-: the definition of Workload Identity is identical to the definition of {{-WIMSE}}: "a combination of three basic building blocks: trust domain, Workload Identifier and identity credentials.
+: the definition of Workload Identity is identical to the definition of the same term by {{-WIMSE}}: "a combination of three basic building blocks: trust domain, Workload Identifier and identity credentials.
 
 Workload Credential:
 
