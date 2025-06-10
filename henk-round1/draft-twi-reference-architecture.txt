@@ -176,8 +176,8 @@ Table of Contents
       restrict that definition to the portion of the software instance
       and its configuration that is subject to Remote Attestation.
 
-   Workload Identifier:  is a stable construct around which Relying
-      Parties can form long-lived Workload authorization policies.
+   Workload Identifier:  a stable construct around which Relying Parties
+      can form long-lived Workload authorization policies.
 
    Workload Identity:  the definition of Workload Identity is identical
       to the definition of the same term by [I-D.draft-ietf-wimse-arch]:
