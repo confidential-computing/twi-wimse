@@ -112,7 +112,7 @@ Workload Provenance:
 
 # Gap Analysis
 
-The following risks where identified by a gap analysis of the current WIMSE architecture {{-WIMSE}} performed by the Confidential Computing Consortium. The gap analysis provides a basis for identify extensions necessary to meet the level of trustworthiness required by confidential computing environments:
+The following shortcomings were identified by performing a gap analysis of the current WIMSE architecture {{-WIMSE}} against the requirements underlying Trustworthy Workload Identity (TWI). The gap analysis provides a basis for identifying extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.
 
 * Protection of Credentials at Runtime, Key Management in Dynamic Environments and Insufficient Runtime Attestation:
   * Risk that credentials in memory could be exposed if a workload’s execution environment is compromised.
