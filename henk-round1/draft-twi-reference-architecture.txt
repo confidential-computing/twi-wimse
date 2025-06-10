@@ -151,9 +151,7 @@ Table of Contents
    alignment with the expectations of the owners and operators of
    Confidential Computing workloads.  To address this set of
    requirements, this document defines and elaborates on the concept of
-   Trustworthy Workload Identity (TWI) in the following Sections.  Data-
-   in-use protection of workloads supporting TWI results in critical
-   downstream effects.
+   Trustworthy Workload Identity (TWI) in the following Sections.
 
 2.  Conventions and Definitions
 
