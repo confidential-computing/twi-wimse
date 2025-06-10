@@ -128,7 +128,7 @@ With TEEs, a workload’s private keys and sensitive cryptographic operations (s
 
 ## Enhanced Bootstrapping with Attestation
 
-Strengthening the initial bootstrapping process. A TEE can provide hardware-based attestation that a workload is running in a secure, isolated environment. This attestation could be used as an additional factor during credential provisioning, ensuring that only workloads running in a TEE receive valid credentials.
+Strengthening the initial bootstrapping process. A TEE can provide hardware-based attestation that a workload is running in a secure, isolated environment. This attestation could be used as an additional factor during credential provisioning, ensuring that only workloads running in a TEE and matching the credential issuer's attestation policies receive valid credentials.
 
 [^projects]
 
