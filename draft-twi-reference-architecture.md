@@ -93,7 +93,6 @@ Workload:
 
 : {{-WIMSE}} defines 'Workload' as "an instance of software executing for a specific purpose. Here we restrict that definition to the portion of the software instance and its configuration that is subject to Remote Attestation.
 
-: The definition of Workload in this document restricts the definition of the term Workload as defined by {{-WIMSE}} to composition of code and configuration of a (WIMSE-defined) Workload that is subject to Remote Attestation.
 
 Workload Identifier:
 
