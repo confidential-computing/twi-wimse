@@ -236,7 +236,8 @@ Table of Contents
    hardware-based attestation that a workload is running in a secure,
    isolated environment.  This attestation could be used as an
    additional factor during credential provisioning, ensuring that only
-   workloads running in a TEE receive valid credentials.
+   workloads running in a TEE and matching the credential issuer's
+   attestation policies receive valid credentials.
 
 
    // might be a bit of a stretch/ too much - it basically would be an
