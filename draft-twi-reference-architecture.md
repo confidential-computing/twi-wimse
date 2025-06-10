@@ -124,7 +124,7 @@ The following shortcomings were identified by performing a gap analysis of the c
 
 ## Secure Key Storage & Cryptographic Operations
 
-With TEE’s, a workload’s private keys and sensitive cryptographic operations (such as signing or validating tokens) can be isolated from the host OS. Reducing the risk of key leakage even if the surrounding system is compromised. (For instance, the WIMSE token—be it a JWT or an X.509 certificate—can be generated and signed within a TEE, ensuring that the proof-of-possession mechanism remains intact.)
+With TEEs, a workload’s private keys and sensitive cryptographic operations (such as signing or validating tokens) can be isolated from the hosting environment, reducing the risk of key leakage even if the surrounding system is compromised. (For instance, the WIMSE token—be it a JWT or an X.509 certificate—can be generated and signed within a TEE, ensuring that the proof-of-possession mechanism remains intact.)
 
 ## Enhanced Bootstrapping with Attestation
 
