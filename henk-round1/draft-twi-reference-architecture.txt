@@ -176,12 +176,6 @@ Table of Contents
       restrict that definition to the portion of the software instance
       and its configuration that is subject to Remote Attestation.
 
-      The definition of Workload in this document restricts the
-      definition of the term Workload as defined by
-      [I-D.draft-ietf-wimse-arch] to composition of code and
-      configuration of a (WIMSE-defined) Workload that is subject to
-      Remote Attestation.
-
    Workload Identifier:  a stable value construct in support of a
       Relying Party's long-lived Workload authorization policies.
 

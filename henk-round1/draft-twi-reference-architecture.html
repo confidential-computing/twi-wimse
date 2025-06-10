@@ -1305,29 +1305,24 @@ see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">
           <p id="section-2-4.2.1"><span>[<a href="#I-D.draft-ietf-wimse-arch" class="cite xref">I-D.draft-ietf-wimse-arch</a>]</span> defines 'Workload' as "an instance of software executing for a specific purpose. Here we restrict that definition to the portion of the software instance and its configuration that is subject to Remote Attestation.<a href="#section-2-4.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-2-4.3"></dt>
+<dt id="section-2-4.3">Workload Identifier:</dt>
         <dd style="margin-left: 1.5em" id="section-2-4.4">
-          <p id="section-2-4.4.1">The definition of Workload in this document restricts the definition of the term Workload as defined by <span>[<a href="#I-D.draft-ietf-wimse-arch" class="cite xref">I-D.draft-ietf-wimse-arch</a>]</span> to composition of code and configuration of a (WIMSE-defined) Workload that is subject to Remote Attestation.<a href="#section-2-4.4.1" class="pilcrow">¶</a></p>
+          <p id="section-2-4.4.1">a stable value construct in support of a Relying Party's long-lived Workload authorization policies.<a href="#section-2-4.4.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-2-4.5">Workload Identifier:</dt>
+<dt id="section-2-4.5">Workload Identity:</dt>
         <dd style="margin-left: 1.5em" id="section-2-4.6">
-          <p id="section-2-4.6.1">a stable value construct in support of a Relying Party's long-lived Workload authorization policies.<a href="#section-2-4.6.1" class="pilcrow">¶</a></p>
+          <p id="section-2-4.6.1">the definition of Workload Identity is identical to the definition of <span>[<a href="#I-D.draft-ietf-wimse-arch" class="cite xref">I-D.draft-ietf-wimse-arch</a>]</span>: "a combination of three basic building blocks: trust domain, Workload Identifier and identity credentials.<a href="#section-2-4.6.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-2-4.7">Workload Identity:</dt>
+<dt id="section-2-4.7">Workload Credential:</dt>
         <dd style="margin-left: 1.5em" id="section-2-4.8">
-          <p id="section-2-4.8.1">the definition of Workload Identity is identical to the definition of <span>[<a href="#I-D.draft-ietf-wimse-arch" class="cite xref">I-D.draft-ietf-wimse-arch</a>]</span>: "a combination of three basic building blocks: trust domain, Workload Identifier and identity credentials.<a href="#section-2-4.8.1" class="pilcrow">¶</a></p>
+          <p id="section-2-4.8.1">an ephemeral identity document containing the Workload Identifier and a number of additional claims, that can be short-lived or long-lived, and that is used to represent and prove Workload Identity to a Relying Party.<a href="#section-2-4.8.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-2-4.9">Workload Credential:</dt>
+<dt id="section-2-4.9">Workload Provenance:</dt>
         <dd style="margin-left: 1.5em" id="section-2-4.10">
-          <p id="section-2-4.10.1">an ephemeral identity document containing the Workload Identifier and a number of additional claims, that can be short-lived or long-lived, and that is used to represent and prove Workload Identity to a Relying Party.<a href="#section-2-4.10.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-2-4.11">Workload Provenance:</dt>
-        <dd style="margin-left: 1.5em" id="section-2-4.12">
-          <p id="section-2-4.12.1">a linkage between a Workload Credential and a trusted entity (e.g., a vendor, developer, or issuer) responsible for the production and/or the remote attestation of a corresponding Workload.<a href="#section-2-4.12.1" class="pilcrow">¶</a></p>
+          <p id="section-2-4.10.1">a linkage between a Workload Credential and a trusted entity (e.g., a vendor, developer, or issuer) responsible for the production and/or the remote attestation of a corresponding Workload.<a href="#section-2-4.10.1" class="pilcrow">¶</a></p>
 </dd>
       <dd class="break"></dd>
 </dl>
