@@ -116,7 +116,7 @@ The following shortcomings were identified by performing a gap analysis of the c
 
 * Protection of Credentials at runtime and insufficient Runtime Attestation:
   * Risk that credentials in memory could be exposed if a workload’s execution environment is compromised.
-  * Runtime can still be compromised, even if keys are securely managed, a compromised runtime can still leak. Similarly, a secure runtime is less effective if key management is weak. Integrating both robust key lifecycle management and continuous runtime attestation provides better security.
+  * Confidential Computing does not trust its hosting environment and relies on each Workload attesting itself.
 * Token Replay and Misuse in Cross-domain Scenarios:
   * Even with proper token binding, the risk of replay attacks or the use of compromised tokens across trust boundaries remains, especially if an attacker manages to intercept tokens during service-to-service exchanges.
 
