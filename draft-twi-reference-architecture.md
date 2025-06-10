@@ -78,7 +78,6 @@ Multiple emerging regulations will mean that customers will be looking to these 
 
 Confidential Computing-assisted mechanisms have to align with the emerging Workload Identity solution ecosystem. Correspondingly, the evolution of the Workload Identity ecosystem should remain in alignment with the expectations of the owners and operators of Confidential Computing workloads.
 To address this set of requirements, this document defines and elaborates on the concept of `Trustworthy Workload Identity` (TWI) in the following Sections.
-Data-in-use protection of workloads supporting TWI results in critical downstream effects.
 
 # Conventions and Definitions
 {: #definitions }
