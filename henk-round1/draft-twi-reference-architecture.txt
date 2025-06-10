@@ -214,10 +214,9 @@ Table of Contents
 
    *  Token replay and misuse:
 
-      -  Even with proper token binding, the risk of replay attacks or
-         the use of compromised tokens across trust boundaries remains,
-         especially if an attacker manages to intercept tokens during
-         service-to-service exchanges.
+      -  Token binding, even if used, is not sufficient unless the
+         secrets underpinning the workload's credentials are protected
+         from leakage.
 
 4.  Integration of Confidential Computing into WIMSE
 
