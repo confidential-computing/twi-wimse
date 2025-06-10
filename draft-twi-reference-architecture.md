@@ -114,7 +114,7 @@ Workload Provenance:
 
 The following shortcomings were identified by performing a gap analysis of the current WIMSE architecture {{-WIMSE}} against the requirements underlying Trustworthy Workload Identity (TWI). The gap analysis provides a basis for identifying extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.
 
-* Protection of Credentials at Runtime, Key Management in Dynamic Environments and Insufficient Runtime Attestation:
+* Protection of Credentials at runtime and insufficient Runtime Attestation:
   * Risk that credentials in memory could be exposed if a workload’s execution environment is compromised.
   * The current solutions rely on traditional key management practices which may not be good enough against sophisticated runtime attacks.
   * Runtime can still be compromised, even if keys are securely managed, a compromised runtime can still leak. Similarly, a secure runtime is less effective if key management is weak. Integrating both robust key lifecycle management and continuous runtime attestation provides better security.
