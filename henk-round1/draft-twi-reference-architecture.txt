@@ -180,9 +180,9 @@ Table of Contents
       Parties can form long-lived Workload authorization policies.
 
    Workload Identity:  the definition of Workload Identity is identical
-      to the definition of [I-D.draft-ietf-wimse-arch]: "a combination
-      of three basic building blocks: trust domain, Workload Identifier
-      and identity credentials.
+      to the definition of the same term by [I-D.draft-ietf-wimse-arch]:
+      "a combination of three basic building blocks: trust domain,
+      Workload Identifier and identity credentials.
 
    Workload Credential:  an ephemeral identity document containing the
       Workload Identifier and a number of additional claims, that can be
