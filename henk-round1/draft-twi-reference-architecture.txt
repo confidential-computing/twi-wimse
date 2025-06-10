@@ -5,8 +5,8 @@
 WIMSE                                                           M. Novak
 Internet-Draft                                         J.P. Morgan Chase
 Intended status: Informational                              Y. Deshpande
-Expires: 5 December 2025                                             arm
-                                                             3 June 2025
+Expires: 12 December 2025                                            arm
+                                                            10 June 2025
 
 
           Trustworthy Workload Identity Reference Architecture
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 December 2025.
+   This Internet-Draft will expire on 12 December 2025.
 
 Copyright Notice
 
@@ -96,7 +96,7 @@ Table of Contents
 
    Until recently, there were few scenarios requiring data-in-use
    protection.  This is starting to change.  Regulatory bodies worldwide
-   are increasingly requiring data-in-use protection and privacy-
+   are increasingly requiring data-in-use protection and privacy
    enhancing technologies.  Outside of regulatory requirements,
    companies are exploring:
 
