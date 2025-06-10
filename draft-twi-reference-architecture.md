@@ -96,7 +96,7 @@ Workload:
 
 Workload Identifier:
 
-: is a stable construct around which Relying Parties can form long-lived Workload authorization policies.
+: a stable construct around which Relying Parties can form long-lived Workload authorization policies.
 
 Workload Identity:
 
