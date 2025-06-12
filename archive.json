@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-05T01:45:54.275365+00:00",
+  "timestamp": "2025-06-12T01:46:27.372310+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -103,6 +103,86 @@
       "body": "The `HSM` piece is a little fuzzy, esp. as I'm not aware of any HSM offering capable of runtime attestation of a TEE/enclave (which would be required for it to issue any kind of key).\r\n\r\nOn the other hand, if the attestation was to be unidirectional only (TWI attests 'its' crypto provider before asking for key), then:\r\n  - If the HSM is 'just' a stateless key **generator**, it feels like we can just wrap it under \"TEE generates the key <somehow> umbrella\", w/o over defining.\r\n  - If the HSM has state (and this is a key **sharing** concept), we have introduced new attack surface (non-CC, it suffices to break the HSM auth token).\r\n\r\n_Originally posted by @mbronk-intc in https://github.com/confidential-computing/twi-wimse/pull/12#discussion_r2108890703_\r\n            ",
       "createdAt": "2025-06-03T13:21:28Z",
       "updatedAt": "2025-06-03T13:21:28Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 16,
+      "id": "I_kwDOOebIkc66xxfK",
+      "title": "Workload Identifier meaning - discuss at more length",
+      "url": "https://github.com/confidential-computing/twi-wimse/issues/16",
+      "state": "OPEN",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Design Considerations\r\nShould the ID be globally unique or partitioned by workload type?\r\n\r\nShould it encode temporal data (e.g., epoch-based) or be strictly incrementing?\r\n\r\nWill IDs ever need to be re-used or recycled?\r\n\r\nBest practice usually involves combining a timestamp component (for ordering) with a counter or unique suffix (for deduplication). Lets discuss\r\n\r\n_Originally posted by @Mainsailthewolfe in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2137493317_\r\n            ",
+      "createdAt": "2025-06-10T13:28:57Z",
+      "updatedAt": "2025-06-10T13:28:57Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 17,
+      "id": "I_kwDOOebIkc66x2jE",
+      "title": "Discuss the precise definition of Lineage and then update the Charter with it",
+      "url": "https://github.com/confidential-computing/twi-wimse/issues/17",
+      "state": "OPEN",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "> ...and also... this, as stated, is easily misunderstood to mean something other than what we want it to mean. For instance, the name of an issuer bound to the credential is a \"linkage\" between that credential and the issuer, but it says nothing about provenance. Provenance is something specific to the credential in question that can help identify which decisions led to the issuance of the credential. Let's discuss.\r\n\r\nLet\u2019s be careful not to conflate linkage with provenance. The presence of an issuer name is a linkage\u2014but provenance captures the credential\u2019s path and intent, including issuance context and decision lineage.\r\n\r\nThe current language risks conflating linkage (e.g., \u201cissuer name in a credential\u201d) with provenance (the broader context and history of how and why the credential was created). This confusion can lead to incorrect assumptions about trust, authenticity, and responsibility.\r\n\r\n_Originally posted by @Mainsailthewolfe in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2137508007_\r\n            ",
+      "createdAt": "2025-06-10T13:34:46Z",
+      "updatedAt": "2025-06-10T13:34:46Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 18,
+      "id": "I_kwDOOebIkc66yD86",
+      "title": "Discuss provenance in the gap analysis",
+      "url": "https://github.com/confidential-computing/twi-wimse/issues/18",
+      "state": "OPEN",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Discuss provenance in the gap analysis\r\n\r\n_Originally posted by @TheBankster in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2137961676_\r\n            ",
+      "createdAt": "2025-06-10T13:49:55Z",
+      "updatedAt": "2025-06-10T13:49:55Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 19,
+      "id": "I_kwDOOebIkc66yJjG",
+      "title": "TODO: review and resolve before publishing the ID",
+      "url": "https://github.com/confidential-computing/twi-wimse/issues/19",
+      "state": "OPEN",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "TODO: review and resolve before publishing the ID\r\n\r\n_Originally posted by @TheBankster in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2137976195_\r\n            ",
+      "createdAt": "2025-06-10T13:56:10Z",
+      "updatedAt": "2025-06-10T13:56:10Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 20,
+      "id": "I_kwDOOebIkc66yKYe",
+      "title": "TODO: add discussion of Provenance: it must be mentioned as a WIMSE extension even if there is no work for WIMSE to do.",
+      "url": "https://github.com/confidential-computing/twi-wimse/issues/20",
+      "state": "OPEN",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "TODO: add discussion of Provenance: it must be mentioned as a WIMSE extension even if there is no work for WIMSE to do.\r\n\r\n_Originally posted by @TheBankster in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2137978691_\r\n            ",
+      "createdAt": "2025-06-10T13:57:15Z",
+      "updatedAt": "2025-06-10T13:57:15Z",
       "closedAt": null,
       "comments": []
     }
@@ -1404,13 +1484,13 @@
       "labels": [],
       "body": "Proposing:\r\n\r\n* some changes to markdown syntax\r\n* reshaping the terminology section style\r\n* changes to the TOC structure\r\n* minor editorial phrasing changes",
       "createdAt": "2025-06-03T08:52:35Z",
-      "updatedAt": "2025-06-03T13:52:33Z",
+      "updatedAt": "2025-06-10T13:57:06Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "cc7b7c5033ef2c9e6930fdbdc26410fc85594b5b",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "henk-round1",
-      "headRefOid": "56009c52220863225638e39bee5be92263d0d57a",
+      "headRefOid": "c149eaabb754706e735c6bb1e7390b56f3a1f0c6",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -1634,6 +1714,749 @@
               "body": "```suggestion\r\nConfidential Computing-assisted mechanisms have to align with the emerging Workload Identity solution ecosystem. Correspondingly, the evolution of the Workload Identity ecosystem should remain in alignment with the expectations of the owners and operators of Confidential Computing workloads.\r\nTo address this set of requirements, this document defines and elaborates on the concept of `Trustworthy Workload Identity` (TWI) in the following Sections.\r\nData-in-use protection of workloads supporting TWI results in critical downstream effects.\r\n```",
               "createdAt": "2025-06-03T13:52:22Z",
               "updatedAt": "2025-06-03T13:52:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tjvQJ",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T02:53:08Z",
+          "updatedAt": "2025-06-10T02:53:09Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "```suggestion\r\nUntil recently, there were few scenarios requiring data-in-use protection. This is starting to change. Regulatory bodies worldwide are increasingly requiring data-in-use protection and privacy enhancing technologies. Outside of regulatory requirements, companies are exploring:\r\n```",
+              "createdAt": "2025-06-10T02:53:08Z",
+              "updatedAt": "2025-06-10T02:53:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tjwDV",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T02:56:28Z",
+          "updatedAt": "2025-06-10T02:56:28Z",
+          "comments": [
+            {
+              "originalPosition": 50,
+              "body": "```suggestion\r\n```",
+              "createdAt": "2025-06-10T02:56:28Z",
+              "updatedAt": "2025-06-10T02:56:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tjwYa",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T02:57:47Z",
+          "updatedAt": "2025-06-10T02:57:47Z",
+          "comments": [
+            {
+              "originalPosition": 70,
+              "body": "```suggestion\r\n: The definition of Workload in this document restricts the definition of the term Workload as defined by {{-WIMSE}} to composition of code and configuration of a (WIMSE-defined) Workload that runs in a Trusted Execution Environment and is subject to Remote Attestation.\r\n```",
+              "createdAt": "2025-06-10T02:57:47Z",
+              "updatedAt": "2025-06-10T02:57:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tjxCr",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T03:00:24Z",
+          "updatedAt": "2025-06-10T03:00:24Z",
+          "comments": [
+            {
+              "originalPosition": 87,
+              "body": "...and also... this, as stated, is easily misunderstood to mean something other than what we want it to mean. For instance, the name of an issuer bound to the credential is a \"linkage\" between that credential and the issuer, but it says nothing about provenance. Provenance is something specific to the credential in question that can help identify which decisions led to the issuance of the credential. Let's discuss.",
+              "createdAt": "2025-06-10T03:00:24Z",
+              "updatedAt": "2025-06-10T03:00:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tjxZ1",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T03:01:51Z",
+          "updatedAt": "2025-06-10T03:01:51Z",
+          "comments": [
+            {
+              "originalPosition": 98,
+              "body": "The gaps are not just about risks. Lack of provenance is a gap, but not a \"risk\" per se.",
+              "createdAt": "2025-06-10T03:01:51Z",
+              "updatedAt": "2025-06-10T03:01:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tjxzD",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T03:03:31Z",
+          "updatedAt": "2025-06-10T03:03:31Z",
+          "comments": [
+            {
+              "originalPosition": 114,
+              "body": "```suggestion\r\nWith TEEs, a workload\u2019s private keys and sensitive cryptographic operations (such as signing or validating tokens) can be isolated from the hosting environment, reducing the risk of key leakage even if the surrounding system is compromised. (For instance, the WIMSE token\u2014be it a JWT or an X.509 certificate\u2014can be generated and signed within a TEE, ensuring that the proof-of-possession mechanism remains intact.)\r\n```",
+              "createdAt": "2025-06-10T03:03:31Z",
+              "updatedAt": "2025-06-10T13:51:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tjyCX",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T03:04:29Z",
+          "updatedAt": "2025-06-10T03:04:29Z",
+          "comments": [
+            {
+              "originalPosition": 120,
+              "body": "```suggestion\r\nStrengthening the initial bootstrapping process. A TEE can provide hardware-based attestation that a workload is running in a secure, isolated environment. This attestation could be used as an additional factor during credential provisioning, ensuring that only workloads running in a TEE and matching the credential issuer's attestation policies receive valid credentials.\r\n```",
+              "createdAt": "2025-06-10T03:04:29Z",
+              "updatedAt": "2025-06-10T03:04:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tjyNu",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T03:05:14Z",
+          "updatedAt": "2025-06-10T03:05:15Z",
+          "comments": [
+            {
+              "originalPosition": 129,
+              "body": "```suggestion\r\nFor the credential exchange patterns defined in the WIMSE Credential Exchange draft, Confidential Computing can provide a Trusted Execution Environment in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping.\r\n```",
+              "createdAt": "2025-06-10T03:05:14Z",
+              "updatedAt": "2025-06-10T03:05:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tjygp",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T03:06:25Z",
+          "updatedAt": "2025-06-10T03:06:25Z",
+          "comments": [
+            {
+              "originalPosition": 134,
+              "body": "```suggestion\r\nExecuting the Workload inside a Trusted Execution Environment can lower the risk that runtime attacks (such as memory scraping or side-channel attacks) can expose critical identity or authentication tokens. For example, a Trusted Execution Environment can be used to securely generate and verify proofs of possession that are important within the WIMSE authentication protocol.\r\n```",
+              "createdAt": "2025-06-10T03:06:25Z",
+              "updatedAt": "2025-06-10T03:06:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tjyx6",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T03:07:31Z",
+          "updatedAt": "2025-06-10T03:07:31Z",
+          "comments": [
+            {
+              "originalPosition": 147,
+              "body": "Check numbering. \"3\" is wrong here.",
+              "createdAt": "2025-06-10T03:07:31Z",
+              "updatedAt": "2025-06-10T03:07:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tjy3L",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T03:07:53Z",
+          "updatedAt": "2025-06-10T03:07:54Z",
+          "comments": [
+            {
+              "originalPosition": 155,
+              "body": "Going from Use Case 1 to Use Case 3. Where's 2?",
+              "createdAt": "2025-06-10T03:07:54Z",
+              "updatedAt": "2025-06-10T03:07:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tnvGH",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "Mainsailthewolfe",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T10:18:01Z",
+          "updatedAt": "2025-06-10T10:38:27Z",
+          "comments": [
+            {
+              "originalPosition": 73,
+              "body": "A Workload Identifier is a unique reference assigned to a job, process, service instance, or workload unit within a system. In the below section we are defining a workload identifier as a workload identifier. Lets discuss",
+              "createdAt": "2025-06-10T10:18:02Z",
+              "updatedAt": "2025-06-10T10:38:27Z"
+            },
+            {
+              "originalPosition": 73,
+              "body": "Additionally we should also consider the fact that a continuous Workload Identifier is preferred to a random workload identifier. This will allow the ability to maintain provenance across the workload lifecycle in a sequential manner.  Lets discuss",
+              "createdAt": "2025-06-10T10:22:18Z",
+              "updatedAt": "2025-06-10T10:38:27Z"
+            },
+            {
+              "originalPosition": 73,
+              "body": "Design Considerations\r\nShould the ID be globally unique or partitioned by workload type?\r\n\r\nShould it encode temporal data (e.g., epoch-based) or be strictly incrementing?\r\n\r\nWill IDs ever need to be re-used or recycled?\r\n\r\nBest practice usually involves combining a timestamp component (for ordering) with a counter or unique suffix (for deduplication). Lets discuss",
+              "createdAt": "2025-06-10T10:24:41Z",
+              "updatedAt": "2025-06-10T10:38:27Z"
+            },
+            {
+              "originalPosition": 87,
+              "body": "> \"a trusted entity\" implies only one, but there's a combination of entities at play here. Let's discuss?\r\n\r\nReferring to \u2018a trusted entity\u2019 suggests singularity, which misrepresents our architecture. We should clarify that trust may be derived from a composite of entities, not just one, especially in distributed or federated issuance models",
+              "createdAt": "2025-06-10T10:32:21Z",
+              "updatedAt": "2025-06-10T10:38:27Z"
+            },
+            {
+              "originalPosition": 87,
+              "body": "> ...and also... this, as stated, is easily misunderstood to mean something other than what we want it to mean. For instance, the name of an issuer bound to the credential is a \"linkage\" between that credential and the issuer, but it says nothing about provenance. Provenance is something specific to the credential in question that can help identify which decisions led to the issuance of the credential. Let's discuss.\r\n\r\nLet\u2019s be careful not to conflate linkage with provenance. The presence of an issuer name is a linkage\u2014but provenance captures the credential\u2019s path and intent, including issuance context and decision lineage.\r\n\r\nThe current language risks conflating linkage (e.g., \u201cissuer name in a credential\u201d) with provenance (the broader context and history of how and why the credential was created). This confusion can lead to incorrect assumptions about trust, authenticity, and responsibility.",
+              "createdAt": "2025-06-10T10:32:56Z",
+              "updatedAt": "2025-06-10T10:38:27Z"
+            },
+            {
+              "originalPosition": 98,
+              "body": "Can the \"gap\" turn into or become a \"risk\" if not addressed in this  context? ",
+              "createdAt": "2025-06-10T10:36:44Z",
+              "updatedAt": "2025-06-10T10:38:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6toG8p",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T10:44:56Z",
+          "updatedAt": "2025-06-10T10:44:56Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\r\nThis document illustrates a gap analysis that is the output of the Confidential Computing Consortium identifying areas in the IETF WIMSE WG work where the current WIMSE architecture should be extended to accommodate workloads running in Confidential Computing environments. This document outlines high-level requirements for the these extensions and describes a series of use cases.\r\n```",
+              "createdAt": "2025-06-10T10:44:56Z",
+              "updatedAt": "2025-06-10T10:44:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6toKnS",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T10:47:59Z",
+          "updatedAt": "2025-06-10T10:47:59Z",
+          "comments": [
+            {
+              "originalPosition": 44,
+              "body": "As CC is gaining popularity now, shall we delete line 76..? The reason been, it water down a bit our efforts for a need for CC?",
+              "createdAt": "2025-06-10T10:47:59Z",
+              "updatedAt": "2025-06-10T10:47:59Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6toNM_",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T10:50:06Z",
+          "updatedAt": "2025-06-10T10:50:06Z",
+          "comments": [
+            {
+              "originalPosition": 98,
+              "body": "```suggestion\r\nThe following risks were identified by a gap analysis of the current WIMSE architecture {{-WIMSE}} performed by the Confidential Computing Consortium. The gap analysis provides a basis for identify extensions necessary to meet the level of trustworthiness required by confidential computing environments:\r\n```",
+              "createdAt": "2025-06-10T10:50:06Z",
+              "updatedAt": "2025-06-10T10:50:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6toRvC",
+          "commit": {
+            "abbreviatedOid": "56009c5"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "see some comments",
+          "createdAt": "2025-06-10T10:54:00Z",
+          "updatedAt": "2025-06-10T10:54:00Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqMd0",
+          "commit": {
+            "abbreviatedOid": "d7ff466"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:11:21Z",
+          "updatedAt": "2025-06-10T13:11:22Z",
+          "comments": [
+            {
+              "originalPosition": 44,
+              "body": "```suggestion\r\n```",
+              "createdAt": "2025-06-10T13:11:22Z",
+              "updatedAt": "2025-06-10T13:11:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqNdG",
+          "commit": {
+            "abbreviatedOid": "a6e5bd0"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:12:30Z",
+          "updatedAt": "2025-06-10T13:12:30Z",
+          "comments": [
+            {
+              "originalPosition": 44,
+              "body": "```suggestion\r\nConfidential Computing can close these architectural gaps due to its unique features (i.e., verifiable composition, strong workload isolation) and broad availability (i.e., support by all major hardware vendors).\r\n```",
+              "createdAt": "2025-06-10T13:12:30Z",
+              "updatedAt": "2025-06-10T13:12:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqXbP",
+          "commit": {
+            "abbreviatedOid": "3148336"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:21:29Z",
+          "updatedAt": "2025-06-10T13:21:29Z",
+          "comments": [
+            {
+              "originalPosition": 65,
+              "body": "```suggestion\r\n: {{-WIMSE}} defines 'Workload' as \"an instance of software executing for a specific purpose. Here we restrict that definition to the portion of the software instance and its configuration that is subject to Remote Attestation.\r\n```",
+              "createdAt": "2025-06-10T13:21:29Z",
+              "updatedAt": "2025-06-10T13:22:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqZD2",
+          "commit": {
+            "abbreviatedOid": "3404bea"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:22:52Z",
+          "updatedAt": "2025-06-10T13:22:52Z",
+          "comments": [
+            {
+              "originalPosition": 68,
+              "body": "```suggestion\r\n```",
+              "createdAt": "2025-06-10T13:22:52Z",
+              "updatedAt": "2025-06-10T13:22:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqdXr",
+          "commit": {
+            "abbreviatedOid": "51645de"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:27:31Z",
+          "updatedAt": "2025-06-10T13:27:32Z",
+          "comments": [
+            {
+              "originalPosition": 73,
+              "body": "```suggestion\r\n: is a stable construct around which Relying Parties can form long-lived Workload authorization policies.\r\n```",
+              "createdAt": "2025-06-10T13:27:31Z",
+              "updatedAt": "2025-06-10T13:27:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqeCT",
+          "commit": {
+            "abbreviatedOid": "fbec50e"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:28:16Z",
+          "updatedAt": "2025-06-10T13:28:16Z",
+          "comments": [
+            {
+              "originalPosition": 73,
+              "body": "Discussed in the meeting and closed.",
+              "createdAt": "2025-06-10T13:28:16Z",
+              "updatedAt": "2025-06-10T13:28:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqf1O",
+          "commit": {
+            "abbreviatedOid": "fbec50e"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:30:16Z",
+          "updatedAt": "2025-06-10T13:30:17Z",
+          "comments": [
+            {
+              "originalPosition": 79,
+              "body": "```suggestion\r\n: the definition of Workload Identity is identical to the definition of the same term by {{-WIMSE}}: \"a combination of three basic building blocks: trust domain, Workload Identifier and identity credentials.\r\n```",
+              "createdAt": "2025-06-10T13:30:16Z",
+              "updatedAt": "2025-06-10T13:30:17Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqny_",
+          "commit": {
+            "abbreviatedOid": "711a01f"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:38:49Z",
+          "updatedAt": "2025-06-10T13:38:49Z",
+          "comments": [
+            {
+              "originalPosition": 95,
+              "body": "```suggestion\r\nThe following shortcomings were identified by performing a gap analysis of the current WIMSE architecture {{-WIMSE}} against the requirements underlying Trustworthy Workload Identity (TWI). The gap analysis provides a basis for identifying extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.\r\n```",
+              "createdAt": "2025-06-10T13:38:49Z",
+              "updatedAt": "2025-06-10T13:38:49Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqq8t",
+          "commit": {
+            "abbreviatedOid": "51ebc8c"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:41:51Z",
+          "updatedAt": "2025-06-10T13:41:51Z",
+          "comments": [
+            {
+              "originalPosition": 99,
+              "body": "```suggestion\r\n* Protection of Credentials at runtime and insufficient Runtime Attestation:\r\n```",
+              "createdAt": "2025-06-10T13:41:51Z",
+              "updatedAt": "2025-06-10T13:41:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqs55",
+          "commit": {
+            "abbreviatedOid": "8e2624a"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:43:37Z",
+          "updatedAt": "2025-06-10T13:43:37Z",
+          "comments": [
+            {
+              "originalPosition": 101,
+              "body": "```suggestion\r\n```",
+              "createdAt": "2025-06-10T13:43:37Z",
+              "updatedAt": "2025-06-10T13:43:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqubU",
+          "commit": {
+            "abbreviatedOid": "3284b38"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:45:04Z",
+          "updatedAt": "2025-06-10T13:45:05Z",
+          "comments": [
+            {
+              "originalPosition": 101,
+              "body": "```suggestion\r\n  * Confidential Computing does not trust its hosting environment and relies on each Workload attesting itself.\r\n```",
+              "createdAt": "2025-06-10T13:45:04Z",
+              "updatedAt": "2025-06-10T13:45:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqvwA",
+          "commit": {
+            "abbreviatedOid": "72415a6"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:46:16Z",
+          "updatedAt": "2025-06-10T13:46:16Z",
+          "comments": [
+            {
+              "originalPosition": 102,
+              "body": "```suggestion\r\n* Token replay and misuse:\r\n```",
+              "createdAt": "2025-06-10T13:46:16Z",
+              "updatedAt": "2025-06-10T13:46:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqxjn",
+          "commit": {
+            "abbreviatedOid": "8e40f1a"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:48:10Z",
+          "updatedAt": "2025-06-10T13:48:11Z",
+          "comments": [
+            {
+              "originalPosition": 103,
+              "body": "```suggestion\r\n  * Token binding, even if used, is not sufficient unless the secrets underpinning the workload's credentials are protected from leakage.\r\n```",
+              "createdAt": "2025-06-10T13:48:10Z",
+              "updatedAt": "2025-06-10T13:48:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tqzUK",
+          "commit": {
+            "abbreviatedOid": "ad6d393"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:49:43Z",
+          "updatedAt": "2025-06-10T13:49:43Z",
+          "comments": [
+            {
+              "originalPosition": 104,
+              "body": "Discuss provenance in the gap analysis",
+              "createdAt": "2025-06-10T13:49:43Z",
+              "updatedAt": "2025-06-10T13:49:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tq0X-",
+          "commit": {
+            "abbreviatedOid": "ad6d393"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:50:41Z",
+          "updatedAt": "2025-06-10T13:50:41Z",
+          "comments": [
+            {
+              "originalPosition": 73,
+              "body": "```suggestion\r\n: a stable construct around which Relying Parties can form long-lived Workload authorization policies.\r\n```",
+              "createdAt": "2025-06-10T13:50:41Z",
+              "updatedAt": "2025-06-10T13:50:41Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tq2TD",
+          "commit": {
+            "abbreviatedOid": "74286f2"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:52:37Z",
+          "updatedAt": "2025-06-10T13:52:38Z",
+          "comments": [
+            {
+              "originalPosition": 147,
+              "body": "actual numbers in an numbered list is ignored by kramdown, but yes - it's off",
+              "createdAt": "2025-06-10T13:52:38Z",
+              "updatedAt": "2025-06-10T13:52:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tq3ky",
+          "commit": {
+            "abbreviatedOid": "74286f2"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:53:46Z",
+          "updatedAt": "2025-06-10T13:53:46Z",
+          "comments": [
+            {
+              "originalPosition": 155,
+              "body": "It's in new line 165 and in old line 131",
+              "createdAt": "2025-06-10T13:53:46Z",
+              "updatedAt": "2025-06-10T13:53:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tq5FA",
+          "commit": {
+            "abbreviatedOid": "74286f2"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:55:18Z",
+          "updatedAt": "2025-06-10T13:55:18Z",
+          "comments": [
+            {
+              "originalPosition": 206,
+              "body": "Agree (:+1), but it might have relevance in the provenance context ",
+              "createdAt": "2025-06-10T13:55:18Z",
+              "updatedAt": "2025-06-10T13:55:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tq5sM",
+          "commit": {
+            "abbreviatedOid": "c149eaa"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:56:01Z",
+          "updatedAt": "2025-06-10T13:56:02Z",
+          "comments": [
+            {
+              "originalPosition": 121,
+              "body": "TODO: review and resolve before publishing the ID",
+              "createdAt": "2025-06-10T13:56:02Z",
+              "updatedAt": "2025-06-10T13:56:02Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6tq6pY",
+          "commit": {
+            "abbreviatedOid": "c149eaa"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-10T13:57:05Z",
+          "updatedAt": "2025-06-10T13:57:06Z",
+          "comments": [
+            {
+              "originalPosition": 122,
+              "body": "TODO: add discussion of Provenance: it must be mentioned as a WIMSE extension even if there is no work for WIMSE to do.",
+              "createdAt": "2025-06-10T13:57:06Z",
+              "updatedAt": "2025-06-10T13:57:06Z"
             }
           ]
         }
