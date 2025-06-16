@@ -136,7 +136,7 @@ Strengthening the initial bootstrapping process. A TEE can provide hardware-base
 
 ## Protected Credential Exchange
 
-For the credential exchange patterns defined in the WIMSE Credential Exchange draft, confidential computing can provide a secure enclave in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping.
+For the credential exchange patterns defined in the WIMSE Credential Exchange draft, Confidential Computing can provide a Trusted Execution Environment in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping.
 
 ## Mitigating Runtime Compromise
 
