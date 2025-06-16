@@ -189,10 +189,10 @@ Table of Contents
       short-lived or long-lived, and that is used to represent and prove
       Workload Identity to a Relying Party.
 
-   Workload Provenance:  a linkage between a Workload Credential and a
-      trusted entity (e.g., a vendor, developer, or issuer) responsible
-      for the production and/or the remote attestation of a
-      corresponding Workload.
+   Workload Provenance:  a unique linkage between a Workload Credential
+      and the trusted entities (such as a vendor, developer, or issuer)
+      responsible for the production and/or the remote attestation of
+      the corresponding Workload.
 
 3.  Gap Analysis
 
