@@ -5,8 +5,8 @@
 WIMSE                                                           M. Novak
 Internet-Draft                                         J.P. Morgan Chase
 Intended status: Informational                              Y. Deshpande
-Expires: 12 December 2025                                            arm
-                                                            10 June 2025
+Expires: 18 December 2025                                            arm
+                                                            16 June 2025
 
 
           Trustworthy Workload Identity Reference Architecture
@@ -16,7 +16,7 @@ Abstract
 
    This document illustrates a gap analysis that is the output of the
    Confidential Computing Consortium identifying areas in the IETF WIMSE
-   WG work where the current WIMSE architecture should be amended to
+   WG work where the current WIMSE architecture should be extended to
    accommodate workloads running in Confidential Computing environments.
    This document outlines high-level requirements for the these
    extensions and describes a series of use cases.
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 December 2025.
+   This Internet-Draft will expire on 18 December 2025.
 
 Copyright Notice
 
