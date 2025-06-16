@@ -108,7 +108,7 @@ Workload Credential:
 
 Workload Provenance:
 
-: a linkage between a Workload Credential and a trusted entity (e.g., a vendor, developer, or issuer) responsible for the production and/or the remote attestation of a corresponding Workload.
+: a unique linkage between a Workload Credential and the trusted entities (such as a vendor, developer, or issuer) responsible for the production and/or the remote attestation of the corresponding Workload.
 
 # Gap Analysis
 
