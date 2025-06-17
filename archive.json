@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-12T01:46:27.372310+00:00",
+  "timestamp": "2025-06-17T01:48:06.039000+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -183,6 +183,22 @@
       "body": "TODO: add discussion of Provenance: it must be mentioned as a WIMSE extension even if there is no work for WIMSE to do.\r\n\r\n_Originally posted by @TheBankster in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2137978691_\r\n            ",
       "createdAt": "2025-06-10T13:57:15Z",
       "updatedAt": "2025-06-10T13:57:15Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 21,
+      "id": "I_kwDOOebIkc6729HW",
+      "title": "We might want to add \"lack of certainty about the composition of the workload\" which captures both weak attestation and lack of provenance information",
+      "url": "https://github.com/confidential-computing/twi-wimse/issues/21",
+      "state": "OPEN",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We might want to add \"lack of certainty about the composition of the workload\" which captures both weak attestation and lack of provenance information\r\n\r\n_Originally posted by @TheBankster in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2123670821_\r\n            ",
+      "createdAt": "2025-06-17T01:24:10Z",
+      "updatedAt": "2025-06-17T01:24:10Z",
       "closedAt": null,
       "comments": []
     }
@@ -1484,13 +1500,13 @@
       "labels": [],
       "body": "Proposing:\r\n\r\n* some changes to markdown syntax\r\n* reshaping the terminology section style\r\n* changes to the TOC structure\r\n* minor editorial phrasing changes",
       "createdAt": "2025-06-03T08:52:35Z",
-      "updatedAt": "2025-06-10T13:57:06Z",
+      "updatedAt": "2025-06-16T14:53:12Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "cc7b7c5033ef2c9e6930fdbdc26410fc85594b5b",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "henk-round1",
-      "headRefOid": "c149eaabb754706e735c6bb1e7390b56f3a1f0c6",
+      "headRefOid": "a8d1484189dbefea0839f872a62e9fe24c246ca5",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
