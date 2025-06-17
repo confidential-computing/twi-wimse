@@ -120,6 +120,8 @@ The following shortcomings were identified by performing a gap analysis of the c
   * Confidential Computing does not trust its hosting environment and relies on each Workload attesting itself.
 * Token replay and misuse:
   * Token binding, even if used, is not sufficient unless the secrets underpinning the Workload Credentials are protected from leakage.
+* Lack of verifiable workload composition accessible through Credential Provenance
+  * When a Relying Party receives a Credential, or when an auditor examines a log of decisions by a Relying Party, it is unable to peform additional checks on the security properties of the Workload or the process involved in creating it, beyond the claims communicated inside the Credential.
 
 # Integration of Confidential Computing into WIMSE
 
