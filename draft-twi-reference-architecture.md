@@ -49,7 +49,7 @@ informative:
 
 --- abstract
 
-This document illustrates a gap analysis that is the output of the Confidential Computing Consortium identifying areas in the IETF WIMSE WG work where the current WIMSE architecture should be extended to accommodate workloads running in Confidential Computing environments. This document outlines high-level requirements for the these extensions and describes a series of use cases.
+This document contains a gap analysis that is the output of the Confidential Computing Consortium identifying areas in the IETF WIMSE WG work where the current WIMSE architecture should be extended to accommodate workloads running in Confidential Computing environments. This document outlines high-level requirements for the these extensions and describes a series of use cases.
 
 --- middle
 
@@ -65,14 +65,14 @@ Until recently, there were few scenarios requiring data-in-use protection. This 
 
 Correspondingly, there is an increased push to harmonize management and governance of human and non-human identities.
 Modern workloads may operate on their own behalf with their own credentials, or as agents on behalf of other entities with delegated credentials.
-Entities interested in strong assurances around the security of their deployed workloads, for regulatory, contractual or peace of mind reasons, are starting to face large and challenging tasks of upgrading their existing computing system infrastructure to meet these requirements.
+Entities interested in strong assurances around the security of their deployed workloads, for regulatory, contractual or peace of mind reasons, are facing large and challenging tasks of upgrading their existing computing system infrastructure to meet these requirements.
 Current ways of issuing and managing workload identities, as well as those required for effective protection of data-in-use, are subject to multiple architectural challenges; chief among them:
 
 1. Lack of workload isolation against the hardware and the operating system owners/administrators, as well as peer workload instances
 2. Lack of strong binding between a workload credential and the workload instance to which that credential had been issued
 3. Lack of verifiable composition of the workload, and inability to associate a credential with a set of decisions leading up to its issuance
 
-It is important to highlight that these requirements are related: lack of process isolation eases credential exfiltration and leads to credential leakage and reuse.
+It is important to highlight that these shortcomings are related: lack of process isolation eases credential exfiltration and leads to credential leakage and reuse.
 
 Confidential Computing can close these architectural gaps due to its unique features (i.e., verifiable composition, strong workload isolation) and broad availability (i.e., support by all major hardware vendors).
 Multiple emerging regulations will mean that customers will be looking to these features and capabilities to satisfy them.
@@ -92,7 +92,7 @@ The definitions of terms like Workload Identity, Workload Credential and Workloa
 
 Workload:
 
-: {{-WIMSE}} defines 'Workload' as "an instance of software executing for a specific purpose. Here we restrict that definition to the portion of the software instance and its configuration that is subject to Remote Attestation.
+: {{-WIMSE}} defines 'Workload' as "an instance of software executing for a specific purpose". Here we restrict that definition to the portions of the deployed software and its configuration that are subject to Remote Attestation.
 
 
 Workload Identifier:
@@ -125,7 +125,7 @@ The following shortcomings were identified by performing a gap analysis of the c
 
 ## Secure Key Storage & Cryptographic Operations
 
-With TEEs, a Workload’s private keys and sensitive cryptographic operations (such as signing or validating tokens) can be isolated from the hosting environment, reducing the risk of key leakage even if the surrounding system is compromised. (For instance, the WIMSE token—be it a JWT or an X.509 certificate—can be generated and signed within a TEE, ensuring that the proof-of-possession mechanism remains intact.)
+With TEEs, a Workload’s private keys and sensitive cryptographic operations (such as signing or validating tokens) can be isolated from the hosting environment, reducing the risk of key leakage even if the hosting environment is compromised. (For instance, the WIMSE token — be it a JWT or an X.509 certificate — can be generated and signed within a TEE, ensuring that the proof-of-possession mechanism remains intact.)
 
 ## Enhanced Bootstrapping with Attestation
 
