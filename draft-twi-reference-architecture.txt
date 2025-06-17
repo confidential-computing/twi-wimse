@@ -6,6 +6,8 @@ WIMSE                                                           M. Novak
 Internet-Draft                                         J.P. Morgan Chase
 Intended status: Informational                              Y. Deshpande
 Expires: 19 December 2025                                            arm
+                                                             H. Birkholz
+                                                          Fraunhofer SIT
                                                             17 June 2025
 
 
@@ -497,3 +499,8 @@ Authors' Addresses
    Yogesh Deshpande
    arm
    Email: Yogesh.Deshpande@arm.com
+
+
+   Henk Birkholz
+   Fraunhofer SIT
+   Email: henk.birkholz@ietf.contact
