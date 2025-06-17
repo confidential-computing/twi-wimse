@@ -217,6 +217,15 @@ Table of Contents
          secrets underpinning the Workload Credentials are protected
          from leakage.
 
+   *  Lack of verifiable workload composition accessible through
+      Credential Provenance
+
+      -  When a Relying Party receives a Credential, or when an auditor
+         examines a log of decisions by a Relying Party, it is unable to
+         peform additional checks on the security properties of the
+         Workload or the process involved in creating it, beyond the
+         claims communicated inside the Credential.
+
 4.  Integration of Confidential Computing into WIMSE
 
 4.1.  Secure Key Storage & Cryptographic Operations
