@@ -241,4 +241,3 @@ It is foreseen that additional CBOR OIDS will be needed for new evidence types. 
 # Acknowledgements
 
 <cref>TODO</cref>
-h
