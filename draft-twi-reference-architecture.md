@@ -54,6 +54,7 @@ This document illustrates a gap analysis that is the output of the Confidential 
 --- middle
 
 # Introduction
+
 Until recently, there were few scenarios requiring data-in-use protection. This is starting to change. Regulatory bodies worldwide are increasingly requiring data-in-use protection and privacy enhancing technologies. Outside of regulatory requirements, companies are exploring:
 
 * Multiparty computation
@@ -144,8 +145,6 @@ Executing the Workload inside a Trusted Execution Environment can lower the risk
 
 ## Cross-domain Trust Enhancement
 
-In multi-cloud and cross-trust-domain interactions, a hardware-rooted attestation from a TEE can serve as an independent trust anchor. This extra layer of verification helps ensure that even if traditional software-based checks fail, the actual Workload Identity remains trustworthy.
-
 # TWI Use Cases
 
 TODO: Revisit this section to see if we need it or if we can lean on the section just above this.
@@ -154,15 +153,15 @@ Like WIMSE, TWI seeks to associate Identities with Workloads. However, for an Id
 
 1. Isolate Workloads' data-in-use, including their Credentials, from the untrusted hosting environment.
 2. Guarantee that a Workload can only utilize Credentials issued to it and that its Credentials cannot leak and be used by unauthorized Workloads.
-3. Enable the Relying Parties and other interested parties, such as auditors, to make in-depth inquiries into the trustworthiness of the Workload based on its Credentials.
+3. Enable the Relying Parties and other interested parties, such as auditors, to make in-depth run-time and retroactive inquiries into the trustworthiness of the Workload based on its Credentials.
 
 # Core Requirements
 
 The TWI Core Requirements can be located {{-TWISIGReq}}.
 
-For Use Case 1, the Workload MUST run in an isolated, remotely attested Trusted Execution Environment. Therefore, the process of obtaining the Credentials MUST involve a Verifier service in addition to the Identity Provider service.
+For Use Case 1, the Workload MUST run in an isolated, remotely attested TEE. Therefore, the process of obtaining the Credentials MUST involve a Verifier service in addition to the Identity Provider service.
 
-For Use Case 2, the Workload Credentials MUST be strongly bound to the Workload instance to which they are issued and the secrets utilized for authentications to Relying Parties using these Credentials MUST be covered by data-in-use protections in a manner they are procured and utilized.
+For Use Case 2, the Workload Credentials MUST be strongly bound to the Workload instance to which they are issued and the secrets utilized for authentications to Relying Parties using these Credentials MUST be covered by data-in-use protections in the manner they are procured and utilized.
 
 For Use Case 3, the issued Workload Credentials MUST contain information from which the Provenance of the Workload can be determined.
 
@@ -190,20 +189,19 @@ Existing fields inside X.509 certificates (e.g. a certificate serial number) or 
 ### Workload Provenance
 
 Workload Provenance can be interrogated to receive the metadata pertaining to Workload, as below.
-1. Workload Composition, i.e. a detailed list of components that comprise a Workload. This could be expressed as Software Bill of Materials expressed in terms of industry standards, like SPDX or CycloneDX.
 
-2. Details about the Continous Integration (CI) or Continous Delivery (CD) of Workload
+1. Workload Composition, i.e. a detailed list of components that comprise a Workload. This could be expressed as a Software Bill of Materials expressed in terms of industry standards, like SPDX or CycloneDX <TODO: add references?>.
 
-3. Set of Compliance tests that executed on the Workload.
+2. Set of Compliance tests that executed on the Workload.
 
-4. Details of Vendor/SaaS information.
+3. Details of Vendor/SaaS information.
 
 The policy for issuing Credentials may demand the information about the Provenance of the Workload. This requries work in two areas (a) Obtaining the Provenance information about the Workload AND (b) Conveying the provenance information inside the Credential.
 
 #### Obtaining Workload provenance
 
 The Workload Provenance can be made available in a transparent manner, which can be audited and verifiable by independent parties.
-While it is a policy of the implementation as to how it obtains the provenance information, the trustworthiness aspect associated to provenance information can be verified during the runtime trustworthiness assessment of a workload, through the means of Remote Attestation, at the time of workload acquiring the credentials from credential issuer.
+While it is a policy of the implementation as to how it obtains the provenance information, the trustworthiness aspect associated to Provenance information can be verified during the runtime trustworthiness assessment of a Workload, through the means of Remote Attestation, at the time of Workload acquiring the Credentials from credential issuer.
 
 #### Integrating Workload Provenance with Credential Issuance
 
@@ -243,3 +241,4 @@ It is foreseen that additional CBOR OIDS will be needed for new evidence types. 
 # Acknowledgements
 
 <cref>TODO</cref>
+h
