@@ -31,6 +31,11 @@ author:
   org: arm
   email: Yogesh.Deshpande@arm.com
 
+-
+  name: Henk Birkholz
+  org: Fraunhofer SIT
+  email: henk.birkholz@ietf.contact
+
 informative:
   RFC9334: rats-arch
   I-D.draft-ietf-wimse-arch: WIMSE
