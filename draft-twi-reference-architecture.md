@@ -90,15 +90,14 @@ To address this set of requirements, this document defines and elaborates on the
 
 {::boilerplate bcp14-tagged}
 
-This document uses terms and concepts defined by the WIMSE and RATS architectures, as well as to the terms defined by the Trustworthy Workload Identity Special Interest Gorup at the Confidential Computing Consortium. For a complete glossary,
-see {{Section 4 of -rats-arch}} , {{-WIMSE}} & {{-TWISIGCharter}}.
+This document uses terms and concepts defined by the WIMSE and RATS architectures, as well as the terms defined by the Trustworthy Workload Identity Special Interest Group at the Confidential Computing Consortium.
+For a complete glossary, see {{Section 4 of -rats-arch}} , {{-WIMSE}} & {{-TWISIGCharter}}.
 
 The definitions of terms like Workload Identity, Workload Credential and Workload Provenance match those specified by the TWI SIG Charter {{-TWISIGCharter}}.
 
 Workload:
 
 : {{-WIMSE}} defines 'Workload' as "an instance of software executing for a specific purpose". Here we restrict that definition to the portions of the deployed software and its configuration that are subject to Remote Attestation.
-
 
 Workload Identifier:
 
@@ -118,22 +117,22 @@ Workload Provenance:
 
 # Gap Analysis
 
-The following shortcomings were identified by performing a gap analysis of the current WIMSE architecture {{-WIMSE}} against the requirements underlying Trustworthy Workload Identity (TWI). The gap analysis provides a basis for identifying extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.
+The following shortcomings were identified by performing a gap analysis of the current WIMSE architecture {{-WIMSE}} against the requirements underlying Trustworthy Workload Identity (TWI). The gap analysis provides the basis for identifying extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.
 
 * Protection of Credentials at runtime and insufficient Runtime Attestation:
-  * Risk that credentials in memory could be exposed if a Workload’s execution environment is compromised.
+  * Without Confidential Computing, there is always a risk that Credentials in memory could be exposed if a Workload’s execution environment is compromised.
   * Confidential Computing does not trust its hosting environment and relies on each Workload attesting itself.
 * Token replay and misuse:
   * Token binding, even if used, is not sufficient unless the secrets underpinning the Workload Credentials are protected from leakage.
-* Lack of verifiable workload composition accessible through Credential Provenance
+* Lack of verifiable workload composition accessible through Credential Provenance:
   * When a Relying Party receives a Credential, or when an auditor examines a log of decisions by a Relying Party, it is unable to peform additional checks on the security properties of the Workload or the process involved in creating it, beyond the claims communicated inside the Credential.
 
 # Alignment or Synergy with WIMSE Architecture
 
 WIMSE defines an architecture for managing Workload Identity in multi-system environments.
 
-1. The WIMSE Architecture, explains the core concept of Workload Identity in-line with the concept of identity in a TWI world.
-2. WIMSE model has a CA/Credential issuer that is responsible with provisioning identity Credentials to the Workload. TWI requirement is roughly similar in terms of issuing credentials. However, the requirements and policies applied when issuing Credentials vary as described in the Extensions section below.
+1. The WIMSE Architecture explains the core concept of Workload Identity in-line with the concept of identity in the TWI world.
+2. WIMSE model has a CA/Credential issuer that is responsible for provisioning identity Credentials to the Workload. TWI requirement is roughly similar in terms of issuing credentials. However, the requirements and policies applied when issuing Credentials vary as described in the Extensions section below.
 3. WIMSE Architecture defines Trust Domain, which is the authority that identifies domain within which the identifier is scoped. TWI Architecture is aligned with this basic building block.
 
 # Extensions to the WIMSE Architecture
@@ -142,11 +141,11 @@ Trustworthy Workload Identity as detailed in this document proposes the followin
 
 ## Workload Isolation and the Role of the Hosting Environment
 
-Under Confidential Computing, the confidentiality and integrity of a Workload is isolated from the hosting environment and other Workloads. The existing assumption in the WIMSE architecture that the hosting environment can be fully trusted to establish the identity of a hosted Workload, is incompatible with the assumptions of Confidential Computing. Confidential Workloads perform their own Remote Attestation and Workload isolation ensures that the hosting environment cannot interfere in this process.
+Under Confidential Computing, the confidentiality and integrity of a Workload is isolated from the hosting environment and other Workloads. The underlying assumption in the WIMSE architecture that the hosting environment can be fully trusted to establish the identity of a hosted Workload is incompatible with the assumptions of Confidential Computing. Confidential Workloads perform their own Remote Attestation and Workload isolation ensures that the hosting environment cannot interfere with this process.
 
 ## Remote Attestation
 
-Remote Attestation plays a fundamental role in assessing the trustworthiness of the Workload and ensuring that the Workload is running on a platform that provides required security guarantees.
+Under Confidential Computing, Remote Attestation plays a fundamental role in assessing the trustworthiness of the Workload and ensuring that the Workload is running on a platform that provides required security guarantees.
 
 ### Integrating Workload Attestation with Credential Issuance
 
@@ -154,15 +153,15 @@ The Credential Issuer would process the Attestation Results from the Verifier an
 
 ### Remote Attestation of Composite Workloads
 
-Confidential Workloads may by "Composite", i.e., span Trusted Execution Environments yet share a Workload Credential. The details are to be defined at a later time.
+Confidential Workloads may be "Composite", i.e., span Trusted Execution Environments yet share a Workload Credential. The details are to be defined at a later time.
 
 ## Provenance
 
-Existing fields inside X.509 certificates (e.g. a certificate serial number) or Workload Identity Tokens (e.g. the "jti" claim) can be used to unique tie the Workload Credential to the chain of events leading up to its issuance, as a result, no change is necessary.
+Existing fields inside X.509 certificates (e.g., a certificate serial number) or Workload Identity Tokens (e.g., the "jti" claim) can be used to uniquely tie the Workload Credential to the chain of events leading up to its issuance; as a result, no change is necessary.
 
 ### Workload Provenance
 
-Workload Provenance can be interrogated to receive the metadata pertaining to Workload, as below.
+Workload Provenance can be interrogated to receive the metadata pertaining to Workload, as follows:
 
 1. Workload Composition, i.e. a detailed list of components that comprise a Workload. This could be expressed as a Software Bill of Materials expressed in terms of industry standards, like SPDX or CycloneDX <TODO: add references?>.
 
@@ -174,12 +173,12 @@ The policy for issuing Credentials may demand the information about the Provenan
 
 #### Obtaining Workload Provenance
 
-The Workload Provenance can be made available in a transparent manner, which can be audited and verifiable by independent parties.
-While it is a policy of the implementation as to how it obtains the provenance information, the trustworthiness aspect associated to Provenance information can be verified during the runtime trustworthiness assessment of a Workload, through the means of Remote Attestation, at the time of Workload acquiring the Credentials from credential issuer.
+The Workload Provenance can be made available in a transparent manner, which can be audited and verified by independent parties.
+While it is a policy of the implementation as to how it obtains the Provenance information, the trustworthiness aspect associated with Provenance information can be verified during the runtime trustworthiness assessment of a Workload, through the means of Remote Attestation, at the time of Workload acquiring the Credentials from credential issuer.
 
 #### Integrating Workload Provenance with Credential Issuance
 
-The provenance information can be attached to the Workload credentials using a well-defined protocol.
+The Provenance information can be attached to the Workload credentials using a well-defined protocol.
 
 ### Credential Provenance
 
@@ -206,15 +205,11 @@ With TEEs, a Workload’s private keys and sensitive cryptographic operations (s
 
 ## Enhanced Bootstrapping with Attestation
 
-Strengthening the initial bootstrapping process. A TEE can provide hardware-based attestation that a Workload is running in a secure, isolated environment. This attestation could be used as an additional factor during Workload Credential provisioning, ensuring that only Workloads running in a TEE and matching the Workload Credential issuer's attestation policies receive valid credentials.
-
-[^projects]
-
-[^projects]: might be a bit of a stretch/ too much - it basically would be an extension of the bootstrapping projects described in https://datatracker.ietf.org/doc/html/draft-ietf-wimse-arch-03)
+Strengthening the initial bootstrapping process. A TEE can enable hardware-based Remote Attestation, proving that a Workload is running in a secure, isolated environment. This attestation could be used as an additional factor during Workload Credential provisioning, ensuring that only Workloads running in a TEE and matching the Workload Credential issuer's attestation policies receive valid credentials.
 
 ## Protected Credential Exchange
 
-For the credential exchange patterns defined in the WIMSE Credential Exchange draft, Confidential Computing can provide a Trusted Execution Environment in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping.
+For the Credential exchange patterns defined in the WIMSE Credential Exchange draft, Confidential Computing can provide a Trusted Execution Environment in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping.
 
 ## Mitigating Runtime Compromise
 
@@ -222,25 +217,7 @@ Executing the Workload inside a Trusted Execution Environment can lower the risk
 
 ## Cross-domain Trust Enhancement
 
-# TWI Use Cases
-
-TODO: Revisit this section to see if we need it or if we can lean on the section just above this.
-
-Like WIMSE, TWI seeks to associate Identities with Workloads. However, for an Identity to be Trustworthy, a few additional requirements must be met:
-
-1. Isolate Workloads' data-in-use, including their Credentials, from the untrusted hosting environment.
-2. Guarantee that a Workload can only utilize Credentials issued to it and that its Credentials cannot leak and be used by unauthorized Workloads.
-3. Enable the Relying Parties and other interested parties, such as auditors, to make in-depth run-time and retroactive inquiries into the trustworthiness of the Workload based on its Credentials.
-
-# Core Requirements
-
-The TWI Core Requirements can be located {{-TWISIGReq}}.
-
-For Use Case 1, the Workload MUST run in an isolated, remotely attested TEE. Therefore, the process of obtaining the Credentials MUST involve a Verifier service in addition to the Identity Provider service.
-
-For Use Case 2, the Workload Credentials MUST be strongly bound to the Workload instance to which they are issued and the secrets utilized for authentications to Relying Parties using these Credentials MUST be covered by data-in-use protections in the manner they are procured and utilized.
-
-For Use Case 3, the issued Workload Credentials MUST contain information from which the Provenance of the Workload can be determined.
+TODO: File an issue to fill this section in, or remove the section.
 
 # Security Considerations
 
