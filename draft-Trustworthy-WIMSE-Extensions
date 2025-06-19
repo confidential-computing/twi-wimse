@@ -1,7 +1,7 @@
 ---
-title: Trustworthy Workload Identity Reference Architecture
-abbrev: TWI Reference Architecture
-docname: draft-twi-reference-architecture-latest
+title: WIMSE Extensions for Trustworthy Identity
+abbrev: Trustworthy WIMSE
+docname: draft-Trustworhty-WIMSE-latest
 category: info
 ipr: trust200902
 area: Security
