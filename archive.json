@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-17T01:48:06.039000+00:00",
+  "timestamp": "2025-06-19T01:48:15.789370+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -47,6 +47,16 @@
       "name": "wontfix",
       "description": "This will not be worked on",
       "color": "ffffff"
+    },
+    {
+      "name": "discussion",
+      "description": "Tracks an ongoing discussion over the contents of one of the documents.",
+      "color": "274f88"
+    },
+    {
+      "name": "TODO",
+      "description": "Already-discussed items, requiring document changes.",
+      "color": "03b70c"
     }
   ],
   "issues": [
@@ -93,16 +103,18 @@
     {
       "number": 15,
       "id": "I_kwDOOebIkc65mxf9",
-      "title": "The `HSM` piece is a little fuzzy, esp. as I'm not aware of any HSM offering capable of runtime attestation of a TEE/enclave (which would be required for it to issue any kind of key).",
+      "title": "[DISCUSS] Documenting `HSM` as an equivalent alternative to in-place key generation",
       "url": "https://github.com/confidential-computing/twi-wimse/issues/15",
       "state": "OPEN",
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
-      "body": "The `HSM` piece is a little fuzzy, esp. as I'm not aware of any HSM offering capable of runtime attestation of a TEE/enclave (which would be required for it to issue any kind of key).\r\n\r\nOn the other hand, if the attestation was to be unidirectional only (TWI attests 'its' crypto provider before asking for key), then:\r\n  - If the HSM is 'just' a stateless key **generator**, it feels like we can just wrap it under \"TEE generates the key <somehow> umbrella\", w/o over defining.\r\n  - If the HSM has state (and this is a key **sharing** concept), we have introduced new attack surface (non-CC, it suffices to break the HSM auth token).\r\n\r\n_Originally posted by @mbronk-intc in https://github.com/confidential-computing/twi-wimse/pull/12#discussion_r2108890703_\r\n            ",
+      "labels": [
+        "discussion"
+      ],
+      "body": "> [!NOTE]  \n> > _[EDIT 6/17/2025]_ Reworded to reflect the current state of discussion. The original comment is captured below the `---`.\n\n## Problem statement\n\n#### Should TWI-WIMSE I-D (and, by extension, the TWI arch.) document use of HSMs (credential **sharing** concept) as a _level_ option for achieving Trustworthy Workload Identity \u2753 \n\n## Considerations\n1. For the **smallest** Trusted Computing Base (hence: strongest security guarantees), a Workload needs to be the **sole** entity capable of completing a proof of possession of a Credential.\n    * In practical terms, it would mean the Workload (WL) **generates** its own keys\ud83d\udd11  in-place and has an Identity Provider issue a Credential\ud83c\udfc5  bound to them, without ever exposing the secret part outside of the Workload (i.e. [CSR Attestation](https://datatracker.ietf.org/doc/draft-ietf-lamps-csr-attestation/)).\n2. Method (1) is **not** attainable for all existing workloads _(looking to migrate their **current** credentials into TWI-compatible systems)_ or when credential secret sharing is explicitly required.\n    TWI wants to address these usages as well.\n   * Solutions for this case (2) require the secret to be **generated**\ud83d\udd22   and **stored**\ud83d\udd10  _externally_ to a Workload and provided to it upon request _(i.e., WL instantiation)_, if (and only if) the **secret release policy**\ud83d\udd0e  matches.\n   * Since the key is now cold-stored outside of the WL instance, the storage medium becomes part of the TCB as it _can_ impersonate any workload.\n   * Contemporarily, such centralized secret generation & storage functions are typically served by KMS systems backed by physical Hardware Security Module boxes (often PKCS#11 and FIPS-compliant).\n     *  Most HSMs excel at secret protection and performant crypto operations, but are **not** general-purpose TEEs, hence lack the ability to run policy authorization code, instead relying on classic access authorization (i.e. password, pins). Effectively, while the master secret may be well secured inside an HSM (incl. non-exportable), access to it is effectively controlled by a construct analogous to a **bearer token**, making everyone in its possession capable of turning the HSM a \"signing oracle\".\n     * Specifically, the general-purpose HSM units don't allow to perform a **runtime attestation** before accessing the secret. This includes a \"wrapped\" key export to another location - a HSM can ensure the key never leaves in a plaintext form, but cannot attest whether the owner of a wrapping key is a properly attested TEE or a simulator.\n       There are notable exceptions here, as there *are* HSM offerings capable of running code, hence theoretically capable of attesting the target. For example, see Thales's [Functionality Modules](https://thalesdocs.com/gphsm/luna/7/docs/network/Content/admin_hsm/fms/fms.htm) or Fortanix's  [Secure Business Logic](https://www.fortanix.com/platform/data-security-manager/secure-business-logic).\n    \n3. Security drawbacks of secret _sharing_ ((2), above):\n   1. Expands the TCB to include the storage medium (i.e. HSM) and its policies. Circumvention of the master store's (i.e. \"HSM\") policies is a BORE attack, allowing to impersonate any Workload using such store. \n       Note this seems **unavoidable** (just a property of secret sharing).\n   3. Unless the KMS/HSM is able to **attest** the workload on key release, this crosses from a HW-based TEE-land, to a (weaker) policy-based one, changing the typical CC trust model to include an operator inside the TCB (an entity injecting the HSM access credential into the Workload can impersonate it).\n\n## What needs discussion by CCC TWI\n1. Moving the this discussion into `TWI Architecture`.\n    _My claim_: WIMSE draft doesn't need the level of detail such as explicit mentions of a concrete solutions (here: HSM), so we can side-step the controversy by keeping it vague and deferring the conversation till later.<br>\n> [!TIP]  \n> If we agree, the action item is to prune all HSM mentions from `twi-wimse I-D` and replace with a more high-level statement to the effect of `TWI means to also support secret sharing concept`.\n\n\n2. Define security guarantee levels TWI can offer and grade the solutions by them. For example:\n   1. \ud83e\udd47 **Level1** (best) _[recommended for greenfield deployments]_: Have workloads self-generate their secrets - no key sharing.\n       * If cold storage of credentials is required (cannot be derived ad hoc), it's the Workload who decides how to pass their secrets on to the storage (likely encrypted, i.e. using a HW sealing mechanism, if available platform-side).\n   3. \ud83e\udd48 **Level2**  have the KMS system (sharing keys) capable of remotely attesting a Workload before sharing a key with them          \n       * Note that while this is n/a for a regular PKCS#11-only HSM, it can be done in one of the units capable of running policy code (some examples listed above), or the KMS may itself be a TEE (a TWI Workload), possibly even using Threshold Cryptography and running Byzantine Fault-Tolerant state machine replication.\n   3. \ud83e\udd49 **Level3** (worst): have the KMS use **bearer** credentials (i.e. a client TLS certificate + HSM partition password) to authorize key use/export. Such credentials are injected into the Workload by a **hosting platform** (or its user operator).\n       * The HSM credentials would should only be disbursed upon a successful Workload attestation by the platform, yet it still requires to include this mechanism inside the TCB (which now spans: Workload, HSM, Platform), as the Platform can impersonate the Workload when talking to a HSM.\n\n----\n\n<details><summary>   Original wording of this issue <i>(\ud83d\udc46click to expand)</i></summary>\n\nThe `HSM` piece is a little fuzzy, esp. as I'm not aware of any HSM offering capable of runtime attestation of a TEE/enclave (which would be required for it to issue any kind of key).\n\nOn the other hand, if the attestation was to be unidirectional only (TWI attests 'its' crypto provider before asking for key), then:\n  - If the HSM is 'just' a stateless key **generator**, it feels like we can just wrap it under \"TEE generates the key <somehow> umbrella\", w/o over defining.\n  - If the HSM has state (and this is a key **sharing** concept), we have introduced new attack surface (non-CC, it suffices to break the HSM auth token).\n\n_Originally posted by @mbronk-intc in https://github.com/confidential-computing/twi-wimse/pull/12#discussion_r2108890703_\n</details>",
       "createdAt": "2025-06-03T13:21:28Z",
-      "updatedAt": "2025-06-03T13:21:28Z",
+      "updatedAt": "2025-06-17T11:13:20Z",
       "closedAt": null,
       "comments": []
     },
@@ -115,10 +127,12 @@
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "discussion"
+      ],
       "body": "Design Considerations\r\nShould the ID be globally unique or partitioned by workload type?\r\n\r\nShould it encode temporal data (e.g., epoch-based) or be strictly incrementing?\r\n\r\nWill IDs ever need to be re-used or recycled?\r\n\r\nBest practice usually involves combining a timestamp component (for ordering) with a counter or unique suffix (for deduplication). Lets discuss\r\n\r\n_Originally posted by @Mainsailthewolfe in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2137493317_\r\n            ",
       "createdAt": "2025-06-10T13:28:57Z",
-      "updatedAt": "2025-06-10T13:28:57Z",
+      "updatedAt": "2025-06-17T11:14:09Z",
       "closedAt": null,
       "comments": []
     },
@@ -131,10 +145,12 @@
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "discussion"
+      ],
       "body": "> ...and also... this, as stated, is easily misunderstood to mean something other than what we want it to mean. For instance, the name of an issuer bound to the credential is a \"linkage\" between that credential and the issuer, but it says nothing about provenance. Provenance is something specific to the credential in question that can help identify which decisions led to the issuance of the credential. Let's discuss.\r\n\r\nLet\u2019s be careful not to conflate linkage with provenance. The presence of an issuer name is a linkage\u2014but provenance captures the credential\u2019s path and intent, including issuance context and decision lineage.\r\n\r\nThe current language risks conflating linkage (e.g., \u201cissuer name in a credential\u201d) with provenance (the broader context and history of how and why the credential was created). This confusion can lead to incorrect assumptions about trust, authenticity, and responsibility.\r\n\r\n_Originally posted by @Mainsailthewolfe in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2137508007_\r\n            ",
       "createdAt": "2025-06-10T13:34:46Z",
-      "updatedAt": "2025-06-10T13:34:46Z",
+      "updatedAt": "2025-06-17T11:13:57Z",
       "closedAt": null,
       "comments": []
     },
@@ -143,15 +159,17 @@
       "id": "I_kwDOOebIkc66yD86",
       "title": "Discuss provenance in the gap analysis",
       "url": "https://github.com/confidential-computing/twi-wimse/issues/18",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "TODO"
+      ],
       "body": "Discuss provenance in the gap analysis\r\n\r\n_Originally posted by @TheBankster in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2137961676_\r\n            ",
       "createdAt": "2025-06-10T13:49:55Z",
-      "updatedAt": "2025-06-10T13:49:55Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-17T13:19:00Z",
+      "closedAt": "2025-06-17T13:19:00Z",
       "comments": []
     },
     {
@@ -163,10 +181,12 @@
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "TODO"
+      ],
       "body": "TODO: review and resolve before publishing the ID\r\n\r\n_Originally posted by @TheBankster in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2137976195_\r\n            ",
       "createdAt": "2025-06-10T13:56:10Z",
-      "updatedAt": "2025-06-10T13:56:10Z",
+      "updatedAt": "2025-06-17T11:15:44Z",
       "closedAt": null,
       "comments": []
     },
@@ -178,27 +198,93 @@
       "state": "OPEN",
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
-      "labels": [],
+      "assignees": [
+        "mbronk-intc"
+      ],
+      "labels": [
+        "TODO"
+      ],
       "body": "TODO: add discussion of Provenance: it must be mentioned as a WIMSE extension even if there is no work for WIMSE to do.\r\n\r\n_Originally posted by @TheBankster in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2137978691_\r\n            ",
       "createdAt": "2025-06-10T13:57:15Z",
-      "updatedAt": "2025-06-10T13:57:15Z",
+      "updatedAt": "2025-06-19T00:01:49Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closed by mistake -- reopened it now",
+          "createdAt": "2025-06-19T00:01:22Z",
+          "updatedAt": "2025-06-19T00:01:49Z"
+        }
+      ]
     },
     {
       "number": 21,
       "id": "I_kwDOOebIkc6729HW",
       "title": "We might want to add \"lack of certainty about the composition of the workload\" which captures both weak attestation and lack of provenance information",
       "url": "https://github.com/confidential-computing/twi-wimse/issues/21",
+      "state": "CLOSED",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "documentation",
+        "TODO"
+      ],
+      "body": "We might want to add \"lack of certainty about the composition of the workload\" which captures both weak attestation and lack of provenance information\r\n\r\n_Originally posted by @TheBankster in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2123670821_\r\n            ",
+      "createdAt": "2025-06-17T01:24:10Z",
+      "updatedAt": "2025-06-17T13:18:38Z",
+      "closedAt": "2025-06-17T13:18:38Z",
+      "comments": []
+    },
+    {
+      "number": 25,
+      "id": "I_kwDOOebIkc679odr",
+      "title": "Fill out acknowledgements",
+      "url": "https://github.com/confidential-computing/twi-wimse/issues/25",
       "state": "OPEN",
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
-      "body": "We might want to add \"lack of certainty about the composition of the workload\" which captures both weak attestation and lack of provenance information\r\n\r\n_Originally posted by @TheBankster in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2123670821_\r\n            ",
-      "createdAt": "2025-06-17T01:24:10Z",
-      "updatedAt": "2025-06-17T01:24:10Z",
+      "body": "https://github.com/confidential-computing/twi-wimse/blob/93b598ee4485bfea676c5da3e243a4472fb492a3/draft-twi-reference-architecture.md?plain=1#L248",
+      "createdAt": "2025-06-17T13:20:46Z",
+      "updatedAt": "2025-06-17T13:20:46Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 26,
+      "id": "I_kwDOOebIkc679pBr",
+      "title": "Fill out Security Considerations",
+      "url": "https://github.com/confidential-computing/twi-wimse/issues/26",
+      "state": "OPEN",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "https://github.com/confidential-computing/twi-wimse/blob/93b598ee4485bfea676c5da3e243a4472fb492a3/draft-twi-reference-architecture.md?plain=1#L242",
+      "createdAt": "2025-06-17T13:21:31Z",
+      "updatedAt": "2025-06-17T13:21:31Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 27,
+      "id": "I_kwDOOebIkc679tCg",
+      "title": "Add Binding to Platform Content",
+      "url": "https://github.com/confidential-computing/twi-wimse/issues/27",
+      "state": "OPEN",
+      "author": "henkbirkholz",
+      "authorAssociation": "MEMBER",
+      "assignees": [
+        "mbronk-intc",
+        "henkbirkholz"
+      ],
+      "labels": [],
+      "body": "https://github.com/confidential-computing/twi-wimse/blob/93b598ee4485bfea676c5da3e243a4472fb492a3/draft-twi-reference-architecture.md?plain=1#L230",
+      "createdAt": "2025-06-17T13:26:30Z",
+      "updatedAt": "2025-06-17T13:26:30Z",
       "closedAt": null,
       "comments": []
     }
@@ -1493,24 +1579,26 @@
       "id": "PR_kwDOOebIkc6YxqoW",
       "title": "Some Editorial Refurbishment",
       "url": "https://github.com/confidential-computing/twi-wimse/pull/14",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "henkbirkholz",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "Proposing:\r\n\r\n* some changes to markdown syntax\r\n* reshaping the terminology section style\r\n* changes to the TOC structure\r\n* minor editorial phrasing changes",
       "createdAt": "2025-06-03T08:52:35Z",
-      "updatedAt": "2025-06-16T14:53:12Z",
+      "updatedAt": "2025-06-17T12:15:57Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
-      "baseRefOid": "cc7b7c5033ef2c9e6930fdbdc26410fc85594b5b",
+      "baseRefOid": "cf8ba5e20418e1df4993cd4ae2905e75e9b5ce62",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "henk-round1",
-      "headRefOid": "a8d1484189dbefea0839f872a62e9fe24c246ca5",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "a8161276f4c7e8c7dae05a443c5ea0711ea5622c",
+      "closedAt": "2025-06-17T12:15:57Z",
+      "mergedAt": "2025-06-17T12:15:57Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "a69076a34ae0c6fb637f4b58de22e43ddfba1285"
+      },
       "comments": [],
       "reviews": [
         {
@@ -2475,8 +2563,299 @@
               "updatedAt": "2025-06-10T13:57:06Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6u4yO4",
+          "commit": {
+            "abbreviatedOid": "3b8d4cc"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-17T04:47:56Z",
+          "updatedAt": "2025-06-17T04:47:56Z",
+          "comments": [
+            {
+              "originalPosition": 269,
+              "body": "```suggestion\r\n```",
+              "createdAt": "2025-06-17T04:47:56Z",
+              "updatedAt": "2025-06-17T04:47:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6u6wHG",
+          "commit": {
+            "abbreviatedOid": "a816127"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-17T08:21:16Z",
+          "updatedAt": "2025-06-17T08:21:16Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "```suggestion\r\nUntil recently, there were few scenarios requiring data-in-use protection. This is starting to change. Regulatory bodies worldwide are increasingly requiring data-in-use protection and privacy enhancing technologies. Outside of regulatory requirements, there are many use cases which require data-in-use protection; several are listed below.\r\n```",
+              "createdAt": "2025-06-17T08:21:16Z",
+              "updatedAt": "2025-06-17T12:13:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6u63EP",
+          "commit": {
+            "abbreviatedOid": "a816127"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM, left one minor comment, but in general looks good to me!",
+          "createdAt": "2025-06-17T08:27:17Z",
+          "updatedAt": "2025-06-17T08:27:17Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOebIkc6u7vtC",
+          "commit": {
+            "abbreviatedOid": "a816127"
+          },
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-17T09:31:07Z",
+          "updatedAt": "2025-06-17T09:31:07Z",
+          "comments": [
+            {
+              "originalPosition": 120,
+              "body": "\"_Confidential Computing does not trust its hosting environment_\" may be misleading as the hardware could also colloquially be thought of as a part of hosting environment.\r\nTry:\r\n```suggestion\r\n  * Confidential Computing (CC) relies on each Workload attesting _itself_ to a _hardware_ Root of Trust (HW RoT). CC is explicitly considering the hosting environment configuration and firmware/software (i.e. virtualization stack controlled by the environment provider) as _untrusted_.\r\n```",
+              "createdAt": "2025-06-17T09:31:07Z",
+              "updatedAt": "2025-06-17T09:31:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6u7y4P",
+          "commit": {
+            "abbreviatedOid": "a816127"
+          },
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM. \r\nAdded +suggestion, but regardless of whether we apply it, I vote to merge this PR and do a proper 2nd sweep of the doc afterwards (i.e., deduplicate).",
+          "createdAt": "2025-06-17T09:35:11Z",
+          "updatedAt": "2025-06-17T09:35:11Z",
+          "comments": []
         }
       ]
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDOOebIkc6a5G71",
+      "title": "Small changes to text",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/22",
+      "state": "MERGED",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-17T12:26:33Z",
+      "updatedAt": "2025-06-17T13:07:08Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "a69076a34ae0c6fb637f4b58de22e43ddfba1285",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "TheBankster-patch-2",
+      "headRefOid": "6f7a8297965effb9ba4e01c76078acc19b9f2198",
+      "closedAt": "2025-06-17T13:07:08Z",
+      "mergedAt": "2025-06-17T13:07:08Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "c91a70a276f8d53de01571dca173f31bb54a46fc"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6u94p5",
+          "commit": {
+            "abbreviatedOid": "6f7a829"
+          },
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2025-06-17T12:29:34Z",
+          "updatedAt": "2025-06-17T12:29:34Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOebIkc6u-cB0",
+          "commit": {
+            "abbreviatedOid": "6f7a829"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM!",
+          "createdAt": "2025-06-17T13:06:48Z",
+          "updatedAt": "2025-06-17T13:06:48Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "id": "PR_kwDOOebIkc6a5cbz",
+      "title": "Added provenance to Gap Analysis",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/23",
+      "state": "MERGED",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-17T12:57:46Z",
+      "updatedAt": "2025-06-17T13:15:42Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "a69076a34ae0c6fb637f4b58de22e43ddfba1285",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "TheBankster-patch-3",
+      "headRefOid": "ae88e29db5fa8582f19f4328550b3e0ef0f1d50d",
+      "closedAt": "2025-06-17T13:15:42Z",
+      "mergedAt": "2025-06-17T13:15:42Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "9d15d6c59316a865e878b13530061381fb6d3f2c"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 24,
+      "id": "PR_kwDOOebIkc6a5mUT",
+      "title": "Adding Henk to the roster",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/24",
+      "state": "MERGED",
+      "author": "henkbirkholz",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-17T13:10:55Z",
+      "updatedAt": "2025-06-17T13:16:18Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "c91a70a276f8d53de01571dca173f31bb54a46fc",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "add-henk",
+      "headRefOid": "eaf8c6813ea45e3e14a24aeb532411dc952d41b3",
+      "closedAt": "2025-06-17T13:16:18Z",
+      "mergedAt": "2025-06-17T13:16:18Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "93b598ee4485bfea676c5da3e243a4472fb492a3"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6u-i35",
+          "commit": {
+            "abbreviatedOid": "eaf8c68"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Welcome!!",
+          "createdAt": "2025-06-17T13:14:27Z",
+          "updatedAt": "2025-06-17T13:14:27Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "id": "PR_kwDOOebIkc6a6Gsk",
+      "title": "Result of June 17 review -- major reorganization",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/28",
+      "state": "MERGED",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-17T13:56:04Z",
+      "updatedAt": "2025-06-19T00:02:36Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "93b598ee4485bfea676c5da3e243a4472fb492a3",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "TheBankster-patch-4",
+      "headRefOid": "6a63462a9d6675ee58de14d762a2468b418d4b08",
+      "closedAt": "2025-06-19T00:02:26Z",
+      "mergedAt": "2025-06-19T00:02:26Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "e69fa185a36f91573f0292abd6cd8f1f7f36c2f6"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 29,
+      "id": "PR_kwDOOebIkc6bHqT3",
+      "title": "Rename draft-twi-reference-architecture.md to IETF-ID-Madrid-2025",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/29",
+      "state": "OPEN",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Renamed the file",
+      "createdAt": "2025-06-18T17:37:51Z",
+      "updatedAt": "2025-06-19T00:06:28Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "93b598ee4485bfea676c5da3e243a4472fb492a3",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "TheBankster-patch-5",
+      "headRefOid": "59f8f79f3e1d89affcf3ffa65dd7e97eeb30e719",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 30,
+      "id": "PR_kwDOOebIkc6bKb8R",
+      "title": "A few editorial and grammar changes, removed unnecessary content",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/30",
+      "state": "OPEN",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Please review and approve if you agree with the changes, so other work does not conflict with this update.",
+      "createdAt": "2025-06-19T00:20:08Z",
+      "updatedAt": "2025-06-19T00:20:09Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "e69fa185a36f91573f0292abd6cd8f1f7f36c2f6",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "TheBankster-patch-4",
+      "headRefOid": "6b7d8280a8119fdb1a3f52db602b2551f13f14f8",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
