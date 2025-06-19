@@ -11,10 +11,10 @@
 <meta content="
        This document contains a gap analysis that is the output of the Confidential Computing Consortium identifying areas in the IETF WIMSE WG work where the current WIMSE architecture should be extended to accommodate workloads running in Confidential Computing environments. This document outlines high-level requirements for the these extensions and describes a series of use cases. 
     " name="description">
-<meta content="xml2rfc 3.28.1" name="generator">
+<meta content="xml2rfc 3.29.0" name="generator">
 <meta content="draft-twi-reference-architecture-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.28.1
+  xml2rfc 3.29.0
     Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
@@ -1049,7 +1049,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Novak, et al.</td>
-<td class="center">Expires 19 December 2025</td>
+<td class="center">Expires 21 December 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1062,12 +1062,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-twi-reference-architecture-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-06-17" class="published">17 June 2025</time>
+<time datetime="2025-06-19" class="published">19 June 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-12-19">19 December 2025</time></dd>
+<dd class="expires"><time datetime="2025-12-21">21 December 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1117,7 +1117,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 19 December 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 21 December 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1212,36 +1212,30 @@ svg :is([fill="white"], [fill^="#fff"]) {
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-twi-use-cases" class="internal xref">TWI Use Cases</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-core-requirements" class="internal xref">Core Requirements</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#section-12" class="auto internal xref">12</a>. <a href="#name-references" class="internal xref">References</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-references" class="internal xref">References</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.1">
-                <p id="section-toc.1-1.12.2.1.1"><a href="#section-12.1" class="auto internal xref">12.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
+                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.2">
-                <p id="section-toc.1-1.12.2.2.1"><a href="#section-12.2" class="auto internal xref">12.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2">
+                <p id="section-toc.1-1.10.2.2.1"><a href="#section-10.2" class="auto internal xref">10.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-index" class="internal xref">Index</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-index" class="internal xref">Index</a></p>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
-            <p id="section-toc.1-1.14.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
+            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1301,8 +1295,8 @@ To address this set of requirements, this document defines and elaborates on the
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
 appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">This document uses terms and concepts defined by the WIMSE and RATS architectures, as well as to the terms defined by the Trustworthy Workload Identity Special Interest Gorup at the Confidential Computing Consortium. For a complete glossary,
-see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">Section 4</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span> , <span>[<a href="#I-D.draft-ietf-wimse-arch" class="cite xref">I-D.draft-ietf-wimse-arch</a>]</span> &amp; <span>[<a href="#TWISIGCharter" class="cite xref">TWISIGCharter</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-2">This document uses terms and concepts defined by the WIMSE and RATS architectures, as well as the terms defined by the Trustworthy Workload Identity Special Interest Group at the Confidential Computing Consortium.
+For a complete glossary, see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">Section 4</a> of [<a href="#RFC9334" class="cite xref">RFC9334</a>]</span> , <span>[<a href="#I-D.draft-ietf-wimse-arch" class="cite xref">I-D.draft-ietf-wimse-arch</a>]</span> &amp; <span>[<a href="#TWISIGCharter" class="cite xref">TWISIGCharter</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3">The definitions of terms like Workload Identity, Workload Credential and Workload Provenance match those specified by the TWI SIG Charter <span>[<a href="#TWISIGCharter" class="cite xref">TWISIGCharter</a>]</span>.<a href="#section-2-3" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlParallel" id="section-2-4">
         <dt id="section-2-4.1">Workload:</dt>
@@ -1338,13 +1332,13 @@ see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">
       <h2 id="name-gap-analysis">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-gap-analysis" class="section-name selfRef">Gap Analysis</a>
       </h2>
-<p id="section-3-1">The following shortcomings were identified by performing a gap analysis of the current WIMSE architecture <span>[<a href="#I-D.draft-ietf-wimse-arch" class="cite xref">I-D.draft-ietf-wimse-arch</a>]</span> against the requirements underlying Trustworthy Workload Identity (TWI). The gap analysis provides a basis for identifying extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">The following shortcomings were identified by performing a gap analysis of the current WIMSE architecture <span>[<a href="#I-D.draft-ietf-wimse-arch" class="cite xref">I-D.draft-ietf-wimse-arch</a>]</span> against the requirements underlying Trustworthy Workload Identity (TWI). The gap analysis provides the basis for identifying extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3-2.1">
           <p id="section-3-2.1.1">Protection of Credentials at runtime and insufficient Runtime Attestation:<a href="#section-3-2.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3-2.1.2.1">
-              <p id="section-3-2.1.2.1.1">Risk that credentials in memory could be exposed if a Workload’s execution environment is compromised.<a href="#section-3-2.1.2.1.1" class="pilcrow">¶</a></p>
+              <p id="section-3-2.1.2.1.1">Without Confidential Computing, there is always a risk that Credentials in memory could be exposed if a Workload’s execution environment is compromised.<a href="#section-3-2.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-3-2.1.2.2">
               <p id="section-3-2.1.2.2.1">Confidential Computing does not trust its hosting environment and relies on each Workload attesting itself.<a href="#section-3-2.1.2.2.1" class="pilcrow">¶</a></p>
@@ -1360,7 +1354,7 @@ see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">
           </ul>
 </li>
         <li class="normal" id="section-3-2.3">
-          <p id="section-3-2.3.1">Lack of verifiable workload composition accessible through Credential Provenance<a href="#section-3-2.3.1" class="pilcrow">¶</a></p>
+          <p id="section-3-2.3.1">Lack of verifiable workload composition accessible through Credential Provenance:<a href="#section-3-2.3.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3-2.3.2.1">
               <p id="section-3-2.3.2.1.1">When a Relying Party receives a Credential, or when an auditor examines a log of decisions by a Relying Party, it is unable to peform additional checks on the security properties of the Workload or the process involved in creating it, beyond the claims communicated inside the Credential.<a href="#section-3-2.3.2.1.1" class="pilcrow">¶</a></p>
@@ -1378,10 +1372,10 @@ see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">
 <p id="section-4-1">WIMSE defines an architecture for managing Workload Identity in multi-system environments.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-4-2">
 <li id="section-4-2.1">
-          <p id="section-4-2.1.1">The WIMSE Architecture, explains the core concept of Workload Identity in-line with the concept of identity in a TWI world.<a href="#section-4-2.1.1" class="pilcrow">¶</a></p>
+          <p id="section-4-2.1.1">The WIMSE Architecture explains the core concept of Workload Identity in-line with the concept of identity in the TWI world.<a href="#section-4-2.1.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-4-2.2">
-          <p id="section-4-2.2.1">WIMSE model has a CA/Credential issuer that is responsible with provisioning identity Credentials to the Workload. TWI requirement is roughly similar in terms of issuing credentials. However, the requirements and policies applied when issuing Credentials vary as described in the Extensions section below.<a href="#section-4-2.2.1" class="pilcrow">¶</a></p>
+          <p id="section-4-2.2.1">WIMSE model has a CA/Credential issuer that is responsible for provisioning identity Credentials to the Workload. TWI requirement is roughly similar in terms of issuing credentials. However, the requirements and policies applied when issuing Credentials vary as described in the Extensions section below.<a href="#section-4-2.2.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-4-2.3">
           <p id="section-4-2.3.1">WIMSE Architecture defines Trust Domain, which is the authority that identifies domain within which the identifier is scoped. TWI Architecture is aligned with this basic building block.<a href="#section-4-2.3.1" class="pilcrow">¶</a></p>
@@ -1400,7 +1394,7 @@ see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">
         <h3 id="name-workload-isolation-and-the-">
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-workload-isolation-and-the-" class="section-name selfRef">Workload Isolation and the Role of the Hosting Environment</a>
         </h3>
-<p id="section-5.1-1">Under Confidential Computing, the confidentiality and integrity of a Workload is isolated from the hosting environment and other Workloads. The existing assumption in the WIMSE architecture that the hosting environment can be fully trusted to establish the identity of a hosted Workload, is incompatible with the assumptions of Confidential Computing. Confidential Workloads perform their own Remote Attestation and Workload isolation ensures that the hosting environment cannot interfere in this process.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.1-1">Under Confidential Computing, the confidentiality and integrity of a Workload is isolated from the hosting environment and other Workloads. The underlying assumption in the WIMSE architecture that the hosting environment can be fully trusted to establish the identity of a hosted Workload is incompatible with the assumptions of Confidential Computing. Confidential Workloads perform their own Remote Attestation and Workload isolation ensures that the hosting environment cannot interfere with this process.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="remote-attestation">
@@ -1408,7 +1402,7 @@ see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">
         <h3 id="name-remote-attestation">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-remote-attestation" class="section-name selfRef">Remote Attestation</a>
         </h3>
-<p id="section-5.2-1">Remote Attestation plays a fundamental role in assessing the trustworthiness of the Workload and ensuring that the Workload is running on a platform that provides required security guarantees.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-1">Under Confidential Computing, Remote Attestation plays a fundamental role in assessing the trustworthiness of the Workload and ensuring that the Workload is running on a platform that provides required security guarantees.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
 <div id="integrating-workload-attestation-with-credential-issuance">
 <section id="section-5.2.1">
           <h4 id="name-integrating-workload-attest">
@@ -1422,7 +1416,7 @@ see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">
           <h4 id="name-remote-attestation-of-compo">
 <a href="#section-5.2.2" class="section-number selfRef">5.2.2. </a><a href="#name-remote-attestation-of-compo" class="section-name selfRef">Remote Attestation of Composite Workloads</a>
           </h4>
-<p id="section-5.2.2-1">Confidential Workloads may by "Composite", i.e., span Trusted Execution Environments yet share a Workload Credential. The details are to be defined at a later time.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2-1">Confidential Workloads may be "Composite", i.e., span Trusted Execution Environments yet share a Workload Credential. The details are to be defined at a later time.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1432,13 +1426,13 @@ see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">
         <h3 id="name-provenance">
 <a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-provenance" class="section-name selfRef">Provenance</a>
         </h3>
-<p id="section-5.3-1">Existing fields inside X.509 certificates (e.g. a certificate serial number) or Workload Identity Tokens (e.g. the "jti" claim) can be used to unique tie the Workload Credential to the chain of events leading up to its issuance, as a result, no change is necessary.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.3-1">Existing fields inside X.509 certificates (e.g., a certificate serial number) or Workload Identity Tokens (e.g., the "jti" claim) can be used to uniquely tie the Workload Credential to the chain of events leading up to its issuance; as a result, no change is necessary.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
 <div id="workload-provenance">
 <section id="section-5.3.1">
           <h4 id="name-workload-provenance">
 <a href="#section-5.3.1" class="section-number selfRef">5.3.1. </a><a href="#name-workload-provenance" class="section-name selfRef">Workload Provenance</a>
           </h4>
-<p id="section-5.3.1-1">Workload Provenance can be interrogated to receive the metadata pertaining to Workload, as below.<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.1-1">Workload Provenance can be interrogated to receive the metadata pertaining to Workload, as follows:<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-5.3.1-2">
 <li id="section-5.3.1-2.1">
               <p id="section-5.3.1-2.1.1">Workload Composition, i.e. a detailed list of components that comprise a Workload. This could be expressed as a Software Bill of Materials expressed in terms of industry standards, like SPDX or CycloneDX &lt;TODO: add references?&gt;.<a href="#section-5.3.1-2.1.1" class="pilcrow">¶</a></p>
@@ -1456,8 +1450,8 @@ see <span><a href="https://rfc-editor.org/rfc/rfc9334#section-4" class="relref">
             <h5 id="name-obtaining-workload-provenan">
 <a href="#section-5.3.1.1" class="section-number selfRef">5.3.1.1. </a><a href="#name-obtaining-workload-provenan" class="section-name selfRef">Obtaining Workload Provenance</a>
             </h5>
-<p id="section-5.3.1.1-1">The Workload Provenance can be made available in a transparent manner, which can be audited and verifiable by independent parties.
-While it is a policy of the implementation as to how it obtains the provenance information, the trustworthiness aspect associated to Provenance information can be verified during the runtime trustworthiness assessment of a Workload, through the means of Remote Attestation, at the time of Workload acquiring the Credentials from credential issuer.<a href="#section-5.3.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.1.1-1">The Workload Provenance can be made available in a transparent manner, which can be audited and verified by independent parties.
+While it is a policy of the implementation as to how it obtains the Provenance information, the trustworthiness aspect associated with Provenance information can be verified during the runtime trustworthiness assessment of a Workload, through the means of Remote Attestation, at the time of Workload acquiring the Credentials from credential issuer.<a href="#section-5.3.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="integrating-workload-provenance-with-credential-issuance">
@@ -1465,7 +1459,7 @@ While it is a policy of the implementation as to how it obtains the provenance i
             <h5 id="name-integrating-workload-proven">
 <a href="#section-5.3.1.2" class="section-number selfRef">5.3.1.2. </a><a href="#name-integrating-workload-proven" class="section-name selfRef">Integrating Workload Provenance with Credential Issuance</a>
             </h5>
-<p id="section-5.3.1.2-1">The provenance information can be attached to the Workload credentials using a well-defined protocol.<a href="#section-5.3.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.1.2-1">The Provenance information can be attached to the Workload credentials using a well-defined protocol.<a href="#section-5.3.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1522,8 +1516,7 @@ The transparency log record <span class="bcp14">MAY</span> be encrypted to preve
         <h3 id="name-enhanced-bootstrapping-with">
 <a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-enhanced-bootstrapping-with" class="section-name selfRef">Enhanced Bootstrapping with Attestation</a>
         </h3>
-<p id="section-6.2-1">Strengthening the initial bootstrapping process. A TEE can provide hardware-based attestation that a Workload is running in a secure, isolated environment. This attestation could be used as an additional factor during Workload Credential provisioning, ensuring that only Workloads running in a TEE and matching the Workload Credential issuer's attestation policies receive valid credentials.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
-<p id="section-6.2-2"><span class="cref" id="projects">might be a bit of a stretch/ too much - it basically would be an extension of the bootstrapping projects described in https://datatracker.ietf.org/doc/html/draft-ietf-wimse-arch-03)</span><a href="#section-6.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.2-1">Strengthening the initial bootstrapping process. A TEE can enable hardware-based Remote Attestation, proving that a Workload is running in a secure, isolated environment. This attestation could be used as an additional factor during Workload Credential provisioning, ensuring that only Workloads running in a TEE and matching the Workload Credential issuer's attestation policies receive valid credentials.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="protected-credential-exchange">
@@ -1531,7 +1524,7 @@ The transparency log record <span class="bcp14">MAY</span> be encrypted to preve
         <h3 id="name-protected-credential-exchan">
 <a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-protected-credential-exchan" class="section-name selfRef">Protected Credential Exchange</a>
         </h3>
-<p id="section-6.3-1">For the credential exchange patterns defined in the WIMSE Credential Exchange draft, Confidential Computing can provide a Trusted Execution Environment in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
+<p id="section-6.3-1">For the Credential exchange patterns defined in the WIMSE Credential Exchange draft, Confidential Computing can provide a Trusted Execution Environment in which the exchange logic runs. This ensures that the process of exchanging or re-provisioning credentials is protected against tampering and eavesdropping.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="mitigating-runtime-compromise">
@@ -1546,75 +1539,45 @@ The transparency log record <span class="bcp14">MAY</span> be encrypted to preve
 <section id="section-6.5">
         <h3 id="name-cross-domain-trust-enhancem">
 <a href="#section-6.5" class="section-number selfRef">6.5. </a><a href="#name-cross-domain-trust-enhancem" class="section-name selfRef">Cross-domain Trust Enhancement</a>
-      </h3>
+        </h3>
+<p id="section-6.5-1">TODO: File an issue to fill this section in, or remove the section.<a href="#section-6.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-</section>
-</div>
-<div id="twi-use-cases">
-<section id="section-7">
-      <h2 id="name-twi-use-cases">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-twi-use-cases" class="section-name selfRef">TWI Use Cases</a>
-      </h2>
-<p id="section-7-1">TODO: Revisit this section to see if we need it or if we can lean on the section just above this.<a href="#section-7-1" class="pilcrow">¶</a></p>
-<p id="section-7-2">Like WIMSE, TWI seeks to associate Identities with Workloads. However, for an Identity to be Trustworthy, a few additional requirements must be met:<a href="#section-7-2" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-7-3">
-<li id="section-7-3.1">
-          <p id="section-7-3.1.1">Isolate Workloads' data-in-use, including their Credentials, from the untrusted hosting environment.<a href="#section-7-3.1.1" class="pilcrow">¶</a></p>
-</li>
-        <li id="section-7-3.2">
-          <p id="section-7-3.2.1">Guarantee that a Workload can only utilize Credentials issued to it and that its Credentials cannot leak and be used by unauthorized Workloads.<a href="#section-7-3.2.1" class="pilcrow">¶</a></p>
-</li>
-        <li id="section-7-3.3">
-          <p id="section-7-3.3.1">Enable the Relying Parties and other interested parties, such as auditors, to make in-depth run-time and retroactive inquiries into the trustworthiness of the Workload based on its Credentials.<a href="#section-7-3.3.1" class="pilcrow">¶</a></p>
-</li>
-      </ol>
-</section>
-</div>
-<div id="core-requirements">
-<section id="section-8">
-      <h2 id="name-core-requirements">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-core-requirements" class="section-name selfRef">Core Requirements</a>
-      </h2>
-<p id="section-8-1">The TWI Core Requirements can be located <span>[<a href="#TWISIGReq" class="cite xref">TWISIGReq</a>]</span>.<a href="#section-8-1" class="pilcrow">¶</a></p>
-<p id="section-8-2">For Use Case 1, the Workload <span class="bcp14">MUST</span> run in an isolated, remotely attested TEE. Therefore, the process of obtaining the Credentials <span class="bcp14">MUST</span> involve a Verifier service in addition to the Identity Provider service.<a href="#section-8-2" class="pilcrow">¶</a></p>
-<p id="section-8-3">For Use Case 2, the Workload Credentials <span class="bcp14">MUST</span> be strongly bound to the Workload instance to which they are issued and the secrets utilized for authentications to Relying Parties using these Credentials <span class="bcp14">MUST</span> be covered by data-in-use protections in the manner they are procured and utilized.<a href="#section-8-3" class="pilcrow">¶</a></p>
-<p id="section-8-4">For Use Case 3, the issued Workload Credentials <span class="bcp14">MUST</span> contain information from which the Provenance of the Workload can be determined.<a href="#section-8-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-9">
+<section id="section-7">
       <h2 id="name-security-considerations">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<p id="section-7-1"><span class="cref">TODO</span><a href="#section-7-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="iana-considerations">
+<section id="section-8">
+      <h2 id="name-iana-considerations">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      </h2>
+<p id="section-8-1">Not applicable for this draft at this time.<a href="#section-8-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="acknowledgements">
+<section id="section-9">
+      <h2 id="name-acknowledgements">
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
       </h2>
 <p id="section-9-1"><span class="cref">TODO</span><a href="#section-9-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="iana-considerations">
-<section id="section-10">
-      <h2 id="name-iana-considerations">
-<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
-      </h2>
-<p id="section-10-1">Not applicable for this draft at this time.<a href="#section-10-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="acknowledgements">
-<section id="section-11">
-      <h2 id="name-acknowledgements">
-<a href="#section-11" class="section-number selfRef">11. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
-      </h2>
-<p id="section-11-1"><span class="cref">TODO</span><a href="#section-11-1" class="pilcrow">¶</a></p>
-</section>
-</div>
 <div id="sec-combined-references">
-<section id="section-12">
+<section id="section-10">
       <h2 id="name-references">
-<a href="#section-12" class="section-number selfRef">12. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-12.1">
+<section id="section-10.1">
         <h3 id="name-normative-references">
-<a href="#section-12.1" class="section-number selfRef">12.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
@@ -1629,9 +1592,9 @@ The transparency log record <span class="bcp14">MAY</span> be encrypted to preve
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-12.2">
+<section id="section-10.2">
         <h3 id="name-informative-references">
-<a href="#section-12.2" class="section-number selfRef">12.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="I-D.draft-ietf-wimse-arch">[I-D.draft-ietf-wimse-arch]</dt>
