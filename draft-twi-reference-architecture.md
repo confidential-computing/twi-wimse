@@ -120,7 +120,7 @@ Workload Provenance:
 The following shortcomings were identified by performing a gap analysis of the current WIMSE architecture {{-WIMSE}} against the requirements underlying Trustworthy Workload Identity (TWI). The gap analysis provides the basis for identifying extensions necessary to meet the level of trustworthiness required by Confidential Computing environments.
 
 * Protection of Credentials at runtime and insufficient Runtime Attestation:
-  * Without Confidential Computing, there is always a risk that Credentials in memory could be exposed if a Workload’s execution environment is compromised.
+  * Without data-in-use protection, there is always a risk that Credentials in memory could be exposed if a Workload’s execution environment is compromised.
   * Confidential Computing does not trust its hosting environment and relies on each Workload attesting itself.
 * Token replay and misuse:
   * Token binding, even if used, is not sufficient unless the secrets underpinning the Workload Credentials are protected from leakage.
