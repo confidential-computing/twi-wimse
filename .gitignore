@@ -17,7 +17,7 @@
 /versioned/
 Gemfile.lock
 archive.json
-draft-twi-reference-architecture.xml
+draft-ccc-wimse-twi-extensions.xml
 package-lock.json
 report.xml
 !requirements.txt
