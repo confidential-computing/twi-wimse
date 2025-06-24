@@ -128,6 +128,76 @@ The following shortcomings were identified by performing a gap analysis of the c
 * Lack of verifiable workload composition accessible through Credential Provenance
   * When a Relying Party receives a Credential, or when an auditor examines a log of decisions by a Relying Party, it is unable to peform additional checks on the security properties of the Workload or the process involved in creating it, beyond the claims communicated inside the Credential.
 
+# Alignment or Synergy with WIMSE Architecture
+
+WIMSE defines an architecture for managing Workload Identity in multi-system environments.
+
+1. The WIMSE Architecture, explains the core concept of Workload Identity in-line with the concept of identity in a TWI world.
+2. WIMSE model has a CA/Credential issuer that is responsible with provisioning identity Credentials to the Workload. TWI requirement is roughly similar in terms of issuing credentials. However, the requirements and policies applied when issuing Credentials vary as described in the Extensions section below.
+3. WIMSE Architecture defines Trust Domain, which is the authority that identifies domain within which the identifier is scoped. TWI Architecture is aligned with this basic building block.
+
+# Extensions to the WIMSE Architecture
+
+Trustworthy Workload Identity as detailed in this document proposes the following extensions and changes to the core WIMSE Architecture.
+
+## Workload Isolation and the Role of the Hosting Environment
+
+Under Confidential Computing, the confidentiality and integrity of a Workload is isolated from the hosting environment and other Workloads. The existing assumption in the WIMSE architecture that the hosting environment can be fully trusted to establish the identity of a hosted Workload, is incompatible with the assumptions of Confidential Computing. Confidential Workloads perform their own Remote Attestation and Workload isolation ensures that the hosting environment cannot interfere in this process.
+
+## Remote Attestation
+
+Remote Attestation plays a fundamental role in assessing the trustworthiness of the Workload and ensuring that the Workload is running on a platform that provides required security guarantees.
+
+### Integrating Workload Attestation with Credential Issuance
+
+The Credential Issuer would process the Attestation Results from the Verifier and apply its own Appraisal Policy for Attestation results prior to issuing Credentials.
+
+### Remote Attestation of Composite Workloads
+
+Confidential Workloads may by "Composite", i.e., span Trusted Execution Environments yet share a Workload Credential. The details are to be defined at a later time.
+
+## Provenance
+
+Existing fields inside X.509 certificates (e.g. a certificate serial number) or Workload Identity Tokens (e.g. the "jti" claim) can be used to unique tie the Workload Credential to the chain of events leading up to its issuance, as a result, no change is necessary.
+
+### Workload Provenance
+
+Workload Provenance can be interrogated to receive the metadata pertaining to Workload, as below.
+
+1. Workload Composition, i.e. a detailed list of components that comprise a Workload. This could be expressed as a Software Bill of Materials expressed in terms of industry standards, like SPDX or CycloneDX <TODO: add references?>.
+
+2. Set of Compliance tests that executed on the Workload.
+
+3. Details of Vendor/SaaS information.
+
+The policy for issuing Credentials may demand the information about the Provenance of the Workload. This requries work in two areas (a) Obtaining the Provenance information about the Workload AND (b) Conveying the provenance information inside the Credential.
+
+#### Obtaining Workload Provenance
+
+The Workload Provenance can be made available in a transparent manner, which can be audited and verifiable by independent parties.
+While it is a policy of the implementation as to how it obtains the provenance information, the trustworthiness aspect associated to Provenance information can be verified during the runtime trustworthiness assessment of a Workload, through the means of Remote Attestation, at the time of Workload acquiring the Credentials from credential issuer.
+
+#### Integrating Workload Provenance with Credential Issuance
+
+The provenance information can be attached to the Workload credentials using a well-defined protocol.
+
+### Credential Provenance
+
+Credential Provenance is the metadata pertaining to the Credential issuance itself, binding the:
+
+* Workload (including [Workload Provenance](#workload-provenance))
+* Verifier (as defined in {{Section 4.1 of -rats-arch}}), including the criteria it applied to the attestation evidence
+* Credential Issuer (((Credential Issuer))) (including its issuance policies effective at the time)
+
+While the Workload Identity remains stable for as long as the Workload properties remain unchanged, a unique Credential Provenance MUST be generated each time a Workload Credential is issued.
+
+Creation of a Credential Provenance record SHOULD additionally be recorded in a transparency log (if in use by the solution), to provide discoverability, immutability and non-repudiation by the issuer.
+The transparency log record MAY be encrypted to prevent disclosure of Personally Identifiable Information (PII) or buisness-critical data.
+
+## Workload to Platform binding
+
+TODO: Issue #27 filed.
+
 # Integration of Confidential Computing into WIMSE
 
 ## Secure Key Storage & Cryptographic Operations
@@ -172,78 +242,13 @@ For Use Case 2, the Workload Credentials MUST be strongly bound to the Workload 
 
 For Use Case 3, the issued Workload Credentials MUST contain information from which the Provenance of the Workload can be determined.
 
-# Alignment or Synergy with WIMSE Architecture
-
-WIMSE defines an architecture for managing Workload Identity in multi-system environments.
-
-1. The WIMSE Architecture, explains the core concept of Workload Identity in-line with the concept of identity in a TWI world.
-2. WIMSE model has a CA/Credential issuer that is responsible with provisioning identity Credentials to the Workload.
-TWI requirement is roughly similar in terms of issuing credentials. However the requirements and policies applied when issuing credentials vary as described in the Divergence section below.
-3. WIMSE Architecture defines Trust Domain, which is the authority that identifies domain within which the identifier is scoped. TWI Architecture is aligned with this basic building block.
-
-# Extensions to WIMSE Architecture
-
-Trustworthy Workload Identity as detailed in this document proposes the following extensions and changes to the core WIMSE Architecture.
-
-## Workload Isolation
-
-The confidentiality and integrity of a Workload is isolated from the hosting environment and other Workloads.
-
-## Provenance
-
-Existing fields inside X.509 certificates (e.g. a certificate serial number) or Workload Identity Tokens (e.g. the "jti" claim) can be used to unique tie the Workload Credential to the chain of events leading up to its issuance, as a result, no change is necessary.
-
-### Workload Provenance
-
-Workload Provenance can be interrogated to receive the metadata pertaining to Workload, as below.
-
-1. Workload Composition, i.e. a detailed list of components that comprise a Workload. This could be expressed as a Software Bill of Materials expressed in terms of industry standards, like SPDX or CycloneDX <TODO: add references?>.
-
-2. Set of Compliance tests that executed on the Workload.
-
-3. Details of Vendor/SaaS information.
-
-The policy for issuing Credentials may demand the information about the Provenance of the Workload. This requries work in two areas (a) Obtaining the Provenance information about the Workload AND (b) Conveying the provenance information inside the Credential.
-
-#### Obtaining Workload provenance
-
-The Workload Provenance can be made available in a transparent manner, which can be audited and verifiable by independent parties.
-While it is a policy of the implementation as to how it obtains the provenance information, the trustworthiness aspect associated to Provenance information can be verified during the runtime trustworthiness assessment of a Workload, through the means of Remote Attestation, at the time of Workload acquiring the Credentials from credential issuer.
-
-#### Integrating Workload Provenance with Credential Issuance
-
-The provenance information can be attached to the Workload credentials using a well-defined protocol.
-
-### Credential Provenance
-
-Credential Provenance is the metadata pertaining to the credential issuance itself, binding the:
-
-* Workload (including [Workload Provenance](#workload-provenance)),
-* Verifier (as defined in {{Section 4.1 of -rats-arch}}), including the criteria it applied to the attestation evidence.
-* Credential Issuer (((Credential Issuer))) (including its issuance policies effective at the time),
-
-While the Workload Identity remains unchanged for as long as the Workload properties remain stable, a unique Credential Provenance MUST be generated each time a Workload Credential is issued.
-
-Creation of a Credential Provenance record SHOULD additionally be recorded in a transparency log (if in use by the solution), to provide discoverability, immutability and non-repudiation by the issuer.
-The transparency log record MAY be encrypted to prevent disclosure of Personally Identifiable Information (PII) or buisness-critical data.
-
-## Workload to Platform binding
-
-## Remote Attestation
-Remote Attestation plays a fundamental role in attesting the Workload and ensuring that the Workload is running on a platform that provides required trustwrothiness guarantees.
-
-### Integrating Workload Attestation with Credential Issuance
-The Credential Issuer would process the Attestation Results and apply its own Appraisal Policy for Attestation results prior to issuing Credentials.
-
-### Remote Attestation of Composite Workloads
-
 # Security Considerations
 
 <cref>TODO</cref>
 
 # IANA Considerations
 
-It is foreseen that additional CBOR OIDS will be needed for new evidence types. As these new evidence types emerge in later documents IANA will need to issue OIDS to standardize the new evidence definitions across attestation systems.
+Not applicable for this draft at this time.
 
 # Acknowledgements
 
