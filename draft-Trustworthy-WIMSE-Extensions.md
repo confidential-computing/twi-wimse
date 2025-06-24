@@ -1,7 +1,7 @@
 ---
 title: WIMSE Extensions for Trustworthy Identity
 abbrev: Trustworthy WIMSE
-docname: draft-Trustworhty-WIMSE-Extensions-latest
+docname: draft-Trustworthy-WIMSE-Extensions-latest
 category: info
 ipr: trust200902
 area: Security
