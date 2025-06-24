@@ -317,7 +317,7 @@ Table of Contents
    example, at workload instantiation)
    // _(Sourcing the Provenance information is an area that requires
    // industry alignment.)_ and can be interrogated to receive the
-   metadata pertaining to Workload, as folows:
+   metadata pertaining to Workload, as follows:
 
    1.  *Workload Composition:* A detailed list of components that
        comprise a Workload.  This can be represented as a Software Bill
