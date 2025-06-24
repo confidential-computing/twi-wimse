@@ -5,10 +5,10 @@
 WIMSE                                                           M. Novak
 Internet-Draft                                         J.P. Morgan Chase
 Intended status: Informational                              Y. Deshpande
-Expires: 21 December 2025                                            arm
+Expires: 26 December 2025                                            arm
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                            19 June 2025
+                                                            24 June 2025
 
 
           Trustworthy Workload Identity Reference Architecture
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 December 2025.
+   This Internet-Draft will expire on 26 December 2025.
 
 Copyright Notice
 
@@ -205,7 +205,7 @@ Table of Contents
    *  Protection of Credentials at runtime and insufficient Runtime
       Attestation:
 
-      -  Without Confidential Computing, there is always a risk that
+      -  Without data-in-use protection, there is always a risk that
          Credentials in memory could be exposed if a Workload’s
          execution environment is compromised.
 
