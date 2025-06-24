@@ -36,6 +36,13 @@ author:
   org: Fraunhofer SIT
   email: henk.birkholz@ietf.contact
 
+-
+  ins: M. Bronk
+  name: Mateusz Bronk
+  org: Intel Corporation
+  abbrev: Intel
+  email: mateusz.bronk@intel.com
+
 informative:
   RFC9334: rats-arch
   I-D.draft-ietf-wimse-arch: WIMSE
@@ -51,6 +58,12 @@ informative:
     title: Trustworthy Workload Identity (TWI) Special Interest Group — Requirements
     author:
       org: Confidential Computing Consortium Trustworthy Workload Identity SIG
+  NIST_SP_800-218A:
+    -: SSDF_GenAI_Profile
+    target: https://doi.org/10.6028/NIST.SP.800-218A
+    title: "Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile"
+    author:
+      org: National Institure of Standards and Technology, U.S. Department of Commerce
 
 --- abstract
 
@@ -93,7 +106,10 @@ To address this set of requirements, this document defines and elaborates on the
 This document uses terms and concepts defined by the WIMSE and RATS architectures, as well as the terms defined by the Trustworthy Workload Identity Special Interest Group at the Confidential Computing Consortium.
 For a complete glossary, see {{Section 4 of -rats-arch}} , {{-WIMSE}} & {{-TWISIGCharter}}.
 
-The definitions of terms like Workload Identity, Workload Credential and Workload Provenance match those specified by the TWI SIG Charter {{-TWISIGCharter}}.
+The definitions of terms like Workload Identity, Workload Credential and Workload Provenance match those specified by the TWI SIG Charter {{-TWISIGCharter}}.[^TODO1]
+
+[^TODO1]: TODO: Update the {{-TWISIGCharter}} to match terms in this document.
+{: source="Mateusz"}
 
 Workload:
 
@@ -113,7 +129,19 @@ Workload Credential:
 
 Workload Provenance:
 
-: a unique linkage between a Workload Credential and the trusted entities (such as a vendor, developer, or issuer) responsible for the production and/or the remote attestation of the corresponding Workload.
+: the metadata describing the origin and composition of the Workload instance, as determined at Workload instantiation time.
+It remains unchanged for the duration of the Workload’s execution.
+:   The definition of Workload Provenance is compatible with the definition of Provenance by {{-SSDF_GenAI_Profile}}: `"Metadata pertaining to the origination or source of specified data"`.
+
+Workload Credential Provenance:
+
+: the metatada about a Workload Credential creation, describing where, when and how it got issued — including the attestation policies effective at credential issuance time.
+Its definition is compatible with {{-SSDF_GenAI_Profile}}.
+
+Provenance Binding:
+
+: a unique linkage between a Workload (or Workload Credential) and its corresponding provenance record.  A binding is said to be *strong* if it is anchored to the underlying [Root of Trust (RoT)](https://csrc.nist.gov/glossary/term/roots_of_trust), enabling audit of the integrity of the linkage - typically via attestation. Such a binding is non-repudiable, ensuring that the entity responsible for the Workload or Credential cannot later deny its origin or the integrity of its provenance.
+
 
 # Gap Analysis
 
@@ -157,41 +185,76 @@ Confidential Workloads may be "Composite", i.e., span Trusted Execution Environm
 
 ## Provenance
 
-Existing fields inside X.509 certificates (e.g., a certificate serial number) or Workload Identity Tokens (e.g., the "jti" claim) can be used to uniquely tie the Workload Credential to the chain of events leading up to its issuance; as a result, no change is necessary.
+To ensure the trustworthiness of a Workload Identity, it is essential to rigorously track the origin and lifecycle of both the Workload and its associated Workload Credentials.
+The metadata records intended to capture this information are called *Workload Provenance* and *Workload Credential Provenance*, respectively.
 
 ### Workload Provenance
 
-Workload Provenance can be interrogated to receive the metadata pertaining to Workload, as follows:
+Workload Provenance is determined by the hosting environment (for example, at workload instantiation)[^ProvSourcing] and can be interrogated to receive the metadata pertaining to Workload, as follows:
 
-1. Workload Composition, i.e. a detailed list of components that comprise a Workload. This could be expressed as a Software Bill of Materials expressed in terms of industry standards, like SPDX or CycloneDX <TODO: add references?>.
+1. **Workload Composition:**
+  A detailed list of components that comprise a Workload.
+  This can be represented as a Software Bill of Materials (SBOM) using industry standards such as [SPDX](https://spdx.dev/) or [CycloneDX](https://cyclonedx.org/).
+  Additionally, supply chain security frameworks like [SLSA](https://slsa.dev/) and provenance attestation mechanisms such as [in-toto](https://in-toto.io/) can be used to capture and verify the integrity, build process, and origin of each component within the Workload.
 
-2. Set of Compliance tests that executed on the Workload.
+2. **Compliance Data:**
+  Evidence documenting the execution of compliance tests on the Workload.
+  This includes verifiable records of policy evaluations, security scans, assessments, and other compliance-related activities.
+  For example, artifacts produced by frameworks conformant with the NIST Secure Software Development Framework (SSDF) may be incorporated.
 
-3. Details of Vendor/SaaS information.
+3. **Vendor/SaaS Metadata:**
+  Capture the identity, role, and attestation status of third-party vendors or SaaS providers involved in the Workload.
 
-The policy for issuing Credentials may demand the information about the Provenance of the Workload. This requries work in two areas (a) Obtaining the Provenance information about the Workload AND (b) Conveying the provenance information inside the Credential.
+The level and fidelity of information captured by Workload Provenance is subject to policy of a particular Relying Party and/or Credentials issuer.
 
 #### Obtaining Workload Provenance
 
-The Workload Provenance can be made available in a transparent manner, which can be audited and verified by independent parties.
-While it is a policy of the implementation as to how it obtains the Provenance information, the trustworthiness aspect associated with Provenance information can be verified during the runtime trustworthiness assessment of a Workload, through the means of Remote Attestation, at the time of Workload acquiring the Credentials from credential issuer.
+Workload Provenance information generally consists of metadata originating from sources external to the hosting environment — such as Software Bill of Materials ([SBOM](https://www.cisa.gov/sbom)) for components supplied by independent vendors.
+The mechanisms for acquiring and integrating this information are implementation-specific and may vary according to organizational policy and supply chain practices. [^ProvSourcing]
 
-#### Integrating Workload Provenance with Credential Issuance
+The Workload Provenance can be made available in a transparent manner, which can be audited and verifiable by independent parties.
+While it is a policy of the implementation as to how it obtains the provenance information, the trustworthiness aspect associated to Provenance information can be verified during the runtime trustworthiness assessment of a Workload, through the means of Remote Attestation, at the time of Workload acquiring the Credentials from credential issuer.
 
-The Provenance information can be attached to the Workload credentials using a well-defined protocol.
+[^ProvSourcing]: *(Sourcing the Provenance information is an area that requires industry alignment.)*
 
 ### Credential Provenance
 
 Credential Provenance is the metadata pertaining to the Credential issuance itself, binding the:
 
-* Workload (including [Workload Provenance](#workload-provenance))
-* Verifier (as defined in {{Section 4.1 of -rats-arch}}), including the criteria it applied to the attestation evidence
-* Credential Issuer (((Credential Issuer))) (including its issuance policies effective at the time)
+- Workload Credential (including Workload and [Workload Provenance](#workload-provenance))
+- Verifier (as defined in {{Section 4.1 of -rats-arch}}), including the criteria it applied to the attestation evidence
+- Credential Issuer (including its issuance policies effective at the time of Credential creation)
 
 While the Workload Identity remains stable for as long as the Workload properties remain unchanged, a unique Credential Provenance MUST be generated each time a Workload Credential is issued.
 
+#### Obtaining Credential Provenance
+
+In most deployments, the Credential Issuer operates inside the hosting environment, and thus the Workload Credential Provenance record is typically generated within that environment.
+
 Creation of a Credential Provenance record SHOULD additionally be recorded in a transparency log (if in use by the solution), to provide discoverability, immutability and non-repudiation by the issuer.
 The transparency log record MAY be encrypted to prevent disclosure of Personally Identifiable Information (PII) or buisness-critical data.
+
+### Integrating Provenance with Credential Issuance
+
+Provenance information — encompassing both Workload Provenance and Credential Provenance — SHOULD be associated with Workload Credentials using a well defined protocol[^ProvAssociation].
+Given the potential for a single Workload to be issued multiple Credentials (i.e., a `1:N` relationship), the Credential Provenance record SHOULD serve as the primary provenance reference and include linkage to Workload Provenance.
+This ensures that all relevant provenance details, including those pertaining to the Workload, can be derived from a single (Credential Provenance) record, simplifying the trust derivation for a Relying Party.
+
+[^ProvAssociation]: *(Standarized formats and protocols for storing/discovering/verifying provenance information may need defining.)*
+
+#### Provenance Binding
+
+**External Binding**:
+
+: The association between provenance information and a Workload Credential MAY be established externally, with the provenance record referencing the Credential.
+This allows the provenance record to be managed and retrieved independently, while maintaining a verifiable link to the corresponding Workload Identity, and not requiring any changes to existing Workload Identity Token (WIT) format.
+For example, the provenance record can include a hash-based fingerprint of the Workload Credential, or reference a unique field from the Credential — such as the serial number in a X.509 certificate or the "jti" (JWT ID) claim in a WIT.
+In this case, the Verifier needs to have an upfront knowledge as to the provenance record's location (for example, a protocol to query for the provenance at the credential issuer or through a well-known centralized provenance store or a transparency log).
+
+**Internal Binding**:
+
+: Alternatively, The provenance record (or a pointer to it) MAY be embedded inside the Workload Credential, for example as an X.509 certificate extension or a separate claim embedded inside a Workload Identity Token, uniquely tying the Workload Credential to the chain of events leading up to its issuance.
+Note that in deployment scenarios where Credential Issuer and Provenance Issuer are not the same entity, the independently-issued Provenance record MUST still be strongly bound  to the credential by its creator, making the relationship bidirectional: Credential referencing Provenance via a pointer, Provenance strongly bound to the Credential's non-forgeable unique property.
 
 ## Workload to Platform binding
 
