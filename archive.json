@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-24T01:48:50.164494+00:00",
+  "timestamp": "2025-06-26T01:47:42.911167+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -245,11 +245,13 @@
       "state": "OPEN",
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "yogeshbdeshpande"
+      ],
       "labels": [],
       "body": "https://github.com/confidential-computing/twi-wimse/blob/93b598ee4485bfea676c5da3e243a4472fb492a3/draft-twi-reference-architecture.md?plain=1#L248",
       "createdAt": "2025-06-17T13:20:46Z",
-      "updatedAt": "2025-06-17T13:20:46Z",
+      "updatedAt": "2025-06-24T13:33:03Z",
       "closedAt": null,
       "comments": []
     },
@@ -261,11 +263,13 @@
       "state": "OPEN",
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "TheBankster"
+      ],
       "labels": [],
       "body": "https://github.com/confidential-computing/twi-wimse/blob/93b598ee4485bfea676c5da3e243a4472fb492a3/draft-twi-reference-architecture.md?plain=1#L242",
       "createdAt": "2025-06-17T13:21:31Z",
-      "updatedAt": "2025-06-17T13:21:31Z",
+      "updatedAt": "2025-06-24T13:33:42Z",
       "closedAt": null,
       "comments": []
     },
@@ -287,6 +291,32 @@
       "updatedAt": "2025-06-17T13:26:30Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 31,
+      "id": "I_kwDOOebIkc69BIx5",
+      "title": "[DISCUSS] Selecting the name for the internet draft",
+      "url": "https://github.com/confidential-computing/twi-wimse/issues/31",
+      "state": "OPEN",
+      "author": "mbronk-intc",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mbronk-intc"
+      ],
+      "labels": [],
+      "body": "This issue is meant to track update to the I-D file (i.e. the name we want to use to publish this with @[IETF Datatracker](https://datatracker.ietf.org/))\n\n#### Original name:\n- `draft-twi-reference-architecture`\n\n#### Options floated this far\n- `draft-Trustworthy-WIMSE-Extensions`\n   -  #29\n- `draft-ccc-trustworthy-wimse-extensions`\n- `draft-novak-trustworthy-wimse-extensions`\n- `draft-ccc-wimse-trustworthy-workload-identity-extensions`  <-- \ud83d\udcd7 my preference (assuming we can use `ccc` as an \"author/source\")\n- <others> _(please add yours)_\n\n\n\n### Context:\n* Need(?) to conform to https://authors.ietf.org/naming-your-internet-draft. Formats in use:\n    * `draft-(author)-(subject)-(version)`\n    * `draft-(author)-(group)-(subject)-(version)`\n    * `draft-(source)-(group)-(subject)-(version)`\n    * `draft-(source)-(subject)-(version)`\n* _Originally posted by @mbronk-intc in https://github.com/confidential-computing/twi-wimse/issues/29#issuecomment-2999528748_",
+      "createdAt": "2025-06-24T09:32:05Z",
+      "updatedAt": "2025-06-24T13:39:45Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "body": "draft-ccc-wimse-twi-extensions was what we settled on",
+          "createdAt": "2025-06-24T13:39:34Z",
+          "updatedAt": "2025-06-24T13:39:34Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -2810,21 +2840,21 @@
       "id": "PR_kwDOOebIkc6bHqT3",
       "title": "Rename draft-twi-reference-architecture.md to IETF-ID-Madrid-2025",
       "url": "https://github.com/confidential-computing/twi-wimse/pull/29",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Renamed the file",
       "createdAt": "2025-06-18T17:37:51Z",
-      "updatedAt": "2025-06-23T19:54:54Z",
+      "updatedAt": "2025-06-24T13:56:55Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
-      "baseRefOid": "93b598ee4485bfea676c5da3e243a4472fb492a3",
+      "baseRefOid": "e69fa185a36f91573f0292abd6cd8f1f7f36c2f6",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "TheBankster-patch-5",
-      "headRefOid": "68beb0d2653f8b9f779d084871d026fc2f0c5be8",
-      "closedAt": null,
+      "headRefOid": "9f65cacb9d86afa3f7302d9f2dd6806327594db5",
+      "closedAt": "2025-06-24T13:56:55Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -2835,6 +2865,20 @@
           "body": "I'm not sure why this is failing. It also says there are complex merge conflicts. Can someone step in to look into why this is?",
           "createdAt": "2025-06-19T09:07:15Z",
           "updatedAt": "2025-06-19T09:07:15Z"
+        },
+        {
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I'm not sure why this is failing. It also says there are complex merge conflicts. Can someone step in to look into why this is?\r\n\r\nPer the built-in machinery - the draft markdown file must follow: `draft-*.md` file name convention (and then some). There are a few other places that need to be updated as well.\r\n\r\n@TheBankster - I took the liberty of updating your branch directly to match `draft-Trustworthy-WIMSE-Extensions` and be mergeable to `main`. Please take a look if this matches what you intended.\r\n\r\n----\r\n\r\nSeparately, @yogeshbdeshpande @henkbirkholz  - won't we need another rename though to match IETF's naming convention of `draft-<individual>-<name>-<version number>.txt`? That is, since this draft was not produced by an IETF WG, I wonder if we can use `draft-ietf-wimse` vs. something like\r\n  * `draft-ccc-trustworthy-wimse-extensions`, or\r\n  * `draft-novak-trustworthy-wimse-extensions` ? \r\n \r\nAlso, are uppercase letters allowed in the draft names? I'll create a GH issue for discussing the final name so that we can close this offline.",
+          "createdAt": "2025-06-24T09:24:56Z",
+          "updatedAt": "2025-06-24T09:24:56Z"
+        },
+        {
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing as per discussion at TWI meeting at 6/24/2025 - Superseded by #32. ",
+          "createdAt": "2025-06-24T13:56:55Z",
+          "updatedAt": "2025-06-24T13:56:55Z"
         }
       ],
       "reviews": []
@@ -2844,26 +2888,101 @@
       "id": "PR_kwDOOebIkc6bKb8R",
       "title": "A few editorial and grammar changes, removed unnecessary content",
       "url": "https://github.com/confidential-computing/twi-wimse/pull/30",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Please review and approve if you agree with the changes, so other work does not conflict with this update.",
       "createdAt": "2025-06-19T00:20:08Z",
-      "updatedAt": "2025-06-19T00:20:09Z",
+      "updatedAt": "2025-06-24T13:31:07Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "e69fa185a36f91573f0292abd6cd8f1f7f36c2f6",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "TheBankster-patch-4",
-      "headRefOid": "6b7d8280a8119fdb1a3f52db602b2551f13f14f8",
+      "headRefOid": "5aaadb8bcf0a86590b412e8e2b1ee99ea36fc781",
+      "closedAt": "2025-06-24T13:31:07Z",
+      "mergedAt": "2025-06-24T13:31:07Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "3de02435d5566e78fd5c8b81a2d2d639e92b6557"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 32,
+      "id": "PR_kwDOOebIkc6b37Tr",
+      "title": "Draft rename to `draft-ccc-wimse-twi-extensions`",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/32",
+      "state": "OPEN",
+      "author": "mbronk-intc",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes:\r\n-  #31 \r\n\r\nSupersedes:\r\n- #29",
+      "createdAt": "2025-06-24T13:52:15Z",
+      "updatedAt": "2025-06-24T21:06:26Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "3de02435d5566e78fd5c8b81a2d2d639e92b6557",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "mbronk/draft-rename",
+      "headRefOid": "33b7b2452c4eaa26f3277ecd8ad95af345b4e8b7",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 33,
+      "id": "PR_kwDOOebIkc6b7j5e",
+      "title": "Provenance definition and description updates",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/33",
+      "state": "OPEN",
+      "author": "mbronk-intc",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Resolves #20\r\nReferences #17",
+      "createdAt": "2025-06-24T20:20:58Z",
+      "updatedAt": "2025-06-24T20:27:06Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "3de02435d5566e78fd5c8b81a2d2d639e92b6557",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "mbronk/provenance-updates",
+      "headRefOid": "639bafd24285348581e6bd38ac87af5134c0332b",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6wJUQ1",
+          "commit": {
+            "abbreviatedOid": "639bafd"
+          },
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-24T20:27:06Z",
+          "updatedAt": "2025-06-24T20:27:06Z",
+          "comments": [
+            {
+              "originalPosition": 34,
+              "body": "@TheBankster @yogeshbdeshpande - once we agree on the phrasing of the terms `Workload Provenance`, `Workload Credential Provenance` and `Provenance Binding` herein, I intend to make a PR for the **TWISIGCharter** and remove this editor's copy TODO.\r\n\r\nAlternatively, we can push the glossary to [TWIRequirements](https://github.com/confidential-computing/twi/blob/main/TWI_Requirements.md) already, and sunset the definitions inside the charter (that is, make them colloquial, non-definitional)",
+              "createdAt": "2025-06-24T20:27:06Z",
+              "updatedAt": "2025-06-24T20:27:06Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
