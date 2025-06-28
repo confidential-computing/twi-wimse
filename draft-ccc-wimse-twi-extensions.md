@@ -1,7 +1,7 @@
 ---
-title: Trustworthy Workload Identity Reference Architecture
-abbrev: TWI Reference Architecture
-docname: draft-twi-reference-architecture-latest
+title: WIMSE Extensions for Trustworthy Workload Identity
+abbrev: Trustworthy WIMSE
+docname: draft-ccc-wimse-twi-extensions-latest
 category: info
 ipr: trust200902
 area: Security
@@ -18,6 +18,10 @@ pi:
   strict: yes
   comments: yes
   docmapping: yes
+
+venue:
+  github: confidential-computing/twi-wimse
+  home: https://confidentialcomputing.io/about/committees/
 
 author:
 
