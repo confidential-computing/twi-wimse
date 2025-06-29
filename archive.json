@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-26T01:47:42.911167+00:00",
+  "timestamp": "2025-06-29T01:58:07.591902+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -2923,13 +2923,13 @@
       "labels": [],
       "body": "Closes:\r\n-  #31 \r\n\r\nSupersedes:\r\n- #29",
       "createdAt": "2025-06-24T13:52:15Z",
-      "updatedAt": "2025-06-24T21:06:26Z",
+      "updatedAt": "2025-06-28T16:06:16Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "3de02435d5566e78fd5c8b81a2d2d639e92b6557",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "mbronk/draft-rename",
-      "headRefOid": "33b7b2452c4eaa26f3277ecd8ad95af345b4e8b7",
+      "headRefOid": "4dce3d0ae013c4146dce10712eee4df29fce3f67",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
