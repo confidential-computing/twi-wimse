@@ -5,10 +5,10 @@
 WIMSE                                                           M. Novak
 Internet-Draft                                         J.P. Morgan Chase
 Intended status: Informational                              Y. Deshpande
-Expires: 30 December 2025                                            arm
+Expires: 1 January 2026                                              arm
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                            28 June 2025
+                                                            30 June 2025
 
 
            WIMSE Extensions for Trustworthy Workload Identity
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 December 2025.
+   This Internet-Draft will expire on 1 January 2026.
 
 Copyright Notice
 
