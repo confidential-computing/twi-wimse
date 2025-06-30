@@ -214,7 +214,7 @@ The TWI architecture intends to support both:
 1. Workloads and Operating Systems that are ***TWI-aware***: entities that have been purpose-built with TWI compatibility in mind.
 Such entities can call into hardware-based platform attestation primitives directly (bypassing the need for brokerage, thus minimizing the number of components that need to be trusted).
 In this document, such entities are referred to as ***enlightened*** Workloads.
-2. "Legacy" Workloads and Operating Systems that operate on confidential computing-enabled hosts (often unaware of it), and do not have embedded attestation facilities. 
+2. "Legacy" Workloads and Operating Systems that operate on confidential computing-enabled hosts (often unaware of it), and do not have embedded attestation facilities.
 Such entities are conduct remote attestation via the aid of platform-provided facilities and levels of abstraction (e.g., a virtual TPM).
 In this document, such entities are referred to as ***unenlightened*** Workloads.
 
@@ -270,7 +270,7 @@ Moreover, depending on the Relying Party needs, there can be requirements for va
 For example, some Relying Parties may be sensitive to a Workload being migrated to a different hosting platform, while other Workloads may permit such migration as long as it occurs within the same country.
 These cases are further described in the following Sections.
 
-#### Platform Claim Fidelity and Sourcing 
+#### Platform Claim Fidelity and Sourcing
 
 The following Platform Claim types are supported:
 | Claim fidelity[^term] level | Claim type    | Description |
@@ -283,7 +283,7 @@ The following Platform Claim types are supported:
 {: source=" - Mateusz & Henk"}
 
 #### Levels of "Stickiness" of Platform Claims to Workload Identity
-To support varying needs of Relying Parties to craft policies for different workload migration scenarios, TWIs intend to support the following levels of "stickiness" of the platform binding. 
+To support varying needs of Relying Parties to craft policies for different workload migration scenarios, TWIs intend to support the following levels of "stickiness" of the platform binding.
 
 | Claim Stickiness | Stickiness Type    | Description |
 | :-------------------------: | ----------------- | -------- |
