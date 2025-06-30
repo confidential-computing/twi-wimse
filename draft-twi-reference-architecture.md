@@ -195,7 +195,101 @@ The transparency log record MAY be encrypted to prevent disclosure of Personally
 
 ## Workload to Platform binding
 
-TODO: Issue #27 filed.
+### Scope and Initiation
+
+Platform binding in the context of TWI refers to the association of Workloads with specific hosting environment (platform) characteristics including its Trusted Computing Base (TCB) security properties as well as related attributes, such as geolocation.
+Platform binding increases the assurance that Workloads are executed in an appropriate trusted execution environment (TEE), thereby maintaining the integrity and confidentiality of the data processed and allowing Relying Parties to construct and apply security policy, for example, attributes of the hosting environment that relate to data sovereignity.
+
+### Strength of Platform Binding [^todo-applicability]
+
+The association between a Workload and its hosting platform characteristics can achieve different security objectives.
+Achievable objectives depend on the capabilities of the platform as well as the instrumentation provided by the Workload, for example, by a Workloads Paravisor.
+
+#### Platform Binding Trust Components
+
+Platform Binding strength depends on the number of components comprising the TCB ("size or scope of the TCB").
+
+The TWI architecture intends to support both:
+
+1. Workloads and Operating Systems that are ***TWI-aware***: entities that have been purpose-built with TWI compatibility in mind.
+Such entities can call into hardware-based platform attestation primitives directly (bypassing the need for brokerage, thus minimizing the number of components that need to be trusted).
+In this document, such entities are referred to as ***enlightened*** Workloads.
+2. "Legacy" Workloads and Operating Systems that operate on confidential computing-enabled hosts (often unaware of it), and do not have embedded attestation facilities. 
+Such entities are conduct remote attestation via the aid of platform-provided facilities and levels of abstraction (e.g., a virtual TPM).
+In this document, such entities are referred to as ***unenlightened*** Workloads.
+
+For example, for a Workload running in a confidential virtual machine (CVM), the following Platform binding TCBs levels can be (with TCB_L1 being the smallest and TCB_L4 the largest).
+
+```
++--------------------------+----------------------------+
+|                          |  host CVM operating system |
+|                          +--------------+-------------+
+|                          | unenligtened | enlightened |
++----------+---------------+--------------+-------------+
+|          | unenlightened |    TCB_L1    |   TCB_L3    |
+| workload +---------------+--------------+-------------+
+|          | enlightened   |    TCB_L2    |TCB_L4 (best)|
++----------+---------------+--------------+-------------+
+```
+
+#### Supporting Definitions [^defs]
+[^defs]: maybe hoist these and merge into definition Section of the document above?
+{: source=" - Mateusz & Henk"}
+
+Enlightened Workload:
+
+: Exposes direct remote attestation primitives (e.g., nonce inputs) and can call into the host's remote attestation facilities on its own.
+
+Unenlightened Workload:
+
+: Lacks first-class support for remote attestation so that Evidence is generated indirectly by the hosting platform instead (and may lack some insight into a confidential Workload).
+
+Enlightened OS:
+
+: Exposes hardware remote attestation primitives directly to Workloads, without intermediary layers, e.g., via a virtual TPM.
+
+Unenlightened OS:
+
+: Exposes hardware remote attestation primitives indirectly via of additional layers, e.g., a paravisor providing a vTPM interface.
+
+### Platform Binding Freshness
+
+The assurance of freshness in platform binding is crucial to prevent replay attacks and to improve the trustworthiness the remote attestation process.
+The following methods describe different levels of platform binding freshness.
+
+| Freshness level | Freshness type    | Description |
+| :-------------: | ----------------- | -------- |
+| **`AF_L0`**     | None              | No replay protection or liveness challenge, but man-in-the-middle (MiTM) attacks are still thwarted. |
+| **`AF_L1`**     | Epoch/time-based  | Relying on clock synchronization and trusted timestamps or epochs. Merkle trees can be used to provide proof of freshness. |
+| **`AF_L2`**      | Nonce-based      | Nonce-based freshness, typically initiated from the relying party (RP) or identity provider (IdP) side. |
+
+### Platform Binding Claims
+
+Platform Claims may be inherent to the platform TCB, for example, the security properties of the firmware and software stack running the workload, but also externally-sourced, such as the server's physical location.
+Moreover, depending on the Relying Party needs, there can be requirements for varying levels of "stickiness" of Workload Identity to some physical properties of a host.
+For example, some Relying Parties may be sensitive to a Workload being migrated to a different hosting platform, while other Workloads may permit such migration as long as it occurs within the same country.
+These cases are further described in the following Sections.
+
+#### Platform Claim Fidelity and Sourcing 
+
+The following Platform Claim types are supported:
+| Claim fidelity[^term] level | Claim type    | Description |
+| :-------------------------: | ----------------- | -------- |
+| `CF_L0`      | Declaratory        | Input by the operator (or an untrustworthy device), with the hosting platform upholding its further integrity and non-repudiation, allowing for external audit. For example, manually-entered geolocation or a system's hardware BOM.  |
+| `CF_L1`      | External-Attested  | Provided by attested claim providers, such as physical GPS modules connected and attested using protocols like [SPDM](https://www.dmtf.org/standards/spdm)/[TDISP](https://pcisig.com/tee-device-interface-security-protocol-tdisp).       |
+| `CF_L2`      | Built-In           | Provided by the confidential computing platform itself and part of its TCB. For example, hardware-issued measurement of running hardware and software.             |
+
+[^term]: Or trustworthiness?
+{: source=" - Mateusz & Henk"}
+
+#### Levels of "Stickiness" of Platform Claims to Workload Identity
+To support varying needs of Relying Parties to craft policies for different workload migration scenarios, TWIs intend to support the following levels of "stickiness" of the platform binding. 
+
+| Claim Stickiness | Stickiness Type    | Description |
+| :-------------------------: | ----------------- | -------- |
+| `CS_L1`      | Same TCB           | The binding holds for as long as the platform TCB (hardware/software configuration, including patch levels etc.) is not changing. |
+| `CS_L2`      | Same Claims        | The workload identity is not changing for as long as the declared platform claims are the same. Fidelity of this stickiness type depends on the claim set. For example, workload migrated between racks in the same datacenter is not a change if the rack ID is not part of the claims, but move to a datacenter in a different city is.                 |
+| `CS_L3`      | Pinpoint-Accurate  | Binding to the concrete host/platform identifier (any type of Workload migration invalidates the binding and thus the TWI)        |
 
 # Integration of Confidential Computing into WIMSE
 
@@ -226,3 +320,6 @@ Not applicable for this draft at this time.
 # Acknowledgements
 
 <cref>TODO</cref>
+
+[^todo-applicability]: Does this really apply to platform binding or rather remote attestation? Perhaps this section needs to move to attestation instead of platform binding?
+{: source=" - Mateusz"}
