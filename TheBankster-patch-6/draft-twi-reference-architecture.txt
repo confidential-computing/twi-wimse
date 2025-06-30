@@ -5,10 +5,10 @@
 WIMSE                                                           M. Novak
 Internet-Draft                                         J.P. Morgan Chase
 Intended status: Informational                              Y. Deshpande
-Expires: 31 December 2025                                            arm
+Expires: 1 January 2026                                              arm
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                            29 June 2025
+                                                            30 June 2025
 
 
           Trustworthy Workload Identity Reference Architecture
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 December 2025.
+   This Internet-Draft will expire on 1 January 2026.
 
 Copyright Notice
 
@@ -393,19 +393,19 @@ Table of Contents
    Maintaining security guarantees of Confidential Computing within the
    WIMSE reference architecture calls for adding the extensions
    specified in this draft.  Specifically, strong binding between the
-   credential and the hosting enviroment, utilizing proof-of-possession
-   of a workload credential backed by a key that is safeguarded against
-   disclosure via data-in-use protections offered by Confidential
-   Computing is a must-have.  Additionally, invesion of the trust
-   relationship between the workload and the hosting environment (where
-   the workload cannot trust the hosting environment to attest it for
-   purposes of obtaining a credential and must instead perform its own
-   attestation) is another critical extension dictated by Confidential
-   Computing.  Finally, treating the pre-existing unique credential ID
-   as a "hook" by which a Relying Party might discover information about
-   the Workload's Provenance promises to create additional deeper access
-   check capabilities for Relying Parties in situations such as dealing
-   with high-risk transactions.
+   credential and the underlying hardware platform, utilizing proof-of-
+   possession of a workload credential backed by a key that is
+   safeguarded against disclosure via data-in-use protections offered by
+   Confidential Computing is a must-have.  Additionally, invesion of the
+   trust relationship between the workload and the hosting environment
+   (where the workload cannot trust the hosting environment to attest it
+   for purposes of obtaining a credential and must instead perform its
+   own attestation) is another critical extension dictated by
+   Confidential Computing.  Finally, treating the pre-existing unique
+   credential ID as a "hook" by which a Relying Party might discover
+   information about the Workload's Provenance promises to create
+   additional deeper access check capabilities for Relying Parties in
+   situations such as dealing with high-risk transactions.
 
 8.  IANA Considerations
 
