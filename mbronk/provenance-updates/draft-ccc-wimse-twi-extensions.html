@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>Trustworthy Workload Identity Reference Architecture</title>
+<title>WIMSE Extensions for Trustworthy Workload Identity</title>
 <meta content="Mark Novak" name="author">
 <meta content="Yogesh Deshpande" name="author">
 <meta content="Henk Birkholz" name="author">
@@ -13,7 +13,7 @@
        This document contains a gap analysis that is the output of the Confidential Computing Consortium identifying areas in the IETF WIMSE WG work where the current WIMSE architecture should be extended to accommodate workloads running in Confidential Computing environments. This document outlines high-level requirements for the these extensions and describes a series of use cases. 
     " name="description">
 <meta content="xml2rfc 3.29.0" name="generator">
-<meta content="draft-twi-reference-architecture-latest" name="ietf.draft">
+<meta content="draft-ccc-wimse-twi-extensions-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.29.0
     Python 3.12.11
@@ -29,7 +29,7 @@
     setuptools 80.9.0
     wcwidth 0.2.13
 -->
-<link href="draft-twi-reference-architecture.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-ccc-wimse-twi-extensions.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">@font-face {
   font-family: 'Lora';
@@ -1045,12 +1045,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
-<td class="center">TWI Reference Architecture</td>
+<td class="center">Trustworthy WIMSE</td>
 <td class="right">June 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Novak, et al.</td>
-<td class="center">Expires 26 December 2025</td>
+<td class="center">Expires 1 January 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1060,15 +1060,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">WIMSE</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-twi-reference-architecture-latest</dd>
+<dd class="internet-draft">draft-ccc-wimse-twi-extensions-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-06-24" class="published">24 June 2025</time>
+<time datetime="2025-06-30" class="published">30 June 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-12-26">26 December 2025</time></dd>
+<dd class="expires"><time datetime="2026-01-01">1 January 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1090,18 +1090,22 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
-<h1 id="title">Trustworthy Workload Identity Reference Architecture</h1>
+<h1 id="title">WIMSE Extensions for Trustworthy Workload Identity</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document contains a gap analysis that is the output of the Confidential Computing Consortium identifying areas in the IETF WIMSE WG work where the current WIMSE architecture should be extended to accommodate workloads running in Confidential Computing environments. This document outlines high-level requirements for the these extensions and describes a series of use cases.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
-      <h2 id="name-discussion-venues">
-<a href="#name-discussion-venues" class="section-name selfRef">Discussion Venues</a>
+      <h2 id="name-about-this-document">
+<a href="#name-about-this-document" class="section-name selfRef">About This Document</a>
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
-<p id="section-note.1-2">Source for this draft and an issue tracker can be found at
-    <span><a href="https://github.com/confidential-computing/twi-wimse">https://github.com/confidential-computing/twi-wimse</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-ccc-wimse-twi-extensions/">https://datatracker.ietf.org/doc/draft-ccc-wimse-twi-extensions/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">
+         information can be found at <span><a href="https://confidentialcomputing.io/about/committees/">https://confidentialcomputing.io/about/committees/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+<p id="section-note.1-4">Source for this draft and an issue tracker can be found at
+        <span><a href="https://github.com/confidential-computing/twi-wimse">https://github.com/confidential-computing/twi-wimse</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1122,7 +1126,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 26 December 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 1 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1622,7 +1626,8 @@ Note that in deployment scenarios where Credential Issuer and Provenance Issuer 
       <h2 id="name-acknowledgements">
 <a href="#section-9" class="section-number selfRef">9. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
       </h2>
-<p id="section-9-1"><span class="cref">TODO</span><a href="#section-9-1" class="pilcrow">¶</a></p>
+<p id="section-9-1">The following persons, in no specific order, contributed to the work directly, participated in design team meetings, or provided valuable comments during the review of this document.<a href="#section-9-1" class="pilcrow">¶</a></p>
+<p id="section-9-2">Pieter Kasselman (SPIRL), Arieal Feldman (Google), Mateusz Bronk (Intel), Manu Fontaine (Hushmesh Inc.), Benedict Lau (EQTY Lab), Zvonko Kaiser (NVIDIA), David Quigley (Intel), Sal Kimmich (GadflyAI), Alex Dalton (Shielded Technologies), Eric Wolfe (Mainsail Industries), Nicolae Paladi(Canary Bit), Mark Gentry (JPMorgan Chase), Jag Raman (Oracle), Brian Hugenbruch (IBM), Jens Alberts (Fr0ntierX), Mira Spina (MITRE) and John Suykerbuyk.<a href="#section-9-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">
