@@ -218,7 +218,7 @@ Executing the Workload inside a Trusted Execution Environment can lower the risk
 # Security Considerations
 
 Maintaining security guarantees of Confidential Computing within the WIMSE reference architecture calls for adding the extensions specified in this draft.
-Specifically, strong binding between the credential and the hosting enviroment, utilizing proof-of-possession of a workload credential backed by a key that is safeguarded against disclosure via data-in-use protections offered by Confidential Computing is a must-have.
+Specifically, strong binding between the credential and the underlying hardware platform, utilizing proof-of-possession of a workload credential backed by a key that is safeguarded against disclosure via data-in-use protections offered by Confidential Computing is a must-have.
 Additionally, invesion of the trust relationship between the workload and the hosting environment (where the workload cannot trust the hosting environment to attest it for purposes of obtaining a credential and must instead perform its own attestation) is another critical extension dictated by Confidential Computing.
 Finally, treating the pre-existing unique credential ID as a "hook" by which a Relying Party might discover information about the Workload's Provenance promises to create additional deeper access check capabilities for Relying Parties in situations such as dealing with high-risk transactions.
 
