@@ -155,7 +155,7 @@ WIMSE Arctecture and all its associated protocols and schemes MUST accommodate b
 ## Remote Attestation
 
 Under Confidential Computing, Remote Attestation plays a fundamental role in assessing the trustworthiness of the Workload and ensuring that the Workload is running on a platform that provides required security guarantees.
-Specifically, when performing Remote Attestation, the Workload cannot rely on an external Agent and must do the work itself (which can be considered equivalent to having the Agent inside the Workload).
+Specifically, when performing Remote Attestation, the Workload cannot rely on an untrusted Agent, therefore including the Agent, if any, in the Remote Attestation process is of paramount importance.
 
 ## Provenance
 
