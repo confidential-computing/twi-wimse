@@ -68,7 +68,7 @@ Until recently, there were few scenarios requiring data-in-use protection. This 
 
 * Multiparty computation
 * Machine learning training & inferencing
-* Addressing the risks of computing in public clouds, high-risk locations and IoT deployemnts, where the operator of the workload does not fully trust the hosting environments
+* Addressing the risks of computing in cases where the operator of the workload does not fully trust the hosting environments, such as public clouds, high-risk locations and IoT deployments
 * Entrusting confidential data to SaaS providers
 * Insider threats, and other reasons for protecting data-in-use
 
