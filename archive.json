@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-29T01:58:07.591902+00:00",
+  "timestamp": "2025-07-01T01:59:14.508541+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -81,15 +81,15 @@
       "id": "I_kwDOOebIkc64cDpR",
       "title": "Use Cases in the IETF ID seem more like requirements",
       "url": "https://github.com/confidential-computing/twi-wimse/issues/13",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "ajfeldma-google",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "The three items in the [Use Cases](https://github.com/confidential-computing/twi-wimse/blob/main/draft-twi-reference-architecture.md#twi-use-cases) section of the IETF ID seem more like requirements than use cases. They also overlap somewhat with the bullets listed in the Introduction, Gap Analysis, and Core Requirements sections.\n\nIMO, Use Cases should look more like examples or scenarios illustrating how the proposed standard could be put into practice \u2014 something that would be good to include and could be valuable in making the proposal more concrete.",
       "createdAt": "2025-05-27T15:32:14Z",
-      "updatedAt": "2025-06-03T11:26:36Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-30T16:24:34Z",
+      "closedAt": "2025-06-30T16:24:34Z",
       "comments": [
         {
           "author": "yogeshbdeshpande",
@@ -97,6 +97,13 @@
           "body": "Yes, My intention in the original draft was to use Practical Real World Use Cases of Relevance that will highlight the need and importance of TWI.\n\nNeed to re-write this section.",
           "createdAt": "2025-06-03T11:26:35Z",
           "updatedAt": "2025-06-03T11:26:35Z"
+        },
+        {
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think the use cases were removed as duplicative.",
+          "createdAt": "2025-06-30T16:24:34Z",
+          "updatedAt": "2025-06-30T16:24:34Z"
         }
       ]
     },
@@ -123,7 +130,7 @@
       "id": "I_kwDOOebIkc66xxfK",
       "title": "Workload Identifier meaning - discuss at more length",
       "url": "https://github.com/confidential-computing/twi-wimse/issues/16",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -132,9 +139,24 @@
       ],
       "body": "Design Considerations\r\nShould the ID be globally unique or partitioned by workload type?\r\n\r\nShould it encode temporal data (e.g., epoch-based) or be strictly incrementing?\r\n\r\nWill IDs ever need to be re-used or recycled?\r\n\r\nBest practice usually involves combining a timestamp component (for ordering) with a counter or unique suffix (for deduplication). Lets discuss\r\n\r\n_Originally posted by @Mainsailthewolfe in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2137493317_\r\n            ",
       "createdAt": "2025-06-10T13:28:57Z",
-      "updatedAt": "2025-06-17T11:14:09Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-06-30T16:28:47Z",
+      "closedAt": "2025-06-30T16:25:49Z",
+      "comments": [
+        {
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This should be handled as part of Reference Architecture. Moving the issue there.",
+          "createdAt": "2025-06-30T16:25:49Z",
+          "updatedAt": "2025-06-30T16:25:49Z"
+        },
+        {
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The text of the issue has been added to the bottom of the Reference Architecture document in Google Docs.",
+          "createdAt": "2025-06-30T16:28:46Z",
+          "updatedAt": "2025-06-30T16:28:46Z"
+        }
+      ]
     },
     {
       "number": 17,
@@ -177,7 +199,7 @@
       "id": "I_kwDOOebIkc66yJjG",
       "title": "TODO: review and resolve before publishing the ID",
       "url": "https://github.com/confidential-computing/twi-wimse/issues/19",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -186,9 +208,17 @@
       ],
       "body": "TODO: review and resolve before publishing the ID\r\n\r\n_Originally posted by @TheBankster in https://github.com/confidential-computing/twi-wimse/pull/14#discussion_r2137976195_\r\n            ",
       "createdAt": "2025-06-10T13:56:10Z",
-      "updatedAt": "2025-06-17T11:15:44Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-06-30T16:29:57Z",
+      "closedAt": "2025-06-30T16:29:57Z",
+      "comments": [
+        {
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Stale issue, already resolved.",
+          "createdAt": "2025-06-30T16:29:57Z",
+          "updatedAt": "2025-06-30T16:29:57Z"
+        }
+      ]
     },
     {
       "number": 20,
@@ -242,7 +272,7 @@
       "id": "I_kwDOOebIkc679odr",
       "title": "Fill out acknowledgements",
       "url": "https://github.com/confidential-computing/twi-wimse/issues/25",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -251,8 +281,8 @@
       "labels": [],
       "body": "https://github.com/confidential-computing/twi-wimse/blob/93b598ee4485bfea676c5da3e243a4472fb492a3/draft-twi-reference-architecture.md?plain=1#L248",
       "createdAt": "2025-06-17T13:20:46Z",
-      "updatedAt": "2025-06-24T13:33:03Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-30T16:16:18Z",
+      "closedAt": "2025-06-30T16:16:18Z",
       "comments": []
     },
     {
@@ -297,7 +327,7 @@
       "id": "I_kwDOOebIkc69BIx5",
       "title": "[DISCUSS] Selecting the name for the internet draft",
       "url": "https://github.com/confidential-computing/twi-wimse/issues/31",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mbronk-intc",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -306,8 +336,8 @@
       "labels": [],
       "body": "This issue is meant to track update to the I-D file (i.e. the name we want to use to publish this with @[IETF Datatracker](https://datatracker.ietf.org/))\n\n#### Original name:\n- `draft-twi-reference-architecture`\n\n#### Options floated this far\n- `draft-Trustworthy-WIMSE-Extensions`\n   -  #29\n- `draft-ccc-trustworthy-wimse-extensions`\n- `draft-novak-trustworthy-wimse-extensions`\n- `draft-ccc-wimse-trustworthy-workload-identity-extensions`  <-- \ud83d\udcd7 my preference (assuming we can use `ccc` as an \"author/source\")\n- <others> _(please add yours)_\n\n\n\n### Context:\n* Need(?) to conform to https://authors.ietf.org/naming-your-internet-draft. Formats in use:\n    * `draft-(author)-(subject)-(version)`\n    * `draft-(author)-(group)-(subject)-(version)`\n    * `draft-(source)-(group)-(subject)-(version)`\n    * `draft-(source)-(subject)-(version)`\n* _Originally posted by @mbronk-intc in https://github.com/confidential-computing/twi-wimse/issues/29#issuecomment-2999528748_",
       "createdAt": "2025-06-24T09:32:05Z",
-      "updatedAt": "2025-06-24T13:39:45Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-30T18:09:41Z",
+      "closedAt": "2025-06-30T18:09:41Z",
       "comments": [
         {
           "author": "TheBankster",
@@ -2916,26 +2946,77 @@
       "id": "PR_kwDOOebIkc6b37Tr",
       "title": "Draft rename to `draft-ccc-wimse-twi-extensions`",
       "url": "https://github.com/confidential-computing/twi-wimse/pull/32",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mbronk-intc",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Closes:\r\n-  #31 \r\n\r\nSupersedes:\r\n- #29",
       "createdAt": "2025-06-24T13:52:15Z",
-      "updatedAt": "2025-06-28T16:06:16Z",
+      "updatedAt": "2025-06-30T18:10:47Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
-      "baseRefOid": "3de02435d5566e78fd5c8b81a2d2d639e92b6557",
+      "baseRefOid": "bda04e2aa0d46276156b6435fd54fe3b3f7d6726",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "mbronk/draft-rename",
-      "headRefOid": "4dce3d0ae013c4146dce10712eee4df29fce3f67",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "headRefOid": "b82bbba65cbbc407c78078e3b849988c689d78c0",
+      "closedAt": "2025-06-30T18:09:40Z",
+      "mergedAt": "2025-06-30T18:09:40Z",
+      "mergedBy": "mbronk-intc",
+      "mergeCommit": {
+        "oid": "bc5259d3013ea0590e7aefaf0193a13e2d014ea4"
+      },
+      "comments": [
+        {
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@TheBankster - Rgarding 4dce3d0 - you'll need to also replace your e-mail here:\r\nhttps://github.com/confidential-computing/twi-wimse/blob/3de02435d5566e78fd5c8b81a2d2d639e92b6557/draft-twi-reference-architecture.md?plain=1#L27\r\n\r\n... otherwise automation is going to keep replacing CODEOWNERS back to the document's value (the doc is a record of origin).",
+          "createdAt": "2025-06-29T07:37:17Z",
+          "updatedAt": "2025-06-29T07:37:17Z"
+        },
+        {
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> @TheBankster - Rgarding [4dce3d0](https://github.com/confidential-computing/twi-wimse/commit/4dce3d0ae013c4146dce10712eee4df29fce3f67) - you'll need to also replace your e-mail here:\r\n> \r\n> https://github.com/confidential-computing/twi-wimse/blob/3de02435d5566e78fd5c8b81a2d2d639e92b6557/draft-twi-reference-architecture.md?plain=1#L27\r\n> \r\n> ... otherwise automation is going to keep replacing CODEOWNERS back to the document's value (the doc is a record of origin).\r\n\r\nI believe I have updated it to something github would like: mr.mark.novak@gmail.com. However, Henk is yet to update his -- that's the last issue that's blocking the merge.",
+          "createdAt": "2025-06-29T14:47:30Z",
+          "updatedAt": "2025-06-29T14:51:44Z"
+        },
+        {
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I believe I have updated it to something github would like: [mr.mark.novak@gmail.com](mailto:mr.mark.novak@gmail.com). However, Henk is yet to update his -- that's the last issue that's blocking the merge.\r\n\r\nFYI, technically, the makefiles in this project force the e-mails on the draft and the CODEOWNERS e-mails to be in-sync, i.e. running `make update-codeowners` is going to level the file back to:\r\n![image](https://github.com/user-attachments/assets/a4bd6883-f26a-47ca-adf2-97c1bb4f7b7e)\r\n\r\n... but since github actions do not automatically kick off these targets, let's leave it as-is for now. If it ever gets overwritten by accident, we can always restore manually.\r\n\r\nMerging as-is",
+          "createdAt": "2025-06-30T18:09:30Z",
+          "updatedAt": "2025-06-30T18:09:30Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6xI1We",
+          "commit": {
+            "abbreviatedOid": "c5e6d3a"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good",
+          "createdAt": "2025-06-30T16:15:25Z",
+          "updatedAt": "2025-06-30T16:15:25Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOebIkc6xJCwT",
+          "commit": {
+            "abbreviatedOid": "c5e6d3a"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM!",
+          "createdAt": "2025-06-30T16:33:47Z",
+          "updatedAt": "2025-06-30T16:33:47Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 33,
@@ -2949,13 +3030,13 @@
       "labels": [],
       "body": "Resolves #20\r\nReferences #17",
       "createdAt": "2025-06-24T20:20:58Z",
-      "updatedAt": "2025-06-24T20:27:06Z",
+      "updatedAt": "2025-06-30T18:13:45Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
-      "baseRefOid": "3de02435d5566e78fd5c8b81a2d2d639e92b6557",
+      "baseRefOid": "bc5259d3013ea0590e7aefaf0193a13e2d014ea4",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "mbronk/provenance-updates",
-      "headRefOid": "639bafd24285348581e6bd38ac87af5134c0332b",
+      "headRefOid": "4292300b51e0063486eadeea31c59d12cf67d3ac",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -2981,6 +3062,234 @@
               "updatedAt": "2025-06-24T20:27:06Z"
             }
           ]
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "id": "PR_kwDOOebIkc6clUrF",
+      "title": "Added Security Considerations",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/34",
+      "state": "OPEN",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Adding Security Considerations per this issue:\r\n\r\nhttps://github.com/confidential-computing/twi-wimse/issues/26",
+      "createdAt": "2025-06-29T15:17:21Z",
+      "updatedAt": "2025-06-30T18:16:58Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "bc5259d3013ea0590e7aefaf0193a13e2d014ea4",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "TheBankster-patch-6",
+      "headRefOid": "2f1932749efd2a91d9bd2f285b03e0aa304f8584",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6xDCjN",
+          "commit": {
+            "abbreviatedOid": "87eba67"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-30T08:30:32Z",
+          "updatedAt": "2025-06-30T08:30:33Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\nSpecifically, strong binding between the credential and the underlying hardware platform, utilizing proof-of-possession of a workload credential backed by a key that is safeguarded against disclosure via data-in-use protections offered by Confidential Computing is a must-have.\r\n```",
+              "createdAt": "2025-06-30T08:30:32Z",
+              "updatedAt": "2025-06-30T08:30:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6xDDFP",
+          "commit": {
+            "abbreviatedOid": "87eba67"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-30T08:31:12Z",
+          "updatedAt": "2025-06-30T08:31:12Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "let us rename it to specific terms used in CC, as hosting environment links to host or OS software, which is not part of the CC TCB..",
+              "createdAt": "2025-06-30T08:31:12Z",
+              "updatedAt": "2025-06-30T08:31:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6xDEXq",
+          "commit": {
+            "abbreviatedOid": "87eba67"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-30T08:32:58Z",
+          "updatedAt": "2025-06-30T08:32:58Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "Line 223 onwards, This is not the right text for the Security Considerations. in this section. Here in this section we deal with what Security you would take into consideration when presenting the solution/architecture, you would present in this draft.......",
+              "createdAt": "2025-06-30T08:32:58Z",
+              "updatedAt": "2025-06-30T08:35:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6xDFsE",
+          "commit": {
+            "abbreviatedOid": "87eba67"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-30T08:34:44Z",
+          "updatedAt": "2025-06-30T08:34:44Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Here we should reference a Confidential Computing Document, which takes all the Security of the CC solutions into consideration that CC solutions require XYZ security aspects,  and then refer it here to mention they all apply to TWI based architecture...",
+              "createdAt": "2025-06-30T08:34:44Z",
+              "updatedAt": "2025-06-30T08:34:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6xDKOg",
+          "commit": {
+            "abbreviatedOid": "87eba67"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-30T08:41:06Z",
+          "updatedAt": "2025-06-30T08:41:06Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "-Section in Line 222 is not clear at all, did you mean, in addition to underlying platform, the Workload MUST be capable to attest itself, to an independent third party Attestation Verification to establish the security guarantees required for establishing Trust demanded by TWI Architecture?",
+              "createdAt": "2025-06-30T08:41:06Z",
+              "updatedAt": "2025-06-30T08:41:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6xDQnr",
+          "commit": {
+            "abbreviatedOid": "87eba67"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "I have provided some comments",
+          "createdAt": "2025-06-30T08:49:56Z",
+          "updatedAt": "2025-06-30T08:49:56Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOebIkc6xI7P5",
+          "commit": {
+            "abbreviatedOid": "87eba67"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-06-30T16:23:03Z",
+          "updatedAt": "2025-06-30T16:23:04Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "What I mean to saw is that WIMSE expects the hosting environment to attest the workload, and under CC the workload must attest itself using underlying hardware platform's capabilities that Confidential Computing offers.",
+              "createdAt": "2025-06-30T16:23:04Z",
+              "updatedAt": "2025-06-30T16:23:04Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "id": "PR_kwDOOebIkc6cqHmu",
+      "title": "Add Acknowledgements section",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/35",
+      "state": "MERGED",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-30T09:13:49Z",
+      "updatedAt": "2025-06-30T16:11:27Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "3de02435d5566e78fd5c8b81a2d2d639e92b6557",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "acknowledgements",
+      "headRefOid": "cca5333d5e7327757288599996830c77fca1c391",
+      "closedAt": "2025-06-30T16:11:27Z",
+      "mergedAt": "2025-06-30T16:11:27Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "bda04e2aa0d46276156b6435fd54fe3b3f7d6726"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 36,
+      "id": "PR_kwDOOebIkc6cu68q",
+      "title": "Platform Binding",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/36",
+      "state": "OPEN",
+      "author": "henkbirkholz",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "fixes #27 ",
+      "createdAt": "2025-06-30T16:46:18Z",
+      "updatedAt": "2025-06-30T20:14:57Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "bc5259d3013ea0590e7aefaf0193a13e2d014ea4",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "platform-binding_1",
+      "headRefOid": "8f7b96e38561f90aabcfe8b21c63adabfc91e029",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6xLNuc",
+          "commit": {
+            "abbreviatedOid": "8f7b96e"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Just like our discussion about finer points of Provenance belongs in the Reference Architecture and not in the WIMSE I-D, I think this has the same exact properties. WIMSE says VERY LITTLE about how the credential is built, and while this is important to cover for TWI, it is likely to derail our efforts to have WIMSE consider the very few credential-usage-specific extensions we are asking for. I think this PR needs to be rejected but the content preserved and moved to our Reference Architecture.",
+          "createdAt": "2025-06-30T20:14:57Z",
+          "updatedAt": "2025-06-30T20:14:57Z",
+          "comments": []
         }
       ]
     }
