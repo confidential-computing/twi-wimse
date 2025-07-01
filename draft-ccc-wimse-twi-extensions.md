@@ -127,7 +127,7 @@ The gap analysis provides the basis for identifying extensions necessary to meet
 
 * Protection of Credentials at runtime and insufficient Runtime Attestation:
   * Without data-in-use protection, there is always a risk that Credentials in memory could be exposed if a Workload’s execution environment is compromised.
-  * Confidential Computing does not trust its hosting environment and relies on each Workload attesting itself; in particular, it does not trust and thus cannot rely on an external-to-Workload "Agent" for credential acquisition.
+  * Confidential Computing does not trust its hosting environment and relies on each Workload attesting itself; in particular, the "Agent" must be fully trusted and included in Remote Attestation.
 * Token replay and misuse:
   * Token binding, even if used, is not sufficient unless the secrets underpinning the Workload Credentials are protected from leakage.
 * Lack of verifiable workload composition accessible through Credential Provenance:
