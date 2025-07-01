@@ -159,17 +159,7 @@ Specifically, when performing Remote Attestation, the Workload cannot rely on an
 
 ## Provenance
 
-Existing fields inside X.509 certificates (e.g., a certificate serial number) or Workload Identity Tokens (e.g., the "jti" claim) can be used to uniquely tie the Workload Credential to the chain of events leading up to its issuance; as a result, no change is necessary.
-
-### Workload Provenance
-
-Workload Provenance can be interrogated to receive the metadata pertaining to Workload, as follows:
-
-1. Workload Composition, i.e. a detailed list of components that comprise a Workload. This could be expressed as a Software Bill of Materials expressed in terms of industry standards, like SPDX or CycloneDX <TODO: add references?>.
-2. Set of Compliance tests that executed on the Workload.
-3. Details of Vendor/SaaS information.
-
-While the Workload Identity remains stable for as long as the Workload properties remain unchanged, a unique Credential Provenance MUST be generated each time a Workload Credential is issued.
+Provenance is a consideration that is foundational for Confidential Computing workloads.
 
 # Integration of Confidential Computing into WIMSE
 
