@@ -209,9 +209,9 @@ Table of Contents
          execution environment is compromised.
 
       -  Confidential Computing does not trust its hosting environment
-         and relies on each Workload attesting itself; in particular, it
-         does not trust and thus cannot rely on an external-to-Workload
-         "Agent" for credential acquisition.
+         and relies on each Workload attesting itself; in particular,
+         the "Agent" must be fully trusted and included in Remote
+         Attestation.
 
    *  Token replay and misuse:
 
