@@ -160,7 +160,6 @@ Specifically, when performing Remote Attestation, the Workload cannot rely on an
 ## Provenance
 
 Existing fields inside X.509 certificates (e.g., a certificate serial number) or Workload Identity Tokens (e.g., the "jti" claim) can be used to uniquely tie the Workload Credential to the chain of events leading up to its issuance; as a result, no change is necessary.
-However, some WIMSE documents treat the "jti" claim as optional; for Trustworthy Workload Identity the requirement is to always have it.
 
 ### Workload Provenance
 
