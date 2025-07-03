@@ -183,9 +183,9 @@ Executing the Workload inside a Trusted Execution Environment can lower the risk
 
 Maintaining security guarantees of Confidential Computing within the WIMSE reference architecture calls for adding the extensions specified in this draft.
 * Specifically, Confidential Computing demands strong binding between any Credential of a confidential Workload and the underlying hardware platform, utilizing proof-of-possession of the Workload Credential backed by a key that is safeguarded against disclosure and tampering via data-in-use protections offered by Trusted Execution Environments.
-* Additionally, Confidential Computing inverts the trust relationship between the Workload and the hosting environment: a confidential Workload cannot trust the hosting environment's claims about its capabilities to obtain a credential and must instead perform its own remote attestation.
-If an agent is used to perform remote attestation and obtain the Credentials on behalf of the Workload, the agent itself must be included in the remote attestion of the Workload, as it becomes part of that Workload's TCB.
-* Finally, without any change to the WIMSE specifications, but to make this explicit: linkage between a confidential Workload's credential and that Workload's Provenance can be achieved by treating the pre-existing unique credential ID (e.g., the "jti" claim) as a "hook" by which a Relying Party might discover information about the Workload's Provenance.
+* Additionally, Confidential Computing inverts the trust relationship between the Workload and the hosting environment: a confidential Workload cannot trust the hosting environment's claims about its capabilities to obtain a Credential and MUST instead perform its own Remote Attestation.
+If an Agent is used to perform Remote Attestation and obtain the Credentials on behalf of the Workload, the Agent itself MUST be included in the Remote Attestion of the Workload, as it becomes part of that Workload's TCB.
+* Finally, without any change to the WIMSE specifications, but to make this explicit: linkage between a confidential Workload's Credential and that Workload's Provenance can be achieved by treating the pre-existing unique credential ID (e.g., the "jti" claim) as a "hook" by which a Relying Party might discover information about the Workload's Provenance.
 
 # IANA Considerations
 
