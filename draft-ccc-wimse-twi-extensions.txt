@@ -5,10 +5,10 @@
 WIMSE                                                           M. Novak
 Internet-Draft                                         J.P. Morgan Chase
 Intended status: Informational                              Y. Deshpande
-Expires: 3 January 2026                                              arm
+Expires: 4 January 2026                                              arm
                                                              H. Birkholz
                                                           Fraunhofer SIT
-                                                             2 July 2025
+                                                             3 July 2025
 
 
            WIMSE Extensions for Trustworthy Workload Identity
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 January 2026.
+   This Internet-Draft will expire on 4 January 2026.
 
 Copyright Notice
 
@@ -285,19 +285,19 @@ Table of Contents
    operations (such as signing or validating tokens) can be isolated
    from the hosting environment, reducing the risk of key leakage even
    if the hosting environment is compromised.  (For instance, the WIMSE
-   token — be it a JWT or an X.509 certificate — can be generated and
+   token — be it a WIT or an X.509 certificate — can be generated and
    signed within a TEE, ensuring that the proof-of-possession mechanism
    remains intact.)
 
 6.2.  Enhanced Bootstrapping with Attestation
 
-   Strengthening the initial bootstrapping process.  A TEE can enable
+   Strengthening the initial bootstrapping process: a TEE can enable
    hardware-based Remote Attestation, proving that a Workload is running
    in a secure, isolated environment.  This attestation could be used as
    an additional factor during Workload Credential provisioning,
    ensuring that only Workloads running in a TEE and matching the
    Workload Credential issuer's attestation policies receive valid
-   credentials.
+   Credentials.
 
 6.3.  Protected Credential Exchange
 
