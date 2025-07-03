@@ -181,10 +181,21 @@ Executing the Workload inside a Trusted Execution Environment can lower the risk
 
 # Security Considerations
 
-Maintaining security guarantees of Confidential Computing within the WIMSE reference architecture calls for adding the extensions specified in this draft.
-Specifically, strong binding between the credential and the underlying hardware platform, utilizing proof-of-possession of a workload credential backed by a key that is safeguarded against disclosure via data-in-use protections offered by Confidential Computing is a must-have.
-Additionally, inversion of the trust relationship between the workload and the hosting environment (where the workload cannot trust the hosting environment's claims about its capabilities to obtain a credential and must instead perform its own remote attestation) is another critical extension dictated by Confidential Computing.
-Finally, treating the pre-existing unique credential ID as a "hook" by which a Relying Party might discover information about the Workload's Provenance promises to create additional deeper access check capabilities for Relying Parties in situations such as dealing with high-risk transactions.
+The Security Considerations applicable to Confidential Computing is all applicable to TWI Extensions, 
+to ensure the integrity, confidentiality, and trustworthiness of the solution.
+These considerations span hardware, software, supply chain, cryptography, and lifecycle management aspects.
+
+Specifically:
+1. Hardware Root of Trust: Trust in the TEE is based on the assumption that the underlying hardware is secure and uncompromised.
+2. Secrets should be provisioned only after attestation has validated the TEE.
+3. Keys should be accessible only within the TEE. Define policies for key rotation, revocation, and secure destruction
+4. Ensure strict hardware-enforced isolation of workload memory and execution
+5. Perform Remote Attestation:
+  * Authenticate the TEE: Use remote attestation to verify that code is running inside a genuine, unmodified TEE.
+  * Code Integrity: Verify that only expected, signed code is loaded into the enclave/TEE.
+  * Certificate Chains: Validate attestation evidence using vendor-provided root certificates
+6. Minimal Trusted Computing Base
+7. Secure key Provisioning, Confidential Key Handling & a policy for Key Rotation/Revocation.
 
 # IANA Considerations
 
