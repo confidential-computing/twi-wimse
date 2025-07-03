@@ -181,7 +181,21 @@ Executing the Workload inside a Trusted Execution Environment can lower the risk
 
 # Security Considerations
 
-<cref>TODO</cref>
+The Security Considerations applicable to Confidential Computing is all applicable to TWI Extensions, 
+to ensure the integrity, confidentiality, and trustworthiness of the solution.
+These considerations span hardware, software, supply chain, cryptography, and lifecycle management aspects.
+
+Specifically:
+1. Hardware Root of Trust: Trust in the TEE is based on the assumption that the underlying hardware is secure and uncompromised.
+2. Secrets should be provisioned only after attestation has validated the TEE.
+3. Keys should be accessible only within the TEE. Define policies for key rotation, revocation, and secure destruction
+4. Ensure strict hardware-enforced isolation of workload memory and execution
+5. Perform Remote Attestation:
+  * Authenticate the TEE: Use remote attestation to verify that code is running inside a genuine, unmodified TEE.
+  * Code Integrity: Verify that only expected, signed code is loaded into the enclave/TEE.
+  * Certificate Chains: Validate attestation evidence using vendor-provided root certificates
+6. Minimal Trusted Computing Base
+7. Secure key Provisioning, Confidential Key Handling & a policy for Key Rotation/Revocation.
 
 # IANA Considerations
 
