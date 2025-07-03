@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-01T01:59:14.508541+00:00",
+  "timestamp": "2025-07-03T01:48:35.622587+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -3077,7 +3077,7 @@
       "labels": [],
       "body": "Adding Security Considerations per this issue:\r\n\r\nhttps://github.com/confidential-computing/twi-wimse/issues/26",
       "createdAt": "2025-06-29T15:17:21Z",
-      "updatedAt": "2025-06-30T18:16:58Z",
+      "updatedAt": "2025-07-02T13:02:25Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "bc5259d3013ea0590e7aefaf0193a13e2d014ea4",
@@ -3088,7 +3088,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Let's get this over the line today. Please review/comment/etc.",
+          "createdAt": "2025-07-02T13:02:25Z",
+          "updatedAt": "2025-07-02T13:02:25Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOOebIkc6xDCjN",
@@ -3222,6 +3230,46 @@
               "updatedAt": "2025-06-30T16:23:04Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6xXabM",
+          "commit": {
+            "abbreviatedOid": "87eba67"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-01T14:24:21Z",
+          "updatedAt": "2025-07-01T14:24:21Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Which document is that? Can you edit the text and add that reference?",
+              "createdAt": "2025-07-01T14:24:21Z",
+              "updatedAt": "2025-07-01T14:24:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6xYxT2",
+          "commit": {
+            "abbreviatedOid": "87eba67"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-01T15:56:16Z",
+          "updatedAt": "2025-07-01T15:56:16Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "ok, I will re-word the statement then, I will suggest a few edits to this PR!",
+              "createdAt": "2025-07-01T15:56:16Z",
+              "updatedAt": "2025-07-01T15:56:16Z"
+            }
+          ]
         }
       ]
     },
@@ -3292,6 +3340,34 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 37,
+      "id": "PR_kwDOOebIkc6c5lID",
+      "title": "Scoping the text down to critical WIMSE issues",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/37",
+      "state": "MERGED",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Removed the text in the informational draft that I feel would be a distraction to the WIMSE working group, and better belongs in the TWI reference architecture and in the RATS working group.",
+      "createdAt": "2025-07-01T12:41:45Z",
+      "updatedAt": "2025-07-02T13:01:09Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "bc5259d3013ea0590e7aefaf0193a13e2d014ea4",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "TheBankster-patch-7",
+      "headRefOid": "dbe70942c47ac38254386fbbeec898bd37bcb5d9",
+      "closedAt": "2025-07-02T13:01:08Z",
+      "mergedAt": "2025-07-02T13:01:08Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "76f3f7eb23e0594c57d2058ac735af4e546150ed"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
