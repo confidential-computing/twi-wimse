@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-03T01:48:35.622587+00:00",
+  "timestamp": "2025-07-06T01:56:33.542407+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -3023,25 +3023,40 @@
       "id": "PR_kwDOOebIkc6b7j5e",
       "title": "Provenance definition and description updates",
       "url": "https://github.com/confidential-computing/twi-wimse/pull/33",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mbronk-intc",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Resolves #20\r\nReferences #17",
       "createdAt": "2025-06-24T20:20:58Z",
-      "updatedAt": "2025-06-30T18:13:45Z",
+      "updatedAt": "2025-07-03T13:23:11Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "bc5259d3013ea0590e7aefaf0193a13e2d014ea4",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "mbronk/provenance-updates",
       "headRefOid": "4292300b51e0063486eadeea31c59d12cf67d3ac",
-      "closedAt": null,
+      "closedAt": "2025-07-03T11:11:17Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "mbronk-intc",
+          "authorAssociation": "COLLABORATOR",
+          "body": "As discussed, have moved the contents into:\r\n* [TWI Reference Architecture](https://docs.google.com/document/d/1JWSQkzOcXofvOVUs3Xcq_wBecZ4eQSmqXB-eWAxHq_k) - whole `Provenance` section moved (as-is) as an edit suggestion\r\n* Definitions (currently hosted at [TWI Sig Charter](https://github.com/confidential-computing/governance/blob/main/SIGs/TWI/TWI_Charter.md))\r\n  * https://github.com/confidential-computing/governance/issues/314\r\n  * https://github.com/confidential-computing/governance/pull/316\r\n\r\n...therefore closing this PR as (fully transitioned).",
+          "createdAt": "2025-07-03T11:11:17Z",
+          "updatedAt": "2025-07-03T11:11:17Z"
+        },
+        {
+          "author": "Mainsailthewolfe",
+          "authorAssociation": "NONE",
+          "body": "Excellent",
+          "createdAt": "2025-07-03T13:23:11Z",
+          "updatedAt": "2025-07-03T13:23:11Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOOebIkc6wJUQ1",
@@ -3070,24 +3085,26 @@
       "id": "PR_kwDOOebIkc6clUrF",
       "title": "Added Security Considerations",
       "url": "https://github.com/confidential-computing/twi-wimse/pull/34",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "TheBankster",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Adding Security Considerations per this issue:\r\n\r\nhttps://github.com/confidential-computing/twi-wimse/issues/26",
       "createdAt": "2025-06-29T15:17:21Z",
-      "updatedAt": "2025-07-02T13:02:25Z",
+      "updatedAt": "2025-07-03T19:04:31Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
-      "baseRefOid": "bc5259d3013ea0590e7aefaf0193a13e2d014ea4",
+      "baseRefOid": "76f3f7eb23e0594c57d2058ac735af4e546150ed",
       "headRepository": "confidential-computing/twi-wimse",
       "headRefName": "TheBankster-patch-6",
-      "headRefOid": "2f1932749efd2a91d9bd2f285b03e0aa304f8584",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "c1fa27f2fb0a41df1e5dc6d2800199007d9d94ab",
+      "closedAt": "2025-07-03T16:04:11Z",
+      "mergedAt": "2025-07-03T16:04:11Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "4cddbb44d922ca0bf6df9686c6cf514f2b14d4ac"
+      },
       "comments": [
         {
           "author": "TheBankster",
@@ -3095,6 +3112,13 @@
           "body": "Let's get this over the line today. Please review/comment/etc.",
           "createdAt": "2025-07-02T13:02:25Z",
           "updatedAt": "2025-07-02T13:02:25Z"
+        },
+        {
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We can keep your list of security considerations around for inclusion in a later draft or in the reference architecture.\r\n________________________________\r\nFrom: Yogesh Deshpande ***@***.***>\r\nSent: Thursday, July 3, 2025 8:08 AM\r\nTo: confidential-computing/twi-wimse ***@***.***>\r\nCc: TheBank$ter ***@***.***>; Author ***@***.***>\r\nSubject: Re: [confidential-computing/twi-wimse] Added Security Considerations (PR #34)\r\n\r\n\r\n@yogeshbdeshpande approved this pull request.\r\n\r\nI am approving this, however, please consider adding some of the Fundamental CC based Security Considerations at the top: Rest all looks good to me!\r\n\r\n\u2014\r\nReply to this email directly, view it on GitHub<https://github.com/confidential-computing/twi-wimse/pull/34#pullrequestreview-2983567732>, or unsubscribe<https://github.com/notifications/unsubscribe-auth/AKPG2YFUAI4GD272UHP5YBD3GVBPPAVCNFSM6AAAAACAMJVDRKVHI2DSMVQWIX3LMV43YUDVNRWFEZLROVSXG5CSMV3GSZLXHMZDSOBTGU3DONZTGI>.\r\nYou are receiving this because you authored the thread.Message ID: ***@***.***>\r\n",
+          "createdAt": "2025-07-03T19:04:31Z",
+          "updatedAt": "2025-07-03T19:04:31Z"
         }
       ],
       "reviews": [
@@ -3270,6 +3294,92 @@
               "updatedAt": "2025-07-01T15:56:16Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6xzxo3",
+          "commit": {
+            "abbreviatedOid": "2f19327"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-03T13:17:40Z",
+          "updatedAt": "2025-07-03T13:17:40Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\nAdditionally, inversion of the trust relationship between the workload and the hosting environment (where the workload cannot trust the hosting environment's claims about its capabilities to obtain a credential and must instead perform its own remote attestation) is another critical extension dictated by Confidential Computing.\r\n```",
+              "createdAt": "2025-07-03T13:17:40Z",
+              "updatedAt": "2025-07-03T14:17:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6xz1oZ",
+          "commit": {
+            "abbreviatedOid": "2f19327"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-03T13:22:32Z",
+          "updatedAt": "2025-07-03T13:22:32Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "I do not know what to unpack from \"credential ID \u2026 hook \u2026 promises \u2026 deeper access check capabilities\".",
+              "createdAt": "2025-07-03T13:22:32Z",
+              "updatedAt": "2025-07-03T13:22:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6x1RBl",
+          "commit": {
+            "abbreviatedOid": "c1fa27f"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "This reads good enough. Not a fan of itemized lists in the SecConSec, but that is a nit.",
+          "createdAt": "2025-07-03T14:58:15Z",
+          "updatedAt": "2025-07-03T14:58:15Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOebIkc6x1aF0",
+          "commit": {
+            "abbreviatedOid": "c1fa27f"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I am approving this, however, please consider adding some of the Fundamental CC based Security Considerations at the top: Rest all looks good to me!\r\n\r\n",
+          "createdAt": "2025-07-03T15:08:18Z",
+          "updatedAt": "2025-07-03T15:08:18Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOebIkc6x2KmH",
+          "commit": {
+            "abbreviatedOid": "2f19327"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-03T16:03:45Z",
+          "updatedAt": "2025-07-03T16:03:45Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "I mean to say that the unique credential ID can serve as a key into the credential issuance store somewhere from where that information could be pulled.",
+              "createdAt": "2025-07-03T16:03:45Z",
+              "updatedAt": "2025-07-03T16:03:45Z"
+            }
+          ]
         }
       ]
     },
@@ -3368,6 +3478,190 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 38,
+      "id": "PR_kwDOOebIkc6dSKV-",
+      "title": "Yd security changes",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/38",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "@TheBankster : please see some CC Security to add in your PR!",
+      "createdAt": "2025-07-03T14:46:42Z",
+      "updatedAt": "2025-07-03T15:09:56Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "76f3f7eb23e0594c57d2058ac735af4e546150ed",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "yd-security-changes",
+      "headRefOid": "2e46bafdea2481dcc499a87963d4a183821144c3",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "body": "I seem to be lost how changes to the SecConSec works. How is this draft intended to be incorporated?",
+          "createdAt": "2025-07-03T14:59:40Z",
+          "updatedAt": "2025-07-03T14:59:40Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I seem to be lost how changes to the SecConSec works. How is this draft intended to be incorporated?\r\n\r\nI gave these edits to be pulled into Mark's PR",
+          "createdAt": "2025-07-03T15:01:09Z",
+          "updatedAt": "2025-07-03T15:01:09Z"
+        },
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "body": "I do not see how that would work with https://github.com/confidential-computing/twi-wimse/pull/34/commits/87eba676bd437bf0a3090e15882244f63eaedbf1?",
+          "createdAt": "2025-07-03T15:07:07Z",
+          "updatedAt": "2025-07-03T15:07:07Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6x1awN",
+          "commit": {
+            "abbreviatedOid": "2e46baf"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "I don't think we should be including this list here. Perhaps at a later date. If you look at the latest changes I made to PR#34 we should stick to the few very surgical absolutely required mentions, as it's more likely to get our changes accepted by the WG.\r\nThis reads (I presume, to them) as a big to-do list and is likely to generate pushback.\r\nI prefer we merge PR#34 instead.",
+          "createdAt": "2025-07-03T15:09:09Z",
+          "updatedAt": "2025-07-03T15:09:56Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "id": "PR_kwDOOebIkc6dSLUT",
+      "title": "A few small last-minute changes",
+      "url": "https://github.com/confidential-computing/twi-wimse/pull/39",
+      "state": "MERGED",
+      "author": "TheBankster",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Also please consider this PR before submitting the draft to IETF.",
+      "createdAt": "2025-07-03T14:48:14Z",
+      "updatedAt": "2025-07-03T16:02:48Z",
+      "baseRepository": "confidential-computing/twi-wimse",
+      "baseRefName": "main",
+      "baseRefOid": "76f3f7eb23e0594c57d2058ac735af4e546150ed",
+      "headRepository": "confidential-computing/twi-wimse",
+      "headRefName": "TheBankster-patch-8",
+      "headRefOid": "f36b4f484035cd5dfbb2c0d8021b3b0408b90235",
+      "closedAt": "2025-07-03T16:02:48Z",
+      "mergedAt": "2025-07-03T16:02:48Z",
+      "mergedBy": "TheBankster",
+      "mergeCommit": {
+        "oid": "d9fd1a2945e5144bd292c3a467b43254a7e5ef81"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOebIkc6x1JyL",
+          "commit": {
+            "abbreviatedOid": "f36b4f4"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM!",
+          "createdAt": "2025-07-03T14:50:54Z",
+          "updatedAt": "2025-07-03T14:50:54Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOebIkc6x1W8N",
+          "commit": {
+            "abbreviatedOid": "f36b4f4"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-03T15:04:25Z",
+          "updatedAt": "2025-07-03T15:04:25Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "WIT is not introduced. I only shortly skimmed the wimse documents and... where is that acronym defined, actually??? All I could find is that it is a JWT.",
+              "createdAt": "2025-07-03T15:04:25Z",
+              "updatedAt": "2025-07-03T15:04:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6x1YJB",
+          "commit": {
+            "abbreviatedOid": "f36b4f4"
+          },
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-03T15:05:47Z",
+          "updatedAt": "2025-07-03T15:05:47Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "i think it is Workload Identity token..",
+              "createdAt": "2025-07-03T15:05:47Z",
+              "updatedAt": "2025-07-03T15:05:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6x1c9Y",
+          "commit": {
+            "abbreviatedOid": "f36b4f4"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-03T15:11:18Z",
+          "updatedAt": "2025-07-03T15:11:19Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Sure, why not. But where is it defined? We can shuffle that into the nit category and not block on that.",
+              "createdAt": "2025-07-03T15:11:18Z",
+              "updatedAt": "2025-07-03T15:11:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOebIkc6x2J7J",
+          "commit": {
+            "abbreviatedOid": "f36b4f4"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-03T16:02:39Z",
+          "updatedAt": "2025-07-03T16:02:39Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "It is defined in the S2S protocol draft",
+              "createdAt": "2025-07-03T16:02:39Z",
+              "updatedAt": "2025-07-03T16:02:39Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
