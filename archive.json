@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-06T01:56:33.542407+00:00",
+  "timestamp": "2025-07-08T01:49:21.296814+00:00",
   "repo": "confidential-computing/twi-wimse",
   "labels": [
     {
@@ -3423,7 +3423,7 @@
       "labels": [],
       "body": "fixes #27 ",
       "createdAt": "2025-06-30T16:46:18Z",
-      "updatedAt": "2025-06-30T20:14:57Z",
+      "updatedAt": "2025-07-07T23:06:07Z",
       "baseRepository": "confidential-computing/twi-wimse",
       "baseRefName": "main",
       "baseRefOid": "bc5259d3013ea0590e7aefaf0193a13e2d014ea4",
@@ -3447,6 +3447,19 @@
           "body": "Just like our discussion about finer points of Provenance belongs in the Reference Architecture and not in the WIMSE I-D, I think this has the same exact properties. WIMSE says VERY LITTLE about how the credential is built, and while this is important to cover for TWI, it is likely to derail our efforts to have WIMSE consider the very few credential-usage-specific extensions we are asking for. I think this PR needs to be rejected but the content preserved and moved to our Reference Architecture.",
           "createdAt": "2025-06-30T20:14:57Z",
           "updatedAt": "2025-06-30T20:14:57Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOebIkc6yi596",
+          "commit": {
+            "abbreviatedOid": "8f7b96e"
+          },
+          "author": "TheBankster",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "I moved the content of this PR into the Reference Architecture document in our Google Drive. You can delete this PR now as it does not belong in the WIMSE WG.",
+          "createdAt": "2025-07-07T23:06:07Z",
+          "updatedAt": "2025-07-07T23:06:07Z",
           "comments": []
         }
       ]
